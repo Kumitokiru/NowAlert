@@ -7,5 +7,5 @@ opencv-python
 numpy
 pytz
 pandas
-scikit-learn
+scikit-learn==0.24.2
 Werkzeug==2.0.3 
