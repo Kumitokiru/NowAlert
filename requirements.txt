@@ -9,3 +9,4 @@ pytz
 pandas
 scikit-learn==0.24.2
 Werkzeug==2.0.3 
+setuptools==70.0.0
