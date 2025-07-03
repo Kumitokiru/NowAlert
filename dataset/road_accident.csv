@@ -1,0 +1,1501 @@
+Date,Time,Day_of_Week,Barangay,Latitude,Longitude,Weather,Road_Condition,Vehicle_Type,Driver_Age,Driver_Gender,Accident_Type,Injuries,Fatalities
+04/08/2021,21:15,Wednesday,I-C (Bagong Bayan),14.07121485,121.3221979,Sunny,Dry,Motorcycle,44,Male,Head-on collision,4,0
+20/08/2021,7:15,Friday,Santa Veronica (Bae),14.08045322,121.3306923,Sunny,Dry,Bicycle,38,Male,Rear-end collision,1,1
+05/09/2023,3:32,Tuesday,I-A (Sambat),14.08071176,121.3013543,Rainy,Wet,Car,29,Female,Side-impact collision,2,0
+14/12/2021,15:08,Tuesday,VI-A (Mavenida),14.0475675,121.2986685,Rainy,Wet,Motorcycle,50,Male,Side-impact collision,5,0
+05/02/2020,13:01,Wednesday,San Lucas 2 (Malinaw),14.08001524,121.3298993,Rainy,Wet,Motorcycle,27,Male,Head-on collision,2,0
+12/04/2024,2:10,Friday,San Rafael (Buluburan),14.06138158,121.323748,Rainy,Wet,Bus,38,Female,Rear-end collision,0,0
+14/03/2023,3:57,Tuesday,San Gregorio,14.0504312,121.3000372,Sunny,Dry,Motorcycle,35,Male,Rear-end collision,0,1
+24/11/2024,10:59,Sunday,San Lucas 1 (Sabang),14.05863687,121.3097178,Sunny,Dry,Car,36,Male,Rear-end collision,1,0
+28/11/2020,0:52,Saturday,IV-B,14.08957321,121.3405354,Sunny,Dry,Bicycle,22,Female,Side-impact collision,2,0
+03/11/2020,18:26,Tuesday,Del Remedio (Wawa),14.05974287,121.3361763,Rainy,Wet,Bus,25,Male,Head-on collision,2,1
+01/04/2021,14:04,Thursday,Santisimo Rosario (Balagbag),14.05736436,121.3085276,Rainy,Wet,Motorcycle,29,Male,Head-on collision,4,0
+13/12/2024,19:41,Friday,San Lucas 1 (Sabang),14.08387379,121.3375458,Sunny,Dry,Motorcycle,39,Male,Rear-end collision,2,0
+15/07/2024,7:22,Monday,Bautista,14.09249315,121.3235881,Rainy,Wet,Tricycle,38,Female,Head-on collision,3,1
+17/11/2022,9:29,Thursday,III-E,14.06473522,121.3087217,Sunny,Dry,Car,26,Male,Rear-end collision,1,0
+23/09/2021,4:29,Thursday,San Pedro,14.09246246,121.3408045,Sunny,Dry,Truck,43,Male,Head-on collision,2,0
+29/05/2023,18:29,Monday,IV-A,14.08036629,121.3310906,Sunny,Dry,Tricycle,52,Male,Rear-end collision,0,0
+21/11/2024,6:17,Thursday,San Nicolas (Mag-ampong),14.08039291,121.3289528,Rainy,Wet,Car,32,Male,Single vehicle accident,1,0
+30/03/2021,7:40,Tuesday,San Pedro,14.08091541,121.3289171,Sunny,Gravel,Car,28,Male,Rear-end collision,1,0
+07/12/2023,3:31,Thursday,San Miguel (Balintin),14.08955921,121.3408073,Cloudy,Dry,Motorcycle,36,Male,Head-on collision,4,1
+15/06/2021,9:24,Tuesday,II-F (Villa Rey),14.07406456,121.3260694,Sunny,Gravel,Motorcycle,21,Female,Pedestrian accident,1,0
+24/09/2021,17:26,Friday,IV-C,14.05224753,121.3368376,Sunny,Dry,Motorcycle,21,Male,Side-impact collision,3,0
+06/10/2024,11:57,Sunday,Santa Monica,14.06972807,121.3208679,Cloudy,Dry,Motorcycle,29,Male,Rear-end collision,1,0
+25/07/2024,2:25,Thursday,San Nicolas (Mag-ampong),14.06021921,121.3098893,Rainy,Wet,Motorcycle,32,Male,Rear-end collision,2,1
+15/09/2022,20:26,Thursday,Concepcion (Bunot),14.0515091,121.2992146,Sunny,Gravel,Motorcycle,28,Female,Pedestrian accident,1,1
+13/10/2023,19:14,Friday,I-B (City+Riverside),14.0600072,121.3104627,Sunny,Dry,Tricycle,39,Female,Rear-end collision,0,0
+24/04/2020,9:15,Friday,I-C (Bagong Bayan),14.07993532,121.3282299,Sunny,Potholes,Motorcycle,29,Male,Rear-end collision,2,0
+22/06/2020,13:44,Monday,San Antonio 2 (Sapa),14.09037019,121.3390897,Sunny,Potholes,Motorcycle,49,Male,Single vehicle accident,1,0
+22/12/2024,2:03,Sunday,III-D (Vilongco),14.0698428,121.319637,Rainy,Wet,Car,34,Male,Head-on collision,2,1
+01/01/2020,3:22,Wednesday,VI-D (Lparkers),14.08902034,121.3409262,Sunny,Dry,Car,26,Female,Pedestrian accident,0,0
+04/03/2023,17:57,Saturday,Dolores,14.06959987,121.3210909,Sunny,Potholes,Car,28,Male,Rear-end collision,0,0
+01/10/2021,14:56,Friday,Atisan,14.091417,121.3372061,Rainy,Wet,Motorcycle,35,Female,Rear-end collision,0,0
+23/10/2024,17:04,Wednesday,III-E,14.08785433,121.3404344,Sunny,Dry,Tricycle,36,Female,Head-on collision,0,1
+26/01/2023,10:58,Thursday,San Juan (Putol),14.0711845,121.3216081,Rainy,Wet,Motorcycle,47,Male,Side-impact collision,2,0
+06/04/2024,18:31,Saturday,Santa Filomena (Banagin),14.09989099,121.3452072,Sunny,Gravel,Car,30,Female,Rear-end collision,0,0
+11/11/2021,22:12,Thursday,Santa Isabel,14.07068249,121.3199156,Cloudy,Dry,Car,42,Male,Single vehicle accident,0,0
+28/04/2023,4:26,Friday,VI-E (YMCA),14.08082382,121.3395015,Cloudy,Gravel,Motorcycle,37,Male,Rear-end collision,1,0
+27/08/2024,9:04,Tuesday,V-C,14.05143556,121.2995678,Sunny,Dry,Truck,20,Female,Side-impact collision,3,0
+14/04/2022,18:21,Thursday,Santa Veronica (Bae),14.06036487,121.3101749,Cloudy,Dry,Motorcycle,52,Female,Single vehicle accident,1,1
+27/11/2022,18:30,Sunday,Santa Isabel,14.08245206,121.304351,Sunny,Dry,Tricycle,40,Male,Side-impact collision,1,0
+26/04/2022,11:54,Tuesday,San Gregorio,14.08598697,121.3177759,Rainy,Wet,Car,24,Male,Rear-end collision,1,1
+03/05/2020,19:56,Sunday,Dolores,14.08163428,121.3301316,Rainy,Wet,Truck,55,Male,Side-impact collision,2,0
+15/08/2024,6:53,Thursday,Soledad (Macopa),14.05142623,121.2989373,Stormy,Wet,Car,47,Male,Head-on collision,3,1
+03/04/2020,5:44,Friday,San Antonio 2 (Sapa),14.08189964,121.3200864,Cloudy,Gravel,Motorcycle,18,Male,Rear-end collision,2,1
+11/03/2021,0:52,Thursday,San Antonio 2 (Sapa),14.06905097,121.3201288,Rainy,Wet,Tricycle,28,Male,Rear-end collision,0,0
+11/11/2021,23:03,Thursday,San Joaquin,14.08875953,121.3401311,Sunny,Dry,Motorcycle,32,Male,Side-impact collision,3,0
+29/05/2024,18:30,Wednesday,V-C,14.05207485,121.3073655,Stormy,Wet,Motorcycle,29,Female,Head-on collision,3,2
+19/08/2023,7:20,Saturday,Santa Ana,14.08976692,121.3382644,Sunny,Dry,Car,52,Male,Side-impact collision,4,0
+30/03/2021,9:59,Tuesday,VI-A (Mavenida),14.09103585,121.339572,Sunny,Dry,Motorcycle,42,Female,Rear-end collision,0,0
+16/06/2024,7:33,Sunday,San Buenaventura (Palakpakin),14.06893855,121.3361428,Rainy,Wet,Truck,39,Female,Head-on collision,2,0
+04/05/2022,23:44,Wednesday,San Mateo (Imok),14.07973449,121.3297023,Sunny,Dry,Truck,39,Female,Single vehicle accident,0,0
+15/02/2022,14:26,Tuesday,II-E (San Anton),14.07400502,121.312831,Cloudy,Potholes,Bicycle,35,Male,Side-impact collision,1,0
+05/08/2024,8:02,Monday,II-C (Unson),14.08125267,121.3309795,Sunny,Dry,Motorcycle,33,Male,Pedestrian accident,3,0
+16/07/2021,12:30,Friday,I-B (City+Riverside),14.06935226,121.3197865,Sunny,Dry,Motorcycle,42,Male,Rear-end collision,1,1
+22/08/2021,19:28,Sunday,San Ignacio,14.05048807,121.3295749,Rainy,Potholes,Truck,31,Female,Head-on collision,4,2
+22/07/2020,21:16,Wednesday,II-B (Guadalupe 1),14.06988021,121.320895,Cloudy,Dry,Car,39,Male,Head-on collision,2,1
+14/05/2024,23:12,Tuesday,San Joaquin,14.09004542,121.3396924,Rainy,Gravel,Bus,30,Male,Head-on collision,5,0
+30/01/2024,10:29,Tuesday,San Roque (Sambat),14.06021159,121.3119707,Rainy,Wet,Car,18,Male,Head-on collision,4,2
+09/05/2022,22:23,Monday,San Crispin (Lumbangan),14.06919065,121.320527,Sunny,Dry,Truck,32,Female,Pedestrian accident,2,0
+02/06/2022,10:22,Thursday,V-D,14.04986659,121.2983384,Cloudy,Dry,Motorcycle,52,Male,Head-on collision,6,1
+01/12/2024,19:20,Sunday,San Francisco (Calihan),14.06904924,121.3225141,Sunny,Dry,Car,47,Male,Head-on collision,3,2
+17/03/2020,6:41,Tuesday,V-C,14.07871111,121.3305442,Cloudy,Dry,Motorcycle,28,Male,Side-impact collision,2,1
+10/06/2020,7:31,Wednesday,VII-B,14.05892678,121.3104353,Sunny,Dry,Motorcycle,47,Male,Head-on collision,2,0
+01/10/2024,14:52,Tuesday,San Antonio 2 (Sapa),14.08049673,121.3296904,Sunny,Dry,Tricycle,50,Male,Rear-end collision,1,0
+06/03/2020,1:21,Friday,V-C,14.06965702,121.3490007,Sunny,Dry,Car,20,Male,Head-on collision,2,0
+22/06/2022,11:34,Wednesday,San Crispin (Lumbangan),14.05681904,121.3295609,Rainy,Gravel,Car,41,Male,Side-impact collision,5,0
+10/11/2020,13:42,Tuesday,II-F (Villa Rey),14.09001801,121.3388062,Rainy,Potholes,Car,50,Male,Pedestrian accident,4,1
+17/05/2023,19:15,Wednesday,I-C (Bagong Bayan),14.05076974,121.3034768,Rainy,Wet,Motorcycle,39,Male,Pedestrian accident,2,0
+18/01/2021,20:20,Monday,San Isidro (Balagbag),14.09655904,121.3386363,Sunny,Dry,Car,20,Male,Head-on collision,2,1
+02/10/2022,3:31,Sunday,V-B,14.0712477,121.3089884,Sunny,Dry,Car,21,Male,Rear-end collision,2,0
+29/01/2023,12:00,Sunday,VII-B,14.06979319,121.3202792,Sunny,Dry,Truck,32,Female,Side-impact collision,1,0
+14/02/2021,15:46,Sunday,San Joaquin,14.0797139,121.3427708,Cloudy,Dry,Motorcycle,42,Female,Head-on collision,2,0
+06/08/2024,21:16,Tuesday,Santa Veronica (Bae),14.08030067,121.3295873,Sunny,Potholes,Tricycle,20,Female,Pedestrian accident,1,0
+08/10/2024,5:44,Tuesday,San Diego (Tilim),14.06939411,121.3197946,Rainy,Potholes,Car,41,Male,Single vehicle accident,1,0
+19/10/2023,14:49,Thursday,VI-C (Bagong Pook),14.04855138,121.2996799,Sunny,Dry,Car,38,Female,Head-on collision,2,0
+12/02/2024,6:19,Monday,San Ignacio,14.04956699,121.3002187,Sunny,Dry,Motorcycle,53,Male,Single vehicle accident,1,0
+10/07/2020,8:56,Friday,San Francisco (Calihan),14.06828187,121.3224083,Rainy,Wet,Car,41,Male,Head-on collision,1,1
+27/03/2023,10:08,Monday,San Crispin (Lumbangan),14.05945513,121.3473538,Rainy,Wet,Motorcycle,32,Male,Side-impact collision,1,0
+05/05/2023,13:55,Friday,Santa Maria,14.05031645,121.3018853,Rainy,Wet,Car,25,Male,Rear-end collision,2,0
+21/06/2021,10:54,Monday,Santiago II (Bulaho),14.07863724,121.3305786,Cloudy,Dry,Tricycle,35,Male,Side-impact collision,1,0
+08/06/2024,18:21,Saturday,San Bartolome (Matang-ag),14.07464802,121.3312835,Sunny,Dry,Car,34,Male,Single vehicle accident,1,0
+21/05/2024,19:35,Tuesday,I-B (City+Riverside),14.07943629,121.3288384,Rainy,Wet,Motorcycle,38,Male,Single vehicle accident,0,0
+21/09/2021,22:02,Tuesday,San Mateo (Imok),14.09025024,121.340633,Sunny,Dry,Motorcycle,42,Male,Rear-end collision,3,0
+05/12/2022,4:08,Monday,V-B,14.08886836,121.3394703,Rainy,Wet,Motorcycle,31,Female,Rear-end collision,2,0
+26/04/2020,3:18,Sunday,San Lucas 1 (Sabang),14.06569947,121.3303448,Cloudy,Dry,Motorcycle,35,Male,Side-impact collision,2,0
+28/11/2022,22:35,Monday,San Nicolas (Mag-ampong),14.09066342,121.3394569,Rainy,Wet,Truck,46,Male,Single vehicle accident,1,1
+15/04/2024,10:15,Monday,Santisimo Rosario (Balagbag),14.09694664,121.3015373,Sunny,Dry,Bus,42,Male,Side-impact collision,2,0
+18/03/2024,3:02,Monday,VI-D (Lparkers),14.08477908,121.3491505,Cloudy,Dry,Truck,36,Male,Single vehicle accident,1,0
+10/03/2021,2:51,Wednesday,V-C,14.08384418,121.3450657,Sunny,Gravel,Motorcycle,30,Male,Rear-end collision,0,0
+19/03/2024,23:57,Tuesday,San Rafael (Buluburan),14.05960049,121.3091532,Sunny,Dry,Motorcycle,19,Male,Single vehicle accident,2,0
+12/09/2022,6:30,Monday,San Buenaventura (Palakpakin),14.05092385,121.3003353,Cloudy,Dry,Car,40,Male,Rear-end collision,1,0
+13/06/2020,8:14,Saturday,III-D (Vilongco),14.0902437,121.3389516,Rainy,Wet,Car,35,Female,Head-on collision,2,0
+30/05/2024,3:43,Thursday,San Gabriel (Butucan),14.0505562,121.2998137,Sunny,Potholes,Motorcycle,49,Male,Rear-end collision,0,1
+07/12/2022,17:37,Wednesday,San Pedro,14.06031249,121.310225,Rainy,Potholes,Truck,38,Female,Side-impact collision,1,0
+17/01/2022,9:16,Monday,V-C,14.05035981,121.2990588,Sunny,Dry,Car,33,Male,Head-on collision,3,1
+30/10/2020,9:54,Friday,San Cristobal,14.08799062,121.3398232,Rainy,Wet,Bus,18,Male,Rear-end collision,2,0
+25/01/2024,7:17,Thursday,San Jose (Malamig),14.09026216,121.3417841,Sunny,Dry,Truck,37,Female,Single vehicle accident,1,0
+16/07/2020,9:25,Thursday,II-D (Bulante),14.09006955,121.3396488,Cloudy,Dry,Bus,18,Male,Single vehicle accident,4,1
+16/10/2024,16:39,Wednesday,V-B,14.06079353,121.3080805,Sunny,Potholes,Motorcycle,38,Female,Rear-end collision,0,0
+30/05/2020,16:10,Saturday,II-C (Unson),14.05911773,121.3105242,Sunny,Dry,Car,46,Male,Rear-end collision,0,0
+20/10/2020,10:14,Tuesday,IV-B,14.06110802,121.3156329,Sunny,Potholes,Car,39,Male,Head-on collision,5,0
+23/08/2022,5:45,Tuesday,San Ignacio,14.05974239,121.3100448,Sunny,Potholes,Car,44,Male,Pedestrian accident,1,0
+06/10/2022,1:16,Thursday,Santo Angel (Ilog),14.08883572,121.3391449,Cloudy,Gravel,Tricycle,42,Female,Head-on collision,1,0
+21/01/2022,0:58,Friday,San Cristobal,14.08982779,121.3386443,Rainy,Wet,Bus,35,Male,Single vehicle accident,1,0
+10/09/2021,3:30,Friday,I-A (Sambat),14.05946593,121.3091114,Sunny,Potholes,Car,18,Male,Side-impact collision,4,0
+05/06/2024,7:40,Wednesday,Santa Maria Magdalena (Boe / Kuba),14.04827065,121.2992763,Cloudy,Dry,Motorcycle,34,Male,Pedestrian accident,0,0
+31/08/2022,7:13,Wednesday,II-F (Villa Rey),14.09095582,121.3459285,Sunny,Gravel,Car,47,Male,Head-on collision,4,1
+29/03/2024,5:05,Friday,III-A (Hermanos Belen),14.06037075,121.3093341,Sunny,Dry,Tricycle,53,Male,Head-on collision,3,0
+15/12/2022,9:03,Thursday,San Ignacio,14.07939758,121.3294792,Sunny,Dry,Truck,44,Female,Rear-end collision,0,0
+08/11/2020,10:44,Sunday,San Jose (Malamig),14.06186501,121.3366086,Sunny,Dry,Car,35,Male,Head-on collision,3,0
+22/06/2020,7:53,Monday,Dolores,14.0538372,121.3061229,Sunny,Dry,Car,21,Male,Head-on collision,3,0
+29/09/2022,10:51,Thursday,San Roque (Sambat),14.08009438,121.3288123,Sunny,Dry,Truck,32,Female,Pedestrian accident,0,0
+10/07/2021,7:14,Saturday,I-A (Sambat),14.05501464,121.3053191,Sunny,Dry,Car,37,Male,Rear-end collision,1,0
+03/09/2024,18:19,Tuesday,VI-B,14.07116145,121.3060269,Cloudy,Dry,Car,23,Male,Pedestrian accident,2,0
+26/02/2020,14:06,Wednesday,San Crispin (Lumbangan),14.06996852,121.3199512,Sunny,Potholes,Car,41,Male,Rear-end collision,2,0
+11/02/2022,0:51,Friday,San Pedro,14.09089654,121.3387014,Sunny,Dry,Tricycle,38,Female,Head-on collision,1,0
+27/11/2021,17:23,Saturday,Santisimo Rosario (Balagbag),14.06889377,121.3219121,Rainy,Wet,Car,26,Female,Rear-end collision,1,0
+10/08/2022,17:39,Wednesday,Soledad (Macopa),14.09220176,121.3308281,Rainy,Potholes,Motorcycle,41,Male,Rear-end collision,0,0
+18/01/2023,10:01,Wednesday,III-C (Labak/De Roma),14.07851271,121.3306931,Sunny,Potholes,Car,30,Female,Rear-end collision,0,0
+30/11/2021,18:53,Tuesday,Soledad (Macopa),14.07190245,121.3196641,Sunny,Dry,Motorcycle,18,Male,Rear-end collision,1,0
+07/02/2022,6:05,Monday,II-B (Guadalupe 1),14.08038146,121.3296487,Sunny,Dry,Car,37,Male,Pedestrian accident,3,1
+29/04/2023,11:19,Saturday,San Isidro (Balagbag),14.07837425,121.3285938,Sunny,Dry,Motorcycle,33,Male,Head-on collision,5,1
+19/04/2021,4:01,Monday,San Francisco (Calihan),14.04844726,121.3014717,Cloudy,Dry,Bicycle,34,Male,Head-on collision,9,2
+14/01/2022,7:01,Friday,San Rafael (Buluburan),14.09012599,121.3388504,Sunny,Dry,Motorcycle,31,Female,Rear-end collision,1,0
+23/12/2020,18:12,Wednesday,I-C (Bagong Bayan),14.08994734,121.338979,Rainy,Wet,Motorcycle,28,Male,Side-impact collision,1,0
+28/04/2023,9:50,Friday,I-B (City+Riverside),14.06960698,121.3223159,Sunny,Dry,Truck,41,Female,Side-impact collision,0,0
+04/01/2022,19:47,Tuesday,Santa Maria,14.05901772,121.3096654,Cloudy,Dry,Bicycle,41,Male,Rear-end collision,2,0
+22/05/2022,14:54,Sunday,V-A,14.05448821,121.3318956,Rainy,Wet,Motorcycle,46,Female,Rear-end collision,1,0
+08/09/2024,9:12,Sunday,II-B (Guadalupe 1),14.08827465,121.3174876,Sunny,Dry,Bus,49,Male,Single vehicle accident,0,0
+16/04/2021,23:26,Friday,V-C,14.04869889,121.3002185,Cloudy,Dry,Bicycle,33,Male,Rear-end collision,2,1
+18/04/2023,19:29,Tuesday,III-B,14.06970847,121.3220628,Rainy,Wet,Motorcycle,28,Female,Single vehicle accident,1,0
+02/01/2023,11:41,Monday,San Isidro (Balagbag),14.0685805,121.3207143,Rainy,Wet,Motorcycle,19,Male,Single vehicle accident,0,0
+06/10/2020,16:37,Tuesday,San Crispin (Lumbangan),14.07073585,121.3201868,Sunny,Potholes,Truck,29,Male,Rear-end collision,2,0
+18/04/2022,19:12,Monday,II-F (Villa Rey),14.08889967,121.3415558,Rainy,Gravel,Bicycle,38,Male,Rear-end collision,1,0
+27/01/2024,9:27,Saturday,I-B (City+Riverside),14.06981185,121.3195375,Rainy,Potholes,Truck,44,Male,Rear-end collision,0,0
+25/09/2023,13:32,Monday,VII-E,14.05761602,121.3309384,Sunny,Dry,Truck,56,Male,Rear-end collision,0,0
+04/03/2024,11:14,Monday,Santo Angel (Ilog),14.05161037,121.2990977,Sunny,Dry,Bicycle,25,Male,Pedestrian accident,1,0
+12/09/2022,4:49,Monday,VII-E,14.06985904,121.3207639,Sunny,Dry,Car,38,Female,Pedestrian accident,1,1
+22/12/2020,7:23,Tuesday,I-C (Bagong Bayan),14.08888054,121.3398312,Sunny,Dry,Motorcycle,30,Male,Pedestrian accident,0,0
+04/12/2022,11:10,Sunday,San Diego (Tilim),14.05052887,121.3005638,Cloudy,Dry,Motorcycle,39,Male,Head-on collision,3,0
+20/02/2023,4:56,Monday,San Pedro,14.09559312,121.3100903,Sunny,Potholes,Motorcycle,37,Female,Side-impact collision,0,0
+10/10/2021,13:53,Sunday,San Lucas 1 (Sabang),14.09109521,121.3409252,Rainy,Wet,Car,43,Female,Rear-end collision,1,0
+12/03/2020,16:27,Thursday,San Isidro (Balagbag),14.06339577,121.337402,Sunny,Dry,Motorcycle,21,Male,Single vehicle accident,0,0
+16/02/2020,8:29,Sunday,IV-B,14.07945803,121.33128,Rainy,Wet,Motorcycle,59,Male,Rear-end collision,1,0
+29/08/2024,9:01,Thursday,IV-B,14.09051378,121.3476549,Rainy,Wet,Motorcycle,21,Male,Head-on collision,5,0
+05/09/2024,19:31,Thursday,Dolores,14.05933973,121.3093454,Rainy,Wet,Car,33,Male,Rear-end collision,1,0
+27/09/2020,8:29,Sunday,III-C (Labak/De Roma),14.07027053,121.3195559,Rainy,Wet,Motorcycle,34,Female,Head-on collision,4,2
+25/07/2022,4:07,Monday,VI-A (Mavenida),14.04856695,121.2995578,Sunny,Potholes,Bus,18,Male,Pedestrian accident,2,0
+15/04/2023,8:12,Saturday,IV-B,14.07997892,121.3317543,Rainy,Wet,Motorcycle,43,Male,Single vehicle accident,0,0
+30/05/2023,4:26,Tuesday,Santa Monica,14.090443,121.3421706,Sunny,Dry,Motorcycle,54,Female,Side-impact collision,2,0
+05/05/2021,18:40,Wednesday,San Antonio 1 (Balanga),14.07131428,121.3207472,Sunny,Dry,Motorcycle,46,Male,Side-impact collision,1,1
+26/08/2021,15:52,Thursday,San Miguel (Balintin),14.09099045,121.3410504,Rainy,Wet,Motorcycle,27,Female,Side-impact collision,2,0
+13/09/2020,19:02,Sunday,II-C (Unson),14.0604914,121.3113926,Rainy,Wet,Truck,48,Male,Pedestrian accident,2,0
+25/05/2021,16:30,Tuesday,I-C (Bagong Bayan),14.04843125,121.2993695,Rainy,Wet,Car,44,Male,Rear-end collision,0,1
+20/08/2020,4:12,Thursday,San Nicolas (Mag-ampong),14.09716843,121.3274167,Stormy,Wet,Car,35,Female,Side-impact collision,0,1
+19/02/2022,19:26,Saturday,Santa Maria,14.0610792,121.3101042,Rainy,Wet,Motorcycle,39,Female,Pedestrian accident,4,0
+11/12/2023,18:53,Monday,Santo Cristo,14.05592034,121.3328203,Sunny,Dry,Motorcycle,45,Female,Side-impact collision,3,0
+19/07/2023,0:44,Wednesday,V-B,14.07003201,121.3184717,Rainy,Wet,Car,38,Male,Head-on collision,1,3
+07/05/2021,22:51,Friday,Santo Angel (Ilog),14.06262852,121.3245231,Sunny,Potholes,Car,40,Female,Head-on collision,1,0
+23/03/2021,3:13,Tuesday,San Lucas 1 (Sabang),14.05560314,121.3469619,Rainy,Wet,Motorcycle,33,Male,Side-impact collision,3,1
+30/06/2022,21:21,Thursday,VII-B,14.08987865,121.3404987,Rainy,Wet,Car,47,Male,Head-on collision,1,0
+09/07/2022,22:54,Saturday,I-B (City+Riverside),14.07997414,121.329826,Sunny,Dry,Tricycle,33,Male,Single vehicle accident,2,0
+12/07/2024,12:09,Friday,III-F (Balagtas),14.05844918,121.3109076,Cloudy,Potholes,Motorcycle,18,Male,Pedestrian accident,1,2
+16/07/2023,11:22,Sunday,Santa Maria,14.09366497,121.3061755,Rainy,Gravel,Truck,21,Male,Rear-end collision,1,1
+15/01/2022,8:45,Saturday,IV-B,14.06556106,121.3220422,Sunny,Dry,Tricycle,31,Female,Rear-end collision,1,0
+07/05/2021,7:18,Friday,I-A (Sambat),14.07106415,121.320065,Sunny,Dry,Car,46,Female,Pedestrian accident,1,0
+08/05/2020,17:45,Friday,San Lucas 1 (Sabang),14.08110534,121.3295853,Sunny,Dry,Car,39,Male,Head-on collision,6,1
+01/02/2020,2:56,Saturday,San Ignacio,14.07861424,121.3298186,Cloudy,Dry,Truck,33,Male,Pedestrian accident,0,0
+09/08/2023,18:47,Wednesday,VI-B,14.06061686,121.3100294,Sunny,Dry,Motorcycle,38,Male,Rear-end collision,1,0
+05/03/2022,19:41,Saturday,VI-E (YMCA),14.08063202,121.3310718,Sunny,Dry,Bicycle,38,Female,Single vehicle accident,1,0
+25/06/2022,4:22,Saturday,V-D,14.09672236,121.3433195,Sunny,Dry,Motorcycle,53,Female,Single vehicle accident,0,1
+26/06/2024,13:36,Wednesday,IV-C,14.09125106,121.3393475,Sunny,Potholes,Tricycle,34,Male,Rear-end collision,4,0
+09/08/2020,4:03,Sunday,III-B,14.05893373,121.3116248,Stormy,Wet,Truck,41,Female,Single vehicle accident,1,1
+26/10/2023,15:36,Thursday,Santo Angel (Ilog),14.08968427,121.3406866,Sunny,Dry,Motorcycle,33,Female,Pedestrian accident,0,0
+02/12/2021,10:55,Thursday,Santa Catalina (Sandig),14.07072338,121.3182137,Cloudy,Dry,Motorcycle,29,Male,Rear-end collision,3,1
+06/09/2022,9:36,Tuesday,San Lucas 1 (Sabang),14.04844304,121.2986922,Rainy,Wet,Motorcycle,24,Male,Rear-end collision,1,0
+29/03/2024,7:50,Friday,III-D (Vilongco),14.06059254,121.309406,Cloudy,Dry,Motorcycle,38,Male,Pedestrian accident,0,0
+12/03/2024,17:55,Tuesday,II-E (San Anton),14.07218383,121.3208452,Stormy,Gravel,Motorcycle,47,Female,Pedestrian accident,6,0
+06/10/2022,2:20,Thursday,V-C,14.07217849,121.3171562,Sunny,Potholes,Bus,45,Male,Rear-end collision,0,0
+09/07/2024,22:49,Tuesday,Santiago 1 (Bulaho),14.05952998,121.3104132,Sunny,Dry,Motorcycle,30,Male,Rear-end collision,1,1
+14/09/2020,0:03,Monday,Santa Monica,14.04988272,121.2994216,Sunny,Dry,Car,40,Male,Rear-end collision,4,0
+19/03/2021,16:01,Friday,Santiago 1 (Bulaho),14.04938691,121.2995462,Cloudy,Dry,Motorcycle,42,Male,Side-impact collision,0,0
+22/08/2020,23:33,Saturday,San Jose (Malamig),14.07408865,121.3270513,Sunny,Dry,Car,47,Male,Single vehicle accident,2,1
+17/10/2023,9:31,Tuesday,II-D (Bulante),14.06060299,121.3096413,Rainy,Wet,Tricycle,31,Male,Side-impact collision,2,0
+24/12/2020,1:18,Thursday,I-C (Bagong Bayan),14.04928646,121.299733,Rainy,Wet,Car,34,Male,Pedestrian accident,1,0
+08/04/2024,17:35,Monday,Santa Elena,14.06496394,121.3053799,Sunny,Dry,Truck,47,Male,Head-on collision,4,0
+26/05/2024,23:22,Sunday,Santa Isabel,14.08023847,121.3251295,Sunny,Dry,Truck,31,Male,Pedestrian accident,0,0
+30/07/2023,7:21,Sunday,San Lucas 2 (Malinaw),14.08017528,121.3303483,Sunny,Dry,Car,22,Male,Side-impact collision,1,0
+06/02/2020,10:31,Thursday,San Buenaventura (Palakpakin),14.05862892,121.3337839,Sunny,Dry,Tricycle,46,Female,Pedestrian accident,3,1
+20/07/2021,9:09,Tuesday,III-A (Hermanos Belen),14.06896441,121.3200994,Sunny,Gravel,Truck,48,Male,Single vehicle accident,0,0
+14/03/2020,14:58,Saturday,Santiago II (Bulaho),14.06946789,121.3294184,Stormy,Gravel,Tricycle,28,Male,Side-impact collision,5,0
+14/12/2021,20:27,Tuesday,III-B,14.07998645,121.3310252,Sunny,Dry,Car,37,Male,Pedestrian accident,4,0
+29/04/2022,4:03,Friday,III-D (Vilongco),14.050293,121.2999748,Rainy,Wet,Motorcycle,33,Male,Head-on collision,4,0
+10/05/2020,14:00,Sunday,San Nicolas (Mag-ampong),14.06043723,121.3090475,Rainy,Wet,Car,48,Male,Pedestrian accident,2,0
+09/08/2020,22:02,Sunday,Santa Catalina (Sandig),14.06051765,121.3086203,Rainy,Wet,Car,30,Male,Head-on collision,3,1
+01/10/2021,9:35,Friday,San Antonio 2 (Sapa),14.08917447,121.3399393,Sunny,Dry,Tricycle,34,Male,Pedestrian accident,2,1
+18/09/2024,23:33,Wednesday,II-D (Bulante),14.09999018,121.3415534,Sunny,Potholes,Truck,43,Male,Single vehicle accident,1,1
+25/06/2022,14:41,Saturday,Dolores,14.05985932,121.3296742,Rainy,Wet,Motorcycle,25,Male,Single vehicle accident,2,0
+01/06/2021,18:08,Tuesday,Santa Monica,14.05126905,121.2993028,Sunny,Dry,Motorcycle,41,Male,Rear-end collision,0,0
+14/08/2022,11:26,Sunday,Santa Ana,14.06126345,121.308195,Sunny,Dry,Car,49,Male,Side-impact collision,0,0
+31/08/2020,22:06,Monday,San Gregorio,14.07701444,121.3194254,Rainy,Wet,Bus,31,Male,Single vehicle accident,0,0
+22/03/2021,21:36,Monday,Santa Maria,14.0507706,121.2992892,Sunny,Potholes,Motorcycle,30,Female,Head-on collision,2,0
+17/03/2020,4:18,Tuesday,VI-A (Mavenida),14.06924822,121.320277,Rainy,Potholes,Motorcycle,26,Male,Head-on collision,3,0
+18/01/2022,12:49,Tuesday,San Bartolome (Matang-ag),14.08119365,121.3302423,Cloudy,Dry,Bicycle,31,Female,Pedestrian accident,5,1
+19/05/2023,17:59,Friday,San Rafael (Buluburan),14.09220043,121.3391156,Rainy,Wet,Truck,22,Male,Rear-end collision,2,0
+31/08/2023,9:13,Thursday,V-D,14.06937035,121.3194325,Rainy,Wet,Car,38,Male,Single vehicle accident,0,0
+28/01/2020,16:03,Tuesday,VI-E (YMCA),14.0691558,121.3495178,Sunny,Dry,Car,38,Male,Side-impact collision,1,0
+16/04/2022,17:49,Saturday,V-C,14.07128849,121.3379799,Cloudy,Dry,Motorcycle,32,Female,Pedestrian accident,1,0
+15/08/2024,17:49,Thursday,V-A,14.06106367,121.3098407,Rainy,Wet,Motorcycle,36,Male,Pedestrian accident,5,0
+29/05/2024,7:41,Wednesday,Santa Veronica (Bae),14.07041766,121.3188341,Sunny,Dry,Motorcycle,51,Female,Rear-end collision,1,0
+10/12/2023,11:06,Sunday,San Juan (Putol),14.06478182,121.3307252,Sunny,Dry,Car,39,Male,Rear-end collision,1,0
+22/08/2024,15:51,Thursday,San Antonio 2 (Sapa),14.06957642,121.3200096,Sunny,Dry,Motorcycle,41,Female,Side-impact collision,0,0
+05/06/2023,18:00,Monday,San Juan (Putol),14.05049039,121.299819,Rainy,Gravel,Car,30,Male,Single vehicle accident,1,0
+22/08/2020,10:49,Saturday,IV-C,14.09241163,121.3398626,Rainy,Wet,Car,34,Male,Head-on collision,6,0
+01/10/2024,5:16,Tuesday,San Antonio 2 (Sapa),14.09691343,121.3403984,Cloudy,Dry,Bus,42,Male,Rear-end collision,0,0
+13/09/2023,19:19,Wednesday,IV-A,14.05281816,121.3145934,Sunny,Dry,Bicycle,24,Male,Head-on collision,5,0
+06/04/2021,19:38,Tuesday,IV-B,14.05447042,121.3159516,Sunny,Gravel,Truck,36,Male,Single vehicle accident,1,0
+29/10/2023,18:04,Sunday,San Lorenzo (Saluyan),14.06674356,121.3307683,Cloudy,Dry,Motorcycle,32,Female,Rear-end collision,2,0
+03/04/2023,13:35,Monday,Santo Cristo,14.08875682,121.3381642,Sunny,Dry,Car,23,Male,Head-on collision,1,0
+13/11/2024,18:17,Wednesday,San Buenaventura (Palakpakin),14.0569423,121.3213605,Sunny,Dry,Truck,19,Male,Head-on collision,1,0
+14/10/2022,21:33,Friday,San Lucas 2 (Malinaw),14.07981642,121.331138,Sunny,Dry,Tricycle,38,Male,Head-on collision,3,0
+09/12/2020,16:38,Wednesday,Santiago 1 (Bulaho),14.09143334,121.338423,Sunny,Dry,Motorcycle,29,Male,Rear-end collision,1,0
+14/08/2021,21:49,Saturday,San Gabriel (Butucan),14.0556304,121.3321211,Stormy,Wet,Motorcycle,39,Female,Head-on collision,5,3
+27/09/2024,9:59,Friday,IV-B,14.05787181,121.3127423,Sunny,Dry,Motorcycle,49,Male,Single vehicle accident,4,0
+16/06/2020,11:53,Tuesday,VII-A (P. Alcantara),14.06431934,121.3331823,Rainy,Wet,Car,28,Female,Rear-end collision,1,0
+28/12/2021,11:46,Tuesday,II-B (Guadalupe 1),14.07971543,121.3289535,Rainy,Wet,Motorcycle,18,Male,Rear-end collision,1,0
+02/07/2022,18:58,Saturday,San Antonio 2 (Sapa),14.07066791,121.3210903,Rainy,Wet,Truck,45,Male,Side-impact collision,4,1
+15/07/2021,12:45,Thursday,San Antonio 2 (Sapa),14.06152089,121.30904,Sunny,Dry,Motorcycle,38,Female,Side-impact collision,1,0
+04/12/2023,2:47,Monday,VII-A (P. Alcantara),14.0992831,121.3118573,Cloudy,Dry,Car,18,Male,Rear-end collision,0,0
+15/04/2024,11:18,Monday,San Joaquin,14.07008136,121.3268188,Rainy,Wet,Tricycle,37,Male,Rear-end collision,2,0
+27/12/2021,3:42,Monday,San Diego (Tilim),14.07220112,121.330649,Rainy,Wet,Car,41,Male,Pedestrian accident,2,1
+26/12/2023,1:03,Tuesday,II-C (Unson),14.06312634,121.3197661,Rainy,Gravel,Car,31,Male,Single vehicle accident,2,0
+30/05/2022,13:15,Monday,III-F (Balagtas),14.08999936,121.3408963,Stormy,Wet,Motorcycle,33,Male,Pedestrian accident,4,0
+01/11/2020,17:27,Sunday,San Lorenzo (Saluyan),14.06490572,121.3073169,Sunny,Dry,Car,48,Male,Pedestrian accident,1,0
+09/02/2022,19:57,Wednesday,San Cristobal,14.07777272,121.3215989,Sunny,Dry,Motorcycle,51,Male,Rear-end collision,2,0
+27/11/2021,9:43,Saturday,V-D,14.05972485,121.3101435,Rainy,Wet,Motorcycle,30,Male,Rear-end collision,0,0
+06/04/2022,16:01,Wednesday,San Antonio 2 (Sapa),14.08458612,121.3323461,Sunny,Dry,Truck,38,Male,Single vehicle accident,1,0
+23/09/2020,2:18,Wednesday,Soledad (Macopa),14.05917164,121.309297,Sunny,Dry,Car,33,Male,Pedestrian accident,0,0
+23/08/2024,22:17,Friday,V-C,14.05940688,121.311347,Rainy,Wet,Car,46,Male,Rear-end collision,3,0
+24/07/2024,3:23,Wednesday,Santa Maria Magdalena (Boe / Kuba),14.07082976,121.3226322,Sunny,Dry,Motorcycle,33,Male,Head-on collision,2,0
+02/05/2024,6:41,Thursday,Santa Maria Magdalena (Boe / Kuba),14.05936646,121.31024,Rainy,Wet,Truck,32,Female,Head-on collision,2,0
+14/04/2021,14:20,Wednesday,San Mateo (Imok),14.07668111,121.3410526,Sunny,Dry,Car,35,Male,Side-impact collision,2,0
+24/10/2021,17:26,Sunday,VI-D (Lparkers),14.08168266,121.3311382,Rainy,Wet,Bicycle,37,Male,Pedestrian accident,2,0
+05/01/2022,10:22,Wednesday,V-C,14.04923142,121.3005672,Sunny,Potholes,Tricycle,36,Male,Rear-end collision,1,0
+22/02/2020,14:25,Saturday,Santa Maria Magdalena (Boe / Kuba),14.05123169,121.3016273,Cloudy,Dry,Car,26,Male,Side-impact collision,3,0
+27/08/2024,9:15,Tuesday,VI-C (Bagong Pook),14.05028055,121.3005333,Rainy,Wet,Motorcycle,36,Female,Single vehicle accident,1,0
+22/12/2022,14:58,Thursday,Santa Cruz (Putol),14.07964267,121.3294793,Sunny,Dry,Truck,30,Male,Pedestrian accident,2,0
+05/03/2020,1:48,Thursday,III-C (Labak/De Roma),14.08023626,121.330973,Rainy,Wet,Truck,39,Female,Rear-end collision,2,0
+08/08/2020,1:39,Saturday,San Lucas 1 (Sabang),14.07072214,121.3195025,Rainy,Wet,Motorcycle,18,Male,Single vehicle accident,1,1
+16/01/2022,22:11,Sunday,I-A (Sambat),14.0588944,121.3103253,Sunny,Potholes,Motorcycle,42,Male,Rear-end collision,0,0
+20/10/2023,1:19,Friday,II-F (Villa Rey),14.05089261,121.2985425,Rainy,Wet,Car,19,Male,Rear-end collision,0,0
+09/07/2023,12:23,Sunday,VII-E,14.07820971,121.3301679,Sunny,Gravel,Motorcycle,32,Male,Pedestrian accident,1,0
+14/07/2024,15:02,Sunday,VI-C (Bagong Pook),14.08226913,121.3308837,Cloudy,Dry,Car,18,Male,Side-impact collision,4,0
+26/03/2020,23:19,Thursday,Santo Angel (Ilog),14.07055125,121.3194377,Sunny,Dry,Motorcycle,30,Male,Rear-end collision,0,0
+26/04/2021,20:55,Monday,VI-E (YMCA),14.08176864,121.3290037,Sunny,Dry,Car,28,Female,Rear-end collision,4,1
+22/01/2022,11:23,Saturday,V-B,14.07179113,121.3198516,Sunny,Gravel,Motorcycle,39,Female,Rear-end collision,1,0
+17/05/2020,15:31,Sunday,II-A (Triangulo Guadalupe 2),14.08801583,121.3406908,Rainy,Wet,Motorcycle,40,Female,Rear-end collision,1,0
+13/03/2023,13:36,Monday,San Buenaventura (Palakpakin),14.0592043,121.3103247,Sunny,Dry,Car,46,Female,Rear-end collision,0,0
+01/05/2023,7:30,Monday,VI-C (Bagong Pook),14.07139467,121.320422,Rainy,Wet,Tricycle,42,Male,Rear-end collision,1,0
+15/11/2022,13:51,Tuesday,San Lucas 1 (Sabang),14.07002377,121.3498332,Sunny,Potholes,Motorcycle,35,Male,Head-on collision,7,0
+01/01/2021,7:20,Friday,San Juan (Putol),14.05945464,121.3086622,Sunny,Dry,Truck,29,Male,Single vehicle accident,1,1
+22/11/2024,19:08,Friday,Santa Veronica (Bae),14.08642551,121.3454051,Sunny,Dry,Bus,28,Female,Head-on collision,2,0
+11/09/2022,5:53,Sunday,Bautista,14.04954775,121.2996976,Cloudy,Dry,Motorcycle,37,Female,Head-on collision,3,1
+04/06/2020,0:09,Thursday,San Pedro,14.080575,121.330614,Sunny,Dry,Car,24,Male,Side-impact collision,0,1
+26/12/2020,17:31,Saturday,San Nicolas (Mag-ampong),14.09360264,121.3358359,Rainy,Wet,Car,40,Female,Side-impact collision,4,0
+02/04/2021,22:43,Friday,San Mateo (Imok),14.04918306,121.2999602,Rainy,Wet,Car,37,Male,Rear-end collision,0,0
+04/03/2021,17:48,Thursday,San Isidro (Balagbag),14.08184752,121.3287135,Sunny,Dry,Motorcycle,52,Male,Side-impact collision,1,0
+08/07/2020,8:20,Wednesday,VII-E,14.07025067,121.3192091,Rainy,Potholes,Motorcycle,55,Female,Rear-end collision,0,0
+03/01/2024,5:51,Wednesday,VI-C (Bagong Pook),14.07244775,121.3247692,Rainy,Wet,Car,35,Female,Single vehicle accident,2,0
+22/09/2020,9:21,Tuesday,San Cristobal,14.08146065,121.3407736,Cloudy,Dry,Bicycle,42,Male,Single vehicle accident,1,0
+22/06/2020,16:25,Monday,San Vicente,14.08014112,121.3295818,Rainy,Wet,Truck,36,Male,Rear-end collision,1,0
+30/06/2020,21:43,Tuesday,San Crispin (Lumbangan),14.09970225,121.3135766,Sunny,Dry,Car,18,Male,Rear-end collision,2,0
+19/08/2020,9:56,Wednesday,San Lucas 2 (Malinaw),14.06978117,121.3206693,Rainy,Gravel,Motorcycle,42,Male,Rear-end collision,1,0
+28/06/2022,8:10,Tuesday,VII-E,14.0586846,121.3020542,Rainy,Wet,Car,42,Male,Rear-end collision,1,0
+06/09/2022,18:13,Tuesday,San Antonio 2 (Sapa),14.05898585,121.33574,Rainy,Wet,Car,30,Male,Side-impact collision,1,1
+15/06/2022,18:19,Wednesday,San Gregorio,14.0672525,121.3185509,Cloudy,Dry,Bicycle,37,Male,Head-on collision,5,1
+07/01/2021,20:28,Thursday,VI-E (YMCA),14.06191616,121.3296183,Stormy,Wet,Motorcycle,37,Male,Side-impact collision,2,0
+01/05/2022,19:40,Sunday,San Bartolome (Matang-ag),14.08024704,121.3295682,Sunny,Dry,Car,44,Female,Pedestrian accident,3,0
+21/10/2020,19:09,Wednesday,San Lucas 1 (Sabang),14.0806671,121.3286411,Sunny,Dry,Motorcycle,56,Male,Head-on collision,6,0
+30/01/2021,13:53,Saturday,Santiago II (Bulaho),14.08218278,121.3444272,Sunny,Dry,Motorcycle,34,Female,Single vehicle accident,0,0
+23/09/2021,19:25,Thursday,San Antonio 2 (Sapa),14.06214785,121.3122001,Sunny,Dry,Car,54,Female,Side-impact collision,1,1
+19/10/2024,6:26,Saturday,San Vicente,14.08896473,121.3246194,Rainy,Wet,Tricycle,18,Male,Side-impact collision,2,0
+21/02/2022,21:08,Monday,Santa Isabel,14.07852533,121.3303552,Rainy,Potholes,Motorcycle,35,Male,Single vehicle accident,5,0
+12/04/2022,15:48,Tuesday,Soledad (Macopa),14.08984898,121.3408232,Sunny,Gravel,Motorcycle,37,Male,Side-impact collision,3,0
+15/07/2022,7:49,Friday,San Diego (Tilim),14.07911349,121.3296826,Rainy,Potholes,Motorcycle,35,Male,Side-impact collision,3,0
+21/09/2023,2:13,Thursday,V-B,14.04904596,121.300904,Sunny,Gravel,Car,24,Female,Rear-end collision,2,0
+04/01/2024,21:01,Thursday,II-C (Unson),14.05618551,121.3119446,Sunny,Dry,Motorcycle,41,Male,Rear-end collision,0,0
+02/08/2021,8:34,Monday,San Francisco (Calihan),14.08313032,121.3218748,Rainy,Wet,Car,45,Male,Single vehicle accident,0,1
+07/01/2022,1:37,Friday,VI-E (YMCA),14.05253359,121.2993595,Sunny,Dry,Tricycle,23,Female,Rear-end collision,1,0
+26/04/2020,15:31,Sunday,San Miguel (Balintin),14.08268422,121.3244117,Sunny,Dry,Motorcycle,62,Male,Side-impact collision,2,0
+30/06/2023,12:10,Friday,VI-D (Lparkers),14.07749668,121.3307978,Rainy,Wet,Motorcycle,45,Male,Single vehicle accident,1,0
+23/09/2024,10:57,Monday,V-B,14.0498178,121.299788,Rainy,Wet,Motorcycle,38,Male,Rear-end collision,2,0
+24/01/2023,1:28,Tuesday,San Lucas 2 (Malinaw),14.06971673,121.3223558,Sunny,Dry,Motorcycle,48,Male,Side-impact collision,0,0
+19/07/2023,1:14,Wednesday,VI-A (Mavenida),14.09909366,121.3088385,Sunny,Dry,Motorcycle,19,Female,Pedestrian accident,4,0
+11/12/2022,22:09,Sunday,San Jose (Malamig),14.05234981,121.3130907,Sunny,Dry,Motorcycle,25,Male,Rear-end collision,2,0
+19/11/2023,3:15,Sunday,V-B,14.09050216,121.3442339,Cloudy,Dry,Truck,38,Female,Pedestrian accident,3,1
+16/06/2023,10:42,Friday,San Ignacio,14.08022741,121.3306378,Rainy,Wet,Motorcycle,25,Female,Rear-end collision,2,0
+09/05/2023,23:52,Tuesday,San Nicolas (Mag-ampong),14.05142428,121.3012835,Sunny,Dry,Car,22,Male,Rear-end collision,1,0
+11/10/2020,5:00,Sunday,San Francisco (Calihan),14.04923244,121.299861,Sunny,Dry,Car,18,Female,Rear-end collision,0,0
+29/09/2022,21:03,Thursday,San Joaquin,14.07057464,121.3198585,Cloudy,Dry,Car,51,Male,Single vehicle accident,2,0
+02/03/2021,1:28,Tuesday,San Gregorio,14.06237872,121.3385236,Sunny,Dry,Car,44,Male,Side-impact collision,2,0
+23/06/2021,1:36,Wednesday,VII-C,14.05010441,121.3072324,Sunny,Dry,Car,20,Male,Pedestrian accident,4,1
+23/01/2022,16:01,Sunday,III-E,14.0687345,121.3194748,Rainy,Wet,Motorcycle,27,Male,Side-impact collision,2,0
+23/10/2024,7:49,Wednesday,III-C (Labak/De Roma),14.06226787,121.3310973,Rainy,Wet,Car,41,Male,Head-on collision,3,1
+25/04/2020,0:22,Saturday,II-E (San Anton),14.06908717,121.3191099,Rainy,Wet,Motorcycle,34,Female,Rear-end collision,0,0
+16/01/2023,22:21,Monday,III-C (Labak/De Roma),14.05327276,121.3404368,Sunny,Dry,Car,28,Male,Single vehicle accident,3,0
+16/12/2023,5:13,Saturday,San Mateo (Imok),14.09978934,121.3438465,Cloudy,Potholes,Motorcycle,45,Male,Rear-end collision,2,0
+13/01/2023,8:56,Friday,Santa Maria Magdalena (Boe / Kuba),14.09690829,121.3454252,Sunny,Dry,Bicycle,34,Female,Rear-end collision,2,0
+21/10/2023,3:49,Saturday,Dolores,14.08026651,121.3314151,Cloudy,Dry,Truck,19,Male,Single vehicle accident,1,1
+05/10/2022,6:59,Wednesday,II-F (Villa Rey),14.08313743,121.3115488,Sunny,Dry,Truck,50,Male,Head-on collision,4,1
+17/08/2024,23:18,Saturday,Santa Maria,14.08193739,121.3307724,Cloudy,Dry,Bus,59,Female,Rear-end collision,1,0
+19/12/2021,11:13,Sunday,San Diego (Tilim),14.06127235,121.3100671,Rainy,Wet,Car,53,Male,Rear-end collision,2,0
+03/09/2020,6:16,Thursday,IV-C,14.05313583,121.3415735,Rainy,Wet,Motorcycle,60,Male,Head-on collision,2,1
+19/12/2024,15:17,Thursday,Santa Monica,14.07038566,121.3195679,Rainy,Wet,Motorcycle,29,Male,Rear-end collision,1,0
+12/02/2022,6:11,Saturday,San Crispin (Lumbangan),14.09074663,121.3392803,Rainy,Wet,Car,41,Male,Side-impact collision,2,0
+25/05/2023,9:46,Thursday,III-B,14.08920349,121.3391993,Sunny,Dry,Motorcycle,23,Male,Single vehicle accident,0,2
+02/06/2023,19:48,Friday,San Roque (Sambat),14.06058064,121.3109334,Sunny,Dry,Motorcycle,35,Female,Rear-end collision,0,0
+01/12/2020,23:53,Tuesday,Atisan,14.06231988,121.3215451,Rainy,Wet,Motorcycle,37,Female,Head-on collision,4,0
+26/03/2022,17:53,Saturday,II-B (Guadalupe 1),14.06966567,121.3218633,Rainy,Potholes,Car,30,Female,Head-on collision,3,0
+07/09/2021,14:28,Tuesday,San Crispin (Lumbangan),14.04890637,121.3018123,Sunny,Gravel,Car,24,Male,Head-on collision,3,0
+19/01/2020,8:12,Sunday,I-C (Bagong Bayan),14.06068848,121.3170542,Sunny,Dry,Motorcycle,29,Male,Rear-end collision,0,0
+30/07/2023,11:41,Sunday,III-E,14.09181888,121.3386629,Sunny,Dry,Motorcycle,45,Male,Rear-end collision,1,0
+25/03/2021,7:53,Thursday,San Gabriel (Butucan),14.0878699,121.3412642,Sunny,Dry,Motorcycle,27,Male,Single vehicle accident,1,0
+02/09/2020,9:29,Wednesday,San Pedro,14.08234608,121.3258216,Rainy,Gravel,Truck,23,Male,Head-on collision,1,0
+20/01/2022,4:36,Thursday,San Vicente,14.07029171,121.3206088,Sunny,Dry,Car,43,Male,Head-on collision,1,1
+13/09/2021,20:25,Monday,VI-B,14.07134883,121.319811,Sunny,Dry,Car,42,Female,Head-on collision,4,0
+17/11/2024,17:45,Sunday,II-C (Unson),14.06842829,121.3025182,Rainy,Potholes,Car,32,Male,Single vehicle accident,1,0
+02/10/2021,5:17,Saturday,San Lucas 1 (Sabang),14.05139146,121.3008068,Sunny,Dry,Motorcycle,33,Female,Head-on collision,4,0
+14/02/2024,10:32,Wednesday,San Gregorio,14.04878936,121.2992902,Sunny,Dry,Bicycle,29,Male,Rear-end collision,0,0
+16/01/2023,8:37,Monday,San Joaquin,14.05132034,121.3007095,Sunny,Dry,Truck,38,Female,Side-impact collision,2,1
+24/07/2020,9:35,Friday,III-C (Labak/De Roma),14.05917688,121.3096712,Rainy,Potholes,Car,51,Male,Rear-end collision,1,1
+18/02/2022,0:47,Friday,San Francisco (Calihan),14.06893852,121.3193875,Cloudy,Gravel,Motorcycle,21,Female,Rear-end collision,1,0
+10/06/2022,6:39,Friday,Santa Isabel,14.08195125,121.3296214,Sunny,Dry,Bus,34,Male,Rear-end collision,1,0
+20/12/2022,18:42,Tuesday,V-C,14.0796414,121.3297007,Sunny,Dry,Bus,49,Male,Side-impact collision,1,0
+29/02/2020,18:13,Saturday,IV-C,14.06365759,121.3348459,Sunny,Dry,Bus,18,Male,Rear-end collision,1,1
+24/12/2020,16:32,Thursday,Soledad (Macopa),14.07961927,121.3298681,Cloudy,Dry,Truck,21,Male,Pedestrian accident,1,2
+20/01/2020,14:57,Monday,Santo Niño (Arsum),14.07744406,121.3312449,Stormy,Wet,Tricycle,40,Male,Side-impact collision,2,0
+09/06/2023,13:38,Friday,San Gabriel (Butucan),14.07149714,121.3204999,Sunny,Dry,Car,38,Female,Rear-end collision,1,0
+13/09/2024,14:50,Friday,I-C (Bagong Bayan),14.05966069,121.3098045,Sunny,Dry,Motorcycle,44,Male,Side-impact collision,5,0
+07/02/2020,16:52,Friday,VI-C (Bagong Pook),14.08254339,121.3031348,Rainy,Gravel,Motorcycle,32,Male,Single vehicle accident,1,0
+28/10/2022,2:40,Friday,II-B (Guadalupe 1),14.07810107,121.3297536,Rainy,Potholes,Car,49,Female,Side-impact collision,5,0
+05/04/2020,13:24,Sunday,VII-E,14.08557853,121.3202776,Sunny,Dry,Car,24,Male,Rear-end collision,1,0
+11/03/2020,23:02,Wednesday,II-C (Unson),14.05995018,121.3114065,Sunny,Potholes,Car,38,Female,Single vehicle accident,0,0
+09/04/2021,4:59,Friday,Santa Filomena (Banagin),14.07065245,121.3180989,Rainy,Wet,Motorcycle,18,Male,Side-impact collision,4,0
+17/11/2022,13:27,Thursday,VI-B,14.05850054,121.3102802,Stormy,Wet,Tricycle,25,Male,Single vehicle accident,2,0
+14/10/2023,9:50,Saturday,Del Remedio (Wawa),14.0598098,121.311173,Sunny,Dry,Car,51,Male,Rear-end collision,2,0
+20/02/2023,9:13,Monday,I-C (Bagong Bayan),14.07867655,121.3304523,Sunny,Dry,Car,22,Male,Head-on collision,6,0
+04/07/2022,7:59,Monday,VII-C,14.07095981,121.3193792,Stormy,Potholes,Tricycle,18,Male,Side-impact collision,0,0
+23/05/2021,13:23,Sunday,Del Remedio (Wawa),14.07879794,121.3268904,Sunny,Dry,Car,58,Female,Head-on collision,6,1
+07/10/2023,17:07,Saturday,Santa Monica,14.07068893,121.320553,Cloudy,Gravel,Motorcycle,59,Male,Single vehicle accident,0,0
+14/01/2024,8:59,Sunday,San Ignacio,14.08418657,121.3431671,Sunny,Dry,Motorcycle,31,Male,Side-impact collision,4,1
+04/01/2023,10:30,Wednesday,VII-A (P. Alcantara),14.06894202,121.3199032,Cloudy,Dry,Car,26,Male,Single vehicle accident,1,0
+20/12/2020,4:40,Sunday,San Buenaventura (Palakpakin),14.09139855,121.34025,Sunny,Dry,Tricycle,34,Male,Side-impact collision,4,0
+27/07/2024,22:54,Saturday,San Miguel (Balintin),14.0483387,121.2993454,Sunny,Dry,Motorcycle,52,Male,Rear-end collision,0,0
+22/01/2023,14:21,Sunday,III-D (Vilongco),14.08831887,121.3395246,Rainy,Wet,Car,46,Male,Head-on collision,2,1
+29/10/2024,18:43,Tuesday,Santa Catalina (Sandig),14.05900865,121.3094608,Stormy,Gravel,Motorcycle,38,Male,Single vehicle accident,2,0
+20/12/2021,0:08,Monday,II-D (Bulante),14.08893443,121.3209234,Sunny,Dry,Bus,26,Male,Single vehicle accident,0,1
+20/01/2020,22:49,Monday,San Antonio 2 (Sapa),14.06478632,121.3128807,Sunny,Dry,Bicycle,44,Male,Rear-end collision,2,0
+03/03/2021,5:57,Wednesday,San Juan (Putol),14.04880315,121.2989359,Sunny,Dry,Motorcycle,28,Male,Side-impact collision,2,0
+29/08/2022,5:08,Monday,VI-C (Bagong Pook),14.08956543,121.3404857,Cloudy,Dry,Motorcycle,34,Female,Head-on collision,4,1
+16/11/2022,12:32,Wednesday,Del Remedio (Wawa),14.04893736,121.296163,Sunny,Dry,Tricycle,41,Male,Side-impact collision,7,0
+18/10/2020,18:26,Sunday,San Francisco (Calihan),14.07980112,121.3294868,Rainy,Wet,Truck,30,Male,Side-impact collision,3,0
+02/07/2022,0:27,Saturday,San Vicente,14.05888402,121.3118077,Rainy,Wet,Car,25,Male,Rear-end collision,2,0
+14/01/2022,19:57,Friday,II-E (San Anton),14.07835854,121.329805,Rainy,Wet,Car,20,Male,Single vehicle accident,2,0
+15/09/2024,14:41,Sunday,San Mateo (Imok),14.09131435,121.3405553,Rainy,Wet,Motorcycle,44,Female,Rear-end collision,1,0
+29/01/2022,7:38,Saturday,San Buenaventura (Palakpakin),14.08137673,121.3300923,Sunny,Dry,Tricycle,42,Male,Rear-end collision,1,0
+16/01/2021,23:32,Saturday,San Vicente,14.07949719,121.3293043,Sunny,Dry,Motorcycle,38,Male,Rear-end collision,1,1
+19/07/2024,17:51,Friday,II-D (Bulante),14.05100895,121.2987091,Rainy,Wet,Motorcycle,34,Male,Side-impact collision,3,0
+09/02/2020,18:32,Sunday,Santa Maria Magdalena (Boe / Kuba),14.0489898,121.2997044,Sunny,Dry,Car,36,Female,Pedestrian accident,0,1
+25/09/2024,22:21,Wednesday,Santa Isabel,14.06524368,121.3399096,Rainy,Wet,Motorcycle,23,Male,Rear-end collision,1,0
+27/08/2020,22:54,Thursday,San Nicolas (Mag-ampong),14.08528091,121.3216934,Sunny,Dry,Tricycle,49,Female,Pedestrian accident,3,0
+11/09/2021,3:45,Saturday,San Gregorio,14.09948053,121.3316662,Rainy,Wet,Motorcycle,53,Male,Head-on collision,0,0
+17/06/2021,6:09,Thursday,San Antonio 1 (Balanga),14.06007631,121.3103715,Sunny,Dry,Truck,37,Male,Head-on collision,4,1
+29/10/2024,19:08,Tuesday,Santa Cruz (Putol),14.07560957,121.3170386,Sunny,Potholes,Bicycle,22,Male,Side-impact collision,1,0
+14/03/2021,8:22,Sunday,San Nicolas (Mag-ampong),14.0969686,121.3094799,Sunny,Dry,Motorcycle,47,Male,Pedestrian accident,3,1
+14/06/2021,21:41,Monday,Dolores,14.09597853,121.334515,Cloudy,Dry,Car,37,Male,Rear-end collision,0,0
+07/08/2024,7:34,Wednesday,Santo Cristo,14.09115618,121.3420231,Sunny,Dry,Motorcycle,26,Male,Head-on collision,4,1
+06/08/2022,8:53,Saturday,II-C (Unson),14.08057244,121.3311381,Rainy,Wet,Motorcycle,30,Male,Single vehicle accident,1,1
+29/10/2021,18:19,Friday,VI-A (Mavenida),14.05728525,121.3438819,Rainy,Wet,Truck,40,Female,Rear-end collision,0,0
+24/09/2024,2:56,Tuesday,San Diego (Tilim),14.08850882,121.3403262,Sunny,Dry,Tricycle,46,Male,Single vehicle accident,1,1
+12/10/2021,7:15,Tuesday,V-D,14.05094397,121.3442272,Rainy,Wet,Bus,37,Female,Side-impact collision,3,1
+06/02/2022,18:21,Sunday,Santa Monica,14.04988325,121.2994666,Sunny,Potholes,Motorcycle,45,Male,Rear-end collision,2,0
+13/07/2023,7:07,Thursday,VI-C (Bagong Pook),14.08948004,121.3392314,Sunny,Dry,Motorcycle,33,Male,Single vehicle accident,1,0
+06/03/2023,10:35,Monday,San Lucas 1 (Sabang),14.06916265,121.3206822,Sunny,Dry,Tricycle,47,Female,Head-on collision,5,0
+19/12/2022,23:31,Monday,Bautista,14.05109873,121.300797,Sunny,Potholes,Motorcycle,65,Male,Rear-end collision,0,0
+22/07/2024,13:16,Monday,Santo Angel (Ilog),14.06927139,121.3183856,Rainy,Wet,Car,46,Male,Head-on collision,4,0
+21/10/2024,18:27,Monday,VII-A (P. Alcantara),14.07963596,121.328791,Cloudy,Dry,Motorcycle,50,Female,Single vehicle accident,1,0
+24/08/2022,19:32,Wednesday,San Marcos (Tikew),14.04916903,121.2999382,Rainy,Potholes,Truck,47,Female,Side-impact collision,1,0
+14/09/2023,18:11,Thursday,III-D (Vilongco),14.0502521,121.2993692,Sunny,Dry,Tricycle,35,Female,Head-on collision,5,0
+09/08/2024,3:05,Friday,II-F (Villa Rey),14.07076942,121.3210206,Sunny,Dry,Motorcycle,46,Female,Pedestrian accident,2,0
+16/09/2020,9:58,Wednesday,Dolores,14.05780587,121.3132106,Sunny,Dry,Bus,31,Female,Rear-end collision,1,0
+24/01/2021,7:51,Sunday,San Juan (Putol),14.06886265,121.3202935,Rainy,Wet,Tricycle,41,Female,Rear-end collision,1,0
+22/01/2024,17:49,Monday,II-D (Bulante),14.08050454,121.330515,Sunny,Dry,Motorcycle,46,Female,Head-on collision,2,1
+10/06/2021,20:43,Thursday,III-E,14.06032086,121.3100919,Stormy,Potholes,Motorcycle,35,Female,Head-on collision,2,0
+01/10/2024,11:18,Tuesday,San Jose (Malamig),14.06997518,121.3024485,Sunny,Dry,Car,36,Male,Rear-end collision,2,0
+17/10/2021,5:21,Sunday,San Vicente,14.0743739,121.3031316,Sunny,Gravel,Motorcycle,42,Male,Single vehicle accident,1,0
+18/08/2022,9:09,Thursday,V-C,14.08099735,121.3294781,Rainy,Wet,Bus,40,Male,Head-on collision,4,0
+24/08/2020,23:43,Monday,San Vicente,14.08898176,121.3397336,Rainy,Wet,Motorcycle,23,Male,Rear-end collision,0,0
+08/01/2021,9:00,Friday,II-A (Triangulo Guadalupe 2),14.06083688,121.3085876,Sunny,Potholes,Tricycle,44,Female,Head-on collision,3,0
+20/09/2024,17:43,Friday,San Isidro (Balagbag),14.05000186,121.3008877,Sunny,Dry,Truck,40,Female,Head-on collision,1,1
+15/02/2022,7:24,Tuesday,San Antonio 1 (Balanga),14.06080136,121.3095733,Sunny,Dry,Bicycle,35,Male,Head-on collision,2,0
+10/12/2023,5:19,Sunday,San Ignacio,14.08626024,121.3334214,Cloudy,Dry,Motorcycle,28,Male,Head-on collision,5,0
+03/02/2021,9:31,Wednesday,San Gregorio,14.07096875,121.3196795,Sunny,Dry,Bus,21,Male,Side-impact collision,3,0
+19/08/2021,20:39,Thursday,II-D (Bulante),14.05098179,121.3002593,Cloudy,Dry,Motorcycle,36,Male,Single vehicle accident,0,0
+09/05/2022,13:56,Monday,I-A (Sambat),14.06026887,121.3454537,Sunny,Dry,Truck,45,Male,Rear-end collision,0,0
+26/08/2024,13:09,Monday,San Buenaventura (Palakpakin),14.09108459,121.3280282,Sunny,Dry,Motorcycle,36,Male,Pedestrian accident,1,0
+05/08/2020,10:53,Wednesday,San Crispin (Lumbangan),14.06112789,121.3110556,Sunny,Dry,Bicycle,52,Male,Head-on collision,6,0
+12/12/2020,22:48,Saturday,II-B (Guadalupe 1),14.0839435,121.3305189,Rainy,Wet,Bus,53,Female,Rear-end collision,2,0
+10/09/2024,23:13,Tuesday,Santa Isabel,14.04992708,121.2997443,Sunny,Potholes,Car,22,Male,Head-on collision,4,0
+31/03/2020,21:28,Tuesday,San Antonio 2 (Sapa),14.08044297,121.3141952,Sunny,Dry,Motorcycle,27,Male,Single vehicle accident,2,1
+11/05/2024,19:04,Saturday,San Nicolas (Mag-ampong),14.0804843,121.3179503,Sunny,Gravel,Car,38,Male,Rear-end collision,1,0
+19/08/2024,17:37,Monday,VI-E (YMCA),14.04863785,121.300552,Cloudy,Dry,Car,34,Female,Side-impact collision,0,0
+13/04/2021,4:44,Tuesday,San Cristobal,14.09122619,121.3414217,Sunny,Dry,Car,43,Male,Head-on collision,2,0
+16/07/2022,5:16,Saturday,San Diego (Tilim),14.07810333,121.329203,Cloudy,Dry,Motorcycle,46,Male,Side-impact collision,1,0
+15/03/2024,8:13,Friday,VI-D (Lparkers),14.05862206,121.3099598,Sunny,Gravel,Motorcycle,39,Male,Rear-end collision,1,0
+25/06/2020,22:50,Thursday,V-D,14.07802332,121.3203351,Rainy,Wet,Car,23,Female,Single vehicle accident,1,0
+21/01/2020,15:57,Tuesday,VII-E,14.08074043,121.3296308,Cloudy,Dry,Bus,26,Male,Rear-end collision,2,0
+02/01/2021,15:08,Saturday,San Rafael (Buluburan),14.04901153,121.3006408,Sunny,Dry,Car,27,Male,Rear-end collision,0,0
+12/08/2022,9:58,Friday,Santa Monica,14.07293121,121.3318792,Sunny,Dry,Motorcycle,28,Female,Rear-end collision,1,0
+15/08/2023,6:59,Tuesday,VII-C,14.05966709,121.3111466,Sunny,Dry,Car,50,Male,Single vehicle accident,0,0
+19/02/2020,9:00,Wednesday,V-C,14.06569067,121.3435216,Sunny,Dry,Motorcycle,34,Female,Rear-end collision,1,0
+04/06/2021,0:48,Friday,San Nicolas (Mag-ampong),14.05923868,121.3106478,Sunny,Potholes,Bus,28,Female,Rear-end collision,0,0
+20/01/2021,8:29,Wednesday,II-E (San Anton),14.08899907,121.340291,Sunny,Dry,Tricycle,38,Female,Pedestrian accident,1,1
+20/04/2024,16:30,Saturday,II-F (Villa Rey),14.08000604,121.3311576,Sunny,Dry,Car,47,Male,Head-on collision,1,1
+21/05/2022,8:03,Saturday,VI-A (Mavenida),14.07901544,121.3314929,Sunny,Dry,Truck,49,Male,Rear-end collision,0,0
+11/06/2023,22:34,Sunday,II-B (Guadalupe 1),14.0750725,121.3055672,Sunny,Potholes,Car,18,Male,Single vehicle accident,2,0
+27/01/2022,2:46,Thursday,VI-E (YMCA),14.0816113,121.3182412,Sunny,Gravel,Car,34,Male,Rear-end collision,0,0
+24/11/2022,11:13,Thursday,Santa Monica,14.06845032,121.3190789,Sunny,Dry,Motorcycle,30,Male,Side-impact collision,1,0
+21/07/2020,17:54,Tuesday,Santo Cristo,14.07888329,121.3307015,Rainy,Wet,Motorcycle,38,Female,Rear-end collision,0,0
+30/12/2021,9:02,Thursday,V-B,14.0707505,121.318847,Sunny,Dry,Motorcycle,37,Female,Head-on collision,2,0
+14/10/2023,19:02,Saturday,V-C,14.09304823,121.3284479,Rainy,Wet,Car,42,Female,Rear-end collision,0,0
+11/06/2021,13:49,Friday,Santa Monica,14.07027222,121.320014,Rainy,Potholes,Bicycle,56,Female,Rear-end collision,2,0
+14/07/2021,18:48,Wednesday,Santa Cruz (Putol),14.04906767,121.2995857,Cloudy,Gravel,Bus,34,Male,Single vehicle accident,0,0
+25/11/2021,9:51,Thursday,San Antonio 2 (Sapa),14.08002312,121.3306628,Sunny,Dry,Bicycle,37,Male,Head-on collision,3,1
+22/01/2022,23:13,Saturday,San Antonio 2 (Sapa),14.08976044,121.3412788,Sunny,Dry,Motorcycle,29,Male,Head-on collision,0,0
+29/03/2024,17:49,Friday,Santo Cristo,14.06066272,121.3095416,Cloudy,Dry,Motorcycle,23,Male,Pedestrian accident,1,0
+08/12/2020,15:15,Tuesday,San Antonio 2 (Sapa),14.08320238,121.3411857,Rainy,Wet,Tricycle,18,Female,Single vehicle accident,0,1
+08/07/2020,14:48,Wednesday,Santa Isabel,14.0480973,121.2991014,Sunny,Potholes,Car,43,Male,Rear-end collision,1,0
+26/12/2021,14:16,Sunday,San Juan (Putol),14.08053967,121.3311035,Sunny,Dry,Car,30,Male,Rear-end collision,1,0
+08/01/2020,11:09,Wednesday,II-D (Bulante),14.05202521,121.3311525,Sunny,Dry,Motorcycle,56,Male,Head-on collision,3,0
+14/10/2023,18:46,Saturday,Bautista,14.06094116,121.3110224,Cloudy,Potholes,Tricycle,26,Female,Side-impact collision,4,0
+06/06/2024,17:06,Thursday,San Francisco (Calihan),14.06998672,121.3197429,Rainy,Potholes,Car,45,Male,Rear-end collision,3,0
+19/05/2023,19:09,Friday,V-D,14.09141599,121.3059227,Sunny,Potholes,Car,42,Female,Single vehicle accident,1,1
+27/08/2021,22:09,Friday,II-E (San Anton),14.05946058,121.3094629,Rainy,Wet,Tricycle,28,Male,Pedestrian accident,1,2
+16/05/2021,15:36,Sunday,San Gregorio,14.06858841,121.3215876,Sunny,Dry,Bicycle,27,Male,Rear-end collision,1,0
+31/12/2020,22:34,Thursday,San Miguel (Balintin),14.05519637,121.3075999,Rainy,Potholes,Motorcycle,38,Male,Single vehicle accident,0,0
+09/08/2023,11:28,Wednesday,Concepcion (Bunot),14.06949113,121.3188284,Rainy,Wet,Car,30,Male,Rear-end collision,1,0
+22/03/2021,20:06,Monday,San Lorenzo (Saluyan),14.05033624,121.301127,Sunny,Dry,Motorcycle,23,Male,Rear-end collision,1,0
+19/04/2023,16:48,Wednesday,Santo Angel (Ilog),14.0908892,121.3403188,Sunny,Dry,Tricycle,45,Male,Rear-end collision,0,0
+19/12/2022,0:11,Monday,Santa Ana,14.09595813,121.3036788,Sunny,Dry,Motorcycle,32,Male,Rear-end collision,0,1
+04/11/2023,2:50,Saturday,Bautista,14.08997364,121.3392546,Sunny,Gravel,Bicycle,40,Male,Head-on collision,3,0
+19/05/2021,6:10,Wednesday,San Lorenzo (Saluyan),14.04971221,121.3010526,Rainy,Wet,Motorcycle,44,Male,Head-on collision,3,1
+05/02/2021,8:25,Friday,III-B,14.04833628,121.2989684,Rainy,Wet,Car,38,Male,Pedestrian accident,0,0
+25/02/2023,19:31,Saturday,San Joaquin,14.05914284,121.3096871,Cloudy,Dry,Truck,41,Male,Rear-end collision,1,0
+26/02/2020,8:48,Wednesday,IV-A,14.04969868,121.3007301,Stormy,Wet,Motorcycle,47,Male,Pedestrian accident,0,2
+11/08/2021,13:44,Wednesday,V-A,14.08413497,121.3489912,Stormy,Wet,Motorcycle,21,Female,Head-on collision,5,1
+10/09/2020,8:29,Thursday,Santo Niño (Arsum),14.07476165,121.3273229,Rainy,Gravel,Motorcycle,41,Male,Pedestrian accident,0,1
+06/02/2020,9:22,Thursday,San Buenaventura (Palakpakin),14.05833283,121.3097538,Sunny,Dry,Motorcycle,48,Male,Head-on collision,5,0
+09/08/2023,13:39,Wednesday,Concepcion (Bunot),14.07993,121.3303562,Sunny,Dry,Car,18,Male,Rear-end collision,3,0
+02/12/2023,0:42,Saturday,III-E,14.0804948,121.3284917,Sunny,Potholes,Car,40,Male,Side-impact collision,2,0
+27/04/2020,8:08,Monday,Santa Veronica (Bae),14.06990827,121.319778,Sunny,Dry,Motorcycle,29,Male,Side-impact collision,0,0
+12/10/2020,2:27,Monday,Santa Monica,14.08840077,121.3404983,Sunny,Dry,Bicycle,35,Female,Head-on collision,3,0
+17/10/2023,12:13,Tuesday,VII-A (P. Alcantara),14.05873284,121.3103697,Sunny,Dry,Car,28,Female,Single vehicle accident,2,0
+29/07/2020,18:52,Wednesday,V-D,14.09535059,121.3306079,Sunny,Dry,Motorcycle,36,Male,Rear-end collision,0,0
+17/04/2020,9:31,Friday,III-C (Labak/De Roma),14.04881742,121.2986919,Sunny,Dry,Tricycle,25,Male,Single vehicle accident,0,0
+24/08/2022,8:02,Wednesday,San Pedro,14.0608427,121.3096087,Sunny,Dry,Car,21,Male,Rear-end collision,1,0
+05/05/2020,9:31,Tuesday,VII-C,14.07084615,121.3195366,Sunny,Dry,Truck,34,Male,Rear-end collision,1,1
+24/06/2022,16:37,Friday,Santa Catalina (Sandig),14.05442802,121.3324011,Sunny,Dry,Bus,42,Male,Pedestrian accident,2,0
+03/01/2022,17:53,Monday,Santo Angel (Ilog),14.08052606,121.329898,Rainy,Wet,Bicycle,31,Female,Head-on collision,4,2
+24/01/2021,11:45,Sunday,San Antonio 1 (Balanga),14.09128122,121.3401433,Rainy,Wet,Car,20,Male,Rear-end collision,2,0
+07/12/2024,8:40,Saturday,Del Remedio (Wawa),14.04952514,121.3013213,Stormy,Wet,Bus,29,Male,Side-impact collision,3,0
+23/02/2024,2:53,Friday,San Lucas 1 (Sabang),14.08093059,121.3281294,Sunny,Dry,Motorcycle,35,Male,Rear-end collision,0,0
+16/04/2023,3:57,Sunday,III-A (Hermanos Belen),14.07222889,121.314322,Stormy,Wet,Motorcycle,40,Female,Side-impact collision,3,0
+30/10/2023,0:58,Monday,VI-C (Bagong Pook),14.07361473,121.3059861,Sunny,Dry,Bicycle,26,Male,Single vehicle accident,0,0
+30/05/2020,4:57,Saturday,Santa Maria Magdalena (Boe / Kuba),14.0701924,121.320534,Sunny,Dry,Car,47,Female,Side-impact collision,2,0
+09/09/2022,16:22,Friday,Santa Ana,14.07966985,121.3284477,Rainy,Wet,Car,18,Male,Head-on collision,2,1
+14/03/2021,0:11,Sunday,Dolores,14.06033674,121.3170059,Sunny,Dry,Tricycle,44,Male,Side-impact collision,1,0
+08/10/2023,3:40,Sunday,III-E,14.07042381,121.3201116,Sunny,Dry,Bicycle,43,Female,Head-on collision,4,1
+19/06/2021,12:49,Saturday,I-B (City+Riverside),14.05064017,121.2995983,Cloudy,Dry,Car,28,Male,Rear-end collision,2,0
+16/09/2021,19:35,Thursday,San Lucas 1 (Sabang),14.08967751,121.3409549,Rainy,Wet,Tricycle,31,Male,Rear-end collision,1,0
+19/10/2023,1:59,Thursday,San Lucas 2 (Malinaw),14.08822133,121.3370049,Rainy,Gravel,Car,28,Male,Rear-end collision,0,0
+27/04/2023,9:35,Thursday,Concepcion (Bunot),14.05898943,121.3088469,Sunny,Gravel,Tricycle,18,Male,Rear-end collision,3,0
+21/09/2023,23:05,Thursday,San Lorenzo (Saluyan),14.09226611,121.3387261,Rainy,Wet,Car,23,Male,Rear-end collision,0,0
+14/04/2022,6:06,Thursday,Soledad (Macopa),14.07953822,121.3316065,Sunny,Gravel,Motorcycle,38,Male,Single vehicle accident,1,0
+15/08/2023,4:45,Tuesday,Dolores,14.08922096,121.3392877,Sunny,Dry,Car,32,Male,Rear-end collision,2,0
+03/09/2021,20:55,Friday,V-A,14.09938745,121.3345071,Sunny,Potholes,Car,26,Male,Pedestrian accident,3,0
+12/05/2020,16:37,Tuesday,San Pedro,14.05955092,121.3090309,Cloudy,Dry,Bus,32,Male,Side-impact collision,1,0
+12/05/2023,4:09,Friday,II-D (Bulante),14.05015915,121.3001613,Sunny,Dry,Car,32,Male,Head-on collision,5,0
+02/08/2022,10:13,Tuesday,Santa Catalina (Sandig),14.08994158,121.3381066,Stormy,Wet,Car,39,Female,Single vehicle accident,1,0
+05/09/2020,5:46,Saturday,San Pedro,14.05618092,121.333284,Rainy,Wet,Motorcycle,22,Male,Pedestrian accident,0,2
+15/10/2022,7:20,Saturday,San Francisco (Calihan),14.07810006,121.344162,Sunny,Dry,Tricycle,32,Female,Head-on collision,2,0
+12/09/2022,7:50,Monday,San Francisco (Calihan),14.07090051,121.317809,Stormy,Wet,Motorcycle,45,Female,Rear-end collision,1,0
+11/12/2022,18:13,Sunday,IV-B,14.08442956,121.3373651,Sunny,Dry,Car,30,Male,Rear-end collision,1,0
+02/08/2024,18:13,Friday,San Mateo (Imok),14.06064914,121.3273786,Sunny,Dry,Motorcycle,26,Female,Single vehicle accident,0,0
+23/10/2020,17:37,Friday,IV-A,14.0574754,121.3098757,Sunny,Dry,Car,58,Male,Rear-end collision,1,0
+02/02/2020,16:42,Sunday,VI-A (Mavenida),14.06315504,121.301577,Sunny,Dry,Motorcycle,43,Female,Head-on collision,6,1
+23/12/2020,22:40,Wednesday,VII-E,14.05778624,121.3190778,Stormy,Wet,Motorcycle,25,Female,Side-impact collision,3,0
+27/02/2023,6:25,Monday,VII-E,14.06431696,121.3297795,Sunny,Dry,Car,21,Male,Head-on collision,2,2
+15/04/2021,16:20,Thursday,San Vicente,14.08349346,121.3205836,Rainy,Wet,Car,43,Male,Head-on collision,4,0
+23/04/2022,1:55,Saturday,Soledad (Macopa),14.05840493,121.3099474,Rainy,Wet,Motorcycle,18,Male,Rear-end collision,0,0
+15/12/2021,1:41,Wednesday,VI-C (Bagong Pook),14.0876371,121.3392373,Rainy,Wet,Car,39,Male,Single vehicle accident,1,0
+22/07/2023,17:16,Saturday,San Diego (Tilim),14.09032292,121.340818,Cloudy,Potholes,Motorcycle,37,Male,Pedestrian accident,2,0
+03/03/2020,5:01,Tuesday,II-F (Villa Rey),14.08893823,121.3389956,Rainy,Wet,Motorcycle,46,Male,Head-on collision,4,0
+03/12/2020,22:46,Thursday,III-F (Balagtas),14.04859249,121.2973204,Rainy,Wet,Motorcycle,36,Male,Side-impact collision,2,0
+18/06/2023,11:05,Sunday,VI-C (Bagong Pook),14.08450708,121.3018285,Sunny,Dry,Car,21,Male,Pedestrian accident,2,0
+14/08/2024,18:45,Wednesday,Santa Maria Magdalena (Boe / Kuba),14.08213137,121.3300369,Rainy,Gravel,Bus,30,Male,Rear-end collision,1,0
+21/01/2023,5:39,Saturday,III-E,14.05973851,121.3112972,Sunny,Potholes,Car,21,Male,Single vehicle accident,1,0
+04/05/2024,16:26,Saturday,I-A (Sambat),14.09055113,121.3397383,Sunny,Dry,Car,47,Female,Rear-end collision,0,0
+19/06/2024,2:30,Wednesday,IV-B,14.07028077,121.3198695,Sunny,Potholes,Truck,31,Female,Pedestrian accident,2,0
+08/07/2023,6:01,Saturday,IV-C,14.08982943,121.3404206,Sunny,Dry,Truck,29,Male,Single vehicle accident,1,0
+28/08/2023,15:29,Monday,San Nicolas (Mag-ampong),14.0482263,121.3014075,Sunny,Dry,Motorcycle,40,Male,Side-impact collision,0,0
+11/12/2020,19:00,Friday,II-D (Bulante),14.08208491,121.3310594,Stormy,Wet,Motorcycle,46,Male,Single vehicle accident,2,0
+30/06/2024,2:20,Sunday,San Pedro,14.0521108,121.3334526,Sunny,Dry,Motorcycle,44,Female,Side-impact collision,3,0
+26/03/2023,12:12,Sunday,II-E (San Anton),14.07913548,121.3290657,Sunny,Dry,Car,40,Female,Rear-end collision,2,0
+30/10/2020,19:20,Friday,San Francisco (Calihan),14.06867202,121.3204626,Sunny,Dry,Motorcycle,49,Female,Single vehicle accident,3,0
+13/01/2023,21:35,Friday,Santo Cristo,14.06906109,121.3196785,Rainy,Wet,Motorcycle,34,Male,Rear-end collision,1,0
+21/02/2023,21:45,Tuesday,Del Remedio (Wawa),14.07040685,121.322781,Rainy,Wet,Motorcycle,31,Male,Single vehicle accident,0,1
+10/08/2022,7:08,Wednesday,San Marcos (Tikew),14.05839715,121.337228,Rainy,Wet,Motorcycle,27,Male,Side-impact collision,2,0
+18/02/2023,5:45,Saturday,San Rafael (Buluburan),14.05011788,121.2997604,Rainy,Wet,Tricycle,50,Female,Rear-end collision,1,1
+04/11/2021,7:49,Thursday,III-E,14.08555064,121.3394121,Rainy,Wet,Motorcycle,37,Male,Head-on collision,4,0
+10/11/2021,20:25,Wednesday,San Francisco (Calihan),14.08497796,121.3345453,Sunny,Dry,Motorcycle,40,Female,Rear-end collision,1,0
+13/03/2024,9:12,Wednesday,Santo Niño (Arsum),14.08069516,121.3197963,Sunny,Dry,Car,45,Female,Single vehicle accident,0,0
+17/06/2024,5:10,Monday,II-F (Villa Rey),14.07054651,121.320272,Rainy,Gravel,Car,36,Female,Head-on collision,2,1
+14/08/2021,0:35,Saturday,III-E,14.08888014,121.3391607,Rainy,Wet,Car,25,Male,Rear-end collision,1,0
+12/09/2024,22:03,Thursday,San Jose (Malamig),14.08473196,121.3294762,Sunny,Dry,Car,36,Female,Rear-end collision,0,1
+29/09/2023,13:24,Friday,Santo Angel (Ilog),14.07936203,121.3300506,Cloudy,Dry,Motorcycle,22,Male,Head-on collision,4,0
+22/05/2020,6:54,Friday,San Miguel (Balintin),14.08152373,121.3324323,Sunny,Dry,Car,46,Male,Pedestrian accident,0,0
+24/04/2020,22:16,Friday,III-E,14.08034268,121.3300481,Rainy,Wet,Car,44,Male,Side-impact collision,0,0
+30/06/2023,22:02,Friday,V-C,14.09222416,121.3395686,Stormy,Wet,Car,46,Female,Head-on collision,6,1
+23/07/2024,0:30,Tuesday,San Antonio 2 (Sapa),14.0590693,121.3111049,Rainy,Wet,Motorcycle,54,Male,Side-impact collision,3,0
+21/11/2023,11:22,Tuesday,San Nicolas (Mag-ampong),14.07010161,121.3204101,Sunny,Dry,Motorcycle,33,Male,Side-impact collision,2,0
+22/05/2020,14:02,Friday,Santa Veronica (Bae),14.04958136,121.30124,Cloudy,Gravel,Motorcycle,57,Male,Rear-end collision,0,0
+16/02/2021,20:50,Tuesday,III-F (Balagtas),14.06907047,121.317822,Rainy,Wet,Car,36,Male,Side-impact collision,4,0
+15/05/2021,15:26,Saturday,San Roque (Sambat),14.06025846,121.3095019,Sunny,Dry,Car,37,Male,Side-impact collision,1,0
+15/08/2023,19:09,Tuesday,VI-E (YMCA),14.07224402,121.322668,Cloudy,Dry,Motorcycle,57,Male,Side-impact collision,3,0
+30/09/2024,18:25,Monday,San Francisco (Calihan),14.04934738,121.3006034,Cloudy,Dry,Bus,36,Female,Head-on collision,5,0
+07/04/2021,9:27,Wednesday,I-B (City+Riverside),14.08975911,121.3400263,Sunny,Dry,Truck,55,Male,Head-on collision,0,1
+14/09/2024,16:15,Saturday,III-E,14.06774347,121.3255795,Stormy,Gravel,Motorcycle,54,Male,Side-impact collision,6,1
+18/01/2024,9:15,Thursday,Santa Catalina (Sandig),14.09538971,121.3166934,Sunny,Dry,Motorcycle,22,Male,Single vehicle accident,1,0
+10/07/2020,8:17,Friday,Santa Elena,14.08938762,121.3395275,Sunny,Dry,Car,27,Male,Side-impact collision,0,0
+11/08/2021,5:28,Wednesday,San Buenaventura (Palakpakin),14.0601138,121.3097461,Sunny,Dry,Motorcycle,23,Female,Head-on collision,6,0
+23/05/2020,17:24,Saturday,IV-B,14.09072149,121.340804,Sunny,Potholes,Car,24,Female,Rear-end collision,0,0
+24/01/2022,12:09,Monday,VI-C (Bagong Pook),14.0698045,121.3210139,Rainy,Gravel,Motorcycle,23,Male,Rear-end collision,0,0
+10/04/2022,8:10,Sunday,VII-C,14.08723367,121.314338,Sunny,Dry,Motorcycle,51,Male,Rear-end collision,3,0
+03/10/2020,13:09,Saturday,San Jose (Malamig),14.08651001,121.3168547,Sunny,Dry,Motorcycle,39,Male,Side-impact collision,2,0
+07/02/2024,22:39,Wednesday,III-F (Balagtas),14.06017872,121.3104921,Rainy,Wet,Tricycle,43,Male,Head-on collision,3,1
+09/02/2023,18:57,Thursday,San Antonio 2 (Sapa),14.08440262,121.3427898,Sunny,Dry,Car,40,Male,Head-on collision,4,1
+19/04/2020,7:10,Sunday,Dolores,14.04763044,121.3008583,Sunny,Dry,Car,35,Male,Rear-end collision,1,0
+03/02/2024,17:55,Saturday,Santa Monica,14.07071559,121.3213622,Rainy,Wet,Car,28,Male,Rear-end collision,1,0
+02/04/2023,8:28,Sunday,Dolores,14.07118275,121.3177049,Sunny,Dry,Motorcycle,38,Female,Rear-end collision,1,0
+10/11/2021,19:03,Wednesday,San Joaquin,14.09969854,121.3365652,Sunny,Dry,Truck,40,Male,Rear-end collision,1,0
+29/11/2024,19:29,Friday,V-C,14.08072776,121.3291867,Sunny,Dry,Car,27,Male,Side-impact collision,1,1
+09/12/2022,23:23,Friday,San Isidro (Balagbag),14.06974005,121.3200167,Rainy,Potholes,Truck,31,Male,Single vehicle accident,1,1
+28/08/2022,7:28,Sunday,San Juan (Putol),14.09596288,121.3158755,Cloudy,Dry,Truck,40,Male,Rear-end collision,1,0
+29/05/2024,13:48,Wednesday,II-D (Bulante),14.05923457,121.3112479,Sunny,Dry,Car,51,Male,Single vehicle accident,1,0
+29/03/2023,8:21,Wednesday,San Lorenzo (Saluyan),14.08024252,121.3322215,Sunny,Dry,Car,25,Male,Head-on collision,1,1
+20/01/2022,17:04,Thursday,San Lucas 1 (Sabang),14.09020034,121.3397108,Rainy,Wet,Tricycle,18,Male,Rear-end collision,0,0
+05/09/2023,19:15,Tuesday,Santa Ana,14.05051122,121.299336,Rainy,Wet,Motorcycle,18,Male,Single vehicle accident,2,0
+07/01/2023,6:47,Saturday,San Isidro (Balagbag),14.05953,121.3081604,Cloudy,Dry,Motorcycle,27,Male,Head-on collision,3,0
+09/02/2022,14:27,Wednesday,San Antonio 2 (Sapa),14.09000514,121.3392987,Cloudy,Dry,Truck,46,Female,Side-impact collision,2,0
+17/05/2020,19:52,Sunday,VI-E (YMCA),14.09441755,121.3029334,Rainy,Potholes,Motorcycle,33,Male,Head-on collision,0,0
+06/06/2021,13:18,Sunday,I-A (Sambat),14.05834757,121.3486916,Sunny,Dry,Car,30,Female,Single vehicle accident,0,1
+26/05/2022,11:52,Thursday,II-A (Triangulo Guadalupe 2),14.09165764,121.3096009,Cloudy,Potholes,Truck,26,Male,Side-impact collision,1,0
+11/09/2022,8:40,Sunday,VII-A (P. Alcantara),14.06000212,121.3092292,Rainy,Wet,Car,40,Male,Side-impact collision,0,0
+01/12/2024,1:56,Sunday,San Lucas 1 (Sabang),14.0799523,121.3294208,Sunny,Dry,Motorcycle,48,Male,Pedestrian accident,4,1
+05/03/2024,5:28,Tuesday,II-D (Bulante),14.07913221,121.332272,Sunny,Dry,Truck,43,Male,Side-impact collision,2,0
+20/02/2022,10:09,Sunday,Del Remedio (Wawa),14.0514126,121.3450805,Rainy,Wet,Car,46,Male,Head-on collision,5,1
+21/12/2021,12:11,Tuesday,V-D,14.07882746,121.3292043,Sunny,Potholes,Truck,41,Male,Head-on collision,2,1
+19/06/2020,14:37,Friday,VI-E (YMCA),14.0907106,121.3392352,Rainy,Wet,Car,42,Female,Rear-end collision,0,0
+25/04/2020,10:52,Saturday,San Jose (Malamig),14.09055403,121.3392424,Cloudy,Dry,Tricycle,25,Male,Head-on collision,2,2
+06/09/2021,19:45,Monday,III-D (Vilongco),14.06769722,121.3206776,Rainy,Wet,Car,26,Female,Head-on collision,1,2
+24/07/2024,19:40,Wednesday,II-E (San Anton),14.04940447,121.3002143,Rainy,Wet,Tricycle,37,Female,Rear-end collision,1,0
+30/09/2022,20:11,Friday,San Francisco (Calihan),14.05967606,121.3101062,Rainy,Wet,Motorcycle,31,Male,Side-impact collision,2,0
+23/02/2021,4:13,Tuesday,Santo Angel (Ilog),14.06105026,121.307123,Cloudy,Gravel,Truck,33,Male,Rear-end collision,1,0
+21/10/2021,8:37,Thursday,II-D (Bulante),14.07753049,121.344857,Rainy,Wet,Motorcycle,45,Male,Pedestrian accident,1,0
+13/05/2020,7:11,Wednesday,VII-B,14.07019729,121.3195721,Sunny,Dry,Car,46,Male,Rear-end collision,1,1
+09/12/2021,23:52,Thursday,I-B (City+Riverside),14.05168202,121.3001186,Sunny,Dry,Car,20,Male,Single vehicle accident,3,0
+20/02/2024,18:39,Tuesday,V-D,14.05211128,121.3059771,Rainy,Wet,Car,33,Female,Rear-end collision,2,0
+17/04/2024,6:25,Wednesday,Santo Cristo,14.08944569,121.3407685,Rainy,Wet,Motorcycle,25,Female,Rear-end collision,5,0
+06/06/2024,12:10,Thursday,San Juan (Putol),14.09415201,121.3224485,Sunny,Dry,Motorcycle,37,Male,Side-impact collision,2,0
+13/04/2021,14:20,Tuesday,Santo Cristo,14.06162835,121.3110103,Rainy,Wet,Motorcycle,20,Female,Rear-end collision,3,0
+27/05/2022,19:48,Friday,Santiago II (Bulaho),14.0491556,121.3025291,Sunny,Dry,Tricycle,31,Female,Rear-end collision,0,0
+01/07/2021,8:07,Thursday,San Mateo (Imok),14.07853226,121.3299256,Rainy,Wet,Motorcycle,41,Male,Rear-end collision,1,0
+09/01/2022,18:35,Sunday,San Miguel (Balintin),14.0589028,121.310119,Rainy,Wet,Bicycle,41,Male,Side-impact collision,0,0
+18/07/2021,4:57,Sunday,Santa Ana,14.05919649,121.3099898,Sunny,Dry,Truck,30,Female,Rear-end collision,1,0
+16/01/2020,18:37,Thursday,Santa Maria,14.08902964,121.3220467,Cloudy,Dry,Car,22,Female,Single vehicle accident,0,0
+25/01/2020,1:21,Saturday,V-B,14.08522674,121.3117534,Cloudy,Dry,Motorcycle,31,Male,Rear-end collision,0,0
+11/12/2020,3:27,Friday,San Roque (Sambat),14.06725112,121.320654,Stormy,Wet,Motorcycle,21,Male,Single vehicle accident,1,0
+06/11/2024,21:10,Wednesday,San Buenaventura (Palakpakin),14.05137712,121.2988364,Rainy,Wet,Truck,38,Male,Pedestrian accident,3,1
+07/05/2020,9:24,Thursday,VII-E,14.0497432,121.300022,Sunny,Dry,Car,35,Male,Rear-end collision,1,0
+29/03/2020,11:52,Sunday,V-D,14.090041,121.3399348,Rainy,Wet,Truck,18,Male,Head-on collision,3,0
+16/03/2020,10:17,Monday,II-A (Triangulo Guadalupe 2),14.0698825,121.3213716,Sunny,Dry,Motorcycle,33,Male,Single vehicle accident,0,0
+08/09/2023,15:07,Friday,Atisan,14.06042618,121.3100011,Rainy,Potholes,Car,37,Male,Head-on collision,1,0
+21/09/2022,11:08,Wednesday,Santa Isabel,14.07134176,121.3199511,Rainy,Wet,Car,36,Female,Rear-end collision,2,0
+26/11/2024,21:25,Tuesday,Santo Niño (Arsum),14.04890029,121.3010585,Sunny,Dry,Truck,37,Male,Side-impact collision,4,0
+08/02/2023,8:19,Wednesday,VII-B,14.05731842,121.3110467,Rainy,Wet,Motorcycle,53,Female,Side-impact collision,1,0
+27/07/2024,4:52,Saturday,VII-C,14.04981205,121.2978762,Sunny,Gravel,Tricycle,52,Male,Rear-end collision,0,0
+06/01/2021,2:34,Wednesday,Santa Monica,14.07052408,121.3186218,Sunny,Dry,Car,60,Male,Single vehicle accident,0,1
+04/11/2020,7:10,Wednesday,San Francisco (Calihan),14.07247407,121.3282473,Rainy,Gravel,Motorcycle,38,Female,Side-impact collision,2,0
+04/06/2021,18:04,Friday,San Jose (Malamig),14.08850834,121.3367461,Rainy,Wet,Car,28,Female,Single vehicle accident,2,0
+01/05/2024,20:36,Wednesday,San Antonio 1 (Balanga),14.05849655,121.31166,Sunny,Gravel,Motorcycle,35,Male,Pedestrian accident,2,1
+22/08/2024,20:51,Thursday,San Bartolome (Matang-ag),14.05965925,121.3100084,Rainy,Wet,Truck,21,Male,Rear-end collision,2,0
+06/02/2021,10:23,Saturday,III-A (Hermanos Belen),14.05940141,121.3107583,Sunny,Potholes,Car,37,Male,Rear-end collision,0,0
+22/07/2022,5:31,Friday,San Vicente,14.09177001,121.335535,Rainy,Wet,Car,30,Female,Rear-end collision,1,0
+16/07/2021,17:39,Friday,San Gregorio,14.05122651,121.3065631,Sunny,Gravel,Motorcycle,50,Male,Side-impact collision,3,0
+24/12/2024,0:05,Tuesday,Dolores,14.04727351,121.3006292,Sunny,Dry,Motorcycle,40,Male,Single vehicle accident,1,0
+27/03/2021,9:28,Saturday,IV-B,14.06117737,121.310062,Rainy,Wet,Car,32,Female,Rear-end collision,1,0
+01/10/2021,15:38,Friday,San Mateo (Imok),14.06980584,121.3215336,Rainy,Wet,Car,24,Male,Head-on collision,2,0
+27/07/2022,23:37,Wednesday,II-F (Villa Rey),14.08076225,121.3302966,Sunny,Dry,Truck,41,Male,Side-impact collision,2,0
+06/08/2020,9:26,Thursday,VI-C (Bagong Pook),14.06064236,121.3098366,Rainy,Gravel,Motorcycle,30,Female,Side-impact collision,1,0
+08/07/2020,3:02,Wednesday,San Pedro,14.07902818,121.3313946,Rainy,Wet,Motorcycle,18,Male,Single vehicle accident,0,0
+19/12/2020,15:37,Saturday,II-E (San Anton),14.09011207,121.3403047,Sunny,Dry,Motorcycle,28,Male,Rear-end collision,0,1
+16/10/2022,8:49,Sunday,San Bartolome (Matang-ag),14.05084902,121.3005277,Sunny,Dry,Motorcycle,20,Female,Rear-end collision,0,0
+23/12/2021,16:51,Thursday,Bautista,14.0494252,121.3007477,Stormy,Wet,Car,40,Female,Pedestrian accident,1,0
+31/08/2024,6:56,Saturday,Concepcion (Bunot),14.08973964,121.3374294,Sunny,Dry,Tricycle,29,Male,Single vehicle accident,0,0
+17/09/2020,14:25,Thursday,San Francisco (Calihan),14.07660613,121.3308436,Sunny,Dry,Car,34,Female,Rear-end collision,2,0
+08/08/2024,11:53,Thursday,II-C (Unson),14.06837021,121.3361025,Sunny,Dry,Motorcycle,44,Female,Rear-end collision,0,0
+31/10/2022,1:29,Monday,VI-E (YMCA),14.08111841,121.3313892,Rainy,Potholes,Motorcycle,31,Male,Pedestrian accident,1,0
+11/12/2022,8:33,Sunday,San Joaquin,14.04805468,121.3013561,Rainy,Wet,Motorcycle,35,Female,Pedestrian accident,1,0
+24/09/2023,22:36,Sunday,Santa Isabel,14.07062218,121.3214339,Sunny,Gravel,Car,52,Male,Rear-end collision,0,0
+22/05/2022,19:12,Sunday,Soledad (Macopa),14.07924557,121.3306865,Sunny,Dry,Car,28,Male,Head-on collision,2,1
+29/01/2024,9:08,Monday,San Lucas 1 (Sabang),14.08912475,121.339203,Cloudy,Dry,Motorcycle,46,Male,Rear-end collision,3,0
+27/10/2023,17:43,Friday,VII-A (P. Alcantara),14.06870561,121.3207165,Sunny,Gravel,Motorcycle,33,Female,Head-on collision,3,1
+16/08/2023,22:44,Wednesday,IV-C,14.0595656,121.3099196,Rainy,Wet,Truck,34,Male,Head-on collision,1,0
+30/01/2024,16:50,Tuesday,San Isidro (Balagbag),14.0828333,121.3393448,Cloudy,Dry,Motorcycle,44,Male,Rear-end collision,3,0
+22/11/2020,17:58,Sunday,San Nicolas (Mag-ampong),14.06076869,121.3086635,Sunny,Potholes,Car,36,Male,Pedestrian accident,1,0
+25/05/2024,6:20,Saturday,San Marcos (Tikew),14.051504,121.3012353,Sunny,Potholes,Bicycle,27,Male,Head-on collision,0,1
+13/06/2023,3:02,Tuesday,V-A,14.07692962,121.3277341,Rainy,Wet,Motorcycle,24,Male,Single vehicle accident,0,0
+26/02/2024,21:39,Monday,III-A (Hermanos Belen),14.09452033,121.3456257,Rainy,Wet,Motorcycle,31,Male,Pedestrian accident,1,0
+11/12/2024,16:46,Wednesday,VII-C,14.07197047,121.3219502,Sunny,Dry,Motorcycle,24,Male,Single vehicle accident,0,0
+25/08/2023,17:25,Friday,San Diego (Tilim),14.08876978,121.3399253,Sunny,Potholes,Bicycle,34,Male,Side-impact collision,2,2
+16/09/2023,18:33,Saturday,II-D (Bulante),14.06892206,121.3205846,Rainy,Potholes,Motorcycle,38,Male,Rear-end collision,1,0
+13/02/2021,7:18,Saturday,II-C (Unson),14.05311467,121.3042714,Sunny,Dry,Car,48,Male,Single vehicle accident,0,0
+11/04/2023,2:34,Tuesday,Santiago II (Bulaho),14.07477311,121.3015105,Sunny,Dry,Motorcycle,32,Male,Side-impact collision,4,1
+19/06/2023,19:17,Monday,San Vicente,14.07815733,121.3256345,Rainy,Wet,Car,39,Female,Rear-end collision,0,0
+24/01/2020,1:50,Friday,Santa Maria Magdalena (Boe / Kuba),14.08962855,121.3404848,Rainy,Wet,Tricycle,39,Male,Pedestrian accident,3,0
+03/09/2023,21:34,Sunday,Santo Cristo,14.08021924,121.3305419,Sunny,Dry,Bicycle,27,Male,Rear-end collision,4,0
+28/10/2022,2:17,Friday,VII-B,14.05876693,121.3112195,Rainy,Wet,Car,44,Male,Side-impact collision,1,0
+25/09/2022,13:40,Sunday,Santiago II (Bulaho),14.07967635,121.3289448,Rainy,Wet,Truck,40,Female,Head-on collision,7,0
+02/09/2021,19:44,Thursday,Santa Monica,14.08002618,121.3313091,Cloudy,Dry,Truck,42,Female,Side-impact collision,3,0
+15/06/2020,16:55,Monday,VI-C (Bagong Pook),14.07876623,121.3316133,Sunny,Dry,Car,55,Male,Pedestrian accident,1,0
+23/04/2020,11:14,Thursday,VI-C (Bagong Pook),14.09611699,121.3131366,Sunny,Dry,Motorcycle,35,Male,Pedestrian accident,1,0
+31/03/2024,9:04,Sunday,Santisimo Rosario (Balagbag),14.06997121,121.3203475,Sunny,Dry,Motorcycle,33,Male,Rear-end collision,1,0
+07/05/2024,16:32,Tuesday,II-E (San Anton),14.05070216,121.2995911,Sunny,Dry,Bus,38,Male,Pedestrian accident,3,0
+15/11/2022,14:58,Tuesday,San Joaquin,14.04929096,121.3010212,Sunny,Potholes,Car,34,Female,Side-impact collision,4,1
+31/03/2024,21:46,Sunday,San Diego (Tilim),14.04920175,121.2992612,Rainy,Wet,Car,40,Male,Head-on collision,1,0
+04/12/2020,22:47,Friday,Bautista,14.05586979,121.3419797,Sunny,Dry,Truck,28,Female,Side-impact collision,1,0
+18/06/2020,2:03,Thursday,San Cristobal,14.06996734,121.3198481,Sunny,Dry,Motorcycle,24,Female,Single vehicle accident,1,0
+01/12/2023,13:11,Friday,II-C (Unson),14.0708266,121.3203276,Cloudy,Dry,Motorcycle,27,Male,Pedestrian accident,4,0
+14/08/2020,0:08,Friday,IV-A,14.09192846,121.3402788,Sunny,Dry,Motorcycle,18,Male,Side-impact collision,1,0
+01/04/2022,15:33,Friday,San Buenaventura (Palakpakin),14.07816201,121.3308992,Cloudy,Dry,Motorcycle,33,Male,Rear-end collision,2,0
+27/07/2024,5:51,Saturday,Santo Cristo,14.08848065,121.3387615,Rainy,Wet,Car,24,Female,Head-on collision,3,1
+21/08/2021,0:10,Saturday,Santo Angel (Ilog),14.09005934,121.3386055,Sunny,Dry,Tricycle,32,Male,Side-impact collision,1,0
+02/01/2020,0:34,Thursday,San Diego (Tilim),14.08781772,121.3299918,Cloudy,Potholes,Car,36,Male,Side-impact collision,3,0
+26/02/2022,4:27,Saturday,San Lucas 1 (Sabang),14.09553265,121.3158707,Sunny,Dry,Truck,24,Female,Single vehicle accident,1,0
+24/06/2020,0:54,Wednesday,Santisimo Rosario (Balagbag),14.06848867,121.3341575,Sunny,Dry,Motorcycle,20,Male,Side-impact collision,3,0
+04/02/2021,20:33,Thursday,San Juan (Putol),14.07075532,121.3194234,Sunny,Dry,Motorcycle,40,Male,Head-on collision,0,1
+14/06/2021,23:49,Monday,San Vicente,14.05853506,121.3111841,Sunny,Potholes,Motorcycle,32,Male,Side-impact collision,2,0
+04/01/2024,17:34,Thursday,Concepcion (Bunot),14.06021529,121.3114882,Stormy,Gravel,Car,35,Male,Single vehicle accident,0,0
+05/10/2024,1:31,Saturday,III-E,14.07011299,121.3200919,Sunny,Gravel,Motorcycle,18,Female,Side-impact collision,1,0
+31/08/2024,23:37,Saturday,San Joaquin,14.04885199,121.3012918,Sunny,Gravel,Motorcycle,35,Male,Side-impact collision,4,0
+01/11/2020,18:35,Sunday,San Gregorio,14.05916626,121.3103126,Sunny,Dry,Motorcycle,28,Female,Rear-end collision,1,0
+26/10/2020,18:20,Monday,San Jose (Malamig),14.08060274,121.3302735,Sunny,Dry,Motorcycle,45,Female,Side-impact collision,4,0
+28/12/2022,8:39,Wednesday,III-A (Hermanos Belen),14.09113653,121.3255794,Rainy,Gravel,Truck,18,Male,Rear-end collision,3,0
+28/10/2024,4:55,Monday,San Antonio 1 (Balanga),14.080568,121.3300758,Sunny,Dry,Motorcycle,35,Male,Head-on collision,4,0
+24/10/2023,8:38,Tuesday,San Mateo (Imok),14.04960639,121.298621,Sunny,Dry,Motorcycle,33,Female,Rear-end collision,2,0
+11/03/2024,7:08,Monday,II-E (San Anton),14.07178065,121.3490122,Rainy,Wet,Car,34,Female,Rear-end collision,2,0
+28/11/2021,20:52,Sunday,Santiago 1 (Bulaho),14.08048025,121.3306064,Rainy,Gravel,Car,44,Male,Side-impact collision,0,0
+01/02/2021,20:18,Monday,Bautista,14.08050015,121.3164611,Sunny,Dry,Car,36,Male,Rear-end collision,1,0
+29/01/2022,7:25,Saturday,Dolores,14.05018594,121.3002071,Sunny,Dry,Motorcycle,42,Male,Rear-end collision,0,0
+21/11/2021,18:39,Sunday,San Gabriel (Butucan),14.05993271,121.3092866,Sunny,Dry,Motorcycle,27,Male,Pedestrian accident,1,0
+21/03/2021,19:46,Sunday,San Lucas 1 (Sabang),14.07960583,121.3279104,Sunny,Potholes,Tricycle,51,Male,Pedestrian accident,2,0
+02/04/2022,18:11,Saturday,Concepcion (Bunot),14.09554207,121.3366769,Sunny,Dry,Car,40,Female,Pedestrian accident,2,0
+22/02/2022,11:05,Tuesday,V-D,14.06046306,121.309667,Sunny,Dry,Motorcycle,47,Female,Rear-end collision,2,0
+10/02/2020,12:47,Monday,San Rafael (Buluburan),14.06242507,121.3164294,Sunny,Gravel,Car,35,Male,Rear-end collision,2,0
+24/06/2020,10:02,Wednesday,Santa Maria Magdalena (Boe / Kuba),14.07077808,121.320356,Rainy,Wet,Car,21,Male,Pedestrian accident,4,0
+11/11/2021,19:08,Thursday,II-D (Bulante),14.08081204,121.3295965,Rainy,Wet,Bus,23,Female,Single vehicle accident,2,0
+02/03/2021,17:23,Tuesday,I-A (Sambat),14.06812996,121.3227213,Rainy,Wet,Motorcycle,32,Male,Rear-end collision,1,0
+13/12/2020,17:52,Sunday,Santa Catalina (Sandig),14.055289,121.3313537,Sunny,Dry,Motorcycle,35,Male,Side-impact collision,4,0
+11/06/2021,19:59,Friday,San Mateo (Imok),14.0501456,121.3009937,Sunny,Dry,Bicycle,37,Male,Head-on collision,3,0
+23/01/2020,0:16,Thursday,Santa Elena,14.06059066,121.3094561,Sunny,Dry,Motorcycle,41,Male,Rear-end collision,3,0
+15/06/2024,12:42,Saturday,Soledad (Macopa),14.05864714,121.3098425,Rainy,Wet,Motorcycle,38,Male,Side-impact collision,0,0
+09/02/2021,1:59,Tuesday,San Francisco (Calihan),14.05920501,121.3094651,Rainy,Wet,Truck,40,Female,Side-impact collision,1,0
+23/08/2020,19:47,Sunday,III-D (Vilongco),14.0943623,121.3025456,Rainy,Gravel,Motorcycle,24,Male,Side-impact collision,3,0
+10/05/2022,8:00,Tuesday,Santisimo Rosario (Balagbag),14.09021772,121.3393409,Rainy,Gravel,Motorcycle,32,Male,Rear-end collision,4,0
+10/04/2024,21:44,Wednesday,Santa Maria,14.05939203,121.3091521,Rainy,Wet,Tricycle,38,Male,Head-on collision,2,1
+10/04/2023,1:12,Monday,VII-A (P. Alcantara),14.04979374,121.3010549,Sunny,Dry,Truck,39,Male,Head-on collision,4,0
+16/06/2021,10:53,Wednesday,San Antonio 2 (Sapa),14.08203935,121.3296841,Sunny,Gravel,Car,52,Male,Side-impact collision,2,0
+08/04/2022,14:55,Friday,II-B (Guadalupe 1),14.07961132,121.3310146,Sunny,Dry,Motorcycle,44,Female,Side-impact collision,1,0
+23/03/2022,7:18,Wednesday,Santa Maria,14.06505925,121.3110004,Sunny,Dry,Motorcycle,31,Male,Rear-end collision,3,1
+30/12/2020,12:52,Wednesday,V-C,14.04959403,121.3009588,Cloudy,Potholes,Car,30,Female,Head-on collision,2,0
+22/02/2022,13:31,Tuesday,San Crispin (Lumbangan),14.06884651,121.331625,Rainy,Wet,Bus,34,Male,Single vehicle accident,2,0
+28/04/2023,7:39,Friday,VII-B,14.08927864,121.3393408,Sunny,Dry,Car,34,Female,Single vehicle accident,0,0
+14/06/2023,16:42,Wednesday,IV-A,14.06996546,121.3200448,Sunny,Dry,Tricycle,18,Male,Head-on collision,4,2
+26/05/2022,4:48,Thursday,III-E,14.07820346,121.3289376,Rainy,Gravel,Car,34,Male,Single vehicle accident,1,1
+16/02/2020,8:30,Sunday,II-F (Villa Rey),14.08001629,121.330903,Rainy,Wet,Truck,33,Male,Pedestrian accident,2,0
+18/07/2022,9:38,Monday,San Juan (Putol),14.05063941,121.2998101,Sunny,Dry,Motorcycle,35,Female,Side-impact collision,1,0
+24/02/2020,8:23,Monday,San Buenaventura (Palakpakin),14.06037718,121.3495295,Sunny,Dry,Bus,42,Female,Head-on collision,7,0
+26/08/2020,1:36,Wednesday,San Marcos (Tikew),14.08885953,121.3299608,Sunny,Dry,Car,32,Male,Head-on collision,5,0
+14/02/2024,16:54,Wednesday,Santo Angel (Ilog),14.08220492,121.3303347,Cloudy,Dry,Tricycle,45,Male,Side-impact collision,1,1
+20/12/2023,7:48,Wednesday,V-B,14.06909946,121.3204598,Sunny,Potholes,Motorcycle,31,Male,Rear-end collision,3,0
+12/09/2022,7:48,Monday,San Gabriel (Butucan),14.04981853,121.3011682,Sunny,Dry,Truck,39,Male,Side-impact collision,2,0
+11/12/2021,4:04,Saturday,San Pedro,14.06943018,121.3180901,Sunny,Dry,Car,39,Male,Single vehicle accident,0,1
+03/12/2021,0:25,Friday,San Gregorio,14.05401106,121.3050742,Sunny,Dry,Motorcycle,24,Male,Pedestrian accident,3,0
+23/11/2022,5:12,Wednesday,Santa Catalina (Sandig),14.0600346,121.3101457,Sunny,Potholes,Car,38,Male,Single vehicle accident,1,0
+07/09/2020,21:08,Monday,San Crispin (Lumbangan),14.05229453,121.2989472,Rainy,Wet,Car,45,Female,Rear-end collision,1,0
+03/01/2020,18:51,Friday,San Lorenzo (Saluyan),14.07886354,121.3303257,Stormy,Wet,Tricycle,35,Female,Side-impact collision,2,0
+18/10/2022,0:42,Tuesday,Soledad (Macopa),14.07996373,121.3302242,Sunny,Dry,Motorcycle,30,Male,Pedestrian accident,1,0
+06/10/2023,22:48,Friday,San Lucas 1 (Sabang),14.06791087,121.3207816,Stormy,Wet,Motorcycle,37,Male,Rear-end collision,1,0
+08/05/2023,7:17,Monday,II-D (Bulante),14.05486018,121.3335118,Sunny,Dry,Car,35,Male,Rear-end collision,0,1
+08/07/2023,19:07,Saturday,V-B,14.08897935,121.3402623,Stormy,Wet,Car,20,Male,Pedestrian accident,0,0
+02/03/2020,7:01,Monday,San Gabriel (Butucan),14.04939187,121.300608,Cloudy,Dry,Motorcycle,36,Male,Pedestrian accident,2,0
+07/11/2022,16:45,Monday,II-D (Bulante),14.07472294,121.3206101,Rainy,Wet,Tricycle,44,Male,Pedestrian accident,0,0
+29/12/2022,1:42,Thursday,San Diego (Tilim),14.07856728,121.328149,Cloudy,Dry,Car,19,Male,Side-impact collision,1,0
+25/02/2020,7:05,Tuesday,IV-B,14.08181538,121.3172497,Sunny,Dry,Motorcycle,25,Female,Side-impact collision,1,0
+06/05/2024,7:17,Monday,V-D,14.05229903,121.3073622,Rainy,Wet,Tricycle,57,Female,Rear-end collision,0,0
+02/06/2022,14:04,Thursday,Bautista,14.07728069,121.3136703,Rainy,Wet,Car,24,Female,Pedestrian accident,2,0
+11/07/2023,15:13,Tuesday,II-E (San Anton),14.07095537,121.3147727,Sunny,Gravel,Motorcycle,36,Female,Pedestrian accident,1,0
+13/05/2022,20:35,Friday,San Gabriel (Butucan),14.06024561,121.3100017,Sunny,Dry,Bicycle,32,Female,Side-impact collision,1,0
+29/03/2023,20:21,Wednesday,VI-B,14.089995,121.3410536,Rainy,Wet,Bus,24,Female,Rear-end collision,1,0
+07/01/2021,2:17,Thursday,I-A (Sambat),14.05034407,121.3347139,Sunny,Dry,Motorcycle,33,Male,Side-impact collision,1,1
+26/10/2023,10:49,Thursday,San Bartolome (Matang-ag),14.05116412,121.2982462,Cloudy,Potholes,Bus,46,Male,Pedestrian accident,2,0
+11/06/2023,21:18,Sunday,San Jose (Malamig),14.09723534,121.3254787,Cloudy,Dry,Car,22,Male,Pedestrian accident,0,0
+02/04/2020,0:43,Thursday,IV-B,14.09111956,121.3400972,Sunny,Dry,Truck,35,Male,Head-on collision,2,3
+15/04/2021,17:11,Thursday,V-D,14.08877979,121.3449045,Cloudy,Dry,Bus,30,Female,Rear-end collision,3,0
+22/12/2022,15:24,Thursday,III-E,14.05855792,121.3111369,Sunny,Dry,Motorcycle,30,Female,Side-impact collision,1,0
+25/05/2024,18:16,Saturday,Del Remedio (Wawa),14.04881898,121.3003973,Cloudy,Dry,Motorcycle,43,Male,Head-on collision,6,0
+11/10/2023,9:09,Wednesday,VII-B,14.06315316,121.3420235,Sunny,Dry,Motorcycle,24,Male,Rear-end collision,1,0
+04/05/2023,19:30,Thursday,Dolores,14.08869621,121.3394866,Rainy,Wet,Motorcycle,23,Female,Pedestrian accident,1,0
+24/07/2023,17:49,Monday,VI-E (YMCA),14.08877605,121.3405022,Sunny,Dry,Motorcycle,35,Female,Rear-end collision,1,0
+14/06/2022,21:27,Tuesday,San Antonio 2 (Sapa),14.08953351,121.3065394,Sunny,Potholes,Car,31,Male,Pedestrian accident,1,0
+24/09/2024,18:42,Tuesday,San Marcos (Tikew),14.06954543,121.3212382,Cloudy,Dry,Car,45,Male,Single vehicle accident,1,0
+16/09/2022,8:31,Friday,Santa Ana,14.05039148,121.2995928,Rainy,Wet,Truck,32,Male,Rear-end collision,2,0
+31/05/2021,17:45,Monday,San Antonio 2 (Sapa),14.08005315,121.3282309,Rainy,Wet,Car,52,Male,Rear-end collision,0,0
+22/10/2023,3:37,Sunday,San Mateo (Imok),14.08367994,121.3277547,Sunny,Dry,Motorcycle,25,Female,Side-impact collision,1,1
+26/07/2022,7:11,Tuesday,San Juan (Putol),14.09841752,121.345252,Sunny,Dry,Motorcycle,47,Male,Head-on collision,3,0
+04/06/2020,6:01,Thursday,VII-C,14.05891417,121.3011169,Sunny,Dry,Tricycle,41,Male,Rear-end collision,3,1
+04/06/2022,11:59,Saturday,III-F (Balagtas),14.07362051,121.3160033,Rainy,Wet,Truck,44,Male,Pedestrian accident,3,0
+12/01/2022,3:32,Wednesday,Santa Filomena (Banagin),14.05227551,121.3168139,Sunny,Dry,Car,33,Female,Head-on collision,4,0
+15/09/2024,0:49,Sunday,San Antonio 1 (Balanga),14.05019517,121.2994862,Cloudy,Dry,Car,21,Male,Pedestrian accident,2,0
+14/04/2024,15:34,Sunday,San Francisco (Calihan),14.07201607,121.318202,Rainy,Potholes,Motorcycle,37,Male,Side-impact collision,2,0
+27/06/2022,23:07,Monday,V-D,14.09768479,121.3205263,Sunny,Potholes,Motorcycle,47,Male,Rear-end collision,2,0
+05/06/2022,4:00,Sunday,Santiago 1 (Bulaho),14.08000756,121.3317008,Rainy,Wet,Car,26,Male,Head-on collision,1,0
+18/09/2024,17:51,Wednesday,I-A (Sambat),14.07929376,121.3316209,Sunny,Dry,Car,31,Male,Pedestrian accident,5,0
+12/09/2023,14:37,Tuesday,II-A (Triangulo Guadalupe 2),14.09090821,121.3394936,Rainy,Potholes,Motorcycle,20,Male,Single vehicle accident,4,0
+04/12/2021,0:26,Saturday,Soledad (Macopa),14.09125935,121.3055191,Rainy,Wet,Motorcycle,37,Female,Side-impact collision,1,0
+27/07/2021,5:35,Tuesday,II-B (Guadalupe 1),14.05708296,121.3098864,Sunny,Dry,Car,21,Female,Head-on collision,2,0
+19/10/2024,9:59,Saturday,III-B,14.054783,121.305542,Stormy,Gravel,Truck,39,Female,Rear-end collision,0,0
+31/12/2022,18:10,Saturday,VI-C (Bagong Pook),14.04986774,121.2986211,Rainy,Potholes,Car,25,Male,Side-impact collision,3,0
+22/03/2024,6:30,Friday,San Isidro (Balagbag),14.05995771,121.3109812,Sunny,Dry,Motorcycle,25,Female,Side-impact collision,3,1
+11/12/2022,2:21,Sunday,II-E (San Anton),14.07010655,121.3201051,Sunny,Dry,Motorcycle,32,Male,Pedestrian accident,3,0
+06/07/2020,7:09,Monday,II-A (Triangulo Guadalupe 2),14.09148438,121.3398319,Rainy,Wet,Truck,33,Female,Rear-end collision,2,0
+16/10/2021,7:00,Saturday,San Antonio 1 (Balanga),14.08969939,121.3398712,Sunny,Gravel,Motorcycle,47,Female,Rear-end collision,3,0
+17/12/2022,9:46,Saturday,San Crispin (Lumbangan),14.090505,121.3265053,Rainy,Wet,Motorcycle,27,Male,Pedestrian accident,0,0
+27/12/2022,2:51,Tuesday,San Gabriel (Butucan),14.09122459,121.3110003,Rainy,Wet,Car,33,Male,Rear-end collision,2,0
+01/07/2020,6:23,Wednesday,III-E,14.06067431,121.3098672,Sunny,Dry,Motorcycle,23,Male,Head-on collision,5,1
+24/08/2023,5:17,Thursday,Santa Filomena (Banagin),14.06006909,121.3094907,Sunny,Dry,Truck,24,Male,Pedestrian accident,1,0
+29/12/2022,1:30,Thursday,Santo Niño (Arsum),14.05184814,121.3212412,Sunny,Dry,Motorcycle,38,Male,Head-on collision,2,0
+04/03/2024,7:38,Monday,III-B,14.0695735,121.3196094,Sunny,Dry,Motorcycle,35,Male,Rear-end collision,2,1
+18/03/2021,12:51,Thursday,V-C,14.08017159,121.3293326,Sunny,Dry,Motorcycle,35,Male,Head-on collision,2,0
+05/10/2023,16:39,Thursday,II-A (Triangulo Guadalupe 2),14.0810901,121.3305985,Sunny,Dry,Motorcycle,39,Male,Single vehicle accident,3,0
+03/02/2020,6:38,Monday,Santo Cristo,14.0701695,121.3201862,Sunny,Dry,Car,55,Male,Rear-end collision,0,0
+27/06/2023,9:00,Tuesday,II-F (Villa Rey),14.07910884,121.3308261,Sunny,Dry,Car,50,Female,Pedestrian accident,0,0
+19/10/2024,6:49,Saturday,San Lucas 1 (Sabang),14.09133352,121.3384436,Sunny,Dry,Tricycle,47,Male,Head-on collision,2,2
+03/02/2022,21:13,Thursday,San Nicolas (Mag-ampong),14.06223471,121.3198649,Sunny,Dry,Car,18,Male,Side-impact collision,3,0
+20/07/2021,21:07,Tuesday,San Juan (Putol),14.06108235,121.3100846,Stormy,Wet,Car,38,Male,Single vehicle accident,0,0
+28/12/2024,23:15,Saturday,VII-A (P. Alcantara),14.07464335,121.3050521,Rainy,Gravel,Motorcycle,51,Male,Rear-end collision,0,0
+09/09/2024,15:21,Monday,San Diego (Tilim),14.09316127,121.3222472,Sunny,Dry,Car,35,Male,Side-impact collision,2,0
+26/05/2023,18:55,Friday,San Buenaventura (Palakpakin),14.04918166,121.3001085,Rainy,Wet,Motorcycle,18,Female,Rear-end collision,1,0
+21/08/2023,6:29,Monday,Santo Niño (Arsum),14.06139347,121.3103712,Rainy,Wet,Car,36,Female,Head-on collision,5,1
+22/11/2020,15:48,Sunday,IV-C,14.06935023,121.319662,Rainy,Wet,Motorcycle,40,Male,Rear-end collision,0,0
+02/11/2021,4:57,Tuesday,Soledad (Macopa),14.07975137,121.3300238,Rainy,Wet,Car,43,Female,Side-impact collision,1,0
+04/07/2024,6:19,Thursday,IV-C,14.06960469,121.3203041,Stormy,Wet,Car,43,Female,Rear-end collision,1,0
+11/01/2021,9:09,Monday,Santo Cristo,14.08061036,121.3311071,Cloudy,Dry,Tricycle,40,Male,Rear-end collision,1,0
+26/03/2023,5:13,Sunday,San Antonio 1 (Balanga),14.09486878,121.3432387,Rainy,Wet,Tricycle,30,Male,Side-impact collision,0,1
+04/01/2020,8:25,Saturday,San Jose (Malamig),14.09865676,121.3095602,Cloudy,Dry,Motorcycle,37,Male,Rear-end collision,2,0
+19/02/2021,23:03,Friday,III-E,14.0633777,121.3374943,Sunny,Dry,Car,44,Male,Side-impact collision,3,0
+16/02/2023,13:11,Thursday,VII-C,14.08055615,121.3304934,Rainy,Wet,Tricycle,53,Male,Head-on collision,4,1
+20/05/2023,18:22,Saturday,San Rafael (Buluburan),14.0902275,121.3405505,Rainy,Wet,Motorcycle,48,Male,Rear-end collision,1,0
+02/05/2023,5:24,Tuesday,VII-C,14.07482396,121.3454545,Rainy,Wet,Motorcycle,24,Male,Rear-end collision,3,0
+27/05/2024,14:21,Monday,San Bartolome (Matang-ag),14.09834166,121.3279281,Sunny,Dry,Motorcycle,34,Male,Head-on collision,6,0
+28/03/2024,13:07,Thursday,Santa Ana,14.08019787,121.3299305,Sunny,Dry,Motorcycle,41,Male,Pedestrian accident,2,0
+28/08/2020,2:15,Friday,Santa Monica,14.08621165,121.3205747,Rainy,Wet,Motorcycle,34,Female,Head-on collision,0,0
+08/08/2024,4:45,Thursday,V-B,14.09075659,121.3412203,Sunny,Dry,Motorcycle,48,Male,Rear-end collision,0,0
+05/10/2021,6:23,Tuesday,San Nicolas (Mag-ampong),14.09422997,121.3383603,Rainy,Wet,Car,50,Male,Pedestrian accident,3,0
+25/08/2020,11:26,Tuesday,San Ignacio,14.06998735,121.320253,Rainy,Wet,Car,34,Male,Rear-end collision,1,0
+30/07/2024,13:46,Tuesday,San Lucas 1 (Sabang),14.0506235,121.2980379,Sunny,Potholes,Car,22,Male,Single vehicle accident,0,0
+18/06/2024,9:20,Tuesday,V-C,14.08898642,121.3410676,Sunny,Dry,Car,46,Male,Single vehicle accident,1,1
+28/12/2023,18:28,Thursday,Santiago II (Bulaho),14.06029569,121.309447,Sunny,Dry,Truck,23,Male,Head-on collision,2,0
+17/05/2021,17:37,Monday,III-A (Hermanos Belen),14.05904396,121.3108613,Sunny,Dry,Motorcycle,26,Female,Single vehicle accident,1,1
+19/03/2021,1:32,Friday,VI-C (Bagong Pook),14.09085297,121.3393851,Cloudy,Dry,Motorcycle,24,Female,Rear-end collision,1,0
+21/03/2022,1:08,Monday,San Francisco (Calihan),14.05935135,121.309926,Sunny,Gravel,Truck,26,Male,Pedestrian accident,2,0
+17/03/2022,21:10,Thursday,San Francisco (Calihan),14.08977165,121.3387846,Sunny,Dry,Tricycle,43,Male,Rear-end collision,2,1
+22/03/2020,13:20,Sunday,San Lorenzo (Saluyan),14.08118839,121.3309604,Sunny,Dry,Motorcycle,30,Male,Single vehicle accident,0,1
+13/10/2021,4:00,Wednesday,V-D,14.09080153,121.3386134,Sunny,Potholes,Motorcycle,39,Male,Side-impact collision,1,0
+04/04/2023,4:32,Tuesday,San Antonio 2 (Sapa),14.08938257,121.3396409,Sunny,Gravel,Motorcycle,36,Male,Rear-end collision,2,0
+27/09/2023,9:55,Wednesday,San Lucas 2 (Malinaw),14.06085798,121.3093821,Rainy,Wet,Motorcycle,46,Female,Single vehicle accident,1,1
+24/02/2024,11:36,Saturday,Santa Isabel,14.0903058,121.3389488,Sunny,Dry,Car,48,Female,Pedestrian accident,0,0
+14/01/2023,11:22,Saturday,San Nicolas (Mag-ampong),14.06894504,121.3409975,Sunny,Gravel,Car,36,Male,Head-on collision,4,0
+27/01/2023,20:28,Friday,Santo Angel (Ilog),14.0798477,121.3284591,Sunny,Gravel,Bicycle,28,Female,Head-on collision,1,0
+10/03/2021,17:52,Wednesday,VII-A (P. Alcantara),14.09131577,121.3405336,Rainy,Wet,Car,18,Male,Head-on collision,5,0
+19/11/2024,0:13,Tuesday,II-E (San Anton),14.06923308,121.320106,Cloudy,Dry,Motorcycle,51,Male,Head-on collision,3,0
+06/08/2024,17:31,Tuesday,San Lucas 1 (Sabang),14.0892082,121.3385457,Stormy,Wet,Motorcycle,25,Male,Rear-end collision,2,0
+02/02/2023,18:39,Thursday,V-C,14.07346667,121.3254489,Rainy,Wet,Car,40,Male,Side-impact collision,2,0
+12/10/2024,7:16,Saturday,San Antonio 2 (Sapa),14.05234882,121.2998799,Sunny,Dry,Motorcycle,18,Male,Rear-end collision,0,0
+22/09/2024,1:29,Sunday,San Nicolas (Mag-ampong),14.06146397,121.3103105,Rainy,Wet,Motorcycle,56,Male,Rear-end collision,1,0
+25/09/2021,5:14,Saturday,II-A (Triangulo Guadalupe 2),14.06027134,121.3101923,Rainy,Wet,Motorcycle,40,Male,Rear-end collision,0,0
+06/07/2020,8:06,Monday,San Juan (Putol),14.07533044,121.3291467,Sunny,Dry,Bicycle,29,Male,Rear-end collision,2,0
+06/05/2022,8:00,Friday,San Nicolas (Mag-ampong),14.06049023,121.3121429,Sunny,Potholes,Motorcycle,28,Male,Rear-end collision,3,0
+30/10/2020,15:17,Friday,San Crispin (Lumbangan),14.08200073,121.3296835,Rainy,Wet,Car,49,Male,Head-on collision,2,1
+17/07/2020,17:24,Friday,VII-C,14.08019403,121.3307131,Cloudy,Potholes,Motorcycle,32,Male,Head-on collision,4,0
+07/11/2022,9:31,Monday,VI-B,14.08517192,121.3383787,Sunny,Dry,Car,18,Female,Side-impact collision,1,0
+12/03/2022,0:51,Saturday,Santo Cristo,14.05798211,121.3111623,Cloudy,Dry,Car,23,Male,Pedestrian accident,3,0
+21/08/2022,4:54,Sunday,San Crispin (Lumbangan),14.05823392,121.3094987,Sunny,Gravel,Bus,42,Female,Side-impact collision,2,0
+13/05/2021,16:02,Thursday,San Mateo (Imok),14.05974768,121.3093946,Sunny,Dry,Car,36,Female,Head-on collision,1,1
+29/11/2022,13:39,Tuesday,VI-D (Lparkers),14.06025639,121.3103552,Sunny,Dry,Motorcycle,21,Female,Head-on collision,1,0
+01/01/2023,3:30,Sunday,V-C,14.07076998,121.3198146,Cloudy,Dry,Car,32,Male,Rear-end collision,1,0
+06/05/2021,3:28,Thursday,Soledad (Macopa),14.08869835,121.3380068,Sunny,Dry,Bus,49,Male,Single vehicle accident,2,0
+30/12/2022,2:17,Friday,VI-B,14.08053847,121.3303821,Sunny,Dry,Motorcycle,43,Female,Rear-end collision,1,0
+02/09/2021,7:37,Thursday,San Jose (Malamig),14.0897641,121.3441024,Sunny,Dry,Car,35,Female,Head-on collision,3,0
+22/07/2024,5:12,Monday,San Diego (Tilim),14.08816,121.3080944,Sunny,Dry,Motorcycle,44,Male,Side-impact collision,2,0
+30/08/2021,11:15,Monday,Santisimo Rosario (Balagbag),14.06087389,121.3091222,Stormy,Wet,Bicycle,30,Female,Side-impact collision,6,0
+24/05/2024,17:51,Friday,Santo Niño (Arsum),14.06136227,121.3102343,Sunny,Dry,Car,26,Female,Pedestrian accident,2,0
+02/02/2023,9:18,Thursday,VI-C (Bagong Pook),14.0490986,121.2998822,Cloudy,Dry,Truck,48,Female,Single vehicle accident,2,0
+24/09/2024,19:51,Tuesday,V-D,14.08022291,121.3293859,Rainy,Wet,Motorcycle,18,Male,Pedestrian accident,2,2
+06/11/2022,9:16,Sunday,I-B (City+Riverside),14.07911683,121.3301366,Sunny,Dry,Truck,54,Male,Head-on collision,5,1
+23/11/2021,15:24,Tuesday,I-B (City+Riverside),14.08487717,121.3254186,Sunny,Dry,Car,41,Female,Rear-end collision,1,0
+24/10/2023,11:21,Tuesday,Concepcion (Bunot),14.08386061,121.334131,Sunny,Dry,Truck,23,Male,Pedestrian accident,5,1
+22/12/2024,21:47,Sunday,VI-E (YMCA),14.06113121,121.3115027,Sunny,Dry,Motorcycle,43,Male,Single vehicle accident,1,0
+26/02/2024,10:37,Monday,Santa Monica,14.09489411,121.3201074,Rainy,Wet,Motorcycle,36,Male,Head-on collision,3,0
+29/05/2020,9:51,Friday,III-C (Labak/De Roma),14.09161618,121.3405156,Sunny,Dry,Motorcycle,26,Male,Rear-end collision,1,1
+03/11/2023,23:40,Friday,San Vicente,14.09950125,121.3419776,Sunny,Dry,Motorcycle,32,Male,Rear-end collision,0,0
+27/11/2024,3:13,Wednesday,IV-B,14.05967973,121.309349,Sunny,Dry,Truck,44,Male,Side-impact collision,2,0
+30/11/2022,3:49,Wednesday,III-D (Vilongco),14.08211875,121.3291332,Cloudy,Potholes,Motorcycle,29,Male,Side-impact collision,1,0
+05/10/2022,10:39,Wednesday,III-B,14.0534388,121.3162295,Sunny,Dry,Car,33,Female,Head-on collision,2,1
+02/10/2024,13:59,Wednesday,V-D,14.09081604,121.3401075,Sunny,Dry,Motorcycle,45,Male,Rear-end collision,1,0
+20/04/2024,7:23,Saturday,Del Remedio (Wawa),14.09041867,121.3403718,Sunny,Gravel,Tricycle,30,Male,Rear-end collision,0,0
+01/10/2021,0:47,Friday,V-D,14.06993766,121.3207763,Cloudy,Dry,Truck,29,Male,Single vehicle accident,0,0
+17/04/2020,5:01,Friday,V-C,14.07990664,121.3296245,Cloudy,Potholes,Tricycle,22,Male,Side-impact collision,2,0
+10/07/2022,11:56,Sunday,Santa Maria,14.06298376,121.3491058,Sunny,Dry,Motorcycle,25,Male,Side-impact collision,2,2
+15/09/2022,4:20,Thursday,II-A (Triangulo Guadalupe 2),14.05915021,121.3102235,Rainy,Wet,Tricycle,40,Male,Rear-end collision,0,0
+16/10/2022,5:41,Sunday,San Lucas 1 (Sabang),14.05000711,121.2988982,Rainy,Wet,Motorcycle,24,Male,Side-impact collision,3,0
+04/07/2022,23:25,Monday,I-C (Bagong Bayan),14.07039184,121.3196079,Sunny,Dry,Car,31,Male,Side-impact collision,1,0
+23/12/2020,9:51,Wednesday,V-D,14.07136981,121.3204503,Rainy,Wet,Tricycle,18,Female,Rear-end collision,1,0
+17/12/2020,8:49,Thursday,Soledad (Macopa),14.06664017,121.3069384,Sunny,Dry,Tricycle,29,Male,Head-on collision,0,1
+11/01/2020,18:34,Saturday,Santiago II (Bulaho),14.05005835,121.2995272,Rainy,Wet,Motorcycle,39,Female,Side-impact collision,0,0
+31/01/2023,20:15,Tuesday,V-A,14.09096514,121.3017458,Rainy,Wet,Car,46,Female,Rear-end collision,1,0
+16/10/2022,4:02,Sunday,V-B,14.05535434,121.3200495,Sunny,Potholes,Car,31,Male,Single vehicle accident,2,1
+16/02/2020,12:52,Sunday,San Cristobal,14.09156602,121.3425126,Sunny,Dry,Tricycle,47,Male,Head-on collision,0,1
+22/05/2023,18:24,Monday,Santo Angel (Ilog),14.07989023,121.331426,Sunny,Dry,Car,25,Female,Single vehicle accident,0,0
+12/11/2021,0:50,Friday,V-A,14.09135888,121.3417234,Sunny,Dry,Motorcycle,28,Female,Rear-end collision,0,0
+20/03/2021,8:40,Saturday,San Bartolome (Matang-ag),14.09120594,121.3416064,Rainy,Wet,Motorcycle,29,Female,Pedestrian accident,7,2
+15/09/2024,2:12,Sunday,Bautista,14.08972445,121.3432822,Sunny,Dry,Truck,49,Male,Pedestrian accident,0,1
+28/12/2020,19:06,Monday,San Crispin (Lumbangan),14.07022251,121.3187978,Sunny,Dry,Motorcycle,43,Male,Head-on collision,1,0
+14/08/2023,23:05,Monday,Del Remedio (Wawa),14.08342791,121.323114,Sunny,Potholes,Car,32,Male,Side-impact collision,3,0
+16/06/2023,9:34,Friday,II-A (Triangulo Guadalupe 2),14.0599947,121.3129715,Sunny,Dry,Bus,45,Female,Side-impact collision,1,1
+24/12/2024,6:13,Tuesday,San Gabriel (Butucan),14.08118404,121.3302467,Sunny,Dry,Car,18,Male,Rear-end collision,0,1
+12/04/2020,3:06,Sunday,III-B,14.07820741,121.3299827,Sunny,Gravel,Motorcycle,44,Male,Single vehicle accident,2,0
+29/09/2021,17:02,Wednesday,VI-C (Bagong Pook),14.08989835,121.3409187,Rainy,Wet,Motorcycle,27,Female,Side-impact collision,3,0
+19/07/2024,20:02,Friday,III-A (Hermanos Belen),14.09896802,121.3450979,Rainy,Gravel,Motorcycle,37,Male,Pedestrian accident,1,0
+15/08/2024,18:07,Thursday,I-B (City+Riverside),14.06224906,121.3239759,Rainy,Wet,Motorcycle,37,Male,Rear-end collision,0,0
+23/11/2023,15:47,Thursday,San Pedro,14.05043668,121.3008295,Rainy,Wet,Car,18,Male,Rear-end collision,0,0
+08/05/2020,22:45,Friday,Santa Ana,14.05066816,121.300563,Sunny,Potholes,Motorcycle,39,Female,Head-on collision,0,0
+28/01/2023,14:18,Saturday,Santa Isabel,14.06856384,121.3256411,Rainy,Wet,Bus,22,Female,Head-on collision,5,0
+10/07/2023,0:11,Monday,Santiago II (Bulaho),14.04992721,121.3011703,Sunny,Dry,Car,29,Male,Head-on collision,1,1
+09/09/2021,12:48,Thursday,Bautista,14.04765073,121.2993685,Rainy,Wet,Motorcycle,19,Male,Side-impact collision,2,1
+01/06/2020,7:36,Monday,San Pedro,14.0946265,121.3053412,Rainy,Wet,Car,37,Female,Head-on collision,2,1
+02/07/2022,19:16,Saturday,Santa Ana,14.08900607,121.33933,Rainy,Potholes,Car,23,Female,Single vehicle accident,0,0
+19/11/2022,6:34,Saturday,Santiago 1 (Bulaho),14.07013076,121.3202235,Rainy,Wet,Bus,29,Male,Rear-end collision,0,0
+25/02/2020,4:48,Tuesday,IV-A,14.06984623,121.3218348,Sunny,Dry,Motorcycle,45,Male,Head-on collision,4,0
+11/06/2023,13:36,Sunday,San Gabriel (Butucan),14.06024999,121.3089407,Sunny,Gravel,Motorcycle,34,Male,Rear-end collision,2,0
+18/05/2022,0:45,Wednesday,III-B,14.08277697,121.3109141,Sunny,Dry,Car,23,Male,Rear-end collision,1,0
+31/10/2021,9:38,Sunday,San Vicente,14.0616904,121.3116371,Sunny,Dry,Truck,27,Female,Side-impact collision,1,1
+24/03/2021,3:52,Wednesday,VII-A (P. Alcantara),14.09273608,121.3242099,Rainy,Wet,Motorcycle,28,Male,Side-impact collision,3,0
+07/09/2022,11:17,Wednesday,San Roque (Sambat),14.05069988,121.2997061,Cloudy,Dry,Truck,51,Male,Side-impact collision,2,0
+28/02/2024,17:02,Wednesday,San Antonio 2 (Sapa),14.0802909,121.3213436,Stormy,Wet,Motorcycle,37,Male,Rear-end collision,1,0
+12/05/2021,21:12,Wednesday,Atisan,14.07905945,121.3064104,Sunny,Dry,Motorcycle,28,Female,Side-impact collision,2,0
+10/09/2022,2:24,Saturday,Santo Cristo,14.0713187,121.3198293,Rainy,Wet,Car,51,Male,Pedestrian accident,4,0
+09/11/2021,23:11,Tuesday,San Diego (Tilim),14.05902086,121.3432605,Sunny,Gravel,Motorcycle,32,Female,Side-impact collision,2,0
+13/08/2020,8:39,Thursday,San Cristobal,14.06392202,121.3120334,Cloudy,Dry,Car,19,Female,Pedestrian accident,1,0
+21/01/2023,0:07,Saturday,Santisimo Rosario (Balagbag),14.07047058,121.3199044,Sunny,Dry,Motorcycle,59,Female,Rear-end collision,1,0
+11/07/2020,9:31,Saturday,III-B,14.09997622,121.3118726,Sunny,Potholes,Car,43,Male,Single vehicle accident,0,1
+16/04/2021,6:57,Friday,San Gabriel (Butucan),14.07235516,121.3130513,Sunny,Dry,Car,29,Male,Side-impact collision,3,0
+16/08/2023,17:30,Wednesday,Soledad (Macopa),14.08969137,121.3385545,Cloudy,Dry,Truck,29,Male,Rear-end collision,0,0
+16/11/2021,14:53,Tuesday,San Roque (Sambat),14.08414384,121.3344635,Sunny,Potholes,Car,41,Male,Side-impact collision,1,0
+11/10/2023,1:59,Wednesday,San Francisco (Calihan),14.07024476,121.3196967,Sunny,Dry,Tricycle,38,Female,Single vehicle accident,0,0
+15/02/2020,16:12,Saturday,II-D (Bulante),14.04952642,121.3007132,Cloudy,Dry,Motorcycle,24,Male,Rear-end collision,5,0
+28/10/2022,22:43,Friday,II-E (San Anton),14.08718669,121.3390649,Cloudy,Dry,Car,37,Female,Side-impact collision,2,2
+12/07/2022,5:29,Tuesday,San Antonio 2 (Sapa),14.07026939,121.3221506,Rainy,Wet,Car,48,Female,Pedestrian accident,2,0
+08/08/2021,20:23,Sunday,Santo Cristo,14.08892858,121.3375301,Rainy,Wet,Car,40,Male,Rear-end collision,1,0
+02/02/2023,10:53,Thursday,V-C,14.08022698,121.330916,Sunny,Dry,Motorcycle,18,Male,Head-on collision,1,0
+02/06/2023,19:03,Friday,II-A (Triangulo Guadalupe 2),14.0593066,121.308646,Sunny,Gravel,Motorcycle,23,Female,Side-impact collision,2,0
+24/01/2021,7:15,Sunday,Santiago 1 (Bulaho),14.08933451,121.3200954,Sunny,Dry,Car,34,Male,Rear-end collision,1,0
+27/03/2023,9:04,Monday,I-C (Bagong Bayan),14.09004955,121.3428599,Sunny,Potholes,Motorcycle,18,Female,Pedestrian accident,1,1
+14/09/2022,10:21,Wednesday,San Antonio 2 (Sapa),14.0614579,121.3310964,Sunny,Dry,Car,34,Male,Side-impact collision,2,0
+29/11/2021,10:14,Monday,IV-B,14.04844061,121.3000663,Rainy,Wet,Bicycle,34,Male,Head-on collision,0,1
+02/05/2022,23:24,Monday,Santa Filomena (Banagin),14.08058626,121.3291581,Rainy,Wet,Bicycle,27,Male,Rear-end collision,2,0
+23/08/2022,7:36,Tuesday,San Antonio 1 (Balanga),14.05936165,121.3087305,Cloudy,Dry,Motorcycle,18,Male,Pedestrian accident,6,0
+16/04/2024,18:23,Tuesday,San Antonio 2 (Sapa),14.06991751,121.3194633,Sunny,Dry,Car,43,Female,Rear-end collision,2,0
+06/02/2024,16:55,Tuesday,San Mateo (Imok),14.05961844,121.3078847,Rainy,Gravel,Car,38,Female,Pedestrian accident,5,0
+04/11/2021,9:57,Thursday,San Joaquin,14.08885403,121.340509,Sunny,Dry,Motorcycle,34,Male,Rear-end collision,1,0
+21/03/2024,18:07,Thursday,III-A (Hermanos Belen),14.06943841,121.319743,Sunny,Gravel,Motorcycle,29,Male,Side-impact collision,4,0
+31/10/2021,7:22,Sunday,IV-B,14.07141446,121.3217945,Sunny,Dry,Motorcycle,24,Male,Side-impact collision,2,0
+02/08/2020,12:06,Sunday,III-A (Hermanos Belen),14.0691742,121.3199878,Rainy,Wet,Car,57,Female,Rear-end collision,1,0
+02/11/2024,15:02,Saturday,V-B,14.07085833,121.3184985,Rainy,Wet,Motorcycle,33,Female,Side-impact collision,2,0
+08/02/2024,10:13,Thursday,VI-E (YMCA),14.07320043,121.3248917,Sunny,Dry,Motorcycle,33,Male,Head-on collision,4,1
+02/02/2020,14:37,Sunday,San Joaquin,14.06025609,121.309436,Sunny,Dry,Tricycle,28,Male,Single vehicle accident,1,0
+29/07/2023,10:43,Saturday,IV-A,14.05845483,121.3105744,Rainy,Wet,Car,18,Male,Single vehicle accident,2,0
+30/07/2024,17:27,Tuesday,II-F (Villa Rey),14.08904196,121.330883,Sunny,Dry,Truck,28,Male,Side-impact collision,2,0
+18/03/2020,9:18,Wednesday,Santo Cristo,14.0906211,121.3387401,Sunny,Dry,Motorcycle,29,Female,Rear-end collision,1,0
+05/08/2020,1:51,Wednesday,Santa Isabel,14.06932556,121.319152,Cloudy,Dry,Truck,22,Male,Head-on collision,3,0
+14/05/2024,5:42,Tuesday,III-E,14.08062146,121.3313517,Cloudy,Dry,Car,42,Male,Head-on collision,1,1
+04/04/2020,1:39,Saturday,III-E,14.0786913,121.3308623,Sunny,Dry,Car,44,Female,Head-on collision,5,0
+01/03/2023,0:30,Wednesday,San Lucas 1 (Sabang),14.08831923,121.3393838,Sunny,Dry,Car,42,Female,Rear-end collision,4,0
+22/06/2023,7:53,Thursday,San Jose (Malamig),14.05039628,121.2969029,Sunny,Potholes,Bus,29,Female,Head-on collision,6,1
+25/03/2024,19:25,Monday,II-B (Guadalupe 1),14.04787687,121.2976693,Sunny,Dry,Motorcycle,55,Male,Rear-end collision,2,0
+25/08/2023,15:55,Friday,Soledad (Macopa),14.07042957,121.3208953,Sunny,Dry,Car,26,Male,Single vehicle accident,1,0
+22/12/2023,16:23,Friday,III-C (Labak/De Roma),14.09075302,121.3125358,Rainy,Wet,Motorcycle,36,Male,Head-on collision,6,0
+16/11/2020,18:58,Monday,V-B,14.08753602,121.3316801,Sunny,Dry,Motorcycle,29,Male,Rear-end collision,0,0
+01/12/2021,10:01,Wednesday,Santa Ana,14.04897546,121.3010217,Sunny,Dry,Motorcycle,40,Male,Head-on collision,2,0
+08/06/2022,8:59,Wednesday,Santo Angel (Ilog),14.08814894,121.3431769,Sunny,Dry,Bus,37,Male,Rear-end collision,0,0
+06/12/2023,18:27,Wednesday,Santa Veronica (Bae),14.08438677,121.3053925,Stormy,Wet,Truck,28,Male,Rear-end collision,0,0
+15/09/2024,8:23,Sunday,IV-C,14.08061137,121.3308823,Rainy,Gravel,Motorcycle,33,Male,Single vehicle accident,3,2
+02/07/2023,9:32,Sunday,San Isidro (Balagbag),14.07938967,121.3291246,Sunny,Dry,Car,38,Male,Pedestrian accident,1,0
+17/09/2020,17:09,Thursday,Santa Cruz (Putol),14.05277481,121.2995358,Rainy,Wet,Car,29,Male,Pedestrian accident,1,0
+21/01/2023,2:12,Saturday,Santo Cristo,14.06294904,121.3301148,Cloudy,Dry,Car,32,Male,Head-on collision,6,0
+10/03/2020,9:21,Tuesday,San Vicente,14.08028126,121.3297791,Sunny,Dry,Car,37,Male,Rear-end collision,1,0
+14/05/2020,3:53,Thursday,San Rafael (Buluburan),14.0569192,121.314501,Sunny,Potholes,Motorcycle,34,Male,Pedestrian accident,2,0
+12/11/2024,14:50,Tuesday,San Diego (Tilim),14.07187565,121.3058742,Sunny,Dry,Car,31,Male,Side-impact collision,2,0
+05/08/2020,13:23,Wednesday,IV-A,14.09986059,121.331449,Rainy,Wet,Car,33,Male,Rear-end collision,3,0
+18/03/2021,18:56,Thursday,Santo Niño (Arsum),14.07085908,121.3210467,Cloudy,Dry,Motorcycle,32,Male,Single vehicle accident,0,0
+27/06/2023,9:36,Tuesday,San Jose (Malamig),14.06149453,121.3091714,Cloudy,Dry,Bicycle,35,Male,Single vehicle accident,2,0
+25/10/2020,1:18,Sunday,Santa Veronica (Bae),14.0797098,121.3317836,Rainy,Wet,Motorcycle,37,Male,Side-impact collision,3,0
+01/07/2023,19:47,Saturday,II-B (Guadalupe 1),14.06774944,121.3141981,Sunny,Dry,Motorcycle,30,Male,Head-on collision,2,0
+11/04/2024,17:48,Thursday,San Francisco (Calihan),14.06958901,121.3223993,Rainy,Wet,Tricycle,28,Female,Single vehicle accident,1,0
+05/05/2022,7:26,Thursday,San Mateo (Imok),14.05618505,121.3353336,Cloudy,Dry,Car,43,Female,Rear-end collision,4,0
+22/10/2021,13:39,Friday,Santiago 1 (Bulaho),14.06674893,121.3096213,Sunny,Dry,Motorcycle,31,Male,Side-impact collision,2,0
+07/10/2024,10:56,Monday,VI-A (Mavenida),14.06998521,121.3200033,Rainy,Potholes,Car,50,Male,Pedestrian accident,1,0
+24/11/2020,19:03,Tuesday,III-D (Vilongco),14.07964401,121.3298159,Sunny,Gravel,Bicycle,52,Male,Single vehicle accident,0,1
+09/02/2020,17:00,Sunday,San Cristobal,14.05130178,121.2985885,Sunny,Gravel,Car,38,Male,Rear-end collision,0,0
+23/12/2020,7:39,Wednesday,VI-C (Bagong Pook),14.06235388,121.3137565,Sunny,Dry,Motorcycle,43,Male,Side-impact collision,4,0
+12/03/2021,16:23,Friday,Santo Niño (Arsum),14.0601279,121.3083103,Rainy,Potholes,Car,51,Male,Side-impact collision,3,0
+29/01/2023,21:52,Sunday,San Lucas 1 (Sabang),14.09139938,121.3399938,Sunny,Potholes,Motorcycle,38,Male,Rear-end collision,0,0
+15/02/2020,18:00,Saturday,IV-A,14.089469,121.3403524,Sunny,Dry,Motorcycle,20,Male,Rear-end collision,1,0
+08/07/2024,12:48,Monday,San Jose (Malamig),14.08251853,121.3492314,Cloudy,Dry,Car,51,Male,Rear-end collision,0,0
+19/05/2023,17:38,Friday,IV-C,14.05925327,121.3097527,Sunny,Dry,Motorcycle,43,Female,Rear-end collision,0,0
+31/01/2021,10:21,Sunday,I-A (Sambat),14.09133728,121.3392254,Stormy,Potholes,Car,34,Female,Head-on collision,5,1
+11/07/2022,11:48,Monday,Bautista,14.08004735,121.3310352,Stormy,Wet,Car,38,Male,Head-on collision,0,0
+14/12/2023,8:50,Thursday,Santa Monica,14.08462017,121.3441997,Sunny,Dry,Car,33,Male,Head-on collision,4,1
+04/12/2021,3:39,Saturday,Santa Veronica (Bae),14.0710632,121.3196431,Rainy,Wet,Motorcycle,55,Female,Side-impact collision,3,0
+13/08/2021,8:37,Friday,Santa Monica,14.09931345,121.3116639,Sunny,Dry,Bus,40,Male,Rear-end collision,2,0
+22/02/2024,11:50,Thursday,Atisan,14.04975991,121.300407,Sunny,Potholes,Bicycle,22,Male,Pedestrian accident,1,0
+28/04/2023,7:34,Friday,Dolores,14.05989944,121.3084378,Sunny,Dry,Car,22,Male,Rear-end collision,2,0
+04/06/2024,7:04,Tuesday,Bautista,14.08131623,121.3282567,Sunny,Dry,Truck,37,Male,Single vehicle accident,1,0
+13/06/2023,16:33,Tuesday,V-D,14.06888358,121.3198197,Sunny,Dry,Motorcycle,36,Male,Rear-end collision,1,0
+16/08/2020,9:58,Sunday,Santa Cruz (Putol),14.08991873,121.3403568,Sunny,Dry,Motorcycle,36,Male,Head-on collision,3,1
+10/05/2021,9:52,Monday,VI-B,14.07049045,121.3205632,Sunny,Dry,Car,24,Male,Side-impact collision,4,0
+17/11/2022,18:20,Thursday,V-A,14.06052268,121.3195887,Sunny,Dry,Bicycle,19,Male,Head-on collision,2,1
+20/08/2021,17:02,Friday,San Antonio 2 (Sapa),14.08011801,121.3299986,Rainy,Wet,Car,25,Male,Side-impact collision,3,0
+17/01/2020,2:52,Friday,Santiago 1 (Bulaho),14.07950515,121.3276393,Sunny,Dry,Car,28,Male,Side-impact collision,3,0
+23/10/2021,5:55,Saturday,V-D,14.04940869,121.3008139,Sunny,Gravel,Tricycle,24,Male,Single vehicle accident,4,0
+01/08/2023,0:05,Tuesday,Concepcion (Bunot),14.04824996,121.2977546,Cloudy,Dry,Car,39,Male,Rear-end collision,1,0
+05/02/2023,7:11,Sunday,San Marcos (Tikew),14.05994992,121.3095619,Rainy,Wet,Motorcycle,39,Male,Side-impact collision,1,0
+16/08/2022,15:03,Tuesday,Santa Catalina (Sandig),14.0628725,121.312727,Rainy,Wet,Tricycle,36,Male,Side-impact collision,3,0
+30/08/2021,21:25,Monday,V-C,14.09047533,121.3388532,Sunny,Dry,Truck,53,Female,Head-on collision,6,1
+05/04/2020,23:02,Sunday,San Jose (Malamig),14.08946451,121.3400455,Sunny,Gravel,Truck,20,Female,Head-on collision,4,0
+23/06/2021,21:10,Wednesday,San Marcos (Tikew),14.07955665,121.3288127,Rainy,Wet,Motorcycle,26,Female,Rear-end collision,0,0
+19/03/2024,15:09,Tuesday,III-A (Hermanos Belen),14.0620334,121.3250757,Rainy,Wet,Bus,29,Male,Head-on collision,3,0
+17/02/2020,13:33,Monday,San Isidro (Balagbag),14.07940446,121.3301583,Sunny,Gravel,Motorcycle,25,Male,Single vehicle accident,3,0
+16/08/2022,18:03,Tuesday,San Ignacio,14.05219286,121.3002618,Sunny,Dry,Motorcycle,49,Male,Pedestrian accident,10,0
+03/09/2022,4:58,Saturday,Santa Cruz (Putol),14.05865591,121.3260293,Sunny,Gravel,Truck,48,Female,Single vehicle accident,0,0
+03/05/2020,7:15,Sunday,San Cristobal,14.07467345,121.3143011,Sunny,Dry,Bus,18,Female,Rear-end collision,4,0
+15/05/2020,9:14,Friday,III-C (Labak/De Roma),14.0645816,121.3066153,Rainy,Gravel,Motorcycle,48,Male,Side-impact collision,1,1
+05/12/2020,8:59,Saturday,III-F (Balagtas),14.06012968,121.3089869,Sunny,Dry,Motorcycle,36,Male,Head-on collision,2,2
+08/05/2024,20:43,Wednesday,II-B (Guadalupe 1),14.08071349,121.3077049,Cloudy,Dry,Motorcycle,34,Male,Rear-end collision,0,0
+09/11/2020,23:26,Monday,Bautista,14.07019436,121.3201964,Stormy,Wet,Motorcycle,33,Female,Head-on collision,6,0
+29/07/2023,5:37,Saturday,I-B (City+Riverside),14.0598614,121.3096377,Rainy,Wet,Motorcycle,18,Male,Rear-end collision,0,0
+03/06/2023,6:58,Saturday,San Juan (Putol),14.09231859,121.3393586,Rainy,Wet,Car,31,Male,Head-on collision,2,0
+08/04/2024,4:44,Monday,III-B,14.08549073,121.3441396,Sunny,Dry,Truck,23,Male,Pedestrian accident,5,0
+03/10/2020,18:01,Saturday,V-C,14.08876254,121.3397288,Rainy,Wet,Motorcycle,18,Male,Head-on collision,1,0
+02/01/2022,9:33,Sunday,San Isidro (Balagbag),14.06078746,121.3261181,Sunny,Dry,Motorcycle,18,Male,Rear-end collision,0,0
+03/06/2022,7:28,Friday,San Mateo (Imok),14.05266879,121.2981561,Sunny,Dry,Motorcycle,35,Male,Single vehicle accident,2,0
+30/12/2020,1:27,Wednesday,Santo Cristo,14.08599426,121.3135538,Rainy,Potholes,Motorcycle,33,Male,Rear-end collision,0,0
+22/07/2022,1:39,Friday,I-A (Sambat),14.07914224,121.3008805,Sunny,Dry,Truck,43,Male,Head-on collision,1,2
+13/09/2024,15:58,Friday,Santa Maria,14.08044768,121.3286307,Sunny,Potholes,Motorcycle,42,Male,Single vehicle accident,1,0
+08/06/2024,19:53,Saturday,San Lorenzo (Saluyan),14.05163143,121.2978617,Cloudy,Dry,Car,44,Male,Head-on collision,4,1
+19/10/2023,17:35,Thursday,San Cristobal,14.05122166,121.2995689,Sunny,Dry,Motorcycle,27,Male,Head-on collision,5,1
+06/03/2024,13:19,Wednesday,San Vicente,14.04870919,121.2993119,Cloudy,Potholes,Motorcycle,33,Male,Head-on collision,5,0
+25/05/2023,0:39,Thursday,San Jose (Malamig),14.09237393,121.3401116,Rainy,Potholes,Motorcycle,32,Male,Head-on collision,4,0
+30/06/2021,1:36,Wednesday,San Buenaventura (Palakpakin),14.07020985,121.3197483,Sunny,Potholes,Motorcycle,44,Female,Head-on collision,5,0
+03/03/2023,12:01,Friday,IV-A,14.09618142,121.3218009,Sunny,Dry,Motorcycle,34,Female,Side-impact collision,2,0
+16/09/2022,7:51,Friday,Dolores,14.09732867,121.3408507,Sunny,Dry,Motorcycle,35,Female,Rear-end collision,0,0
+16/02/2023,7:29,Thursday,III-A (Hermanos Belen),14.05959585,121.3094554,Sunny,Dry,Motorcycle,32,Male,Rear-end collision,0,0
+30/06/2023,16:35,Friday,II-E (San Anton),14.08029545,121.3296926,Sunny,Dry,Bus,35,Female,Side-impact collision,1,0
+23/08/2024,8:41,Friday,San Lucas 1 (Sabang),14.06848318,121.3206245,Sunny,Dry,Motorcycle,41,Female,Rear-end collision,2,0
+09/12/2024,1:49,Monday,San Rafael (Buluburan),14.09150442,121.3396586,Rainy,Potholes,Truck,22,Male,Rear-end collision,3,0
+08/09/2022,17:11,Thursday,San Buenaventura (Palakpakin),14.06857278,121.3324063,Sunny,Dry,Car,18,Male,Rear-end collision,0,0
+11/12/2024,21:03,Wednesday,II-E (San Anton),14.05275468,121.3235957,Rainy,Wet,Motorcycle,34,Female,Rear-end collision,1,0
+17/12/2022,19:19,Saturday,Soledad (Macopa),14.07086725,121.3217596,Stormy,Potholes,Truck,18,Male,Head-on collision,2,0
+01/04/2023,2:57,Saturday,III-F (Balagtas),14.07986505,121.3300733,Cloudy,Dry,Car,25,Male,Head-on collision,3,0
+28/12/2020,9:01,Monday,Santa Monica,14.07931273,121.3306142,Sunny,Dry,Car,32,Male,Head-on collision,5,1
+29/05/2024,23:51,Wednesday,San Isidro (Balagbag),14.06915827,121.3199128,Stormy,Wet,Bicycle,36,Male,Single vehicle accident,0,1
+29/04/2023,11:23,Saturday,VI-B,14.05152818,121.3013226,Rainy,Wet,Tricycle,54,Male,Head-on collision,0,0
+24/11/2023,17:37,Friday,II-D (Bulante),14.05600864,121.3156474,Cloudy,Potholes,Motorcycle,46,Female,Head-on collision,5,2
+25/05/2020,23:57,Monday,Santa Catalina (Sandig),14.09469112,121.3175224,Rainy,Wet,Motorcycle,41,Male,Side-impact collision,3,1
+19/08/2024,11:52,Monday,II-D (Bulante),14.07870325,121.3293169,Sunny,Dry,Motorcycle,36,Male,Side-impact collision,1,0
+07/06/2020,7:32,Sunday,San Rafael (Buluburan),14.06944238,121.3207752,Cloudy,Dry,Car,39,Male,Rear-end collision,0,0
+23/07/2020,17:14,Thursday,III-D (Vilongco),14.07989896,121.3067118,Sunny,Dry,Motorcycle,33,Male,Rear-end collision,1,0
+25/09/2020,13:52,Friday,III-C (Labak/De Roma),14.05948672,121.3099514,Rainy,Potholes,Car,42,Male,Single vehicle accident,1,0
+18/11/2024,2:32,Monday,II-D (Bulante),14.09004021,121.3407743,Cloudy,Dry,Motorcycle,28,Female,Side-impact collision,0,0
+02/09/2024,17:02,Monday,Santa Catalina (Sandig),14.06040234,121.3095843,Rainy,Wet,Motorcycle,25,Female,Pedestrian accident,2,1
+20/07/2020,17:33,Monday,VI-C (Bagong Pook),14.08941543,121.3387349,Rainy,Wet,Car,37,Male,Side-impact collision,1,0
+18/11/2022,11:39,Friday,Santa Monica,14.08247696,121.3041717,Rainy,Wet,Motorcycle,48,Male,Head-on collision,4,1
+15/10/2023,4:10,Sunday,San Crispin (Lumbangan),14.0615008,121.3487978,Sunny,Dry,Car,37,Male,Rear-end collision,0,0
+17/09/2021,12:09,Friday,Santa Veronica (Bae),14.08970734,121.3395331,Sunny,Dry,Motorcycle,39,Male,Single vehicle accident,2,0
+14/07/2024,17:04,Sunday,Santiago 1 (Bulaho),14.05858836,121.3095314,Sunny,Dry,Car,26,Male,Head-on collision,6,0
+09/12/2023,23:13,Saturday,VI-E (YMCA),14.08148111,121.3297562,Stormy,Wet,Truck,49,Male,Rear-end collision,1,0
+19/02/2021,20:19,Friday,II-C (Unson),14.07006417,121.3199706,Stormy,Wet,Motorcycle,29,Female,Side-impact collision,0,0
+10/09/2024,8:18,Tuesday,III-B,14.09176476,121.3424207,Rainy,Wet,Truck,42,Male,Head-on collision,3,0
+21/10/2023,15:47,Saturday,San Roque (Sambat),14.07877687,121.3490327,Stormy,Wet,Car,51,Male,Head-on collision,1,0
+17/01/2020,3:01,Friday,Santa Ana,14.07645365,121.3421081,Rainy,Wet,Motorcycle,36,Male,Head-on collision,3,1
+08/09/2022,2:00,Thursday,V-C,14.06429823,121.3433975,Rainy,Wet,Motorcycle,44,Male,Rear-end collision,2,0
+28/01/2021,19:05,Thursday,San Rafael (Buluburan),14.04941876,121.3001269,Stormy,Wet,Car,36,Female,Pedestrian accident,0,0
+11/03/2020,6:22,Wednesday,I-A (Sambat),14.0802849,121.3285724,Rainy,Wet,Motorcycle,37,Male,Rear-end collision,0,0
+03/03/2023,19:28,Friday,Santa Filomena (Banagin),14.0918688,121.3399141,Rainy,Wet,Truck,25,Male,Pedestrian accident,5,0
+24/06/2021,7:20,Thursday,Santa Monica,14.06969113,121.3209646,Sunny,Dry,Motorcycle,18,Female,Side-impact collision,3,0
+20/08/2024,17:07,Tuesday,Santa Monica,14.08464035,121.3200197,Cloudy,Dry,Car,26,Male,Single vehicle accident,2,0
+10/10/2020,0:03,Saturday,VI-D (Lparkers),14.05809753,121.3106763,Sunny,Dry,Car,29,Male,Pedestrian accident,1,1
+06/11/2021,19:34,Saturday,San Cristobal,14.06064518,121.3095086,Rainy,Gravel,Bicycle,31,Female,Single vehicle accident,0,0
+17/03/2021,21:39,Wednesday,II-A (Triangulo Guadalupe 2),14.05035057,121.3010207,Sunny,Dry,Car,43,Female,Rear-end collision,1,0
+16/07/2021,17:11,Friday,Santisimo Rosario (Balagbag),14.08693276,121.347097,Cloudy,Dry,Motorcycle,39,Male,Head-on collision,1,1
+22/02/2022,9:02,Tuesday,Santa Ana,14.08038918,121.331087,Rainy,Wet,Motorcycle,31,Female,Rear-end collision,1,0
+24/12/2022,1:34,Saturday,II-C (Unson),14.0609937,121.3115553,Sunny,Gravel,Tricycle,35,Male,Single vehicle accident,1,0
+14/09/2022,14:55,Wednesday,San Nicolas (Mag-ampong),14.06144184,121.3111068,Rainy,Potholes,Motorcycle,50,Male,Side-impact collision,0,0
+27/07/2023,1:29,Thursday,V-B,14.09234237,121.338944,Sunny,Potholes,Motorcycle,18,Female,Single vehicle accident,0,1
+17/06/2020,3:06,Wednesday,San Lucas 1 (Sabang),14.07639732,121.310394,Sunny,Dry,Bicycle,35,Male,Rear-end collision,0,0
+05/10/2023,8:03,Thursday,San Roque (Sambat),14.07021381,121.3198449,Sunny,Dry,Tricycle,34,Male,Side-impact collision,1,0
+06/04/2020,5:43,Monday,San Marcos (Tikew),14.0995165,121.3144422,Stormy,Wet,Motorcycle,55,Male,Head-on collision,4,0
+31/10/2021,9:21,Sunday,IV-B,14.08596673,121.3296829,Stormy,Wet,Truck,35,Female,Rear-end collision,0,0
+06/08/2022,14:27,Saturday,San Pedro,14.05924338,121.310625,Cloudy,Dry,Motorcycle,28,Male,Single vehicle accident,0,0
+01/05/2020,1:17,Friday,I-B (City+Riverside),14.09338277,121.324252,Sunny,Dry,Motorcycle,30,Female,Pedestrian accident,1,0
+18/02/2024,10:46,Sunday,San Mateo (Imok),14.0577671,121.3100109,Sunny,Dry,Motorcycle,34,Female,Rear-end collision,1,0
+05/10/2023,9:37,Thursday,San Lucas 1 (Sabang),14.08441599,121.3314388,Rainy,Wet,Motorcycle,42,Female,Single vehicle accident,2,0
+07/02/2022,13:45,Monday,San Roque (Sambat),14.05956697,121.311064,Sunny,Dry,Motorcycle,55,Male,Pedestrian accident,3,1
+09/12/2021,0:02,Thursday,Santo Cristo,14.07667297,121.3441646,Cloudy,Dry,Truck,20,Male,Side-impact collision,1,0
+31/07/2021,17:04,Saturday,San Francisco (Calihan),14.06875888,121.3114611,Cloudy,Gravel,Bus,33,Male,Side-impact collision,1,2
+29/12/2023,17:15,Friday,VI-C (Bagong Pook),14.09012087,121.3391885,Rainy,Potholes,Car,29,Male,Rear-end collision,2,0
+13/09/2020,14:36,Sunday,Soledad (Macopa),14.0707736,121.3193794,Rainy,Wet,Truck,39,Male,Side-impact collision,5,0
+02/12/2020,9:51,Wednesday,III-B,14.0899594,121.3396357,Sunny,Potholes,Motorcycle,24,Male,Rear-end collision,0,0
+12/07/2021,3:57,Monday,VII-E,14.07129707,121.3195966,Sunny,Gravel,Truck,34,Male,Pedestrian accident,1,0
+02/11/2020,9:16,Monday,Santa Elena,14.07990201,121.3296392,Rainy,Gravel,Motorcycle,46,Male,Rear-end collision,1,0
+07/04/2023,23:05,Friday,San Bartolome (Matang-ag),14.05067311,121.299667,Sunny,Dry,Car,51,Female,Side-impact collision,7,0
+09/06/2023,10:31,Friday,I-B (City+Riverside),14.05157312,121.2981406,Cloudy,Dry,Motorcycle,40,Female,Rear-end collision,1,0
+27/06/2023,9:38,Tuesday,Santa Veronica (Bae),14.06942242,121.320612,Cloudy,Dry,Motorcycle,39,Male,Side-impact collision,2,0
+18/10/2020,5:36,Sunday,V-A,14.08921989,121.3402189,Rainy,Potholes,Car,35,Female,Side-impact collision,2,0
+19/01/2020,7:12,Sunday,I-B (City+Riverside),14.0592059,121.3365932,Cloudy,Dry,Tricycle,50,Female,Rear-end collision,3,0
+08/12/2020,15:34,Tuesday,VII-C,14.05980965,121.3094038,Stormy,Wet,Car,49,Male,Single vehicle accident,1,0
+03/06/2023,19:55,Saturday,Atisan,14.09150502,121.3386896,Sunny,Dry,Truck,47,Female,Head-on collision,7,1
+11/08/2021,11:09,Wednesday,Atisan,14.05846247,121.309991,Rainy,Wet,Motorcycle,46,Male,Rear-end collision,3,0
+21/03/2024,7:27,Thursday,VII-C,14.07976434,121.3297644,Rainy,Wet,Motorcycle,35,Male,Head-on collision,2,0
+27/02/2024,1:05,Tuesday,III-D (Vilongco),14.06954876,121.3201805,Cloudy,Dry,Car,23,Female,Rear-end collision,2,0
+15/05/2023,10:39,Monday,San Antonio 2 (Sapa),14.06425928,121.3034881,Sunny,Dry,Motorcycle,30,Female,Rear-end collision,1,0
+25/07/2024,12:57,Thursday,San Francisco (Calihan),14.04936713,121.3012945,Sunny,Dry,Truck,31,Male,Head-on collision,2,0
+20/06/2020,20:55,Saturday,San Pedro,14.07003316,121.3196787,Cloudy,Dry,Motorcycle,48,Male,Head-on collision,3,1
+04/03/2024,9:07,Monday,Santa Monica,14.06080876,121.3107042,Sunny,Dry,Car,39,Male,Pedestrian accident,2,1
+11/01/2023,1:23,Wednesday,II-D (Bulante),14.05840225,121.3102977,Sunny,Dry,Motorcycle,26,Male,Side-impact collision,4,0
+01/07/2024,6:38,Monday,VII-E,14.05039887,121.3001292,Cloudy,Dry,Car,33,Female,Head-on collision,6,0
+06/01/2020,19:31,Monday,San Jose (Malamig),14.06614339,121.3129546,Sunny,Dry,Motorcycle,24,Male,Head-on collision,2,1
+20/05/2023,12:49,Saturday,Santo Cristo,14.09101311,121.3419801,Sunny,Dry,Motorcycle,30,Female,Single vehicle accident,0,1
+08/04/2020,20:34,Wednesday,V-D,14.06168808,121.3316856,Sunny,Gravel,Motorcycle,54,Male,Rear-end collision,0,0
+24/05/2020,19:27,Sunday,III-D (Vilongco),14.04838002,121.3000427,Rainy,Wet,Motorcycle,34,Female,Single vehicle accident,2,1
+19/11/2024,17:09,Tuesday,Santa Ana,14.05972819,121.3090871,Sunny,Dry,Car,45,Female,Rear-end collision,0,0
+26/12/2021,14:31,Sunday,VI-C (Bagong Pook),14.07974137,121.3308637,Sunny,Dry,Truck,35,Male,Side-impact collision,0,0
+30/12/2020,10:31,Wednesday,San Lucas 2 (Malinaw),14.08059053,121.3307336,Rainy,Wet,Car,54,Male,Head-on collision,3,1
+17/06/2021,16:17,Thursday,II-A (Triangulo Guadalupe 2),14.09070936,121.3398993,Cloudy,Dry,Car,43,Male,Pedestrian accident,2,0
+21/02/2020,12:56,Friday,VII-E,14.04957036,121.3003236,Sunny,Dry,Motorcycle,34,Female,Rear-end collision,2,0
+15/06/2023,18:38,Thursday,I-B (City+Riverside),14.06129496,121.3109565,Sunny,Dry,Car,43,Male,Rear-end collision,1,0
+01/08/2020,23:42,Saturday,San Cristobal,14.08973259,121.3389725,Sunny,Gravel,Truck,37,Male,Head-on collision,6,0
+06/02/2021,13:29,Saturday,San Gregorio,14.08739711,121.3363566,Sunny,Dry,Truck,39,Male,Rear-end collision,1,0
+21/12/2021,6:34,Tuesday,Del Remedio (Wawa),14.0635406,121.3291498,Sunny,Dry,Truck,34,Male,Pedestrian accident,4,1
+05/01/2024,18:35,Friday,San Nicolas (Mag-ampong),14.09159597,121.3165133,Sunny,Dry,Tricycle,47,Male,Rear-end collision,1,0
+26/08/2022,16:30,Friday,Concepcion (Bunot),14.09998995,121.3023713,Sunny,Dry,Tricycle,37,Male,Side-impact collision,1,0
+11/08/2021,4:03,Wednesday,San Pedro,14.06941294,121.320387,Sunny,Dry,Motorcycle,37,Female,Rear-end collision,1,0
+05/12/2022,3:59,Monday,San Marcos (Tikew),14.05525289,121.3325823,Sunny,Gravel,Motorcycle,34,Male,Head-on collision,2,0
+25/12/2024,5:47,Wednesday,Santa Isabel,14.09001033,121.3394441,Cloudy,Dry,Truck,30,Female,Single vehicle accident,0,0
+13/11/2022,21:20,Sunday,Dolores,14.05377475,121.345309,Sunny,Dry,Motorcycle,24,Male,Side-impact collision,2,1
+01/03/2023,23:40,Wednesday,San Nicolas (Mag-ampong),14.08189073,121.3287674,Cloudy,Dry,Truck,41,Male,Side-impact collision,0,1
+17/10/2023,20:09,Tuesday,San Marcos (Tikew),14.0779116,121.3300992,Sunny,Dry,Car,40,Male,Pedestrian accident,4,0
+22/11/2021,2:52,Monday,Santo Cristo,14.05029443,121.2992699,Rainy,Wet,Car,18,Male,Head-on collision,3,0
+10/12/2024,11:42,Tuesday,San Vicente,14.0805282,121.3312042,Sunny,Dry,Tricycle,18,Female,Head-on collision,2,2
+20/12/2022,22:55,Tuesday,Dolores,14.06976867,121.3242007,Cloudy,Dry,Bicycle,44,Female,Single vehicle accident,1,0
+07/04/2022,11:12,Thursday,San Jose (Malamig),14.09723045,121.3476516,Rainy,Wet,Motorcycle,22,Male,Single vehicle accident,0,0
+24/03/2022,1:16,Thursday,VII-A (P. Alcantara),14.07951177,121.3065636,Sunny,Dry,Tricycle,21,Male,Rear-end collision,1,0
+29/07/2024,13:23,Monday,Santisimo Rosario (Balagbag),14.06030109,121.3123494,Sunny,Dry,Motorcycle,38,Female,Side-impact collision,1,1
+26/12/2024,20:38,Thursday,II-C (Unson),14.0800436,121.330533,Rainy,Wet,Car,33,Male,Pedestrian accident,1,0
+30/04/2022,9:41,Saturday,III-D (Vilongco),14.07948648,121.3307095,Sunny,Dry,Motorcycle,31,Male,Head-on collision,1,0
+14/04/2022,18:36,Thursday,Santa Maria,14.07868504,121.3315104,Sunny,Dry,Bus,27,Male,Rear-end collision,1,0
+20/09/2023,23:35,Wednesday,San Gabriel (Butucan),14.09018503,121.3397811,Sunny,Dry,Car,33,Male,Rear-end collision,0,0
+21/09/2024,18:00,Saturday,II-F (Villa Rey),14.08351887,121.338731,Sunny,Dry,Car,50,Male,Pedestrian accident,2,2
+04/07/2023,8:10,Tuesday,San Mateo (Imok),14.07985512,121.3283289,Cloudy,Dry,Car,32,Male,Rear-end collision,0,0
+13/03/2021,21:57,Saturday,San Francisco (Calihan),14.05096339,121.3013161,Rainy,Wet,Car,28,Male,Side-impact collision,2,0
+23/03/2022,8:53,Wednesday,VII-E,14.08160505,121.3295515,Cloudy,Potholes,Tricycle,36,Male,Side-impact collision,1,0
+01/03/2021,11:17,Monday,VI-A (Mavenida),14.07952797,121.3469609,Sunny,Gravel,Bicycle,28,Male,Rear-end collision,1,0
+09/08/2021,18:13,Monday,Del Remedio (Wawa),14.09020347,121.3402894,Sunny,Dry,Tricycle,34,Female,Rear-end collision,3,0
+10/06/2024,11:32,Monday,V-B,14.04970705,121.2992498,Sunny,Dry,Motorcycle,27,Male,Head-on collision,1,1
+10/05/2023,9:18,Wednesday,San Bartolome (Matang-ag),14.0799223,121.3307197,Rainy,Wet,Car,46,Male,Rear-end collision,2,0
+24/04/2021,15:40,Saturday,Santo Niño (Arsum),14.05103662,121.2990944,Stormy,Wet,Motorcycle,23,Male,Pedestrian accident,0,0
+31/01/2022,14:12,Monday,V-B,14.05921208,121.3111315,Sunny,Dry,Car,45,Male,Rear-end collision,1,0
+04/11/2024,2:47,Monday,San Crispin (Lumbangan),14.08925682,121.3412741,Cloudy,Potholes,Motorcycle,52,Male,Head-on collision,6,1
+31/10/2022,15:09,Monday,Santa Monica,14.05166858,121.3002368,Sunny,Potholes,Motorcycle,39,Male,Pedestrian accident,4,0
+06/07/2023,9:37,Thursday,San Gabriel (Butucan),14.04894742,121.2993403,Sunny,Dry,Truck,34,Female,Head-on collision,3,1
+26/08/2021,2:59,Thursday,I-A (Sambat),14.08971907,121.3405484,Sunny,Dry,Tricycle,18,Male,Head-on collision,1,0
+24/04/2022,8:41,Sunday,Santa Monica,14.09156092,121.307845,Sunny,Dry,Motorcycle,24,Male,Side-impact collision,4,0
+17/07/2020,8:08,Friday,IV-C,14.07973792,121.3306222,Sunny,Dry,Motorcycle,36,Male,Rear-end collision,0,0
+02/11/2021,2:59,Tuesday,Santa Maria,14.05991451,121.3091298,Sunny,Dry,Motorcycle,36,Male,Head-on collision,5,0
+12/11/2023,23:26,Sunday,VI-D (Lparkers),14.05119349,121.3000691,Rainy,Wet,Car,30,Female,Side-impact collision,0,0
+13/06/2021,17:12,Sunday,San Diego (Tilim),14.05103414,121.2992628,Rainy,Wet,Car,46,Male,Pedestrian accident,0,1
+30/05/2020,2:13,Saturday,II-A (Triangulo Guadalupe 2),14.07781138,121.3302409,Sunny,Dry,Bicycle,36,Male,Side-impact collision,3,0
+11/01/2020,17:17,Saturday,VII-C,14.08981143,121.3404522,Sunny,Dry,Car,36,Male,Head-on collision,2,1
+08/09/2023,11:37,Friday,Santo Cristo,14.06979732,121.3217836,Rainy,Wet,Car,40,Female,Side-impact collision,1,0
+04/12/2020,23:24,Friday,Del Remedio (Wawa),14.04770726,121.3010886,Rainy,Wet,Motorcycle,34,Female,Rear-end collision,2,0
+03/11/2024,10:10,Sunday,San Jose (Malamig),14.05013761,121.3012291,Rainy,Wet,Motorcycle,52,Female,Side-impact collision,2,0
+02/01/2023,9:57,Monday,IV-B,14.07975252,121.3302691,Cloudy,Dry,Tricycle,29,Female,Single vehicle accident,1,0
+31/05/2023,2:16,Wednesday,V-D,14.07119573,121.3184194,Sunny,Gravel,Car,33,Female,Rear-end collision,1,0
+07/07/2021,2:01,Wednesday,Santo Angel (Ilog),14.08996708,121.3387031,Rainy,Wet,Motorcycle,18,Male,Rear-end collision,0,0
+26/12/2020,9:46,Saturday,San Crispin (Lumbangan),14.05984733,121.3108417,Cloudy,Dry,Car,18,Female,Single vehicle accident,0,0
+18/05/2024,17:50,Saturday,Santiago 1 (Bulaho),14.07961123,121.3290431,Rainy,Wet,Motorcycle,25,Female,Rear-end collision,0,0
+03/09/2020,11:40,Thursday,San Antonio 1 (Balanga),14.08709429,121.3006749,Cloudy,Dry,Tricycle,30,Male,Side-impact collision,2,0
+20/01/2024,22:10,Saturday,II-F (Villa Rey),14.06095713,121.3085638,Sunny,Dry,Truck,29,Male,Rear-end collision,2,0
+02/05/2021,19:18,Sunday,San Roque (Sambat),14.08891006,121.3404432,Rainy,Wet,Car,35,Male,Pedestrian accident,1,0
+24/02/2022,19:24,Thursday,Santa Maria Magdalena (Boe / Kuba),14.08951755,121.3401439,Cloudy,Dry,Tricycle,30,Female,Pedestrian accident,3,0
+26/05/2023,9:57,Friday,San Gabriel (Butucan),14.09090965,121.3389096,Sunny,Potholes,Car,47,Male,Rear-end collision,0,0
+07/04/2020,8:45,Tuesday,San Diego (Tilim),14.08462693,121.3062386,Sunny,Dry,Car,31,Male,Single vehicle accident,1,0
+02/11/2023,18:35,Thursday,II-F (Villa Rey),14.07019035,121.3207922,Sunny,Dry,Car,46,Male,Head-on collision,3,2
+09/02/2023,16:24,Thursday,Santa Veronica (Bae),14.06156397,121.3180796,Sunny,Dry,Motorcycle,42,Male,Side-impact collision,1,0
+02/12/2022,18:06,Friday,San Lucas 2 (Malinaw),14.09094434,121.3390141,Sunny,Dry,Car,34,Male,Rear-end collision,1,0
+04/08/2020,12:36,Tuesday,VI-B,14.04870452,121.3006378,Rainy,Wet,Car,33,Male,Head-on collision,4,0
+06/06/2024,18:55,Thursday,VI-A (Mavenida),14.07870789,121.3297343,Rainy,Gravel,Motorcycle,26,Male,Side-impact collision,5,0
+23/03/2022,18:53,Wednesday,Santisimo Rosario (Balagbag),14.07659703,121.3474632,Sunny,Dry,Car,63,Female,Single vehicle accident,0,0
+01/03/2023,12:11,Wednesday,Santiago 1 (Bulaho),14.07929076,121.3299424,Rainy,Gravel,Car,52,Male,Rear-end collision,0,1
+06/02/2021,19:25,Saturday,San Nicolas (Mag-ampong),14.04996654,121.3013877,Sunny,Potholes,Car,25,Female,Side-impact collision,1,0
+08/08/2023,9:29,Tuesday,Bautista,14.0822172,121.3050345,Rainy,Wet,Car,39,Male,Pedestrian accident,2,0
+02/09/2020,7:20,Wednesday,San Lucas 1 (Sabang),14.08972134,121.3393188,Rainy,Wet,Motorcycle,39,Male,Head-on collision,2,0
+30/06/2022,1:22,Thursday,Santa Maria Magdalena (Boe / Kuba),14.07140253,121.3211525,Cloudy,Gravel,Tricycle,31,Female,Head-on collision,4,0
+20/12/2020,20:33,Sunday,IV-A,14.06281555,121.3062487,Stormy,Wet,Motorcycle,32,Male,Head-on collision,0,0
+24/11/2021,5:05,Wednesday,V-A,14.06118702,121.3089201,Sunny,Dry,Bus,34,Male,Rear-end collision,1,0
+19/09/2022,16:19,Monday,VI-D (Lparkers),14.06004165,121.3109125,Rainy,Gravel,Tricycle,29,Male,Head-on collision,1,1
+16/12/2020,18:44,Wednesday,VI-B,14.06962548,121.3201102,Sunny,Dry,Motorcycle,35,Male,Head-on collision,5,0
+18/03/2022,8:26,Friday,II-A (Triangulo Guadalupe 2),14.05397968,121.3195977,Cloudy,Potholes,Truck,22,Female,Head-on collision,6,0
+29/04/2020,8:48,Wednesday,IV-B,14.08056883,121.3294158,Sunny,Dry,Motorcycle,46,Male,Side-impact collision,0,0
+18/06/2024,9:21,Tuesday,VII-A (P. Alcantara),14.05906546,121.3105693,Sunny,Dry,Car,35,Female,Side-impact collision,1,0
+27/04/2021,12:36,Tuesday,Santa Veronica (Bae),14.06347289,121.3425386,Sunny,Dry,Motorcycle,49,Male,Head-on collision,5,0
+07/05/2020,9:37,Thursday,VII-B,14.09134649,121.3383214,Sunny,Dry,Motorcycle,28,Male,Rear-end collision,1,0
+19/02/2021,5:27,Friday,Santo Cristo,14.07750787,121.329079,Rainy,Wet,Car,23,Female,Head-on collision,1,0
+13/11/2021,8:37,Saturday,San Crispin (Lumbangan),14.06488018,121.3132124,Sunny,Dry,Car,37,Male,Head-on collision,3,1
+28/11/2022,4:05,Monday,Santo Niño (Arsum),14.04989792,121.2991348,Rainy,Wet,Car,38,Male,Single vehicle accident,1,1
+11/03/2021,15:45,Thursday,Dolores,14.06989887,121.31898,Sunny,Gravel,Bus,34,Female,Single vehicle accident,2,0
+24/01/2024,15:55,Wednesday,IV-B,14.06280593,121.3196135,Sunny,Dry,Tricycle,39,Male,Pedestrian accident,2,1
+31/07/2024,0:11,Wednesday,Santo Niño (Arsum),14.04997814,121.3007714,Stormy,Wet,Motorcycle,33,Male,Side-impact collision,2,1
+03/06/2022,17:40,Friday,Santa Veronica (Bae),14.07181616,121.3406626,Cloudy,Potholes,Motorcycle,36,Female,Rear-end collision,3,0
+18/01/2020,8:53,Saturday,San Antonio 2 (Sapa),14.05884352,121.3106675,Cloudy,Gravel,Motorcycle,39,Male,Head-on collision,2,1
+08/11/2024,20:47,Friday,III-F (Balagtas),14.05961222,121.312284,Sunny,Gravel,Bicycle,30,Male,Side-impact collision,5,1
+12/06/2020,19:39,Friday,II-D (Bulante),14.07158997,121.3210272,Cloudy,Dry,Truck,18,Male,Pedestrian accident,3,0
+21/06/2023,18:11,Wednesday,San Juan (Putol),14.07924442,121.3296665,Sunny,Gravel,Car,23,Male,Rear-end collision,1,0
+08/04/2024,19:14,Monday,Santa Monica,14.04976429,121.3008782,Sunny,Dry,Motorcycle,47,Male,Side-impact collision,0,0
+05/04/2023,9:13,Wednesday,San Diego (Tilim),14.06558182,121.3403877,Rainy,Wet,Bicycle,39,Male,Head-on collision,6,0
+12/06/2021,16:15,Saturday,San Francisco (Calihan),14.06937813,121.3199326,Sunny,Dry,Motorcycle,27,Male,Rear-end collision,2,0
+02/10/2022,7:59,Sunday,Santo Cristo,14.0706879,121.3200446,Rainy,Wet,Truck,34,Female,Rear-end collision,0,0
+05/09/2023,18:28,Tuesday,Concepcion (Bunot),14.09001702,121.3406822,Sunny,Dry,Car,35,Male,Single vehicle accident,1,0
+19/06/2023,22:42,Monday,II-E (San Anton),14.04952663,121.3004275,Sunny,Dry,Motorcycle,44,Male,Pedestrian accident,3,0
+05/08/2021,14:14,Thursday,San Gregorio,14.08702263,121.3237578,Sunny,Dry,Truck,28,Male,Rear-end collision,1,0
+27/09/2020,3:07,Sunday,Soledad (Macopa),14.09036375,121.3379767,Sunny,Dry,Car,37,Female,Side-impact collision,0,1
+24/12/2022,19:32,Saturday,San Jose (Malamig),14.09005939,121.338237,Sunny,Dry,Bicycle,33,Male,Rear-end collision,1,1
+20/06/2024,19:19,Thursday,San Jose (Malamig),14.0609132,121.312022,Rainy,Wet,Truck,25,Male,Side-impact collision,1,0
+27/03/2024,6:40,Wednesday,VII-C,14.06899015,121.3222089,Stormy,Gravel,Motorcycle,36,Male,Rear-end collision,1,0
+16/09/2022,11:47,Friday,I-C (Bagong Bayan),14.07991818,121.3296899,Cloudy,Dry,Bicycle,33,Male,Pedestrian accident,4,0
+25/03/2022,23:40,Friday,III-A (Hermanos Belen),14.05651383,121.3309399,Sunny,Dry,Tricycle,20,Male,Single vehicle accident,1,0
+09/08/2020,17:48,Sunday,Santa Catalina (Sandig),14.04893799,121.3000989,Sunny,Dry,Motorcycle,24,Male,Single vehicle accident,0,0
+09/07/2023,8:39,Sunday,III-F (Balagtas),14.06859925,121.3194937,Sunny,Dry,Tricycle,29,Female,Rear-end collision,0,1
+01/11/2022,15:07,Tuesday,San Jose (Malamig),14.08016552,121.3311624,Sunny,Dry,Bus,23,Male,Side-impact collision,2,1
+09/11/2024,14:20,Saturday,San Gabriel (Butucan),14.08917577,121.3056186,Sunny,Dry,Car,18,Male,Rear-end collision,2,0
+26/12/2023,6:15,Tuesday,IV-C,14.05877023,121.3099259,Rainy,Wet,Car,30,Female,Side-impact collision,0,0
+22/02/2022,4:31,Tuesday,San Nicolas (Mag-ampong),14.07918692,121.3328074,Rainy,Wet,Bus,19,Female,Head-on collision,6,0
+10/06/2024,7:58,Monday,San Marcos (Tikew),14.0800876,121.3297399,Sunny,Potholes,Motorcycle,23,Male,Rear-end collision,2,0
+16/10/2023,16:27,Monday,Santa Filomena (Banagin),14.07922539,121.3302532,Stormy,Wet,Motorcycle,43,Female,Single vehicle accident,2,0
+03/08/2023,8:15,Thursday,IV-A,14.09093474,121.3403323,Cloudy,Dry,Car,45,Male,Rear-end collision,2,0
+19/08/2021,6:12,Thursday,IV-B,14.07181774,121.3219032,Rainy,Wet,Car,28,Male,Side-impact collision,1,0
+29/08/2020,15:13,Saturday,San Marcos (Tikew),14.04912926,121.3004644,Rainy,Wet,Car,37,Male,Pedestrian accident,2,0
+30/05/2023,20:13,Tuesday,I-B (City+Riverside),14.06873884,121.3251667,Sunny,Dry,Motorcycle,27,Male,Rear-end collision,0,0
+03/02/2020,20:17,Monday,Atisan,14.08876211,121.3373292,Rainy,Wet,Car,36,Female,Side-impact collision,3,0
+20/06/2023,5:15,Tuesday,IV-A,14.05204682,121.3480955,Stormy,Potholes,Motorcycle,31,Male,Rear-end collision,1,0
+07/08/2022,7:06,Sunday,San Joaquin,14.05920483,121.3103667,Sunny,Dry,Motorcycle,39,Male,Pedestrian accident,2,1
+18/04/2021,10:10,Sunday,III-E,14.09794245,121.3467,Rainy,Wet,Truck,38,Male,Pedestrian accident,1,0
+28/01/2023,7:50,Saturday,Santo Angel (Ilog),14.09382789,121.3385186,Rainy,Wet,Motorcycle,40,Male,Side-impact collision,1,0
+05/02/2021,15:24,Friday,VI-C (Bagong Pook),14.08023999,121.3308222,Sunny,Gravel,Car,19,Male,Pedestrian accident,3,0
+10/05/2020,7:10,Sunday,Del Remedio (Wawa),14.0604036,121.3116141,Sunny,Dry,Motorcycle,33,Male,Pedestrian accident,1,0
+12/06/2023,5:53,Monday,VII-B,14.08178636,121.3242357,Sunny,Gravel,Car,28,Male,Head-on collision,2,0
+02/09/2024,9:26,Monday,Santa Filomena (Banagin),14.09199297,121.3331607,Rainy,Wet,Motorcycle,26,Female,Pedestrian accident,1,0
+05/05/2024,9:03,Sunday,II-B (Guadalupe 1),14.08894237,121.3403222,Rainy,Wet,Motorcycle,22,Male,Side-impact collision,2,0
+22/11/2022,16:13,Tuesday,Santa Filomena (Banagin),14.04983147,121.3002649,Stormy,Wet,Motorcycle,36,Male,Single vehicle accident,0,0
+06/08/2021,7:51,Friday,Concepcion (Bunot),14.04800753,121.299526,Sunny,Dry,Car,27,Female,Pedestrian accident,4,0
+15/04/2020,17:25,Wednesday,San Vicente,14.05934946,121.3106652,Sunny,Dry,Motorcycle,49,Female,Rear-end collision,0,0
+16/12/2020,19:14,Wednesday,San Pedro,14.090841,121.3376848,Sunny,Dry,Truck,28,Female,Rear-end collision,2,1
+10/12/2023,2:44,Sunday,VI-C (Bagong Pook),14.04909653,121.2999627,Sunny,Dry,Bicycle,43,Male,Side-impact collision,0,0
+12/01/2020,10:26,Sunday,Santa Ana,14.08918449,121.341252,Sunny,Dry,Car,33,Female,Side-impact collision,1,1
+19/12/2021,7:10,Sunday,Santa Maria,14.06944927,121.3188067,Sunny,Dry,Motorcycle,42,Male,Rear-end collision,2,0
+28/03/2023,8:54,Tuesday,San Bartolome (Matang-ag),14.09177835,121.3410641,Cloudy,Dry,Car,37,Male,Single vehicle accident,1,0
+28/11/2024,23:35,Thursday,San Lorenzo (Saluyan),14.09197038,121.3403835,Sunny,Dry,Car,42,Male,Rear-end collision,1,0
+09/02/2022,5:08,Wednesday,V-D,14.04958804,121.3009327,Cloudy,Dry,Tricycle,24,Male,Head-on collision,4,0
+12/12/2020,11:59,Saturday,VI-C (Bagong Pook),14.07023993,121.3222923,Cloudy,Dry,Motorcycle,32,Male,Side-impact collision,2,0
+09/11/2020,9:01,Monday,Santo Cristo,14.06991103,121.319324,Rainy,Gravel,Motorcycle,38,Female,Head-on collision,4,0
+20/11/2023,6:59,Monday,II-B (Guadalupe 1),14.06984716,121.319479,Sunny,Dry,Motorcycle,30,Female,Side-impact collision,1,0
+05/06/2023,12:39,Monday,San Pedro,14.09998864,121.3131331,Sunny,Dry,Bus,26,Female,Side-impact collision,1,0
+04/03/2023,10:47,Saturday,Santo Niño (Arsum),14.06227238,121.3013113,Rainy,Wet,Motorcycle,38,Male,Pedestrian accident,1,0
+13/02/2023,9:18,Monday,Santa Elena,14.08203111,121.3291081,Rainy,Wet,Motorcycle,35,Male,Rear-end collision,1,0
+02/02/2022,2:58,Wednesday,III-F (Balagtas),14.08128731,121.3080698,Sunny,Dry,Motorcycle,21,Male,Side-impact collision,6,0
+19/05/2024,18:13,Sunday,III-C (Labak/De Roma),14.09004392,121.3411898,Stormy,Wet,Car,44,Male,Pedestrian accident,2,0
+20/11/2020,0:41,Friday,Santo Angel (Ilog),14.089297,121.3399912,Rainy,Wet,Motorcycle,49,Female,Single vehicle accident,1,0
+01/11/2020,12:13,Sunday,VII-B,14.08090357,121.336134,Rainy,Wet,Motorcycle,28,Male,Side-impact collision,1,0
+06/11/2023,0:45,Monday,San Gregorio,14.06087863,121.3108752,Rainy,Wet,Truck,24,Male,Single vehicle accident,4,1
+16/06/2020,18:41,Tuesday,IV-A,14.09133463,121.3407281,Sunny,Gravel,Motorcycle,38,Female,Pedestrian accident,2,1
+03/12/2023,20:39,Sunday,VII-C,14.04951889,121.3004187,Sunny,Gravel,Motorcycle,40,Male,Single vehicle accident,0,0
+20/06/2020,1:49,Saturday,San Jose (Malamig),14.08049389,121.3303119,Rainy,Wet,Car,43,Male,Side-impact collision,1,0
+04/02/2021,13:27,Thursday,San Antonio 2 (Sapa),14.07118162,121.3195428,Rainy,Wet,Motorcycle,39,Female,Rear-end collision,3,0
+31/07/2023,22:53,Monday,San Lucas 1 (Sabang),14.05989251,121.3107463,Cloudy,Dry,Car,40,Male,Head-on collision,2,1
+10/09/2024,0:21,Tuesday,Dolores,14.05063619,121.3001156,Cloudy,Dry,Bicycle,41,Male,Rear-end collision,0,0
+08/09/2021,22:33,Wednesday,VII-E,14.05090897,121.3073921,Rainy,Potholes,Motorcycle,42,Male,Side-impact collision,1,0
+26/07/2020,5:50,Sunday,V-D,14.0893829,121.3425869,Rainy,Wet,Motorcycle,34,Male,Rear-end collision,0,0
+17/02/2023,8:47,Friday,V-B,14.07987259,121.3308494,Sunny,Dry,Motorcycle,31,Female,Single vehicle accident,0,0
+21/09/2024,15:51,Saturday,Del Remedio (Wawa),14.09874376,121.3136586,Sunny,Dry,Tricycle,26,Male,Pedestrian accident,5,0
+12/01/2023,11:59,Thursday,III-A (Hermanos Belen),14.08103056,121.3303615,Sunny,Potholes,Motorcycle,18,Male,Side-impact collision,0,0
+08/09/2022,16:16,Thursday,II-B (Guadalupe 1),14.06818082,121.316266,Rainy,Wet,Motorcycle,23,Female,Pedestrian accident,1,0
+08/12/2022,9:09,Thursday,San Vicente,14.06970011,121.3491168,Cloudy,Potholes,Bus,37,Male,Single vehicle accident,1,0
+06/05/2023,6:00,Saturday,San Vicente,14.06111613,121.3243497,Cloudy,Gravel,Bicycle,18,Female,Head-on collision,3,1
+13/05/2020,14:00,Wednesday,IV-B,14.05802527,121.3105637,Sunny,Dry,Bicycle,37,Female,Side-impact collision,1,1
+22/02/2021,12:58,Monday,V-A,14.09050918,121.3114736,Rainy,Wet,Motorcycle,22,Male,Side-impact collision,4,1
+19/02/2020,19:35,Wednesday,Santa Ana,14.05672664,121.348544,Rainy,Wet,Motorcycle,18,Female,Rear-end collision,2,0
+16/10/2020,13:36,Friday,Santisimo Rosario (Balagbag),14.09035624,121.3417274,Sunny,Dry,Motorcycle,18,Female,Single vehicle accident,1,0
+23/07/2022,19:55,Saturday,III-C (Labak/De Roma),14.07930408,121.3298287,Rainy,Wet,Tricycle,18,Male,Single vehicle accident,1,1
+15/09/2022,12:36,Thursday,II-B (Guadalupe 1),14.0489534,121.2997728,Rainy,Wet,Car,21,Female,Side-impact collision,0,0
+27/02/2021,3:35,Saturday,Bautista,14.08061527,121.3320323,Sunny,Dry,Motorcycle,46,Male,Side-impact collision,1,0
+17/04/2023,19:36,Monday,VI-C (Bagong Pook),14.0715197,121.3268066,Rainy,Gravel,Motorcycle,28,Female,Side-impact collision,3,0
+21/09/2023,9:19,Thursday,Bautista,14.09139431,121.3400558,Sunny,Dry,Car,35,Male,Side-impact collision,0,0
+25/12/2024,12:49,Wednesday,VII-B,14.06766527,121.321592,Rainy,Wet,Motorcycle,40,Male,Side-impact collision,2,0
+16/02/2024,14:06,Friday,San Francisco (Calihan),14.0616041,121.3085601,Sunny,Dry,Truck,25,Female,Head-on collision,3,0
+28/10/2020,15:47,Wednesday,San Antonio 2 (Sapa),14.09111479,121.3399346,Sunny,Dry,Truck,46,Female,Head-on collision,2,0
+23/06/2024,1:01,Sunday,Santiago II (Bulaho),14.0890576,121.3403731,Stormy,Wet,Car,35,Male,Rear-end collision,0,0
+27/06/2022,15:59,Monday,VII-C,14.04941319,121.2993013,Stormy,Wet,Car,19,Male,Rear-end collision,0,0
+08/10/2021,7:51,Friday,San Lorenzo (Saluyan),14.05000798,121.3022164,Rainy,Wet,Bicycle,41,Male,Single vehicle accident,1,0
+09/02/2024,17:21,Friday,Santa Maria Magdalena (Boe / Kuba),14.04918975,121.3007202,Rainy,Wet,Car,41,Male,Single vehicle accident,1,0
+16/12/2024,11:52,Monday,Santa Catalina (Sandig),14.07881492,121.3255867,Sunny,Potholes,Motorcycle,44,Male,Side-impact collision,4,1
+10/05/2024,12:51,Friday,Santa Monica,14.07754629,121.3296086,Cloudy,Dry,Motorcycle,37,Male,Pedestrian accident,5,0
+14/08/2024,7:07,Wednesday,Bautista,14.08921407,121.3390542,Rainy,Wet,Motorcycle,33,Male,Side-impact collision,2,0
+22/10/2021,21:53,Friday,II-C (Unson),14.08097921,121.330117,Sunny,Potholes,Car,18,Male,Rear-end collision,1,0
+19/06/2021,2:04,Saturday,San Lorenzo (Saluyan),14.08897085,121.3393773,Cloudy,Dry,Car,30,Male,Head-on collision,6,0
+01/11/2023,11:47,Wednesday,VI-B,14.09088297,121.3389415,Rainy,Wet,Tricycle,36,Male,Pedestrian accident,4,0
+27/08/2024,6:58,Tuesday,Santo Niño (Arsum),14.08036217,121.3116716,Sunny,Dry,Truck,19,Male,Single vehicle accident,2,0
+12/07/2020,14:07,Sunday,VII-A (P. Alcantara),14.08036359,121.3312051,Sunny,Potholes,Car,27,Male,Rear-end collision,6,0
+19/07/2023,8:32,Wednesday,San Isidro (Balagbag),14.07112208,121.320113,Stormy,Wet,Motorcycle,40,Male,Pedestrian accident,3,0
+12/10/2021,19:35,Tuesday,V-B,14.08878052,121.3419004,Stormy,Gravel,Motorcycle,20,Male,Rear-end collision,0,0
+06/01/2021,19:08,Wednesday,IV-B,14.05054418,121.3012264,Cloudy,Potholes,Car,22,Female,Pedestrian accident,1,1
+15/12/2022,10:31,Thursday,San Juan (Putol),14.06867786,121.3371925,Rainy,Wet,Car,32,Female,Single vehicle accident,1,0
+07/02/2021,19:37,Sunday,San Crispin (Lumbangan),14.05049737,121.3007447,Sunny,Dry,Motorcycle,43,Male,Pedestrian accident,0,0
+28/04/2023,5:06,Friday,Santiago II (Bulaho),14.09098903,121.3394139,Rainy,Wet,Car,34,Male,Rear-end collision,0,0
+23/04/2022,0:27,Saturday,San Diego (Tilim),14.09046496,121.3406931,Sunny,Dry,Motorcycle,23,Male,Head-on collision,3,0
+24/03/2023,14:25,Friday,III-B,14.0717433,121.3467854,Rainy,Wet,Truck,49,Male,Head-on collision,7,2
+08/06/2020,15:31,Monday,San Marcos (Tikew),14.07057635,121.3204762,Rainy,Wet,Motorcycle,36,Male,Rear-end collision,3,0
+13/07/2023,9:44,Thursday,San Roque (Sambat),14.0686277,121.3207206,Sunny,Dry,Motorcycle,46,Male,Head-on collision,2,0
+27/09/2022,17:26,Tuesday,VII-A (P. Alcantara),14.07479076,121.3013086,Rainy,Wet,Truck,38,Male,Rear-end collision,0,0
+20/12/2020,7:22,Sunday,Santiago II (Bulaho),14.07995622,121.3299054,Rainy,Wet,Bicycle,25,Male,Rear-end collision,0,0
+01/11/2024,13:29,Friday,VI-C (Bagong Pook),14.07882685,121.3294938,Rainy,Wet,Motorcycle,35,Male,Single vehicle accident,0,0
+15/05/2020,17:39,Friday,San Isidro (Balagbag),14.0620263,121.3085427,Rainy,Wet,Motorcycle,37,Female,Head-on collision,4,1
+23/12/2024,2:54,Monday,V-C,14.05526998,121.3005267,Cloudy,Dry,Tricycle,39,Male,Rear-end collision,2,0
+09/06/2023,3:30,Friday,San Antonio 1 (Balanga),14.07354715,121.3412933,Sunny,Dry,Car,31,Female,Head-on collision,4,1
+05/04/2022,23:38,Tuesday,VII-C,14.09148558,121.3418327,Rainy,Wet,Truck,28,Male,Side-impact collision,4,0
+14/04/2024,23:56,Sunday,San Vicente,14.0904667,121.3401545,Sunny,Dry,Car,36,Female,Side-impact collision,3,0
+21/05/2023,23:48,Sunday,San Vicente,14.08954696,121.3441969,Rainy,Wet,Car,20,Male,Side-impact collision,3,0
+03/11/2020,15:01,Tuesday,Santa Elena,14.07068311,121.3207074,Rainy,Wet,Motorcycle,35,Male,Head-on collision,3,0
+18/05/2023,17:21,Thursday,Santa Isabel,14.06933285,121.3217384,Rainy,Potholes,Car,28,Female,Rear-end collision,1,0
+24/06/2020,23:41,Wednesday,V-A,14.07953371,121.3299601,Sunny,Dry,Bicycle,29,Female,Pedestrian accident,3,0
+29/11/2022,9:46,Tuesday,San Vicente,14.06955459,121.3204127,Rainy,Wet,Motorcycle,29,Female,Single vehicle accident,0,0
+17/12/2023,20:12,Sunday,Santa Monica,14.05761065,121.3328668,Sunny,Dry,Motorcycle,32,Male,Head-on collision,7,0
+13/10/2020,17:44,Tuesday,III-E,14.0687012,121.3204576,Sunny,Potholes,Tricycle,36,Male,Head-on collision,2,0
+04/06/2023,1:39,Sunday,San Miguel (Balintin),14.06915604,121.3426593,Cloudy,Dry,Motorcycle,49,Male,Rear-end collision,1,0
+08/02/2024,7:13,Thursday,Santo Cristo,14.0597154,121.3099325,Sunny,Potholes,Motorcycle,22,Male,Single vehicle accident,0,0
+17/10/2022,8:36,Monday,II-A (Triangulo Guadalupe 2),14.05949783,121.3093755,Sunny,Dry,Truck,35,Male,Single vehicle accident,1,0
+03/03/2022,8:22,Thursday,San Diego (Tilim),14.0498496,121.3001667,Cloudy,Dry,Bus,29,Male,Side-impact collision,2,1
+24/02/2023,2:31,Friday,San Rafael (Buluburan),14.07000204,121.3209171,Cloudy,Dry,Bus,48,Male,Rear-end collision,1,0
+24/04/2024,7:35,Wednesday,San Francisco (Calihan),14.06199323,121.3102388,Stormy,Potholes,Car,34,Male,Pedestrian accident,2,0
+27/08/2024,15:10,Tuesday,VII-C,14.06014543,121.3114983,Rainy,Wet,Car,38,Male,Rear-end collision,0,0
+17/07/2021,22:06,Saturday,Santa Maria,14.09081535,121.3390391,Cloudy,Dry,Car,46,Male,Side-impact collision,1,0
+11/03/2023,6:52,Saturday,VI-D (Lparkers),14.06854668,121.3110886,Cloudy,Dry,Truck,19,Female,Side-impact collision,3,0
+05/10/2020,12:34,Monday,V-D,14.08408571,121.3360303,Cloudy,Dry,Motorcycle,46,Female,Side-impact collision,4,1
+14/08/2023,17:26,Monday,Santa Ana,14.06971157,121.3219343,Stormy,Wet,Car,43,Female,Head-on collision,5,0
+17/03/2022,9:36,Thursday,San Pedro,14.05037833,121.3014171,Rainy,Wet,Motorcycle,25,Male,Side-impact collision,2,0
+21/03/2023,10:29,Tuesday,Santa Isabel,14.0800396,121.3289208,Sunny,Potholes,Tricycle,49,Male,Rear-end collision,0,1
+10/09/2024,20:55,Tuesday,San Antonio 2 (Sapa),14.04990316,121.3010994,Rainy,Wet,Car,33,Female,Pedestrian accident,4,1
+02/10/2022,17:10,Sunday,VI-E (YMCA),14.08035051,121.3290615,Cloudy,Dry,Bicycle,55,Male,Side-impact collision,2,0
+27/03/2021,8:06,Saturday,IV-A,14.04961517,121.3012833,Sunny,Dry,Bus,38,Female,Rear-end collision,0,0
+10/05/2023,7:19,Wednesday,Santa Elena,14.07976258,121.3299943,Rainy,Wet,Car,39,Male,Side-impact collision,1,0
+09/06/2023,17:33,Friday,VI-A (Mavenida),14.07379026,121.3194846,Rainy,Wet,Car,37,Male,Rear-end collision,1,0
+11/07/2021,9:46,Sunday,San Juan (Putol),14.07000236,121.3200274,Rainy,Wet,Car,35,Male,Single vehicle accident,3,0
+31/05/2023,22:18,Wednesday,San Isidro (Balagbag),14.05027657,121.2993513,Cloudy,Dry,Motorcycle,45,Female,Head-on collision,2,1
+02/11/2022,11:46,Wednesday,San Jose (Malamig),14.06841052,121.3124547,Rainy,Wet,Motorcycle,43,Female,Head-on collision,1,0
+05/01/2024,23:23,Friday,San Jose (Malamig),14.09277208,121.33851,Sunny,Dry,Motorcycle,37,Male,Side-impact collision,3,0
+05/06/2021,10:24,Saturday,San Antonio 2 (Sapa),14.05010154,121.2997044,Cloudy,Dry,Car,35,Male,Rear-end collision,2,0
+30/11/2024,10:17,Saturday,III-C (Labak/De Roma),14.06844413,121.3191637,Cloudy,Dry,Motorcycle,38,Male,Pedestrian accident,1,1
+27/09/2024,21:17,Friday,Santa Catalina (Sandig),14.05213046,121.3065877,Rainy,Wet,Motorcycle,24,Male,Rear-end collision,2,0
+08/02/2023,3:06,Wednesday,III-A (Hermanos Belen),14.06931759,121.3016982,Sunny,Dry,Car,31,Male,Rear-end collision,1,0
+11/12/2023,9:40,Monday,V-A,14.073645,121.3465788,Rainy,Wet,Tricycle,20,Male,Rear-end collision,2,0
+07/08/2020,4:30,Friday,III-C (Labak/De Roma),14.06957741,121.3212475,Sunny,Gravel,Car,32,Female,Pedestrian accident,1,0
+10/06/2023,18:30,Saturday,VI-A (Mavenida),14.08115545,121.3289313,Sunny,Gravel,Motorcycle,38,Female,Rear-end collision,0,0
+13/11/2020,7:07,Friday,San Francisco (Calihan),14.05208656,121.3443552,Stormy,Wet,Motorcycle,38,Male,Pedestrian accident,2,1
+03/04/2021,14:07,Saturday,IV-B,14.07728954,121.3432171,Rainy,Wet,Bus,34,Female,Side-impact collision,1,0
+12/01/2024,2:39,Friday,Santo Angel (Ilog),14.06791252,121.3205241,Sunny,Dry,Truck,34,Male,Pedestrian accident,4,0
+30/08/2023,21:58,Wednesday,Santa Filomena (Banagin),14.08912837,121.318943,Sunny,Potholes,Car,30,Male,Single vehicle accident,1,0
+12/04/2020,8:43,Sunday,San Jose (Malamig),14.08951866,121.3494498,Rainy,Wet,Car,36,Male,Rear-end collision,1,0
+09/03/2022,18:59,Wednesday,V-A,14.07964153,121.3294793,Rainy,Wet,Motorcycle,42,Female,Pedestrian accident,0,0
+16/01/2022,8:04,Sunday,San Joaquin,14.09120395,121.3404311,Rainy,Gravel,Motorcycle,28,Male,Single vehicle accident,2,0
+04/01/2021,19:09,Monday,V-D,14.05780092,121.3095645,Rainy,Wet,Motorcycle,28,Male,Rear-end collision,2,1
+15/05/2023,17:09,Monday,Santo Niño (Arsum),14.06217088,121.3097329,Sunny,Dry,Car,24,Female,Pedestrian accident,2,0
+12/04/2021,20:50,Monday,V-C,14.08801029,121.3370159,Rainy,Wet,Car,42,Male,Head-on collision,5,1
+20/02/2022,9:33,Sunday,Santa Maria Magdalena (Boe / Kuba),14.05138085,121.299812,Rainy,Potholes,Truck,36,Male,Pedestrian accident,1,1
+12/06/2022,23:48,Sunday,San Joaquin,14.07074288,121.3202572,Sunny,Dry,Tricycle,29,Female,Single vehicle accident,0,0
+03/06/2020,17:41,Wednesday,San Rafael (Buluburan),14.07847678,121.3451364,Rainy,Wet,Motorcycle,41,Male,Rear-end collision,2,0
+29/12/2021,5:05,Wednesday,San Pedro,14.05317172,121.3225554,Cloudy,Dry,Car,29,Female,Single vehicle accident,1,0
+19/03/2021,18:17,Friday,San Lorenzo (Saluyan),14.08364334,121.3347235,Cloudy,Dry,Motorcycle,35,Male,Head-on collision,3,1
+17/09/2024,7:36,Tuesday,II-B (Guadalupe 1),14.07927103,121.3289908,Sunny,Dry,Motorcycle,44,Male,Pedestrian accident,1,0
+02/02/2024,20:39,Friday,Santa Isabel,14.09917624,121.3406428,Cloudy,Dry,Car,36,Male,Pedestrian accident,3,0
+30/07/2021,20:13,Friday,San Nicolas (Mag-ampong),14.07968941,121.3300691,Sunny,Dry,Truck,31,Male,Side-impact collision,0,0
+06/12/2024,9:56,Friday,V-C,14.05029516,121.2983856,Sunny,Gravel,Motorcycle,21,Male,Single vehicle accident,1,0
+05/01/2024,12:07,Friday,San Jose (Malamig),14.08989545,121.3402758,Sunny,Dry,Tricycle,31,Female,Single vehicle accident,1,1
+04/12/2020,15:11,Friday,San Ignacio,14.04989878,121.2996607,Sunny,Dry,Motorcycle,41,Female,Rear-end collision,1,0
+24/03/2022,7:29,Thursday,Santo Cristo,14.0851846,121.3107224,Sunny,Dry,Car,27,Male,Single vehicle accident,0,1
+22/09/2020,20:14,Tuesday,San Mateo (Imok),14.06978778,121.3180429,Rainy,Wet,Motorcycle,37,Female,Rear-end collision,0,0
+28/07/2022,15:07,Thursday,VII-A (P. Alcantara),14.0896096,121.3419147,Rainy,Wet,Motorcycle,43,Male,Pedestrian accident,2,0
+20/09/2020,2:12,Sunday,VII-A (P. Alcantara),14.08952067,121.342249,Sunny,Dry,Motorcycle,53,Female,Rear-end collision,2,0
+05/01/2023,8:11,Thursday,Santo Angel (Ilog),14.0524182,121.3087646,Sunny,Dry,Motorcycle,18,Male,Side-impact collision,2,2
+12/09/2022,10:17,Monday,V-B,14.08169221,121.3286403,Sunny,Potholes,Motorcycle,31,Female,Rear-end collision,1,0
+24/05/2020,5:30,Sunday,San Miguel (Balintin),14.05912346,121.3095639,Sunny,Gravel,Bus,45,Male,Single vehicle accident,1,0
+29/10/2023,1:28,Sunday,IV-C,14.09065105,121.3258102,Rainy,Wet,Motorcycle,40,Female,Pedestrian accident,1,0
+09/03/2024,17:41,Saturday,II-E (San Anton),14.07977954,121.3292389,Rainy,Wet,Car,38,Male,Single vehicle accident,0,0
+26/04/2020,0:07,Sunday,Santa Monica,14.0577506,121.3014088,Rainy,Wet,Motorcycle,32,Male,Pedestrian accident,1,0
+20/08/2023,9:12,Sunday,San Diego (Tilim),14.09190552,121.3021914,Stormy,Wet,Motorcycle,32,Male,Rear-end collision,2,1
+19/11/2020,12:29,Thursday,VII-B,14.08077968,121.328455,Stormy,Wet,Tricycle,29,Male,Single vehicle accident,1,0
+30/08/2024,5:37,Friday,San Miguel (Balintin),14.0891612,121.3420482,Rainy,Wet,Motorcycle,35,Male,Rear-end collision,1,0
+12/04/2020,18:59,Sunday,III-A (Hermanos Belen),14.06170381,121.3096845,Sunny,Dry,Car,55,Male,Pedestrian accident,0,0
+08/10/2022,18:11,Saturday,IV-C,14.08902616,121.3071331,Sunny,Dry,Motorcycle,48,Male,Head-on collision,5,1
+28/11/2021,7:18,Sunday,Santa Veronica (Bae),14.09042463,121.3398647,Sunny,Dry,Car,31,Male,Pedestrian accident,4,0
+10/06/2024,13:37,Monday,Santa Maria,14.05963568,121.3108394,Sunny,Gravel,Motorcycle,42,Male,Rear-end collision,0,0
+02/02/2020,17:07,Sunday,Santa Elena,14.05013004,121.301423,Rainy,Wet,Motorcycle,27,Male,Rear-end collision,1,0
+14/06/2024,5:01,Friday,Bautista,14.0601435,121.3109907,Sunny,Dry,Car,48,Female,Single vehicle accident,1,1
+26/11/2020,5:34,Thursday,Santa Maria,14.04883523,121.3006287,Rainy,Wet,Tricycle,28,Male,Head-on collision,3,4
+22/06/2020,9:13,Monday,San Ignacio,14.06031302,121.3108595,Sunny,Dry,Motorcycle,61,Male,Pedestrian accident,3,0
+20/09/2022,13:59,Tuesday,V-D,14.05020295,121.3012527,Stormy,Wet,Motorcycle,51,Female,Side-impact collision,0,0
+13/12/2024,16:11,Friday,San Lorenzo (Saluyan),14.05321098,121.2991947,Rainy,Wet,Truck,32,Female,Side-impact collision,1,0
+12/08/2023,8:11,Saturday,II-B (Guadalupe 1),14.08293556,121.3478204,Cloudy,Dry,Tricycle,57,Male,Head-on collision,5,2
+17/06/2021,16:49,Thursday,Santo Cristo,14.05034556,121.2974864,Rainy,Wet,Motorcycle,35,Male,Rear-end collision,1,0
+08/12/2024,9:44,Sunday,Santo Cristo,14.08894011,121.3381391,Rainy,Wet,Motorcycle,46,Male,Side-impact collision,2,0
+09/07/2023,18:10,Sunday,San Antonio 2 (Sapa),14.05855297,121.3105795,Sunny,Dry,Motorcycle,37,Male,Head-on collision,1,0
+12/03/2020,13:52,Thursday,II-E (San Anton),14.06433236,121.308245,Sunny,Dry,Car,33,Female,Head-on collision,4,0
+16/12/2021,6:41,Thursday,San Mateo (Imok),14.05083558,121.3007751,Rainy,Wet,Motorcycle,41,Female,Single vehicle accident,1,1
+17/08/2020,19:47,Monday,Santa Maria,14.07849409,121.3286764,Rainy,Wet,Car,26,Female,Rear-end collision,1,0
+01/12/2023,14:40,Friday,San Cristobal,14.0886068,121.3373961,Stormy,Wet,Car,41,Male,Rear-end collision,0,1
+17/10/2021,14:59,Sunday,VII-E,14.07028624,121.3199399,Sunny,Dry,Car,34,Male,Single vehicle accident,1,0
+23/02/2020,7:17,Sunday,San Francisco (Calihan),14.05969478,121.309604,Rainy,Wet,Bus,54,Female,Single vehicle accident,3,0
+12/05/2020,15:08,Tuesday,San Ignacio,14.0608459,121.3095738,Sunny,Dry,Motorcycle,46,Female,Side-impact collision,3,0
+23/03/2020,22:56,Monday,San Crispin (Lumbangan),14.07160646,121.3189623,Rainy,Wet,Tricycle,58,Male,Pedestrian accident,0,2
+25/12/2024,0:54,Wednesday,Concepcion (Bunot),14.06096967,121.3120988,Sunny,Dry,Motorcycle,40,Male,Side-impact collision,2,0
+14/05/2022,10:40,Saturday,San Isidro (Balagbag),14.065208,121.3498881,Rainy,Potholes,Motorcycle,18,Male,Rear-end collision,3,0
+08/07/2024,4:38,Monday,Santa Filomena (Banagin),14.05949864,121.3098243,Sunny,Dry,Car,38,Female,Head-on collision,4,0
+24/05/2024,18:23,Friday,VI-C (Bagong Pook),14.0599171,121.3091182,Rainy,Potholes,Motorcycle,31,Male,Head-on collision,6,1
+04/07/2021,18:40,Sunday,III-F (Balagtas),14.08866146,121.3386497,Sunny,Dry,Motorcycle,42,Male,Side-impact collision,2,0
+15/09/2024,6:54,Sunday,San Gabriel (Butucan),14.06930717,121.3200633,Rainy,Wet,Tricycle,36,Male,Rear-end collision,1,2
+26/03/2024,11:00,Tuesday,IV-B,14.07014473,121.3436143,Rainy,Wet,Motorcycle,57,Female,Side-impact collision,2,2
+27/03/2021,8:00,Saturday,San Buenaventura (Palakpakin),14.0830901,121.3199278,Stormy,Wet,Motorcycle,22,Male,Side-impact collision,2,0
+22/07/2020,2:14,Wednesday,San Vicente,14.078308,121.3035911,Stormy,Wet,Motorcycle,46,Male,Single vehicle accident,1,0
+05/06/2023,17:33,Monday,Santo Angel (Ilog),14.07030236,121.3189548,Stormy,Potholes,Car,18,Male,Rear-end collision,1,0
+06/10/2021,17:28,Wednesday,II-C (Unson),14.0538366,121.3365545,Rainy,Wet,Car,39,Female,Single vehicle accident,2,0
+11/08/2022,14:23,Thursday,San Isidro (Balagbag),14.06935629,121.3414118,Rainy,Wet,Car,48,Male,Single vehicle accident,2,0
+15/09/2021,13:42,Wednesday,San Mateo (Imok),14.07003373,121.3195035,Cloudy,Dry,Car,39,Male,Rear-end collision,4,0
+06/10/2022,11:49,Thursday,III-F (Balagtas),14.05959032,121.308756,Rainy,Wet,Motorcycle,57,Male,Side-impact collision,3,0
+04/10/2022,17:04,Tuesday,San Juan (Putol),14.05114193,121.3004176,Cloudy,Dry,Truck,33,Male,Rear-end collision,0,0
+20/07/2023,7:44,Thursday,San Ignacio,14.06024967,121.3123988,Sunny,Dry,Car,42,Female,Single vehicle accident,1,1
+17/10/2023,4:38,Tuesday,San Joaquin,14.0490144,121.3014589,Sunny,Gravel,Truck,20,Male,Rear-end collision,1,0
+09/10/2023,7:14,Monday,San Antonio 2 (Sapa),14.07062572,121.3204352,Rainy,Wet,Truck,25,Male,Head-on collision,3,0
+03/02/2022,3:39,Thursday,III-D (Vilongco),14.08908606,121.3386871,Rainy,Wet,Car,20,Male,Head-on collision,2,1
+21/06/2023,15:48,Wednesday,V-D,14.0723625,121.3195069,Sunny,Dry,Truck,31,Male,Single vehicle accident,2,0
+12/05/2024,8:41,Sunday,VI-A (Mavenida),14.08862423,121.3419229,Sunny,Dry,Motorcycle,18,Male,Head-on collision,1,0
+02/11/2021,15:40,Tuesday,II-F (Villa Rey),14.07304978,121.349246,Rainy,Wet,Car,26,Male,Side-impact collision,1,1
+07/04/2022,18:56,Thursday,Santiago II (Bulaho),14.07025274,121.3147017,Rainy,Wet,Car,49,Male,Rear-end collision,1,0
+10/01/2020,17:21,Friday,Concepcion (Bunot),14.09162216,121.3389607,Cloudy,Gravel,Tricycle,27,Male,Head-on collision,5,0
+01/04/2020,7:33,Wednesday,Santa Isabel,14.0858591,121.3493165,Rainy,Wet,Motorcycle,36,Male,Single vehicle accident,1,0
+30/05/2021,3:52,Sunday,San Lucas 1 (Sabang),14.05516225,121.3498263,Cloudy,Dry,Motorcycle,37,Male,Head-on collision,6,0
+15/06/2024,7:57,Saturday,San Lucas 1 (Sabang),14.0896043,121.3391022,Sunny,Dry,Car,43,Female,Rear-end collision,0,0
+11/10/2021,19:52,Monday,Santo Niño (Arsum),14.0818995,121.3471343,Rainy,Wet,Car,20,Male,Pedestrian accident,0,0
+10/02/2022,23:21,Thursday,Santo Angel (Ilog),14.09717219,121.3114419,Rainy,Wet,Bicycle,38,Female,Side-impact collision,3,0
+30/12/2022,9:44,Friday,III-A (Hermanos Belen),14.06146777,121.3104081,Sunny,Dry,Car,44,Male,Pedestrian accident,1,0
+29/12/2024,5:33,Sunday,San Joaquin,14.09106584,121.341502,Stormy,Wet,Tricycle,29,Female,Rear-end collision,2,1
+07/11/2022,22:21,Monday,San Buenaventura (Palakpakin),14.08729853,121.3463261,Sunny,Dry,Motorcycle,38,Female,Rear-end collision,0,0
+01/11/2022,4:54,Tuesday,III-E,14.05125661,121.2998001,Sunny,Dry,Motorcycle,45,Male,Pedestrian accident,1,0
+13/12/2020,2:08,Sunday,San Lucas 2 (Malinaw),14.07995107,121.3305542,Sunny,Dry,Car,32,Female,Single vehicle accident,0,0
+21/12/2021,22:13,Tuesday,Santa Monica,14.07716778,121.3177797,Rainy,Wet,Car,51,Female,Head-on collision,5,0
+22/08/2024,6:06,Thursday,San Jose (Malamig),14.09045619,121.3420736,Cloudy,Dry,Car,26,Female,Side-impact collision,3,1
+10/05/2023,2:36,Wednesday,San Francisco (Calihan),14.09023766,121.3396902,Sunny,Dry,Car,46,Male,Single vehicle accident,0,1
+09/01/2023,10:56,Monday,San Francisco (Calihan),14.05700806,121.322153,Rainy,Wet,Car,34,Female,Head-on collision,4,0
+24/11/2022,4:33,Thursday,I-A (Sambat),14.09249626,121.3357952,Cloudy,Dry,Car,42,Male,Rear-end collision,1,0
+28/06/2023,16:55,Wednesday,San Francisco (Calihan),14.05097027,121.2992467,Cloudy,Dry,Bus,52,Female,Head-on collision,3,0
+03/07/2021,21:09,Saturday,San Lucas 1 (Sabang),14.09005215,121.3400939,Rainy,Wet,Truck,28,Male,Pedestrian accident,1,2
+15/09/2022,5:59,Thursday,San Bartolome (Matang-ag),14.05727339,121.3148032,Cloudy,Dry,Truck,38,Female,Side-impact collision,0,0
+15/09/2020,19:41,Tuesday,San Diego (Tilim),14.08996797,121.340948,Sunny,Dry,Bicycle,41,Female,Rear-end collision,1,0
+18/04/2022,0:12,Monday,Santo Niño (Arsum),14.09529826,121.3103184,Rainy,Gravel,Motorcycle,23,Male,Rear-end collision,0,0
+28/10/2021,23:50,Thursday,IV-A,14.07831753,121.3230296,Sunny,Gravel,Car,22,Male,Head-on collision,6,0
+13/12/2022,0:27,Tuesday,II-D (Bulante),14.0686189,121.3204235,Cloudy,Dry,Car,51,Male,Head-on collision,2,0
+10/04/2021,20:23,Saturday,San Nicolas (Mag-ampong),14.06482957,121.3122759,Sunny,Dry,Motorcycle,39,Male,Rear-end collision,2,0
+09/08/2022,0:36,Tuesday,Santo Angel (Ilog),14.08902059,121.3395726,Rainy,Wet,Car,28,Female,Head-on collision,3,0
+30/11/2024,6:05,Saturday,San Cristobal,14.05905458,121.3106458,Stormy,Wet,Motorcycle,36,Female,Pedestrian accident,1,0
+01/12/2020,3:57,Tuesday,Concepcion (Bunot),14.0804369,121.3304219,Sunny,Potholes,Truck,48,Male,Head-on collision,2,0
+03/04/2023,0:45,Monday,V-A,14.09621228,121.3019507,Sunny,Potholes,Truck,37,Female,Side-impact collision,2,0
+19/11/2022,11:17,Saturday,IV-C,14.08869368,121.3410806,Rainy,Wet,Car,27,Male,Rear-end collision,1,0
+25/09/2022,19:31,Sunday,VI-E (YMCA),14.04967671,121.3013826,Sunny,Dry,Motorcycle,28,Male,Single vehicle accident,0,0
+09/04/2021,19:25,Friday,Santiago 1 (Bulaho),14.05845188,121.3081292,Sunny,Potholes,Truck,32,Male,Side-impact collision,3,0
+05/05/2021,1:57,Wednesday,Santiago 1 (Bulaho),14.06947361,121.3183785,Sunny,Dry,Motorcycle,33,Male,Single vehicle accident,2,0
+26/02/2021,7:27,Friday,Santa Cruz (Putol),14.07012717,121.3207369,Sunny,Dry,Motorcycle,42,Male,Head-on collision,2,1
+18/09/2022,23:59,Sunday,San Joaquin,14.09120335,121.3404947,Rainy,Potholes,Motorcycle,28,Male,Pedestrian accident,4,0
+09/05/2022,17:57,Monday,VI-D (Lparkers),14.05763998,121.3427255,Sunny,Dry,Car,23,Male,Rear-end collision,1,0
+26/04/2020,8:51,Sunday,III-A (Hermanos Belen),14.06200457,121.3115847,Sunny,Dry,Motorcycle,40,Female,Side-impact collision,0,1
+07/09/2024,20:44,Saturday,San Antonio 2 (Sapa),14.06938014,121.3205207,Rainy,Potholes,Car,18,Male,Head-on collision,3,2
+17/02/2020,16:34,Monday,V-D,14.09302123,121.3433901,Sunny,Dry,Motorcycle,44,Male,Side-impact collision,2,0
+19/08/2020,13:21,Wednesday,I-A (Sambat),14.07955466,121.3281996,Sunny,Potholes,Car,29,Male,Single vehicle accident,5,0
+07/06/2021,22:17,Monday,San Francisco (Calihan),14.07959406,121.3292041,Rainy,Wet,Car,30,Female,Side-impact collision,1,0
+23/10/2021,17:39,Saturday,VI-A (Mavenida),14.07163408,121.3039869,Sunny,Dry,Truck,35,Male,Rear-end collision,1,0
+26/04/2020,8:10,Sunday,San Nicolas (Mag-ampong),14.0778604,121.3295745,Rainy,Gravel,Car,35,Male,Rear-end collision,1,0
+09/09/2022,9:04,Friday,Santa Elena,14.06963166,121.3209149,Sunny,Gravel,Truck,34,Female,Rear-end collision,2,0
+29/05/2021,7:20,Saturday,Santo Angel (Ilog),14.05947939,121.317943,Cloudy,Dry,Truck,38,Female,Rear-end collision,0,0
+21/07/2024,16:43,Sunday,Santa Filomena (Banagin),14.05977428,121.3124847,Rainy,Wet,Motorcycle,49,Male,Single vehicle accident,1,0
+20/11/2024,20:28,Wednesday,V-B,14.07484348,121.3456547,Rainy,Wet,Truck,18,Male,Single vehicle accident,2,0
+30/10/2022,14:56,Sunday,San Bartolome (Matang-ag),14.05013276,121.3007111,Sunny,Potholes,Motorcycle,35,Male,Side-impact collision,0,0
+22/08/2024,8:03,Thursday,San Mateo (Imok),14.0904618,121.3399757,Sunny,Dry,Motorcycle,36,Female,Head-on collision,4,0
+21/12/2023,14:57,Thursday,Santa Veronica (Bae),14.06890736,121.3139663,Cloudy,Dry,Motorcycle,29,Male,Head-on collision,1,2
+04/12/2024,18:37,Wednesday,II-E (San Anton),14.08044191,121.3305687,Sunny,Potholes,Car,33,Male,Side-impact collision,2,0
+30/09/2023,7:41,Saturday,V-C,14.08696052,121.3405554,Sunny,Dry,Motorcycle,38,Female,Head-on collision,0,0
+20/10/2022,8:57,Thursday,Santa Cruz (Putol),14.09001997,121.3410388,Sunny,Dry,Bicycle,22,Male,Pedestrian accident,3,0
+19/06/2020,16:55,Friday,Santa Filomena (Banagin),14.07013859,121.3202141,Sunny,Dry,Car,48,Female,Pedestrian accident,2,0
+06/05/2021,14:33,Thursday,San Juan (Putol),14.06155895,121.3354294,Sunny,Dry,Tricycle,32,Female,Pedestrian accident,1,0
+27/09/2024,19:51,Friday,Santa Catalina (Sandig),14.07749757,121.3043548,Rainy,Wet,Truck,42,Male,Single vehicle accident,3,1
+08/03/2022,0:44,Tuesday,II-D (Bulante),14.08034361,121.3298348,Rainy,Potholes,Motorcycle,32,Female,Rear-end collision,0,1
+20/10/2024,16:13,Sunday,Santa Catalina (Sandig),14.07324952,121.3124047,Cloudy,Dry,Motorcycle,29,Male,Side-impact collision,0,0
+30/06/2024,12:38,Sunday,IV-B,14.05064741,121.2976189,Sunny,Dry,Car,44,Male,Head-on collision,5,0
+05/01/2020,1:10,Sunday,Santo Cristo,14.05908286,121.3090169,Rainy,Wet,Motorcycle,29,Male,Single vehicle accident,0,0
+02/11/2021,22:45,Tuesday,III-F (Balagtas),14.0841861,121.3083576,Sunny,Dry,Car,33,Male,Head-on collision,5,1
+10/04/2022,16:25,Sunday,San Jose (Malamig),14.05464105,121.3139004,Rainy,Wet,Car,43,Male,Head-on collision,4,1
+08/01/2022,18:54,Saturday,San Joaquin,14.08026422,121.3295742,Cloudy,Dry,Truck,44,Male,Pedestrian accident,3,0
+24/04/2024,9:19,Wednesday,San Francisco (Calihan),14.06957398,121.3197419,Rainy,Wet,Bus,24,Female,Side-impact collision,2,0
+03/04/2024,9:32,Wednesday,III-A (Hermanos Belen),14.05087804,121.3182292,Sunny,Dry,Bus,18,Female,Rear-end collision,0,0
+29/04/2021,19:54,Thursday,San Isidro (Balagbag),14.08921629,121.3380474,Sunny,Dry,Motorcycle,41,Male,Pedestrian accident,1,1
+18/06/2024,17:57,Tuesday,Soledad (Macopa),14.07113146,121.3198702,Rainy,Wet,Motorcycle,35,Male,Rear-end collision,0,0
+06/06/2020,8:07,Saturday,Santa Ana,14.08067299,121.3302365,Sunny,Dry,Tricycle,29,Male,Rear-end collision,3,0
+18/07/2020,7:40,Saturday,San Jose (Malamig),14.08075718,121.3291091,Sunny,Dry,Car,37,Female,Pedestrian accident,1,0
+31/03/2022,23:25,Thursday,San Francisco (Calihan),14.04960284,121.3000092,Sunny,Dry,Motorcycle,42,Female,Rear-end collision,1,0
+21/01/2020,19:43,Tuesday,San Gabriel (Butucan),14.08922662,121.3374514,Sunny,Dry,Motorcycle,27,Male,Pedestrian accident,2,0
+25/02/2023,7:29,Saturday,IV-B,14.07868085,121.3294394,Sunny,Dry,Motorcycle,32,Female,Single vehicle accident,1,0
+14/01/2020,12:18,Tuesday,II-A (Triangulo Guadalupe 2),14.09108777,121.342236,Cloudy,Gravel,Tricycle,45,Male,Pedestrian accident,0,1
+14/08/2021,6:50,Saturday,III-C (Labak/De Roma),14.08223515,121.3268325,Sunny,Gravel,Car,47,Male,Pedestrian accident,2,0
+29/08/2022,4:44,Monday,III-C (Labak/De Roma),14.08549074,121.3294184,Sunny,Dry,Motorcycle,41,Male,Head-on collision,4,2
+29/07/2023,17:04,Saturday,Santa Veronica (Bae),14.08108571,121.3045932,Sunny,Potholes,Motorcycle,18,Female,Side-impact collision,0,0
+20/10/2023,0:40,Friday,San Francisco (Calihan),14.07794656,121.3308668,Sunny,Dry,Motorcycle,52,Male,Side-impact collision,7,0
+04/01/2023,8:32,Wednesday,Santa Catalina (Sandig),14.08251907,121.3134299,Cloudy,Gravel,Motorcycle,28,Female,Rear-end collision,1,0
+15/03/2023,11:19,Wednesday,III-B,14.08111171,121.3293212,Sunny,Potholes,Truck,33,Male,Head-on collision,3,1
+31/07/2024,11:41,Wednesday,Santa Filomena (Banagin),14.0590786,121.3087122,Sunny,Dry,Bus,44,Female,Single vehicle accident,1,0
+02/12/2024,10:00,Monday,II-A (Triangulo Guadalupe 2),14.05809305,121.3095161,Rainy,Wet,Tricycle,36,Male,Side-impact collision,2,0
+01/08/2020,9:50,Saturday,San Roque (Sambat),14.07011083,121.3211857,Sunny,Gravel,Motorcycle,30,Female,Head-on collision,2,0
+11/02/2022,23:56,Friday,Santa Cruz (Putol),14.0608576,121.3109292,Sunny,Dry,Motorcycle,36,Male,Single vehicle accident,1,0
+23/02/2021,18:31,Tuesday,Santa Isabel,14.08485578,121.3471808,Sunny,Dry,Car,45,Male,Rear-end collision,2,0
+15/10/2024,23:26,Tuesday,San Cristobal,14.07116584,121.3206748,Rainy,Wet,Motorcycle,55,Female,Head-on collision,2,2
+29/01/2020,5:40,Wednesday,Del Remedio (Wawa),14.06087377,121.3098676,Sunny,Dry,Motorcycle,49,Male,Pedestrian accident,0,0
+24/11/2024,8:34,Sunday,III-B,14.06832545,121.3222271,Rainy,Potholes,Bus,35,Male,Head-on collision,2,0
+17/11/2022,21:36,Thursday,San Pedro,14.05949898,121.3076446,Sunny,Dry,Motorcycle,40,Female,Head-on collision,7,0
+08/03/2024,9:12,Friday,II-A (Triangulo Guadalupe 2),14.09222837,121.3395232,Cloudy,Dry,Truck,38,Male,Single vehicle accident,0,0
+01/07/2020,5:50,Wednesday,VII-E,14.05136398,121.3293807,Rainy,Wet,Bus,30,Male,Head-on collision,5,1
+20/02/2023,1:54,Monday,III-B,14.08944681,121.3397788,Rainy,Wet,Truck,49,Female,Rear-end collision,2,0
+29/10/2020,8:34,Thursday,San Ignacio,14.09157519,121.3397875,Sunny,Gravel,Motorcycle,37,Male,Head-on collision,3,0
+03/11/2021,3:27,Wednesday,V-D,14.051529,121.2982536,Sunny,Dry,Motorcycle,55,Female,Rear-end collision,0,0
+08/02/2021,12:36,Monday,San Lucas 1 (Sabang),14.0495007,121.2995002,Sunny,Dry,Motorcycle,27,Male,Side-impact collision,3,0
+17/04/2021,0:32,Saturday,Bautista,14.07926457,121.3415411,Rainy,Wet,Bus,34,Male,Single vehicle accident,0,0
+22/10/2021,19:22,Friday,II-D (Bulante),14.07862341,121.330293,Sunny,Dry,Motorcycle,23,Female,Rear-end collision,0,0
+29/01/2024,13:13,Monday,Santa Maria Magdalena (Boe / Kuba),14.07881449,121.3295429,Sunny,Dry,Motorcycle,43,Male,Rear-end collision,0,0
+18/07/2023,17:03,Tuesday,VII-B,14.06115591,121.327065,Sunny,Dry,Motorcycle,22,Male,Side-impact collision,2,0
+13/12/2022,16:53,Tuesday,III-F (Balagtas),14.07171493,121.3209968,Cloudy,Dry,Truck,39,Male,Side-impact collision,3,0
+20/05/2023,1:04,Saturday,III-A (Hermanos Belen),14.08038617,121.3253268,Sunny,Dry,Car,43,Male,Rear-end collision,0,0
+18/06/2021,7:30,Friday,II-E (San Anton),14.05079933,121.3278481,Sunny,Dry,Motorcycle,26,Male,Single vehicle accident,2,0
+28/11/2021,17:53,Sunday,San Vicente,14.08961829,121.339522,Rainy,Gravel,Motorcycle,38,Male,Rear-end collision,0,1
+18/12/2020,14:51,Friday,San Vicente,14.05028799,121.3499373,Sunny,Dry,Motorcycle,31,Male,Pedestrian accident,3,1
+14/01/2023,19:40,Saturday,VII-E,14.08044977,121.3306857,Rainy,Wet,Motorcycle,23,Male,Rear-end collision,1,0
+27/08/2023,19:56,Sunday,III-F (Balagtas),14.07275455,121.3026849,Sunny,Dry,Car,30,Male,Pedestrian accident,2,0
+17/01/2021,8:12,Sunday,San Vicente,14.09127433,121.3410071,Rainy,Wet,Bicycle,48,Female,Head-on collision,1,0
+12/02/2023,8:46,Sunday,VII-A (P. Alcantara),14.09148743,121.3404891,Cloudy,Dry,Motorcycle,27,Male,Rear-end collision,4,0
+07/12/2023,13:16,Thursday,Concepcion (Bunot),14.06936326,121.3212771,Sunny,Dry,Car,29,Male,Rear-end collision,0,0
+23/08/2024,10:35,Friday,VI-B,14.06062935,121.3103199,Sunny,Dry,Car,41,Female,Rear-end collision,1,1
+27/07/2023,9:20,Thursday,Santo Cristo,14.0492071,121.2997447,Cloudy,Dry,Motorcycle,20,Male,Single vehicle accident,1,0
+22/12/2023,0:15,Friday,Del Remedio (Wawa),14.08772065,121.3405105,Sunny,Dry,Motorcycle,38,Female,Head-on collision,2,1

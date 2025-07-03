@@ -1,0 +1,1001 @@
+Date,Time,Day_of_Week,Barangay,Latitude,Longitude,Weather,Property_Type,Fire_Cause,Fire_Severity,Casualty_Count,Response_Time,Fire_Duration
+18/11/2021,18:10,Thursday,San Juan (Putol),14.07636549,121.3109818,Sunny,Residential,Natural,Medium,7,6,55
+23/02/2023,19:54,Thursday,IV-A,14.06802402,121.3202713,Rainy,Residential,Cooking,High,7,12,15
+01/09/2021,1:12,Wednesday,San Crispin (Lumbangan),14.07249914,121.3160208,Sunny,Residential,Electrical,Medium,2,11,41
+16/08/2022,2:10,Tuesday,VI-B,14.07229846,121.3308636,Stormy,Residential,Other,Medium,1,14,170
+10/12/2024,15:42,Tuesday,San Gabriel (Butucan),14.06366884,121.3208997,Cloudy,Residential,Cooking,High,11,9,64
+01/03/2023,15:00,Wednesday,Atisan,14.06997913,121.3184932,Rainy,Industrial,Arson,Low,1,9,10
+03/12/2020,11:32,Thursday,San Lucas 2 (Malinaw),14.07127242,121.3144078,Sunny,Forest,Natural,Low,0,9,24
+02/10/2021,16:59,Saturday,San Lorenzo (Saluyan),14.06327865,121.3181358,Cloudy,Commercial,Electrical,Low,0,8,19
+31/10/2024,3:29,Thursday,VI-D (Lparkers),14.07017569,121.3224839,Cloudy,Residential,Electrical,Medium,4,6,145
+23/04/2024,22:36,Tuesday,VII-E,14.07014476,121.3207001,Rainy,Industrial,Cooking,Low,2,14,27
+14/09/2020,12:10,Monday,Santa Cruz (Putol),14.05629196,121.315297,Sunny,Forest,Natural,High,0,10,133
+08/09/2024,20:10,Sunday,VI-C (Bagong Pook),14.06696883,121.3280433,Cloudy,Residential,Electrical,High,11,8,43
+05/11/2023,22:32,Sunday,Santiago 1 (Bulaho),14.07165045,121.3164528,Stormy,Residential,Natural,Medium,4,5,208
+13/05/2024,8:07,Monday,San Marcos (Tikew),14.06531378,121.3143867,Sunny,Commercial,Arson,Low,0,9,38
+28/04/2023,18:54,Friday,III-F (Balagtas),14.06943995,121.3200477,Sunny,Residential,Arson,Medium,3,14,124
+03/02/2024,18:11,Saturday,Santisimo Rosario (Balagbag),14.06322493,121.3242623,Cloudy,Residential,Natural,Medium,0,17,120
+19/08/2024,21:35,Monday,IV-A,14.075869,121.3224559,Sunny,Industrial,Natural,Low,0,13,10
+30/12/2021,1:20,Thursday,San Cristobal,14.06402936,121.3155632,Sunny,Residential,Other,Low,2,7,10
+31/08/2021,4:15,Tuesday,V-D,14.0779961,121.3277244,Sunny,Residential,Cooking,Low,0,6,21
+15/01/2021,22:01,Friday,San Miguel (Balintin),14.07515815,121.3190746,Sunny,Commercial,Electrical,Low,0,5,11
+28/09/2024,1:19,Saturday,San Lorenzo (Saluyan),14.07139663,121.3228128,Sunny,Commercial,Natural,High,9,6,65
+17/09/2023,10:36,Sunday,Dolores,14.07519854,121.3311666,Sunny,Residential,Arson,Low,2,10,42
+14/08/2020,14:51,Friday,San Lucas 1 (Sabang),14.07108204,121.3153238,Rainy,Residential,Arson,Medium,2,12,57
+05/01/2023,16:25,Thursday,II-A (Triangulo Guadalupe 2),14.07087809,121.3295277,Sunny,Residential,Natural,Medium,3,10,114
+16/02/2024,8:04,Friday,Santisimo Rosario (Balagbag),14.0706568,121.3241892,Cloudy,Commercial,Other,Low,1,10,13
+01/11/2022,17:43,Tuesday,III-E,14.07642858,121.3215668,Sunny,Commercial,Arson,Low,0,12,103
+11/09/2020,19:44,Friday,San Diego (Tilim),14.06923846,121.3211653,Cloudy,Residential,Cooking,Medium,3,13,31
+27/04/2020,1:28,Monday,San Cristobal,14.07258859,121.3158949,Sunny,Residential,Arson,Low,0,9,10
+24/06/2021,18:53,Thursday,IV-A,14.06906653,121.3137746,Cloudy,Residential,Electrical,High,7,15,16
+03/10/2023,12:06,Tuesday,Santa Filomena (Banagin),14.07118263,121.320674,Cloudy,Commercial,Natural,Low,0,12,10
+10/11/2022,19:13,Thursday,III-B,14.07255958,121.3200282,Sunny,Forest,Arson,Medium,0,14,19
+08/08/2021,20:48,Sunday,San Ignacio,14.06882109,121.3114063,Cloudy,Residential,Other,Medium,0,8,14
+14/03/2022,7:10,Monday,V-B,14.06716838,121.3245597,Cloudy,Residential,Arson,Low,1,5,10
+11/01/2021,17:28,Monday,San Bartolome (Matang-ag),14.06819408,121.3151536,Sunny,Residential,Cooking,Low,0,7,63
+05/05/2024,22:59,Sunday,San Jose (Malamig),14.0757228,121.3136965,Cloudy,Industrial,Electrical,Medium,1,14,109
+29/03/2020,5:04,Sunday,Santa Ana,14.06547366,121.3254428,Cloudy,Residential,Cooking,Medium,2,5,10
+16/10/2022,22:20,Sunday,Santa Ana,14.07931144,121.3277878,Stormy,Commercial,Natural,Medium,2,9,47
+26/01/2022,8:44,Wednesday,San Lucas 2 (Malinaw),14.06934898,121.3257527,Rainy,Residential,Electrical,Low,0,7,10
+29/05/2022,7:06,Sunday,San Diego (Tilim),14.07618532,121.3271039,Sunny,Industrial,Natural,Medium,1,7,46
+20/05/2023,19:59,Saturday,VI-D (Lparkers),14.07430654,121.3367456,Sunny,Commercial,Electrical,Medium,1,5,10
+23/04/2020,13:33,Thursday,Santa Maria,14.06878899,121.3148776,Sunny,Residential,Arson,Low,1,6,47
+12/12/2021,22:06,Sunday,VII-C,14.06434474,121.3213837,Sunny,Residential,Electrical,Medium,3,8,65
+08/11/2022,23:15,Tuesday,San Gabriel (Butucan),14.07352827,121.324694,Rainy,Forest,Natural,Low,0,9,68
+30/05/2021,20:32,Sunday,Santiago 1 (Bulaho),14.07563067,121.317632,Cloudy,Residential,Cooking,Low,0,12,65
+11/07/2024,6:57,Thursday,VI-C (Bagong Pook),14.06257057,121.3215859,Sunny,Residential,Electrical,High,11,9,10
+16/01/2021,19:26,Saturday,II-F (Villa Rey),14.06288002,121.3223505,Cloudy,Residential,Electrical,Low,0,6,24
+27/06/2023,2:03,Tuesday,VI-D (Lparkers),14.06957498,121.3197678,Cloudy,Forest,Natural,Low,0,11,82
+03/05/2021,5:39,Monday,Bautista,14.0798906,121.318733,Cloudy,Residential,Cooking,Medium,2,10,91
+07/06/2024,7:43,Friday,III-E,14.06962933,121.3142331,Sunny,Residential,Arson,Low,1,7,10
+22/07/2021,18:46,Thursday,Dolores,14.07655607,121.3173249,Rainy,Residential,Cooking,High,7,7,122
+10/10/2024,9:21,Thursday,San Joaquin,14.0679735,121.3267537,Sunny,Industrial,Cooking,Medium,2,11,52
+03/08/2024,20:30,Saturday,III-B,14.07121674,121.3229091,Rainy,Residential,Electrical,Medium,2,8,37
+23/12/2020,12:18,Wednesday,San Isidro (Balagbag),14.08152926,121.3120054,Cloudy,Forest,Other,Low,1,10,59
+06/01/2020,18:20,Monday,San Cristobal,14.0751898,121.3271061,Sunny,Residential,Cooking,Low,0,5,15
+11/05/2023,16:35,Thursday,Santiago 1 (Bulaho),14.07637171,121.3140019,Sunny,Residential,Arson,Low,0,8,61
+23/07/2022,17:55,Saturday,VII-E,14.06916032,121.3211726,Rainy,Residential,Cooking,High,6,12,45
+03/01/2021,21:58,Sunday,San Vicente,14.06856014,121.3183147,Rainy,Industrial,Arson,High,4,7,253
+05/05/2020,10:05,Tuesday,VI-A (Mavenida),14.07544189,121.3231501,Sunny,Residential,Cooking,Low,3,7,10
+29/09/2020,9:20,Tuesday,VI-D (Lparkers),14.06249815,121.3134024,Sunny,Commercial,Other,Low,1,11,10
+13/06/2023,13:40,Tuesday,V-C,14.06265806,121.3185419,Sunny,Residential,Electrical,Medium,1,10,10
+29/06/2020,19:57,Monday,V-A,14.0742004,121.3201096,Rainy,Commercial,Electrical,Medium,2,12,60
+15/12/2021,8:09,Wednesday,VI-D (Lparkers),14.07595426,121.3219787,Cloudy,Commercial,Electrical,Low,1,11,10
+12/11/2024,13:35,Tuesday,Soledad (Macopa),14.07794101,121.3230957,Sunny,Industrial,Arson,Medium,1,12,57
+15/05/2021,7:53,Saturday,San Ignacio,14.06201664,121.3218097,Cloudy,Commercial,Cooking,Low,0,17,56
+07/01/2023,1:13,Saturday,Santa Elena,14.07092924,121.3264435,Sunny,Residential,Arson,Medium,1,7,127
+16/09/2022,12:13,Friday,VII-E,14.06317083,121.3173001,Sunny,Residential,Electrical,Low,1,9,55
+18/08/2021,17:24,Wednesday,VI-D (Lparkers),14.07037756,121.3224891,Sunny,Residential,Other,Medium,2,11,20
+08/12/2024,8:00,Sunday,San Pedro,14.05799744,121.324496,Cloudy,Industrial,Arson,Medium,0,9,15
+07/05/2020,6:04,Thursday,San Gregorio,14.07244296,121.3212812,Rainy,Commercial,Arson,Medium,3,10,186
+09/12/2024,19:35,Monday,II-C (Unson),14.07160234,121.3204818,Sunny,Forest,Natural,Low,0,7,10
+26/01/2024,21:50,Friday,San Marcos (Tikew),14.06731918,121.3144755,Sunny,Residential,Electrical,High,11,6,217
+23/01/2020,15:42,Thursday,Santisimo Rosario (Balagbag),14.06730811,121.3190413,Sunny,Forest,Natural,High,0,12,403
+21/10/2021,21:06,Thursday,Santo Niño (Arsum),14.06776952,121.315386,Sunny,Residential,Electrical,High,7,10,31
+09/10/2023,14:36,Monday,Dolores,14.0736728,121.3117222,Stormy,Residential,Arson,Low,3,12,17
+03/03/2022,15:25,Thursday,Santa Veronica (Bae),14.06923537,121.316791,Sunny,Forest,Natural,Low,0,10,10
+16/11/2024,22:51,Saturday,Santa Filomena (Banagin),14.08272842,121.3230518,Sunny,Residential,Natural,Medium,3,10,10
+29/08/2021,2:00,Sunday,Santa Cruz (Putol),14.06786523,121.3227661,Cloudy,Residential,Natural,Low,0,15,48
+05/03/2022,12:48,Saturday,II-C (Unson),14.07795005,121.3208774,Sunny,Residential,Cooking,High,9,9,300
+10/12/2023,7:36,Sunday,San Buenaventura (Palakpakin),14.07313131,121.3172247,Sunny,Commercial,Arson,Medium,4,12,16
+25/06/2022,19:14,Saturday,Santa Veronica (Bae),14.05527148,121.317436,Sunny,Residential,Electrical,Low,2,9,97
+20/09/2021,5:14,Monday,V-D,14.06988476,121.3118769,Sunny,Residential,Arson,Low,0,7,55
+07/12/2020,9:49,Monday,San Gregorio,14.06866926,121.3250038,Cloudy,Residential,Electrical,High,10,10,277
+02/01/2020,8:43,Thursday,Santo Niño (Arsum),14.07295619,121.3117376,Sunny,Residential,Cooking,High,13,8,296
+06/04/2021,9:12,Tuesday,VII-E,14.07448495,121.3211383,Cloudy,Residential,Cooking,Low,0,8,44
+03/12/2022,7:07,Saturday,San Gregorio,14.06725811,121.3260455,Sunny,Industrial,Cooking,Low,0,6,23
+28/11/2020,22:59,Saturday,San Bartolome (Matang-ag),14.06631622,121.311594,Cloudy,Residential,Other,Medium,2,5,264
+03/04/2020,18:31,Friday,Santiago 1 (Bulaho),14.06518668,121.3226799,Sunny,Residential,Electrical,Medium,2,9,41
+01/07/2022,12:00,Friday,I-B (City+Riverside),14.07447946,121.3261134,Stormy,Residential,Other,High,7,10,16
+08/02/2020,21:46,Saturday,I-B (City+Riverside),14.07010838,121.3236914,Sunny,Residential,Arson,Medium,5,12,85
+23/08/2023,17:23,Wednesday,II-E (San Anton),14.07401852,121.3225347,Rainy,Forest,Natural,Medium,0,10,39
+11/01/2024,12:08,Thursday,III-C (Labak/De Roma),14.07583785,121.3251233,Sunny,Residential,Electrical,Low,0,8,24
+09/11/2020,19:58,Monday,VI-B,14.07023406,121.3271337,Rainy,Residential,Electrical,Medium,2,5,50
+30/12/2023,8:26,Saturday,Santo Niño (Arsum),14.06918496,121.3131777,Rainy,Commercial,Other,Medium,2,16,36
+11/08/2023,6:04,Friday,III-A (Hermanos Belen),14.07060364,121.317927,Sunny,Industrial,Natural,Medium,5,11,84
+21/01/2024,8:15,Sunday,III-B,14.07119896,121.3196198,Sunny,Residential,Electrical,Medium,6,12,134
+24/03/2023,18:39,Friday,Santa Veronica (Bae),14.06776666,121.3195361,Sunny,Residential,Arson,Low,1,6,10
+23/09/2023,14:42,Saturday,Santa Maria,14.07661724,121.3194342,Sunny,Industrial,Electrical,High,9,7,11
+14/10/2021,8:27,Thursday,VII-C,14.07184926,121.3194667,Cloudy,Residential,Natural,Low,0,11,32
+17/07/2022,19:09,Sunday,Dolores,14.06978996,121.3189673,Rainy,Residential,Electrical,Medium,3,7,35
+21/09/2024,9:22,Saturday,Soledad (Macopa),14.07489563,121.3274752,Sunny,Commercial,Cooking,Low,0,6,10
+16/05/2020,3:30,Saturday,VII-A (P. Alcantara),14.07412334,121.3181243,Cloudy,Forest,Natural,High,0,8,11
+09/11/2024,7:56,Saturday,Soledad (Macopa),14.07058502,121.3174434,Sunny,Industrial,Electrical,Low,0,10,82
+21/10/2022,22:03,Friday,San Isidro (Balagbag),14.06490286,121.3208959,Sunny,Residential,Arson,Medium,2,7,11
+28/05/2021,22:19,Friday,II-D (Bulante),14.06891225,121.3188095,Rainy,Residential,Cooking,Medium,4,8,10
+14/07/2022,14:48,Thursday,VII-B,14.06391766,121.3145864,Cloudy,Residential,Electrical,High,6,9,188
+17/11/2022,17:14,Thursday,Del Remedio (Wawa),14.05880921,121.3247006,Cloudy,Residential,Electrical,Low,1,9,48
+19/04/2023,7:51,Wednesday,Santiago II (Bulaho),14.06708115,121.3113781,Sunny,Residential,Cooking,Medium,3,10,168
+19/08/2021,19:42,Thursday,V-B,14.0641455,121.3195856,Sunny,Commercial,Electrical,Low,0,9,29
+19/06/2021,22:17,Saturday,San Lucas 2 (Malinaw),14.06765265,121.3227481,Cloudy,Residential,Natural,High,4,8,10
+07/05/2021,4:06,Friday,San Lucas 1 (Sabang),14.07033723,121.3220705,Sunny,Residential,Arson,Medium,2,14,48
+21/07/2021,20:19,Wednesday,San Diego (Tilim),14.06476363,121.3177466,Sunny,Residential,Electrical,High,6,11,66
+11/01/2023,1:55,Wednesday,San Buenaventura (Palakpakin),14.06184906,121.3186296,Sunny,Commercial,Natural,Medium,6,6,231
+06/05/2022,19:36,Friday,II-E (San Anton),14.06655344,121.3238497,Rainy,Residential,Electrical,Medium,3,10,68
+04/09/2020,10:03,Friday,San Nicolas (Mag-ampong),14.0632751,121.3201542,Sunny,Residential,Electrical,Medium,4,5,10
+04/02/2024,8:53,Sunday,San Buenaventura (Palakpakin),14.06861378,121.3165152,Cloudy,Commercial,Natural,High,3,11,28
+04/04/2023,17:24,Tuesday,VI-B,14.07041769,121.3152098,Rainy,Forest,Natural,Low,1,7,10
+13/06/2021,17:53,Sunday,San Miguel (Balintin),14.070658,121.3158503,Sunny,Industrial,Other,High,3,10,58
+09/02/2022,2:10,Wednesday,VII-A (P. Alcantara),14.06779357,121.319637,Cloudy,Residential,Natural,Medium,1,7,10
+09/07/2020,15:43,Thursday,San Crispin (Lumbangan),14.07296252,121.3118683,Sunny,Commercial,Other,Medium,1,8,24
+24/11/2021,20:17,Wednesday,San Francisco (Calihan),14.07977094,121.324258,Sunny,Forest,Natural,Low,0,8,97
+06/06/2023,3:30,Tuesday,San Lucas 2 (Malinaw),14.0776743,121.3192357,Sunny,Commercial,Arson,Medium,2,7,143
+23/10/2024,19:19,Wednesday,Dolores,14.07116229,121.3242144,Cloudy,Industrial,Electrical,Low,0,14,39
+20/01/2022,20:56,Thursday,San Nicolas (Mag-ampong),14.07844496,121.3208349,Sunny,Commercial,Arson,Low,0,10,30
+23/03/2021,3:30,Tuesday,San Rafael (Buluburan),14.06871483,121.318194,Cloudy,Residential,Arson,Low,0,9,26
+20/02/2024,12:18,Tuesday,V-D,14.07452709,121.3138395,Cloudy,Residential,Electrical,Medium,3,12,35
+09/12/2020,2:23,Wednesday,San Lucas 1 (Sabang),14.07642507,121.3138087,Sunny,Residential,Electrical,Medium,3,13,27
+20/12/2020,1:43,Sunday,San Antonio 1 (Balanga),14.06499985,121.3175385,Sunny,Residential,Electrical,Low,0,9,12
+23/03/2022,20:30,Wednesday,San Lorenzo (Saluyan),14.07459676,121.3180984,Rainy,Commercial,Other,Low,1,5,39
+20/09/2021,20:01,Monday,Santiago II (Bulaho),14.07387346,121.3277535,Sunny,Residential,Cooking,High,5,14,57
+05/12/2022,19:04,Monday,V-B,14.0676838,121.3216193,Sunny,Industrial,Other,Medium,0,11,104
+16/12/2020,22:23,Wednesday,II-B (Guadalupe 1),14.06835225,121.3170992,Sunny,Residential,Other,High,9,10,15
+10/11/2022,19:22,Thursday,Santa Maria Magdalena (Boe / Kuba),14.07232888,121.3194098,Stormy,Commercial,Cooking,Low,0,7,18
+13/12/2024,9:42,Friday,IV-C,14.0707997,121.3187887,Cloudy,Commercial,Natural,Low,4,11,21
+09/10/2021,13:45,Saturday,San Gregorio,14.0701709,121.3170575,Rainy,Commercial,Natural,Medium,3,12,10
+02/08/2022,9:09,Tuesday,I-A (Sambat),14.0817569,121.3263512,Rainy,Residential,Arson,Medium,0,11,63
+08/05/2021,7:04,Saturday,San Cristobal,14.07835939,121.3151502,Cloudy,Commercial,Arson,Low,0,14,10
+24/12/2023,2:39,Sunday,Santa Isabel,14.06354632,121.3198391,Cloudy,Residential,Natural,High,3,11,72
+25/12/2021,13:49,Saturday,San Bartolome (Matang-ag),14.07698439,121.3192066,Sunny,Residential,Cooking,Medium,2,10,98
+16/06/2021,20:13,Wednesday,Santo Angel (Ilog),14.06530698,121.3206547,Sunny,Industrial,Electrical,Low,0,9,10
+08/02/2020,6:30,Saturday,Santa Monica,14.07226733,121.31806,Sunny,Industrial,Electrical,Medium,0,6,130
+13/11/2024,11:29,Wednesday,San Jose (Malamig),14.06687791,121.3207685,Sunny,Residential,Electrical,Medium,4,10,60
+04/02/2023,18:34,Saturday,III-A (Hermanos Belen),14.06515461,121.3191371,Cloudy,Residential,Electrical,Medium,5,14,52
+28/03/2023,21:59,Tuesday,Santo Cristo,14.07478288,121.3199069,Rainy,Residential,Electrical,Low,2,12,30
+21/05/2022,8:14,Saturday,Atisan,14.07001937,121.3211364,Cloudy,Residential,Cooking,Medium,4,8,133
+29/05/2022,14:48,Sunday,Santa Elena,14.07303176,121.3171711,Sunny,Residential,Arson,Low,2,7,91
+19/04/2021,12:17,Monday,San Miguel (Balintin),14.064384,121.3197406,Cloudy,Residential,Electrical,Medium,5,16,10
+11/01/2021,22:42,Monday,San Francisco (Calihan),14.07720526,121.3201032,Rainy,Commercial,Cooking,High,12,11,99
+03/06/2022,11:40,Friday,Santo Niño (Arsum),14.06885413,121.318521,Sunny,Residential,Cooking,Medium,1,14,10
+28/12/2020,10:27,Monday,San Nicolas (Mag-ampong),14.06070547,121.3272294,Sunny,Commercial,Arson,Low,0,11,10
+14/03/2024,21:22,Thursday,V-A,14.06045908,121.3258573,Rainy,Residential,Electrical,Medium,1,9,10
+07/03/2022,15:43,Monday,Santa Elena,14.07521139,121.313323,Sunny,Residential,Cooking,Low,0,12,14
+15/01/2021,20:40,Friday,V-B,14.06362084,121.3139452,Sunny,Forest,Natural,Medium,0,10,29
+12/12/2024,2:36,Thursday,I-C (Bagong Bayan),14.07144956,121.31778,Sunny,Commercial,Other,High,8,8,409
+30/09/2024,19:17,Monday,San Miguel (Balintin),14.07482697,121.3187109,Cloudy,Commercial,Electrical,Low,0,11,54
+02/09/2024,17:18,Monday,Santisimo Rosario (Balagbag),14.07119427,121.3257923,Rainy,Industrial,Cooking,Low,0,8,10
+27/07/2022,15:13,Wednesday,Santo Niño (Arsum),14.07371511,121.3273371,Sunny,Residential,Arson,High,9,8,18
+26/12/2024,7:41,Thursday,V-D,14.0648516,121.3239581,Cloudy,Residential,Natural,Medium,2,10,12
+17/01/2021,12:14,Sunday,San Rafael (Buluburan),14.07520977,121.3173813,Sunny,Industrial,Electrical,Medium,1,9,33
+24/10/2024,11:57,Thursday,Santiago II (Bulaho),14.06978659,121.3226917,Rainy,Residential,Electrical,Medium,5,16,10
+29/10/2023,17:21,Sunday,V-B,14.06859668,121.321987,Rainy,Industrial,Arson,High,6,9,27
+19/06/2024,12:24,Wednesday,San Vicente,14.06752042,121.3183785,Sunny,Forest,Other,High,0,9,67
+07/12/2021,8:53,Tuesday,Santo Angel (Ilog),14.0723134,121.3168391,Sunny,Commercial,Natural,Low,0,11,10
+25/04/2022,20:36,Monday,Santa Catalina (Sandig),14.064073,121.3200238,Sunny,Commercial,Cooking,Medium,4,9,10
+08/06/2020,8:46,Monday,III-D (Vilongco),14.07369689,121.3207057,Cloudy,Residential,Cooking,Low,0,10,24
+10/02/2021,17:58,Wednesday,San Vicente,14.06982215,121.3168606,Sunny,Residential,Other,Low,1,5,10
+17/09/2022,11:22,Saturday,II-E (San Anton),14.07077303,121.3174965,Sunny,Forest,Arson,Low,1,9,10
+12/11/2020,1:02,Thursday,San Mateo (Imok),14.07218074,121.3161251,Sunny,Residential,Other,Medium,3,7,97
+16/08/2024,0:11,Friday,VI-D (Lparkers),14.06293748,121.3216173,Sunny,Residential,Cooking,Medium,1,9,10
+21/04/2023,18:58,Friday,San Nicolas (Mag-ampong),14.06980977,121.3128424,Sunny,Commercial,Arson,Medium,1,14,21
+06/08/2023,3:32,Sunday,San Marcos (Tikew),14.07446154,121.3119318,Stormy,Residential,Natural,Medium,3,12,10
+12/09/2024,20:24,Thursday,San Miguel (Balintin),14.07311009,121.3216723,Rainy,Residential,Arson,High,6,7,238
+05/03/2024,5:11,Tuesday,II-C (Unson),14.07064717,121.3185273,Stormy,Residential,Arson,Low,0,9,16
+07/01/2024,15:29,Sunday,VII-B,14.06421259,121.3256711,Cloudy,Residential,Electrical,Low,1,8,29
+24/06/2021,17:30,Thursday,Santa Cruz (Putol),14.07462943,121.3235438,Cloudy,Industrial,Other,Low,0,12,17
+29/10/2023,0:57,Sunday,II-A (Triangulo Guadalupe 2),14.06550827,121.3172189,Sunny,Industrial,Arson,High,5,8,110
+06/04/2021,2:02,Tuesday,VI-B,14.06252636,121.326512,Cloudy,Commercial,Electrical,Medium,3,10,54
+22/07/2024,13:52,Monday,Santa Filomena (Banagin),14.07041971,121.3169962,Cloudy,Industrial,Electrical,Low,1,10,72
+23/01/2023,11:54,Monday,Santa Maria Magdalena (Boe / Kuba),14.07196713,121.3199702,Sunny,Industrial,Arson,Low,1,5,12
+07/09/2024,2:24,Saturday,III-A (Hermanos Belen),14.06667354,121.3235412,Cloudy,Residential,Cooking,Low,1,5,25
+10/06/2021,3:31,Thursday,II-F (Villa Rey),14.07552524,121.3269362,Rainy,Industrial,Electrical,Medium,0,5,50
+07/08/2024,10:51,Wednesday,Santo Angel (Ilog),14.07315582,121.3184897,Cloudy,Residential,Arson,Medium,6,11,11
+12/07/2023,20:33,Wednesday,Santa Isabel,14.06698052,121.3188112,Cloudy,Residential,Natural,Medium,3,7,76
+03/06/2022,16:02,Friday,Santo Niño (Arsum),14.06390888,121.3096466,Sunny,Industrial,Cooking,High,9,10,295
+08/09/2023,5:58,Friday,VII-E,14.07326998,121.3169023,Sunny,Residential,Cooking,Low,1,14,10
+28/01/2023,22:10,Saturday,Santiago 1 (Bulaho),14.06481502,121.3243893,Stormy,Residential,Natural,Medium,2,14,25
+05/07/2024,20:08,Friday,Santa Maria,14.07153069,121.3157178,Rainy,Commercial,Electrical,Medium,0,12,10
+11/12/2021,2:54,Saturday,Del Remedio (Wawa),14.07152559,121.3231024,Sunny,Industrial,Electrical,Low,1,7,27
+13/04/2020,20:08,Monday,San Roque (Sambat),14.06732291,121.3073862,Sunny,Residential,Natural,Medium,2,10,22
+07/08/2020,8:09,Friday,San Buenaventura (Palakpakin),14.07248747,121.3254272,Cloudy,Residential,Electrical,Medium,3,8,147
+06/09/2022,20:37,Tuesday,San Mateo (Imok),14.08104341,121.3135541,Rainy,Forest,Arson,Low,1,13,47
+23/12/2024,20:05,Monday,Santa Filomena (Banagin),14.06474693,121.3078664,Sunny,Commercial,Other,Low,0,7,52
+20/06/2024,18:58,Thursday,II-E (San Anton),14.07656875,121.3189275,Sunny,Residential,Cooking,Low,1,7,24
+16/01/2022,20:25,Sunday,Santa Catalina (Sandig),14.06890853,121.3261339,Rainy,Residential,Other,Low,0,6,10
+17/04/2020,15:42,Friday,Santo Angel (Ilog),14.07021983,121.3181821,Sunny,Residential,Electrical,Low,0,11,66
+13/11/2020,21:03,Friday,Atisan,14.06618283,121.3233554,Sunny,Residential,Electrical,Low,1,10,57
+04/04/2020,2:27,Saturday,San Mateo (Imok),14.08198256,121.3185109,Rainy,Commercial,Arson,Low,1,7,10
+28/09/2023,13:10,Thursday,Santiago II (Bulaho),14.07441911,121.3198529,Sunny,Residential,Other,Medium,0,11,129
+21/01/2023,18:23,Saturday,II-C (Unson),14.07613749,121.3198256,Stormy,Residential,Electrical,Low,0,10,54
+29/01/2022,11:31,Saturday,I-B (City+Riverside),14.06533139,121.3243712,Cloudy,Residential,Electrical,Low,0,11,12
+25/01/2024,9:11,Thursday,Santo Niño (Arsum),14.06378499,121.3137081,Sunny,Commercial,Other,High,8,10,220
+08/07/2020,12:52,Wednesday,Santa Veronica (Bae),14.06841183,121.3238124,Cloudy,Commercial,Electrical,Medium,2,8,88
+09/06/2023,6:16,Friday,V-B,14.07719895,121.315679,Rainy,Residential,Other,High,5,5,53
+19/08/2024,0:35,Monday,San Mateo (Imok),14.06940871,121.3157232,Cloudy,Forest,Arson,Low,0,7,53
+10/03/2024,19:13,Sunday,Santo Niño (Arsum),14.07181782,121.3174682,Cloudy,Residential,Electrical,Medium,8,8,10
+21/11/2023,7:07,Tuesday,San Nicolas (Mag-ampong),14.063116,121.314667,Rainy,Residential,Arson,Medium,7,9,99
+04/11/2023,14:04,Saturday,I-B (City+Riverside),14.07796148,121.3074097,Cloudy,Commercial,Electrical,Medium,5,10,54
+11/03/2020,8:11,Wednesday,VI-A (Mavenida),14.07122425,121.3162829,Sunny,Residential,Cooking,Medium,3,9,43
+23/10/2021,14:09,Saturday,Santa Monica,14.06481908,121.3152947,Cloudy,Residential,Electrical,High,7,11,113
+23/03/2020,10:08,Monday,San Lorenzo (Saluyan),14.07258959,121.3178168,Cloudy,Residential,Natural,Medium,3,15,18
+14/02/2021,20:44,Sunday,San Marcos (Tikew),14.07271403,121.321373,Cloudy,Residential,Cooking,Low,0,9,10
+24/05/2021,15:49,Monday,Concepcion (Bunot),14.06329597,121.3297576,Sunny,Commercial,Cooking,Low,2,5,10
+31/08/2023,21:03,Thursday,I-B (City+Riverside),14.06273562,121.3245195,Rainy,Residential,Electrical,Medium,4,12,10
+02/07/2021,23:56,Friday,San Jose (Malamig),14.07180544,121.3119392,Sunny,Residential,Arson,High,5,10,63
+04/06/2022,12:47,Saturday,II-A (Triangulo Guadalupe 2),14.07451829,121.3238279,Cloudy,Residential,Cooking,Low,1,14,19
+25/11/2021,18:50,Thursday,VII-A (P. Alcantara),14.06930468,121.3115303,Sunny,Residential,Natural,Low,1,7,15
+12/05/2020,1:55,Tuesday,VI-D (Lparkers),14.07079287,121.3235954,Sunny,Industrial,Arson,Medium,1,6,58
+11/07/2023,2:46,Tuesday,II-B (Guadalupe 1),14.07672407,121.3150096,Rainy,Forest,Natural,Medium,1,11,24
+17/10/2022,22:53,Monday,San Lucas 2 (Malinaw),14.07796064,121.3209398,Rainy,Commercial,Electrical,High,7,12,51
+23/08/2023,21:49,Wednesday,Santa Cruz (Putol),14.06858346,121.3167845,Cloudy,Residential,Electrical,Low,2,13,10
+08/09/2020,20:06,Tuesday,III-E,14.06922531,121.3236142,Sunny,Residential,Electrical,High,8,8,155
+14/10/2022,13:22,Friday,San Francisco (Calihan),14.07037684,121.3193906,Sunny,Industrial,Cooking,High,3,7,35
+05/11/2022,7:15,Saturday,Santo Niño (Arsum),14.06847091,121.3129216,Sunny,Commercial,Natural,Medium,4,11,130
+06/04/2020,19:54,Monday,Santo Angel (Ilog),14.07080074,121.3285509,Cloudy,Residential,Electrical,Medium,3,8,258
+26/11/2022,19:12,Saturday,Bautista,14.07526874,121.3171572,Cloudy,Residential,Arson,Low,0,10,24
+23/04/2023,16:19,Sunday,VII-B,14.07061804,121.3245589,Rainy,Residential,Natural,High,11,8,361
+04/09/2021,21:41,Saturday,V-A,14.06598913,121.3170825,Sunny,Forest,Natural,High,1,5,138
+28/05/2024,9:05,Tuesday,San Miguel (Balintin),14.0710261,121.3200139,Cloudy,Forest,Natural,High,1,10,118
+17/01/2024,10:07,Wednesday,San Jose (Malamig),14.06774698,121.3229215,Sunny,Residential,Other,Medium,6,7,51
+28/06/2020,22:33,Sunday,Santo Cristo,14.07336679,121.3266385,Sunny,Residential,Electrical,High,5,9,150
+20/02/2021,20:03,Saturday,Santo Niño (Arsum),14.06601947,121.320996,Rainy,Residential,Electrical,Low,2,5,10
+05/01/2024,18:45,Friday,IV-A,14.06866286,121.321046,Cloudy,Industrial,Electrical,Low,1,10,28
+17/02/2023,2:48,Friday,VI-E (YMCA),14.0688683,121.3232288,Sunny,Residential,Cooking,High,5,9,54
+22/06/2020,7:56,Monday,VII-A (P. Alcantara),14.06215242,121.3144227,Sunny,Residential,Cooking,Low,0,8,85
+01/03/2022,11:03,Tuesday,VII-E,14.06509747,121.3151906,Cloudy,Commercial,Electrical,High,7,8,75
+10/09/2020,22:52,Thursday,Santiago II (Bulaho),14.06904233,121.3241573,Sunny,Industrial,Arson,Medium,2,7,51
+09/02/2023,20:57,Thursday,San Francisco (Calihan),14.06805495,121.3194134,Sunny,Forest,Natural,Low,0,13,10
+12/06/2022,14:38,Sunday,VII-A (P. Alcantara),14.06871539,121.31549,Sunny,Residential,Arson,Medium,5,10,10
+18/09/2022,10:54,Sunday,San Lucas 2 (Malinaw),14.07519026,121.329504,Sunny,Residential,Cooking,Medium,5,14,18
+14/12/2021,20:50,Tuesday,Santa Maria Magdalena (Boe / Kuba),14.07129229,121.3161226,Rainy,Commercial,Cooking,Medium,1,12,112
+04/12/2021,22:20,Saturday,III-E,14.07347563,121.3127414,Rainy,Industrial,Other,Medium,2,13,10
+18/04/2023,16:19,Tuesday,VII-A (P. Alcantara),14.07398414,121.3258652,Cloudy,Residential,Cooking,Low,0,8,45
+21/06/2024,5:31,Friday,San Marcos (Tikew),14.06766497,121.3168454,Sunny,Residential,Natural,High,11,5,116
+25/11/2021,17:04,Thursday,Dolores,14.06812443,121.3191258,Rainy,Commercial,Electrical,Low,0,12,10
+27/07/2021,18:02,Tuesday,Soledad (Macopa),14.06779539,121.3229857,Cloudy,Residential,Electrical,Medium,1,14,228
+03/02/2021,6:41,Wednesday,Santa Ana,14.07281648,121.3150952,Rainy,Residential,Cooking,Low,3,6,17
+05/01/2020,2:40,Sunday,III-F (Balagtas),14.07497386,121.3218904,Cloudy,Forest,Natural,Low,0,5,10
+04/05/2021,19:24,Tuesday,VII-B,14.06811471,121.3210109,Sunny,Residential,Other,Low,2,8,16
+24/11/2024,20:19,Sunday,Santa Cruz (Putol),14.07151876,121.3211036,Cloudy,Residential,Arson,Low,1,11,123
+06/02/2023,23:55,Monday,Santiago II (Bulaho),14.08225285,121.3252489,Sunny,Industrial,Arson,Low,0,5,102
+28/12/2022,19:17,Wednesday,II-B (Guadalupe 1),14.06974786,121.3249572,Rainy,Residential,Natural,Medium,1,11,41
+24/01/2021,18:53,Sunday,IV-C,14.068741,121.3164121,Cloudy,Commercial,Electrical,Medium,1,10,63
+04/09/2020,6:22,Friday,Dolores,14.07839237,121.32276,Sunny,Residential,Arson,Low,1,12,51
+18/04/2023,17:13,Tuesday,III-F (Balagtas),14.07959466,121.3262724,Sunny,Residential,Electrical,High,4,8,83
+26/07/2021,22:13,Monday,Santiago II (Bulaho),14.067475,121.3220387,Stormy,Residential,Cooking,Low,2,10,10
+02/07/2021,8:08,Friday,San Ignacio,14.07849988,121.323506,Cloudy,Residential,Electrical,Medium,4,12,10
+21/02/2023,10:10,Tuesday,V-D,14.07189913,121.318627,Sunny,Commercial,Cooking,High,7,9,87
+09/02/2023,12:24,Thursday,V-D,14.07661529,121.3222327,Sunny,Residential,Cooking,Low,1,5,10
+01/05/2022,17:16,Sunday,II-F (Villa Rey),14.06962846,121.3295475,Rainy,Residential,Arson,High,7,17,10
+17/08/2020,21:53,Monday,Dolores,14.06964685,121.3153045,Sunny,Commercial,Arson,High,6,10,505
+22/12/2020,18:38,Tuesday,San Francisco (Calihan),14.07387812,121.3257782,Sunny,Residential,Cooking,Medium,0,11,75
+16/11/2020,22:22,Monday,VII-E,14.07104985,121.3179303,Cloudy,Residential,Electrical,High,5,7,48
+24/02/2023,11:17,Friday,Bautista,14.07054728,121.326259,Sunny,Commercial,Electrical,Medium,4,5,17
+05/06/2024,21:02,Wednesday,II-B (Guadalupe 1),14.06791063,121.3258613,Rainy,Residential,Natural,High,8,13,94
+13/05/2023,21:49,Saturday,Santisimo Rosario (Balagbag),14.05903863,121.3222979,Sunny,Residential,Electrical,Low,1,12,10
+30/08/2024,0:43,Friday,Santo Niño (Arsum),14.06966295,121.3195177,Sunny,Residential,Electrical,Low,1,11,72
+22/06/2021,23:15,Tuesday,V-D,14.06509483,121.3208301,Cloudy,Residential,Electrical,Low,3,10,105
+25/06/2020,18:24,Thursday,San Crispin (Lumbangan),14.0660545,121.3126298,Sunny,Residential,Electrical,High,7,7,33
+05/02/2021,1:55,Friday,Bautista,14.07155858,121.3218531,Sunny,Residential,Cooking,High,6,5,68
+22/06/2022,11:15,Wednesday,II-E (San Anton),14.06858733,121.318644,Sunny,Residential,Cooking,Medium,4,14,255
+25/10/2022,8:10,Tuesday,San Gregorio,14.06084033,121.3181943,Sunny,Forest,Arson,Medium,0,11,63
+15/05/2024,16:55,Wednesday,Santa Maria Magdalena (Boe / Kuba),14.07799673,121.3207749,Sunny,Forest,Natural,High,1,5,89
+27/01/2024,18:11,Saturday,VI-B,14.07657141,121.3264603,Rainy,Residential,Natural,High,12,6,78
+26/06/2020,22:35,Friday,VI-E (YMCA),14.0658151,121.318605,Cloudy,Commercial,Electrical,Low,0,11,58
+25/08/2020,13:37,Tuesday,III-B,14.07135022,121.3181697,Cloudy,Residential,Electrical,Medium,0,6,25
+14/04/2022,21:41,Thursday,IV-A,14.07625285,121.3246706,Sunny,Residential,Electrical,Low,3,11,25
+12/02/2020,13:25,Wednesday,VII-C,14.06553287,121.332631,Sunny,Industrial,Electrical,Medium,1,10,10
+09/02/2024,13:33,Friday,I-B (City+Riverside),14.07086278,121.3220611,Sunny,Commercial,Cooking,High,6,11,10
+31/12/2021,14:25,Friday,San Mateo (Imok),14.06116839,121.3182498,Rainy,Commercial,Cooking,Medium,4,8,24
+04/12/2023,1:16,Monday,Santa Elena,14.05977706,121.3125078,Sunny,Industrial,Electrical,Low,0,8,41
+03/01/2024,11:27,Wednesday,Santa Monica,14.06213145,121.3188229,Sunny,Residential,Cooking,Medium,3,11,90
+08/07/2023,5:29,Saturday,San Antonio 2 (Sapa),14.06991534,121.3214593,Sunny,Residential,Electrical,Low,0,6,32
+11/04/2020,11:25,Saturday,Dolores,14.07144669,121.3246062,Sunny,Commercial,Arson,Low,2,11,10
+16/12/2024,10:42,Monday,Bautista,14.0693841,121.3267572,Sunny,Residential,Arson,Medium,0,14,323
+07/07/2021,22:58,Wednesday,VII-B,14.06614949,121.3230887,Cloudy,Residential,Cooking,Low,1,12,10
+29/11/2021,22:26,Monday,III-C (Labak/De Roma),14.06948772,121.3251397,Cloudy,Residential,Arson,High,13,11,108
+19/01/2023,22:06,Thursday,I-A (Sambat),14.0620236,121.3120977,Cloudy,Residential,Arson,Low,0,7,10
+26/02/2020,12:40,Wednesday,San Vicente,14.06569108,121.3135435,Cloudy,Residential,Cooking,High,9,14,10
+22/02/2023,22:21,Wednesday,VI-A (Mavenida),14.07152365,121.324834,Rainy,Commercial,Arson,Low,0,13,24
+05/03/2021,18:23,Friday,VI-D (Lparkers),14.07873401,121.3137943,Rainy,Commercial,Cooking,High,5,5,168
+19/04/2023,3:55,Wednesday,San Nicolas (Mag-ampong),14.0651953,121.315644,Sunny,Industrial,Arson,Low,0,11,10
+17/09/2021,21:51,Friday,VII-B,14.06615375,121.3232322,Cloudy,Residential,Electrical,Medium,3,7,27
+15/01/2023,20:37,Sunday,San Lorenzo (Saluyan),14.0681043,121.3248831,Sunny,Residential,Electrical,Medium,6,5,67
+03/05/2022,7:28,Tuesday,San Vicente,14.0652674,121.3218334,Cloudy,Forest,Natural,Medium,0,7,14
+04/07/2023,6:31,Tuesday,Santo Niño (Arsum),14.06684692,121.3224588,Rainy,Residential,Other,Medium,3,5,27
+09/01/2020,4:31,Thursday,IV-B,14.07596562,121.3207523,Cloudy,Industrial,Other,Low,0,6,10
+14/11/2021,0:38,Sunday,V-C,14.06770033,121.3096997,Sunny,Residential,Electrical,High,7,11,123
+26/06/2023,22:44,Monday,San Francisco (Calihan),14.06949283,121.3296732,Sunny,Residential,Arson,Low,0,9,130
+18/03/2024,17:19,Monday,San Joaquin,14.06375026,121.3171908,Rainy,Residential,Arson,High,6,16,336
+28/01/2022,2:59,Friday,V-D,14.08213141,121.3207848,Cloudy,Residential,Electrical,Medium,3,9,41
+05/03/2022,3:31,Saturday,III-E,14.0629098,121.3213483,Sunny,Forest,Natural,Medium,0,9,40
+20/07/2022,1:57,Wednesday,San Isidro (Balagbag),14.05793704,121.3130632,Cloudy,Residential,Cooking,Low,0,11,70
+20/12/2022,15:22,Tuesday,Santa Isabel,14.06591338,121.3095982,Sunny,Residential,Cooking,Low,2,6,19
+14/05/2021,4:52,Friday,San Pedro,14.07057363,121.3125756,Cloudy,Residential,Electrical,High,7,13,284
+11/04/2024,1:13,Thursday,Santo Cristo,14.06202085,121.3222797,Cloudy,Residential,Electrical,Low,2,11,12
+30/11/2024,18:30,Saturday,III-E,14.06797106,121.3212896,Sunny,Residential,Electrical,Medium,1,11,10
+23/08/2022,11:27,Tuesday,San Miguel (Balintin),14.06594089,121.3087871,Sunny,Residential,Cooking,Medium,2,11,241
+08/05/2022,22:16,Sunday,San Gregorio,14.06970665,121.3190114,Sunny,Residential,Cooking,Medium,5,7,43
+13/07/2020,22:46,Monday,IV-C,14.07505761,121.3160562,Sunny,Residential,Natural,Medium,2,10,354
+02/04/2023,4:47,Sunday,V-D,14.07243173,121.3185757,Rainy,Residential,Cooking,High,4,16,21
+01/06/2023,23:30,Thursday,VI-D (Lparkers),14.07122087,121.3260454,Cloudy,Residential,Natural,Medium,3,6,114
+23/08/2021,17:41,Monday,VI-B,14.07180237,121.3194824,Stormy,Industrial,Cooking,High,5,14,170
+08/04/2023,10:20,Saturday,III-D (Vilongco),14.062245,121.3268631,Rainy,Residential,Cooking,Low,1,8,96
+23/12/2021,11:03,Thursday,VI-C (Bagong Pook),14.06207737,121.3224867,Sunny,Commercial,Arson,Medium,1,5,60
+31/05/2021,4:18,Monday,San Juan (Putol),14.06677721,121.3115211,Cloudy,Residential,Other,Low,0,9,10
+25/09/2020,19:42,Friday,Soledad (Macopa),14.07609466,121.3155918,Sunny,Residential,Natural,Low,1,7,38
+08/06/2020,19:44,Monday,III-C (Labak/De Roma),14.06063916,121.3189386,Cloudy,Residential,Cooking,High,11,12,346
+27/12/2021,22:56,Monday,VI-A (Mavenida),14.07399935,121.3166812,Cloudy,Residential,Arson,High,9,5,369
+29/11/2021,9:32,Monday,Santiago II (Bulaho),14.06086905,121.3161864,Sunny,Residential,Natural,Low,2,9,18
+27/05/2024,3:24,Monday,Santa Cruz (Putol),14.07684328,121.3142381,Cloudy,Forest,Natural,Low,0,6,48
+01/02/2023,18:34,Wednesday,II-D (Bulante),14.07201445,121.3125566,Sunny,Commercial,Electrical,Medium,1,11,10
+18/10/2023,1:18,Wednesday,V-B,14.06949256,121.3140522,Sunny,Residential,Cooking,Medium,4,9,66
+17/02/2022,18:07,Thursday,Santa Elena,14.07314612,121.3205212,Cloudy,Commercial,Arson,Low,0,10,113
+25/01/2022,5:37,Tuesday,V-C,14.07168435,121.3257626,Sunny,Residential,Electrical,Low,1,12,86
+21/07/2020,9:53,Tuesday,II-F (Villa Rey),14.07261693,121.3186936,Rainy,Commercial,Cooking,Medium,1,14,32
+24/03/2021,22:37,Wednesday,IV-B,14.06993084,121.3209963,Sunny,Industrial,Cooking,Medium,3,8,10
+10/09/2021,7:02,Friday,I-B (City+Riverside),14.07703021,121.3317299,Sunny,Industrial,Arson,Low,1,5,16
+14/02/2020,9:02,Friday,V-D,14.07314425,121.3228093,Rainy,Residential,Cooking,Medium,3,5,16
+27/09/2022,18:26,Tuesday,III-A (Hermanos Belen),14.06353212,121.309678,Cloudy,Industrial,Electrical,Medium,1,11,44
+21/05/2023,5:24,Sunday,V-B,14.07062479,121.323206,Cloudy,Forest,Natural,Medium,0,10,17
+16/03/2023,22:47,Thursday,San Miguel (Balintin),14.06829123,121.3245003,Sunny,Commercial,Cooking,Medium,1,11,28
+23/03/2021,17:26,Tuesday,Santa Isabel,14.07132399,121.3244376,Sunny,Residential,Arson,Low,0,5,85
+01/04/2022,15:54,Friday,San Crispin (Lumbangan),14.07680246,121.3154553,Stormy,Residential,Electrical,High,9,9,10
+12/10/2022,21:15,Wednesday,V-C,14.0740239,121.3164986,Rainy,Residential,Electrical,Medium,2,14,64
+02/02/2020,23:45,Sunday,I-B (City+Riverside),14.06911114,121.3148248,Cloudy,Residential,Electrical,Medium,2,8,83
+18/11/2020,7:43,Wednesday,Santa Monica,14.06895079,121.3217473,Cloudy,Forest,Natural,High,0,8,10
+04/09/2022,1:19,Sunday,San Antonio 2 (Sapa),14.07094891,121.3216145,Cloudy,Forest,Arson,Low,0,8,21
+06/05/2021,0:30,Thursday,Santa Veronica (Bae),14.07035461,121.3215571,Sunny,Residential,Natural,High,3,11,80
+16/05/2022,19:33,Monday,V-C,14.06728488,121.3232622,Cloudy,Forest,Natural,Medium,2,7,22
+25/05/2024,20:41,Saturday,II-F (Villa Rey),14.06707014,121.324737,Cloudy,Industrial,Natural,Low,0,11,10
+10/08/2021,22:13,Tuesday,VI-E (YMCA),14.07434073,121.323874,Cloudy,Residential,Cooking,Medium,3,8,48
+03/04/2020,19:54,Friday,Santiago II (Bulaho),14.06642803,121.3272614,Sunny,Residential,Natural,High,11,10,119
+20/05/2020,21:18,Wednesday,Santo Cristo,14.0625803,121.3238878,Rainy,Residential,Electrical,High,4,7,86
+01/08/2023,22:15,Tuesday,Santa Veronica (Bae),14.06550639,121.3239182,Sunny,Residential,Arson,High,7,9,10
+22/04/2023,0:50,Saturday,San Rafael (Buluburan),14.07562305,121.316588,Cloudy,Residential,Natural,Low,0,12,10
+15/10/2023,3:34,Sunday,Santo Niño (Arsum),14.06839491,121.3120169,Sunny,Residential,Arson,Low,2,8,41
+01/03/2022,22:09,Tuesday,VI-C (Bagong Pook),14.07263081,121.3140277,Stormy,Residential,Electrical,Medium,3,6,85
+24/10/2022,16:39,Monday,Santa Maria,14.0662631,121.3225651,Stormy,Commercial,Electrical,Medium,1,10,129
+10/11/2023,18:45,Friday,Santo Niño (Arsum),14.07236075,121.328365,Rainy,Residential,Arson,Medium,3,7,10
+08/12/2021,7:37,Wednesday,Soledad (Macopa),14.06687686,121.3174465,Sunny,Commercial,Arson,High,7,11,48
+24/10/2020,23:51,Saturday,Santisimo Rosario (Balagbag),14.06440917,121.3271988,Stormy,Industrial,Electrical,Low,0,7,63
+29/10/2020,17:48,Thursday,San Antonio 2 (Sapa),14.06153315,121.3239145,Sunny,Industrial,Cooking,Medium,2,15,106
+06/05/2021,13:22,Thursday,San Miguel (Balintin),14.06465056,121.3180212,Rainy,Residential,Arson,Medium,3,10,10
+24/08/2023,22:07,Thursday,VI-C (Bagong Pook),14.07690044,121.3200256,Sunny,Residential,Arson,Medium,6,10,83
+07/11/2023,18:10,Tuesday,Dolores,14.06538937,121.3199102,Rainy,Commercial,Natural,Low,0,12,10
+14/03/2020,0:43,Saturday,San Jose (Malamig),14.06366986,121.3243193,Rainy,Forest,Natural,High,0,14,81
+21/10/2024,14:31,Monday,Santa Maria Magdalena (Boe / Kuba),14.06588196,121.3197406,Sunny,Residential,Electrical,Low,2,11,10
+15/06/2021,11:41,Tuesday,I-C (Bagong Bayan),14.07876901,121.3264403,Sunny,Residential,Other,Low,1,8,32
+11/08/2021,5:36,Wednesday,Santa Ana,14.06438749,121.3197226,Cloudy,Forest,Arson,Low,0,5,10
+05/11/2020,1:06,Thursday,III-D (Vilongco),14.07061091,121.3187149,Sunny,Residential,Cooking,High,9,10,80
+12/08/2022,21:48,Friday,Santiago 1 (Bulaho),14.06773208,121.318634,Rainy,Residential,Arson,Medium,3,5,35
+13/04/2021,18:03,Tuesday,VI-E (YMCA),14.07939145,121.3246239,Cloudy,Forest,Natural,Low,0,9,44
+23/04/2024,21:20,Tuesday,II-C (Unson),14.07489053,121.3212794,Sunny,Residential,Natural,Medium,3,5,15
+05/09/2020,8:13,Saturday,San Nicolas (Mag-ampong),14.07814127,121.3130946,Rainy,Commercial,Electrical,Medium,1,9,23
+18/10/2024,18:26,Friday,San Gregorio,14.07438506,121.318702,Sunny,Residential,Other,Medium,1,7,57
+25/07/2022,22:43,Monday,Dolores,14.08095686,121.314962,Sunny,Residential,Electrical,Medium,0,12,10
+22/02/2020,5:08,Saturday,Del Remedio (Wawa),14.06553302,121.3266876,Cloudy,Industrial,Electrical,Medium,1,7,65
+14/10/2023,7:50,Saturday,Santa Filomena (Banagin),14.07762283,121.3177577,Cloudy,Residential,Cooking,Medium,4,14,10
+12/08/2023,18:58,Saturday,VI-D (Lparkers),14.06839776,121.3178862,Cloudy,Residential,Arson,High,6,11,365
+11/11/2024,2:32,Monday,San Francisco (Calihan),14.06831178,121.3150099,Cloudy,Residential,Cooking,High,7,14,54
+31/05/2023,16:24,Wednesday,V-D,14.06947832,121.3252098,Sunny,Residential,Cooking,High,3,5,34
+16/11/2021,20:57,Tuesday,III-C (Labak/De Roma),14.07197936,121.3088315,Sunny,Forest,Arson,Medium,1,13,10
+08/11/2023,10:08,Wednesday,VI-A (Mavenida),14.07270028,121.3198827,Rainy,Commercial,Electrical,Low,1,8,10
+25/03/2020,18:16,Wednesday,Concepcion (Bunot),14.07079831,121.3177151,Sunny,Commercial,Electrical,Low,0,12,16
+19/02/2022,13:37,Saturday,San Joaquin,14.06582017,121.3217738,Sunny,Residential,Electrical,High,4,9,55
+10/06/2021,15:58,Thursday,V-D,14.07379899,121.3224688,Stormy,Forest,Natural,Low,0,11,57
+05/03/2023,22:04,Sunday,Santa Veronica (Bae),14.07293609,121.3221877,Cloudy,Residential,Other,Medium,2,9,10
+01/03/2020,19:26,Sunday,Santo Niño (Arsum),14.06387652,121.3206475,Sunny,Forest,Natural,Medium,0,9,10
+15/08/2020,3:05,Saturday,San Rafael (Buluburan),14.0727887,121.3223882,Rainy,Residential,Electrical,Low,0,7,25
+02/08/2021,2:32,Monday,San Vicente,14.06973904,121.3109352,Cloudy,Commercial,Cooking,High,6,7,173
+04/01/2021,19:44,Monday,Santo Cristo,14.07907409,121.3217323,Cloudy,Residential,Electrical,High,3,7,45
+20/06/2021,6:50,Sunday,San Antonio 2 (Sapa),14.07030256,121.3193296,Sunny,Commercial,Electrical,High,6,11,77
+09/04/2021,8:08,Friday,Santa Filomena (Banagin),14.08162669,121.3240236,Sunny,Forest,Natural,Medium,1,11,18
+13/08/2022,18:07,Saturday,San Francisco (Calihan),14.07712383,121.3323838,Cloudy,Residential,Other,Medium,3,11,86
+31/08/2020,13:32,Monday,III-C (Labak/De Roma),14.07207826,121.3111571,Cloudy,Residential,Cooking,Low,1,12,65
+21/06/2020,11:09,Sunday,Santa Cruz (Putol),14.06615201,121.3112086,Sunny,Residential,Cooking,Low,1,10,43
+10/10/2023,0:27,Tuesday,IV-C,14.06919488,121.3286809,Sunny,Residential,Electrical,Medium,3,11,113
+02/06/2024,2:05,Sunday,San Jose (Malamig),14.07365062,121.3208071,Rainy,Forest,Natural,High,0,12,163
+13/08/2021,6:24,Friday,San Gabriel (Butucan),14.07370998,121.320877,Stormy,Commercial,Other,Medium,3,6,10
+21/09/2024,5:38,Saturday,San Nicolas (Mag-ampong),14.07603976,121.3147971,Cloudy,Forest,Natural,Low,0,11,10
+14/08/2020,11:26,Friday,San Buenaventura (Palakpakin),14.07747686,121.3115332,Sunny,Residential,Cooking,Low,2,7,13
+07/01/2024,13:00,Sunday,Santiago II (Bulaho),14.0729301,121.3244513,Cloudy,Forest,Arson,High,1,5,24
+01/08/2020,3:34,Saturday,San Vicente,14.05971769,121.3218645,Rainy,Residential,Other,Low,1,8,63
+08/10/2020,14:53,Thursday,VI-C (Bagong Pook),14.07187378,121.3162648,Cloudy,Residential,Cooking,Low,2,8,10
+16/08/2022,17:30,Tuesday,San Jose (Malamig),14.07334424,121.3251559,Sunny,Commercial,Arson,Medium,3,11,118
+23/11/2022,13:30,Wednesday,Santa Isabel,14.07287122,121.3273737,Sunny,Residential,Electrical,High,8,6,45
+29/04/2023,0:05,Saturday,San Buenaventura (Palakpakin),14.06807654,121.3244723,Sunny,Residential,Cooking,Low,0,15,111
+23/02/2024,23:29,Friday,Del Remedio (Wawa),14.07088251,121.319755,Cloudy,Commercial,Electrical,Medium,3,9,11
+15/07/2021,21:17,Thursday,San Pedro,14.07505288,121.323686,Sunny,Residential,Arson,Medium,4,14,112
+15/06/2023,2:07,Thursday,V-C,14.06207307,121.3285771,Rainy,Residential,Other,Low,0,8,35
+24/06/2020,7:35,Wednesday,San Antonio 1 (Balanga),14.07841645,121.3196431,Sunny,Residential,Electrical,High,10,12,128
+30/09/2023,21:57,Saturday,San Lorenzo (Saluyan),14.07575999,121.3231832,Sunny,Residential,Electrical,Low,0,6,23
+17/05/2023,20:02,Wednesday,VII-E,14.06858653,121.3197621,Cloudy,Residential,Cooking,Low,0,8,11
+31/07/2022,10:44,Sunday,Santa Monica,14.06395398,121.3154711,Cloudy,Commercial,Cooking,Low,0,5,18
+29/11/2022,23:22,Tuesday,II-A (Triangulo Guadalupe 2),14.07143516,121.3223947,Cloudy,Commercial,Electrical,Medium,2,9,10
+19/09/2023,5:17,Tuesday,San Francisco (Calihan),14.06925875,121.3136704,Rainy,Residential,Arson,High,4,10,11
+24/04/2024,2:30,Wednesday,VII-B,14.07090727,121.3216232,Rainy,Commercial,Cooking,Medium,2,9,51
+22/07/2024,15:07,Monday,IV-A,14.07404505,121.3267653,Sunny,Residential,Electrical,Medium,1,10,143
+25/07/2024,1:20,Thursday,Concepcion (Bunot),14.06605183,121.3204597,Sunny,Residential,Electrical,High,4,14,319
+18/05/2022,6:15,Wednesday,Santiago 1 (Bulaho),14.07420653,121.3278792,Sunny,Residential,Other,Medium,3,9,62
+17/09/2020,17:59,Thursday,San Nicolas (Mag-ampong),14.07104838,121.3280052,Sunny,Residential,Natural,Medium,5,10,113
+15/01/2023,18:43,Sunday,Santa Ana,14.06779921,121.3211629,Sunny,Residential,Electrical,Medium,3,11,87
+10/05/2021,22:58,Monday,San Rafael (Buluburan),14.06940073,121.3247727,Rainy,Commercial,Cooking,Medium,6,11,34
+17/08/2022,4:02,Wednesday,III-A (Hermanos Belen),14.07440676,121.321861,Cloudy,Residential,Electrical,Low,1,11,27
+18/07/2023,20:53,Tuesday,VII-B,14.07901892,121.3159692,Rainy,Residential,Arson,Low,1,17,10
+02/09/2020,11:24,Wednesday,Santa Maria,14.07379059,121.3240775,Sunny,Industrial,Electrical,High,3,6,201
+23/04/2021,20:27,Friday,San Buenaventura (Palakpakin),14.06794833,121.3178716,Cloudy,Residential,Cooking,Low,0,13,27
+12/11/2023,6:06,Sunday,Santa Veronica (Bae),14.06729321,121.3235542,Sunny,Residential,Other,Medium,4,10,15
+09/10/2021,14:47,Saturday,Del Remedio (Wawa),14.06953008,121.30734,Cloudy,Residential,Cooking,Low,1,6,26
+09/08/2023,20:53,Wednesday,III-C (Labak/De Roma),14.07023702,121.3211494,Sunny,Residential,Other,Low,0,8,21
+22/12/2023,20:40,Friday,Santa Catalina (Sandig),14.07183482,121.3260595,Stormy,Residential,Electrical,Medium,5,12,67
+27/04/2022,10:06,Wednesday,II-E (San Anton),14.08071167,121.3162008,Rainy,Residential,Electrical,Medium,4,10,38
+03/12/2020,17:01,Thursday,Del Remedio (Wawa),14.07479294,121.3235158,Sunny,Residential,Electrical,Medium,4,11,85
+03/01/2020,18:03,Friday,San Nicolas (Mag-ampong),14.06730357,121.3209649,Rainy,Industrial,Electrical,Low,0,12,33
+15/04/2020,21:48,Wednesday,San Juan (Putol),14.05951654,121.3169706,Sunny,Residential,Natural,Medium,3,10,10
+05/07/2024,23:13,Friday,I-A (Sambat),14.06988786,121.3162897,Sunny,Forest,Arson,Medium,1,12,10
+10/11/2022,13:08,Thursday,Santa Catalina (Sandig),14.07603875,121.3264407,Sunny,Residential,Other,Low,1,11,99
+27/04/2021,11:57,Tuesday,Santo Cristo,14.06774851,121.3211987,Sunny,Residential,Electrical,Low,1,8,127
+27/12/2023,18:03,Wednesday,II-E (San Anton),14.07646959,121.3214663,Cloudy,Residential,Arson,Medium,7,12,18
+28/06/2021,5:40,Monday,VII-B,14.0763921,121.3248481,Sunny,Residential,Natural,High,3,10,10
+23/11/2023,6:24,Thursday,Santa Catalina (Sandig),14.08056971,121.3205164,Sunny,Commercial,Arson,Low,1,8,19
+14/10/2021,4:21,Thursday,San Buenaventura (Palakpakin),14.07522346,121.3220997,Cloudy,Residential,Arson,Medium,2,17,16
+09/12/2022,19:19,Friday,Bautista,14.06525936,121.3189564,Cloudy,Residential,Electrical,Low,0,5,54
+22/07/2024,1:38,Monday,San Bartolome (Matang-ag),14.07759195,121.3140924,Cloudy,Forest,Arson,Medium,0,12,91
+14/12/2023,18:47,Thursday,Del Remedio (Wawa),14.07180896,121.3230349,Sunny,Residential,Electrical,High,7,8,384
+21/05/2020,8:07,Thursday,VII-B,14.07249196,121.3182557,Rainy,Residential,Cooking,Medium,2,9,22
+27/08/2020,3:55,Thursday,VII-E,14.07525434,121.3247025,Cloudy,Commercial,Other,Medium,3,10,63
+31/05/2023,13:01,Wednesday,San Nicolas (Mag-ampong),14.06981951,121.320861,Sunny,Residential,Cooking,Low,1,9,15
+04/06/2022,6:42,Saturday,Santa Catalina (Sandig),14.07143431,121.3312614,Sunny,Residential,Cooking,Medium,3,10,67
+06/05/2023,23:08,Saturday,VII-B,14.06155956,121.3240426,Stormy,Residential,Arson,Medium,1,6,31
+09/02/2020,13:33,Sunday,VII-E,14.07619175,121.3175571,Cloudy,Residential,Cooking,Medium,3,10,10
+08/06/2024,7:12,Saturday,IV-C,14.06772328,121.3259536,Sunny,Residential,Electrical,Low,0,16,10
+05/03/2023,23:18,Sunday,Santo Cristo,14.06947284,121.3331181,Stormy,Commercial,Cooking,Low,1,11,47
+07/08/2024,19:40,Wednesday,I-A (Sambat),14.06873705,121.3181433,Cloudy,Forest,Arson,High,1,10,139
+11/07/2020,8:35,Saturday,VII-A (P. Alcantara),14.06479056,121.3138968,Sunny,Residential,Cooking,High,9,7,108
+16/07/2021,9:35,Friday,San Buenaventura (Palakpakin),14.06552459,121.3196876,Rainy,Commercial,Cooking,Medium,2,8,108
+12/06/2022,20:23,Sunday,San Buenaventura (Palakpakin),14.07486123,121.3108862,Cloudy,Forest,Arson,Medium,1,11,10
+23/02/2023,19:29,Thursday,San Lucas 1 (Sabang),14.07193556,121.3138288,Sunny,Forest,Natural,Medium,2,14,43
+01/03/2020,18:53,Sunday,VII-E,14.06407255,121.3119262,Cloudy,Industrial,Electrical,Low,0,11,10
+01/05/2021,4:38,Saturday,San Lucas 2 (Malinaw),14.0694768,121.3234002,Sunny,Residential,Electrical,Medium,1,5,10
+08/09/2020,20:10,Tuesday,San Diego (Tilim),14.0660358,121.3135214,Cloudy,Commercial,Cooking,Medium,5,11,36
+19/01/2022,11:23,Wednesday,San Miguel (Balintin),14.06967982,121.3219431,Stormy,Residential,Natural,Low,1,12,73
+20/03/2021,22:39,Saturday,V-D,14.07936843,121.3248397,Stormy,Commercial,Natural,Low,1,9,68
+05/01/2024,19:28,Friday,San Pedro,14.07463772,121.3214037,Rainy,Commercial,Cooking,Medium,1,10,10
+20/09/2022,17:38,Tuesday,San Roque (Sambat),14.07319746,121.3216876,Stormy,Residential,Other,Low,0,10,17
+14/07/2020,19:44,Tuesday,San Francisco (Calihan),14.06805278,121.3231807,Cloudy,Commercial,Electrical,High,7,11,28
+07/01/2020,7:56,Tuesday,San Crispin (Lumbangan),14.06675143,121.3180801,Rainy,Residential,Natural,Medium,5,5,34
+10/06/2022,3:53,Friday,Del Remedio (Wawa),14.07233081,121.3216888,Cloudy,Industrial,Electrical,Low,0,8,10
+22/07/2021,12:38,Thursday,IV-C,14.07515037,121.3209604,Cloudy,Residential,Cooking,High,8,5,95
+04/02/2024,20:04,Sunday,Santa Filomena (Banagin),14.07823672,121.3288988,Sunny,Residential,Cooking,High,10,13,32
+05/01/2021,14:03,Tuesday,II-C (Unson),14.07368888,121.3214144,Sunny,Industrial,Other,Low,0,11,48
+26/03/2021,18:00,Friday,San Ignacio,14.06610039,121.3207565,Sunny,Residential,Arson,Medium,5,10,25
+04/11/2024,20:23,Monday,V-D,14.07218565,121.3153854,Stormy,Residential,Other,Medium,7,6,21
+26/02/2024,21:55,Monday,III-B,14.0655169,121.3264255,Cloudy,Residential,Natural,Low,0,14,62
+30/12/2024,13:04,Monday,Santa Maria,14.06870442,121.3195962,Sunny,Residential,Arson,High,7,6,55
+05/02/2020,4:06,Wednesday,San Juan (Putol),14.07209929,121.3203981,Sunny,Commercial,Electrical,Medium,1,11,10
+09/07/2023,3:59,Sunday,San Marcos (Tikew),14.06047537,121.3167441,Cloudy,Residential,Other,Medium,3,13,13
+09/02/2023,20:49,Thursday,VI-D (Lparkers),14.07713122,121.3167614,Sunny,Residential,Natural,Low,0,12,50
+25/08/2021,22:41,Wednesday,Santa Maria Magdalena (Boe / Kuba),14.0705691,121.31424,Sunny,Commercial,Arson,Medium,2,6,123
+31/05/2023,4:57,Wednesday,San Ignacio,14.07096602,121.3137004,Rainy,Residential,Cooking,High,6,8,284
+22/11/2023,19:21,Wednesday,Santiago 1 (Bulaho),14.06289141,121.3248525,Sunny,Commercial,Cooking,Medium,3,8,106
+28/09/2020,0:03,Monday,III-B,14.07174828,121.3108472,Sunny,Commercial,Natural,Medium,4,10,50
+27/01/2024,18:41,Saturday,San Lucas 1 (Sabang),14.07294248,121.3224928,Sunny,Industrial,Other,High,3,6,66
+14/01/2024,2:08,Sunday,San Lorenzo (Saluyan),14.0723623,121.3200509,Rainy,Residential,Natural,Medium,2,7,19
+05/09/2023,22:23,Tuesday,Santa Filomena (Banagin),14.06737224,121.3176405,Cloudy,Forest,Natural,Medium,2,9,10
+22/06/2020,22:38,Monday,Santiago II (Bulaho),14.0703399,121.321573,Rainy,Residential,Electrical,Medium,3,8,65
+16/06/2021,19:02,Wednesday,San Nicolas (Mag-ampong),14.06886197,121.3229605,Sunny,Commercial,Electrical,Low,1,11,48
+04/12/2023,5:36,Monday,Santa Filomena (Banagin),14.07985271,121.3115452,Stormy,Forest,Natural,High,2,14,23
+03/10/2022,12:42,Monday,IV-B,14.06714974,121.3202334,Sunny,Forest,Natural,Low,1,5,90
+12/02/2020,16:37,Wednesday,Santo Niño (Arsum),14.0721108,121.3143149,Sunny,Residential,Electrical,Low,0,5,21
+25/06/2021,12:02,Friday,Santa Veronica (Bae),14.0784223,121.3191903,Cloudy,Residential,Electrical,Medium,1,8,49
+03/01/2022,14:02,Monday,San Juan (Putol),14.0746492,121.3233703,Sunny,Commercial,Cooking,High,2,12,58
+12/11/2021,21:16,Friday,I-A (Sambat),14.08103297,121.3203881,Cloudy,Forest,Natural,High,4,8,79
+31/01/2021,21:03,Sunday,Santa Veronica (Bae),14.06948895,121.3149966,Sunny,Forest,Arson,Low,0,6,14
+07/06/2024,9:11,Friday,San Roque (Sambat),14.08240198,121.3155073,Rainy,Residential,Other,High,12,11,117
+29/03/2021,21:43,Monday,Santa Maria Magdalena (Boe / Kuba),14.06647627,121.3191466,Cloudy,Commercial,Natural,Low,0,6,10
+17/01/2024,5:23,Wednesday,Santa Ana,14.07112761,121.3194015,Cloudy,Residential,Arson,Medium,4,10,13
+24/07/2023,13:38,Monday,VII-C,14.06190066,121.3131651,Stormy,Residential,Cooking,Medium,2,6,213
+13/10/2020,4:28,Tuesday,Bautista,14.07334044,121.3161262,Cloudy,Industrial,Cooking,High,1,10,150
+18/12/2020,18:02,Friday,VI-D (Lparkers),14.08003668,121.3149778,Stormy,Residential,Arson,Medium,5,9,15
+21/02/2022,18:53,Monday,IV-C,14.06956056,121.3232936,Sunny,Residential,Natural,Low,0,10,15
+08/02/2020,8:06,Saturday,II-E (San Anton),14.07560257,121.3210071,Sunny,Commercial,Electrical,Low,1,8,10
+04/04/2024,18:07,Thursday,V-A,14.06113185,121.3300035,Rainy,Residential,Arson,Low,3,12,28
+06/07/2020,14:48,Monday,San Nicolas (Mag-ampong),14.06405797,121.3176576,Rainy,Residential,Arson,Low,0,11,17
+17/05/2024,21:14,Friday,Santa Veronica (Bae),14.07036661,121.3112367,Sunny,Commercial,Cooking,Medium,3,11,44
+29/05/2021,21:56,Saturday,VII-E,14.07377172,121.3255989,Sunny,Residential,Arson,Low,1,9,11
+02/10/2020,0:39,Friday,Santa Ana,14.06254516,121.3193071,Stormy,Residential,Arson,Medium,2,13,175
+06/04/2024,12:20,Saturday,Bautista,14.07336576,121.3251642,Cloudy,Commercial,Cooking,Medium,5,11,35
+04/06/2022,1:40,Saturday,III-C (Labak/De Roma),14.06396637,121.3175146,Sunny,Residential,Arson,Medium,2,9,10
+10/07/2021,20:09,Saturday,Dolores,14.07229419,121.3046479,Stormy,Forest,Natural,Medium,1,13,39
+08/12/2024,6:01,Sunday,San Pedro,14.06135078,121.3232319,Sunny,Residential,Other,Low,0,6,10
+23/08/2020,18:08,Sunday,San Gregorio,14.06648537,121.3238527,Cloudy,Residential,Cooking,High,5,13,318
+20/02/2020,11:59,Thursday,V-D,14.07865383,121.326984,Cloudy,Residential,Electrical,Low,0,8,133
+09/10/2020,12:44,Friday,Dolores,14.0722804,121.3213913,Cloudy,Residential,Natural,Medium,1,10,44
+17/03/2023,21:19,Friday,III-E,14.05908702,121.3296837,Cloudy,Residential,Other,Low,0,10,65
+27/11/2020,4:53,Friday,San Nicolas (Mag-ampong),14.06887998,121.3104148,Rainy,Forest,Natural,Low,0,6,10
+04/06/2023,13:47,Sunday,San Juan (Putol),14.07613454,121.321247,Cloudy,Commercial,Cooking,Low,0,13,53
+17/07/2020,22:49,Friday,III-C (Labak/De Roma),14.06691495,121.3232598,Rainy,Residential,Arson,Low,1,15,16
+20/02/2021,10:45,Saturday,San Vicente,14.0710342,121.3244768,Cloudy,Residential,Arson,High,12,5,35
+30/06/2020,5:26,Tuesday,Del Remedio (Wawa),14.06911904,121.3203085,Rainy,Forest,Other,High,4,8,641
+16/10/2020,4:40,Friday,Santa Filomena (Banagin),14.06874317,121.3168455,Rainy,Residential,Arson,Low,0,13,46
+10/10/2020,15:05,Saturday,Soledad (Macopa),14.074102,121.3237615,Rainy,Residential,Arson,High,7,9,86
+04/06/2022,3:21,Saturday,V-A,14.07081797,121.3188677,Cloudy,Residential,Other,Low,0,9,147
+12/02/2023,21:28,Sunday,VI-D (Lparkers),14.06105352,121.3188056,Sunny,Forest,Other,Low,0,10,27
+03/07/2023,15:43,Monday,VI-D (Lparkers),14.06658498,121.3204825,Sunny,Residential,Cooking,Medium,2,12,12
+15/04/2024,8:42,Monday,VI-E (YMCA),14.06414482,121.3200862,Cloudy,Industrial,Cooking,Medium,0,14,15
+10/08/2020,20:26,Monday,V-A,14.07992741,121.3193037,Sunny,Industrial,Cooking,Medium,2,6,38
+06/06/2022,3:13,Monday,V-C,14.07132832,121.3199587,Rainy,Residential,Electrical,High,9,5,37
+21/01/2023,3:28,Saturday,II-F (Villa Rey),14.07056681,121.3246636,Cloudy,Residential,Natural,Medium,2,6,18
+09/12/2020,18:06,Wednesday,VI-B,14.07218743,121.3212857,Cloudy,Residential,Electrical,Medium,3,11,28
+05/05/2024,3:54,Sunday,V-C,14.07344444,121.3135549,Cloudy,Commercial,Other,Low,0,12,120
+02/02/2023,21:29,Thursday,San Bartolome (Matang-ag),14.07207055,121.3262075,Rainy,Residential,Electrical,Low,0,8,26
+16/07/2020,14:31,Thursday,VII-A (P. Alcantara),14.06835446,121.3232205,Cloudy,Industrial,Electrical,Medium,1,9,56
+18/09/2024,3:59,Wednesday,II-F (Villa Rey),14.06602624,121.3212114,Sunny,Commercial,Electrical,Low,1,5,31
+07/04/2023,8:34,Friday,San Antonio 2 (Sapa),14.07402804,121.3140611,Sunny,Residential,Arson,Medium,4,10,189
+06/07/2021,12:39,Tuesday,VII-C,14.07057242,121.3137859,Rainy,Residential,Natural,High,10,11,121
+11/12/2020,18:25,Friday,II-B (Guadalupe 1),14.07179628,121.3248366,Stormy,Residential,Natural,Medium,4,10,46
+22/07/2022,17:52,Friday,San Joaquin,14.06178151,121.3235531,Sunny,Residential,Electrical,Medium,0,15,47
+21/09/2020,15:14,Monday,San Gabriel (Butucan),14.06467589,121.3200777,Sunny,Commercial,Electrical,Low,0,11,10
+22/11/2022,16:35,Tuesday,Dolores,14.0606384,121.3212459,Sunny,Residential,Cooking,Medium,4,8,22
+06/04/2024,8:45,Saturday,San Joaquin,14.07435732,121.3134531,Rainy,Commercial,Electrical,Medium,0,5,28
+04/01/2021,0:23,Monday,II-B (Guadalupe 1),14.06861908,121.3130843,Cloudy,Commercial,Arson,Low,0,6,10
+20/02/2020,10:07,Thursday,IV-A,14.07172036,121.3212196,Cloudy,Residential,Arson,Medium,2,8,23
+19/10/2021,7:11,Tuesday,San Nicolas (Mag-ampong),14.07447129,121.3228033,Cloudy,Residential,Electrical,Medium,5,9,14
+08/12/2020,5:38,Tuesday,Santisimo Rosario (Balagbag),14.06820182,121.3351236,Sunny,Residential,Electrical,Medium,3,11,44
+31/12/2020,9:17,Thursday,San Joaquin,14.07728572,121.3286509,Cloudy,Forest,Arson,Low,0,10,65
+12/11/2023,23:58,Sunday,VI-C (Bagong Pook),14.07578529,121.3229937,Sunny,Residential,Electrical,High,7,13,31
+29/04/2022,6:22,Friday,San Antonio 2 (Sapa),14.06994143,121.3251484,Sunny,Residential,Electrical,Low,0,12,10
+31/07/2020,2:22,Friday,San Nicolas (Mag-ampong),14.07556488,121.3159932,Sunny,Residential,Other,Low,0,11,16
+15/11/2022,4:33,Tuesday,Santo Angel (Ilog),14.06741868,121.3180276,Sunny,Industrial,Cooking,Low,0,11,70
+28/12/2020,5:32,Monday,II-C (Unson),14.06941526,121.3221061,Cloudy,Residential,Other,Low,2,12,38
+11/10/2022,10:30,Tuesday,Santo Niño (Arsum),14.06818276,121.3272323,Cloudy,Residential,Electrical,Medium,2,8,17
+02/11/2023,14:42,Thursday,San Bartolome (Matang-ag),14.06674778,121.3296529,Rainy,Commercial,Cooking,Medium,2,13,76
+20/04/2024,22:23,Saturday,I-A (Sambat),14.07304618,121.3155349,Sunny,Residential,Arson,Low,0,16,19
+01/11/2020,20:23,Sunday,Santo Angel (Ilog),14.06694496,121.3116604,Cloudy,Residential,Cooking,Medium,6,10,10
+18/08/2021,21:28,Wednesday,III-A (Hermanos Belen),14.07885877,121.3255355,Sunny,Industrial,Arson,Low,1,8,10
+19/11/2021,17:35,Friday,Santa Veronica (Bae),14.0750581,121.3192816,Sunny,Residential,Arson,Medium,2,6,10
+05/04/2022,19:13,Tuesday,San Pedro,14.08047701,121.3254094,Sunny,Forest,Other,Medium,0,9,77
+09/05/2020,4:13,Saturday,VII-B,14.06648375,121.3150473,Sunny,Residential,Other,Medium,2,9,10
+18/12/2024,3:35,Wednesday,V-D,14.07812234,121.3247023,Sunny,Commercial,Arson,Low,1,15,22
+07/05/2024,16:31,Tuesday,San Lorenzo (Saluyan),14.07097483,121.3241874,Sunny,Residential,Cooking,Low,1,10,37
+22/10/2023,9:58,Sunday,Concepcion (Bunot),14.07243567,121.3186666,Cloudy,Residential,Arson,Medium,2,11,84
+06/12/2020,3:42,Sunday,San Francisco (Calihan),14.06756004,121.3144365,Sunny,Residential,Cooking,Low,1,7,10
+11/05/2020,5:48,Monday,V-D,14.06895194,121.3171285,Sunny,Residential,Arson,High,7,11,13
+04/08/2020,17:42,Tuesday,Santiago II (Bulaho),14.06509581,121.322044,Rainy,Commercial,Natural,Low,0,8,10
+21/11/2024,6:02,Thursday,II-A (Triangulo Guadalupe 2),14.06576331,121.3146239,Sunny,Residential,Electrical,Low,0,5,10
+22/04/2024,21:40,Monday,San Antonio 1 (Balanga),14.06188492,121.3140368,Sunny,Commercial,Electrical,Low,0,9,34
+26/04/2022,9:09,Tuesday,VII-B,14.06632802,121.3178699,Sunny,Residential,Other,Low,1,12,63
+04/05/2023,9:45,Thursday,V-A,14.06886498,121.3151317,Sunny,Residential,Electrical,Low,1,11,26
+13/09/2023,1:37,Wednesday,San Joaquin,14.07514885,121.3237535,Cloudy,Industrial,Cooking,Low,0,9,24
+17/01/2021,20:28,Sunday,Santa Ana,14.07955544,121.3223177,Sunny,Residential,Electrical,High,8,7,13
+26/11/2024,13:47,Tuesday,San Buenaventura (Palakpakin),14.0644895,121.3204748,Rainy,Commercial,Cooking,Low,1,13,10
+11/09/2024,20:56,Wednesday,Santa Ana,14.06266472,121.3169574,Sunny,Residential,Electrical,Medium,5,8,58
+19/11/2023,10:05,Sunday,I-C (Bagong Bayan),14.06137328,121.3163783,Cloudy,Commercial,Natural,Medium,3,6,77
+07/10/2021,7:13,Thursday,Santa Elena,14.07358413,121.3259218,Cloudy,Residential,Arson,Medium,6,10,167
+01/12/2020,21:12,Tuesday,San Lucas 1 (Sabang),14.07249706,121.3200447,Sunny,Commercial,Arson,Medium,4,11,60
+01/02/2024,14:46,Thursday,II-F (Villa Rey),14.07412787,121.3085508,Stormy,Residential,Cooking,Medium,5,12,31
+25/07/2022,9:32,Monday,San Buenaventura (Palakpakin),14.06869622,121.3200802,Sunny,Residential,Cooking,Medium,3,9,24
+13/08/2023,11:00,Sunday,San Vicente,14.06821282,121.3230174,Sunny,Residential,Cooking,Medium,5,5,34
+16/02/2021,18:06,Tuesday,II-C (Unson),14.06597841,121.315139,Cloudy,Residential,Other,Low,1,7,18
+04/05/2023,19:13,Thursday,San Antonio 1 (Balanga),14.07007749,121.3181311,Sunny,Residential,Cooking,Medium,2,9,33
+21/02/2023,13:17,Tuesday,San Juan (Putol),14.07106404,121.3159171,Stormy,Residential,Cooking,Low,1,14,64
+20/09/2020,15:46,Sunday,San Gabriel (Butucan),14.07664321,121.3158646,Cloudy,Residential,Electrical,Low,1,6,10
+05/01/2022,20:20,Wednesday,Santa Filomena (Banagin),14.07130559,121.3232056,Sunny,Industrial,Electrical,Low,0,7,27
+10/05/2021,22:55,Monday,Soledad (Macopa),14.06616605,121.3197647,Sunny,Residential,Electrical,Low,0,6,34
+28/07/2022,22:37,Thursday,V-C,14.07035983,121.3212492,Sunny,Commercial,Other,Medium,1,11,70
+11/08/2024,7:06,Sunday,Santa Veronica (Bae),14.06925216,121.3170467,Rainy,Residential,Cooking,Medium,6,11,58
+06/05/2024,13:58,Monday,San Joaquin,14.07320177,121.3206639,Sunny,Commercial,Arson,Medium,3,12,13
+18/11/2023,1:28,Saturday,V-C,14.07782388,121.3143261,Cloudy,Industrial,Electrical,Low,1,14,148
+22/09/2021,18:27,Wednesday,III-A (Hermanos Belen),14.07518321,121.3233537,Sunny,Residential,Electrical,Low,0,8,10
+04/05/2022,7:14,Wednesday,V-D,14.07390659,121.3244055,Cloudy,Industrial,Arson,Medium,4,5,35
+19/12/2023,22:44,Tuesday,San Marcos (Tikew),14.0656596,121.3252445,Sunny,Forest,Natural,Medium,0,13,10
+03/05/2024,9:49,Friday,Dolores,14.0666798,121.3246288,Cloudy,Residential,Other,Low,0,10,10
+05/11/2022,2:58,Saturday,San Roque (Sambat),14.07136166,121.3199023,Sunny,Industrial,Natural,Medium,3,5,10
+09/04/2021,16:25,Friday,VII-A (P. Alcantara),14.06842067,121.3207764,Sunny,Residential,Natural,Low,0,7,77
+07/12/2024,8:27,Saturday,VII-C,14.07814984,121.327951,Sunny,Residential,Cooking,Medium,2,9,34
+07/09/2024,8:15,Saturday,San Antonio 1 (Balanga),14.06185856,121.3189667,Cloudy,Residential,Arson,Low,0,9,10
+10/06/2020,7:05,Wednesday,V-C,14.06796912,121.3202404,Sunny,Industrial,Natural,High,3,11,135
+14/10/2024,5:34,Monday,Santisimo Rosario (Balagbag),14.06385442,121.3308025,Stormy,Residential,Electrical,Low,0,10,10
+28/10/2024,9:29,Monday,San Roque (Sambat),14.06530582,121.3234258,Cloudy,Residential,Other,Low,2,9,44
+06/07/2020,15:02,Monday,Santa Ana,14.06597513,121.3154194,Stormy,Residential,Cooking,Medium,3,13,10
+01/07/2024,13:29,Monday,San Buenaventura (Palakpakin),14.06534358,121.3111737,Cloudy,Residential,Cooking,Medium,3,13,27
+09/02/2020,22:20,Sunday,Concepcion (Bunot),14.06945897,121.3235401,Cloudy,Residential,Electrical,Medium,1,10,19
+15/03/2020,21:54,Sunday,II-E (San Anton),14.07227419,121.3200048,Sunny,Industrial,Natural,Medium,2,8,12
+11/01/2021,18:15,Monday,San Cristobal,14.06507232,121.3196599,Sunny,Industrial,Cooking,Low,1,11,10
+08/07/2021,4:49,Thursday,San Buenaventura (Palakpakin),14.07504669,121.3196541,Cloudy,Residential,Cooking,High,8,11,71
+14/02/2021,3:22,Sunday,San Juan (Putol),14.07169818,121.3288825,Cloudy,Commercial,Natural,High,4,13,176
+26/08/2022,17:51,Friday,Concepcion (Bunot),14.06757242,121.3185379,Cloudy,Residential,Electrical,Medium,3,7,10
+05/01/2024,16:29,Friday,San Roque (Sambat),14.06574848,121.3288395,Sunny,Residential,Arson,High,5,7,122
+16/03/2020,15:49,Monday,San Antonio 2 (Sapa),14.07010177,121.3187443,Rainy,Residential,Electrical,Medium,3,8,251
+29/07/2021,3:18,Thursday,Santo Niño (Arsum),14.06915407,121.3159113,Rainy,Commercial,Natural,Low,0,7,10
+08/04/2024,22:23,Monday,San Antonio 2 (Sapa),14.07564277,121.3215221,Sunny,Residential,Arson,Low,0,7,11
+15/09/2020,22:12,Tuesday,Dolores,14.06344649,121.3209358,Sunny,Commercial,Natural,High,5,8,79
+20/10/2022,17:03,Thursday,San Crispin (Lumbangan),14.07297736,121.3119706,Rainy,Residential,Natural,Medium,4,6,65
+29/01/2021,18:03,Friday,San Nicolas (Mag-ampong),14.06463139,121.3249578,Sunny,Residential,Electrical,High,16,9,373
+01/08/2024,3:34,Thursday,III-A (Hermanos Belen),14.06170707,121.3290608,Sunny,Commercial,Arson,High,6,7,35
+16/10/2021,8:20,Saturday,VII-C,14.07437875,121.3166328,Sunny,Residential,Arson,Low,1,9,51
+30/11/2022,19:40,Wednesday,III-F (Balagtas),14.07080009,121.3198881,Sunny,Industrial,Natural,Medium,1,10,51
+29/07/2020,22:42,Wednesday,V-A,14.06958167,121.3160081,Cloudy,Residential,Cooking,High,3,7,10
+28/04/2021,5:54,Wednesday,II-C (Unson),14.06334059,121.327574,Sunny,Residential,Other,Medium,2,13,10
+26/06/2022,1:16,Sunday,San Juan (Putol),14.06453178,121.3243105,Sunny,Residential,Electrical,High,6,8,42
+16/10/2020,23:48,Friday,San Nicolas (Mag-ampong),14.06885032,121.3228614,Sunny,Residential,Natural,Medium,6,8,26
+27/05/2023,22:21,Saturday,VI-A (Mavenida),14.06653864,121.315841,Sunny,Residential,Natural,Low,0,9,12
+31/07/2020,7:03,Friday,Santa Cruz (Putol),14.07057214,121.3223468,Sunny,Residential,Arson,Medium,1,11,34
+13/10/2024,1:51,Sunday,San Francisco (Calihan),14.07644238,121.3197178,Sunny,Residential,Cooking,Low,0,10,10
+28/06/2023,4:05,Wednesday,V-D,14.06864605,121.3260909,Sunny,Residential,Cooking,Low,1,5,27
+17/05/2024,21:53,Friday,Concepcion (Bunot),14.06384879,121.3206412,Sunny,Commercial,Other,Medium,4,8,59
+30/11/2022,11:26,Wednesday,San Rafael (Buluburan),14.07528921,121.3310662,Rainy,Forest,Natural,Medium,2,15,16
+26/01/2021,21:01,Tuesday,VII-B,14.06749954,121.3231265,Sunny,Residential,Electrical,Medium,0,12,23
+26/02/2020,21:42,Wednesday,San Diego (Tilim),14.07060255,121.3182619,Sunny,Commercial,Cooking,Medium,2,9,79
+09/07/2024,19:52,Tuesday,Santo Niño (Arsum),14.07023134,121.3202979,Rainy,Residential,Arson,Medium,2,14,45
+16/11/2020,23:42,Monday,San Vicente,14.07343849,121.3198001,Cloudy,Residential,Cooking,Medium,4,8,86
+16/01/2020,5:08,Thursday,San Gregorio,14.07175285,121.320712,Cloudy,Residential,Electrical,High,8,6,14
+15/11/2024,19:11,Friday,San Nicolas (Mag-ampong),14.06252863,121.3241923,Sunny,Residential,Natural,High,2,7,60
+09/04/2023,6:15,Sunday,San Nicolas (Mag-ampong),14.06804592,121.3153707,Sunny,Industrial,Natural,High,5,13,25
+20/07/2021,22:56,Tuesday,III-D (Vilongco),14.07828068,121.3284893,Cloudy,Residential,Cooking,High,10,15,83
+23/12/2024,4:45,Monday,III-C (Labak/De Roma),14.07520906,121.3100714,Cloudy,Residential,Natural,Medium,4,10,78
+01/07/2022,10:05,Friday,San Buenaventura (Palakpakin),14.06724867,121.3202423,Stormy,Industrial,Cooking,Medium,1,7,118
+28/01/2021,18:39,Thursday,VI-C (Bagong Pook),14.06369878,121.3143618,Cloudy,Industrial,Electrical,Low,0,14,10
+05/10/2021,3:21,Tuesday,II-C (Unson),14.06618506,121.3223551,Sunny,Industrial,Electrical,High,1,9,64
+23/07/2023,12:28,Sunday,San Pedro,14.0591041,121.3146348,Rainy,Residential,Cooking,Low,2,11,14
+21/09/2024,19:21,Saturday,III-D (Vilongco),14.07210312,121.3196415,Sunny,Residential,Cooking,Low,1,12,91
+28/08/2021,21:22,Saturday,Santa Cruz (Putol),14.0667743,121.323377,Rainy,Residential,Natural,Medium,2,11,10
+21/07/2021,3:20,Wednesday,San Cristobal,14.06399592,121.3302662,Sunny,Residential,Other,Low,0,7,15
+19/10/2020,13:42,Monday,Soledad (Macopa),14.06956187,121.3188135,Sunny,Residential,Cooking,Medium,2,8,29
+14/01/2021,19:09,Thursday,III-E,14.06133745,121.3169468,Cloudy,Commercial,Natural,High,6,7,10
+19/12/2020,14:06,Saturday,San Gregorio,14.06958889,121.3223608,Sunny,Residential,Arson,Medium,2,8,27
+16/04/2024,4:02,Tuesday,Dolores,14.06551834,121.3207702,Sunny,Commercial,Cooking,Medium,2,11,93
+09/05/2024,21:40,Thursday,San Joaquin,14.07238421,121.3237692,Cloudy,Industrial,Cooking,Low,0,15,10
+28/12/2022,7:52,Wednesday,San Cristobal,14.07374995,121.3111567,Sunny,Commercial,Arson,Low,0,14,24
+13/07/2020,1:34,Monday,Santisimo Rosario (Balagbag),14.06564628,121.3210212,Sunny,Industrial,Other,High,5,9,147
+04/07/2024,6:29,Thursday,San Lucas 2 (Malinaw),14.06970858,121.3209786,Sunny,Commercial,Electrical,High,2,12,10
+19/09/2021,17:33,Sunday,Santa Ana,14.07330795,121.3179783,Stormy,Residential,Natural,High,4,9,125
+23/04/2021,9:26,Friday,II-C (Unson),14.07327752,121.3132549,Sunny,Commercial,Cooking,Medium,5,12,84
+22/05/2022,18:05,Sunday,V-B,14.06493681,121.3200852,Cloudy,Residential,Cooking,Medium,0,10,24
+30/12/2021,21:38,Thursday,I-A (Sambat),14.0694593,121.3211759,Cloudy,Residential,Other,Medium,1,10,185
+13/08/2021,13:36,Friday,Santa Cruz (Putol),14.06908493,121.3207628,Rainy,Residential,Electrical,Medium,4,13,32
+20/07/2021,6:07,Tuesday,II-B (Guadalupe 1),14.07244927,121.327675,Cloudy,Residential,Natural,Low,2,7,29
+25/03/2023,2:14,Saturday,V-B,14.06348862,121.3178531,Sunny,Commercial,Cooking,High,3,8,76
+17/07/2022,21:57,Sunday,II-A (Triangulo Guadalupe 2),14.07486801,121.3263973,Sunny,Residential,Electrical,Low,0,15,15
+17/10/2021,1:49,Sunday,Santa Maria,14.06935338,121.3286301,Sunny,Forest,Arson,Low,0,12,20
+27/01/2024,2:16,Saturday,Concepcion (Bunot),14.06030627,121.3161192,Rainy,Forest,Natural,Low,0,5,11
+06/06/2024,21:10,Thursday,Santa Elena,14.06187128,121.3185987,Cloudy,Residential,Cooking,High,7,10,10
+09/10/2021,20:17,Saturday,VI-C (Bagong Pook),14.07634182,121.3202298,Rainy,Industrial,Natural,Medium,2,11,72
+02/03/2024,3:24,Saturday,VI-B,14.07030192,121.3188565,Rainy,Commercial,Cooking,Low,1,8,41
+16/12/2024,21:22,Monday,VI-D (Lparkers),14.0664933,121.3281574,Sunny,Commercial,Arson,Low,1,12,52
+16/11/2020,11:53,Monday,Santiago 1 (Bulaho),14.07187287,121.3262119,Sunny,Commercial,Natural,Low,2,8,10
+26/04/2021,15:34,Monday,Santiago II (Bulaho),14.0748166,121.3234243,Rainy,Residential,Arson,Medium,3,8,152
+04/06/2022,0:20,Saturday,Concepcion (Bunot),14.08277056,121.3146362,Sunny,Commercial,Other,Medium,3,9,326
+16/11/2020,18:59,Monday,II-D (Bulante),14.07632455,121.323337,Sunny,Commercial,Electrical,Medium,3,6,10
+08/06/2024,1:41,Saturday,IV-B,14.07750663,121.3219682,Sunny,Commercial,Arson,High,5,5,22
+03/02/2023,15:35,Friday,Santiago II (Bulaho),14.06552161,121.3231617,Sunny,Forest,Arson,Medium,2,7,30
+29/08/2022,7:57,Monday,San Lucas 2 (Malinaw),14.07366444,121.3217461,Cloudy,Residential,Arson,Medium,2,5,67
+14/12/2023,14:05,Thursday,Santo Niño (Arsum),14.06578109,121.3238231,Cloudy,Commercial,Cooking,Medium,2,6,31
+27/10/2020,5:27,Tuesday,VII-E,14.07736752,121.3162778,Sunny,Residential,Cooking,Low,1,7,47
+11/10/2022,2:51,Tuesday,II-A (Triangulo Guadalupe 2),14.06924061,121.3150268,Sunny,Residential,Cooking,Low,0,7,10
+28/05/2022,9:37,Saturday,Santo Cristo,14.07136895,121.3263857,Sunny,Commercial,Natural,High,8,11,307
+22/04/2022,22:02,Friday,San Pedro,14.07524635,121.3332502,Cloudy,Commercial,Natural,High,8,9,29
+25/04/2023,21:41,Tuesday,I-A (Sambat),14.06990223,121.3272758,Sunny,Residential,Arson,High,5,12,61
+19/01/2020,16:05,Sunday,Santa Catalina (Sandig),14.07714045,121.3159652,Cloudy,Residential,Arson,Medium,4,5,35
+02/05/2020,11:37,Saturday,Santa Maria Magdalena (Boe / Kuba),14.06696643,121.3158844,Stormy,Commercial,Arson,Low,0,7,10
+04/08/2023,22:58,Friday,Santo Cristo,14.06764857,121.3189032,Cloudy,Commercial,Electrical,Medium,0,11,38
+09/10/2020,18:30,Friday,San Gabriel (Butucan),14.07162078,121.3182317,Sunny,Residential,Cooking,Medium,5,6,29
+05/11/2021,21:49,Friday,VI-B,14.07832105,121.3215522,Stormy,Residential,Arson,Medium,3,16,10
+02/03/2023,19:34,Thursday,San Ignacio,14.05921675,121.3180611,Sunny,Residential,Electrical,Low,0,15,16
+27/10/2020,10:06,Tuesday,Dolores,14.07065538,121.3210043,Rainy,Commercial,Arson,Low,0,9,24
+11/01/2022,21:59,Tuesday,V-D,14.07566029,121.321538,Sunny,Forest,Other,Low,0,8,15
+01/03/2020,7:40,Sunday,Santa Filomena (Banagin),14.07266634,121.3193072,Stormy,Residential,Electrical,Low,0,13,14
+22/02/2024,23:19,Thursday,VI-C (Bagong Pook),14.06978753,121.3216709,Sunny,Commercial,Electrical,High,4,7,86
+30/12/2023,13:30,Saturday,II-D (Bulante),14.07305866,121.3311016,Sunny,Commercial,Electrical,Medium,1,7,273
+09/08/2021,1:11,Monday,II-D (Bulante),14.07453234,121.3109693,Sunny,Forest,Natural,High,3,14,19
+10/02/2020,15:47,Monday,V-B,14.07268791,121.3206313,Sunny,Residential,Arson,Low,3,12,50
+25/05/2021,6:48,Tuesday,San Joaquin,14.06760745,121.3187386,Cloudy,Residential,Arson,Medium,3,6,37
+03/07/2020,4:50,Friday,San Nicolas (Mag-ampong),14.06030734,121.3208447,Sunny,Industrial,Electrical,High,4,9,53
+07/07/2021,3:21,Wednesday,San Buenaventura (Palakpakin),14.07078936,121.3235056,Cloudy,Residential,Cooking,Low,0,12,127
+16/09/2023,22:54,Saturday,San Buenaventura (Palakpakin),14.06998955,121.3340974,Sunny,Industrial,Natural,High,3,9,16
+21/02/2020,3:59,Friday,VII-B,14.06729525,121.3220609,Rainy,Commercial,Cooking,Medium,2,12,18
+04/01/2020,13:46,Saturday,IV-A,14.06852513,121.3171578,Stormy,Residential,Electrical,Low,1,8,11
+31/03/2020,22:30,Tuesday,VI-A (Mavenida),14.07248703,121.3206117,Cloudy,Residential,Cooking,Medium,2,8,42
+23/10/2021,23:07,Saturday,Santa Isabel,14.07036168,121.3129939,Cloudy,Commercial,Other,Medium,2,5,22
+09/02/2021,11:24,Tuesday,IV-B,14.06921515,121.3205042,Cloudy,Forest,Natural,Low,0,13,10
+26/08/2021,21:28,Thursday,Santa Ana,14.0677991,121.3192328,Cloudy,Commercial,Natural,Low,1,9,11
+26/12/2020,22:45,Saturday,Santo Angel (Ilog),14.06289245,121.3230326,Cloudy,Residential,Cooking,High,8,10,144
+16/10/2022,13:00,Sunday,Santiago II (Bulaho),14.07108731,121.3203407,Sunny,Residential,Arson,Low,2,9,10
+20/01/2023,1:49,Friday,Santa Catalina (Sandig),14.07764696,121.3148706,Rainy,Residential,Other,High,8,11,103
+01/07/2023,21:48,Saturday,San Diego (Tilim),14.06278094,121.3201515,Cloudy,Commercial,Natural,Medium,1,9,10
+01/01/2023,8:05,Sunday,San Mateo (Imok),14.07010896,121.311918,Stormy,Industrial,Natural,High,7,6,244
+22/01/2021,17:58,Friday,Santa Elena,14.06212483,121.3251046,Stormy,Residential,Cooking,Medium,6,5,86
+20/10/2023,11:32,Friday,San Bartolome (Matang-ag),14.07274243,121.3241378,Cloudy,Residential,Electrical,Low,1,11,31
+21/11/2024,20:50,Thursday,San Cristobal,14.07325819,121.3127547,Cloudy,Residential,Arson,Low,0,11,21
+10/09/2021,20:45,Friday,II-D (Bulante),14.07613099,121.324853,Cloudy,Residential,Arson,Low,1,10,10
+07/02/2024,16:04,Wednesday,V-D,14.0747582,121.3268125,Sunny,Forest,Other,High,2,9,101
+31/05/2023,22:14,Wednesday,II-A (Triangulo Guadalupe 2),14.08261325,121.326648,Sunny,Residential,Other,Medium,2,9,87
+27/08/2022,18:33,Saturday,Santiago II (Bulaho),14.06599096,121.3159044,Sunny,Residential,Arson,Low,1,5,90
+08/05/2023,19:59,Monday,Bautista,14.06493272,121.3244126,Sunny,Forest,Arson,Low,0,8,10
+27/10/2020,2:20,Tuesday,V-B,14.0693697,121.3194968,Sunny,Residential,Natural,Medium,4,14,10
+19/10/2024,6:12,Saturday,V-B,14.07831309,121.3249905,Cloudy,Industrial,Natural,Low,0,8,17
+31/03/2022,19:29,Thursday,San Lorenzo (Saluyan),14.06279654,121.3196219,Sunny,Commercial,Other,Medium,3,13,57
+09/05/2021,18:06,Sunday,I-A (Sambat),14.07160763,121.3253969,Sunny,Residential,Cooking,Low,1,11,10
+12/04/2020,16:15,Sunday,Santo Angel (Ilog),14.07309193,121.3112936,Rainy,Residential,Arson,High,4,8,84
+27/12/2023,17:03,Wednesday,Santiago II (Bulaho),14.07147354,121.3248779,Cloudy,Residential,Electrical,Low,1,10,45
+02/07/2024,0:09,Tuesday,Santiago 1 (Bulaho),14.06997223,121.3166081,Sunny,Industrial,Arson,Medium,1,13,10
+23/11/2022,22:39,Wednesday,San Antonio 1 (Balanga),14.06143099,121.3243317,Sunny,Residential,Electrical,Low,0,9,10
+14/01/2022,19:59,Friday,VI-B,14.06896108,121.31486,Rainy,Industrial,Electrical,Low,0,9,36
+02/04/2020,17:43,Thursday,San Bartolome (Matang-ag),14.06378942,121.3161618,Sunny,Forest,Natural,Low,0,11,40
+08/05/2020,0:59,Friday,San Antonio 1 (Balanga),14.05952699,121.3227448,Rainy,Residential,Cooking,Medium,1,12,13
+16/08/2024,21:00,Friday,VI-D (Lparkers),14.06357951,121.3268832,Sunny,Residential,Arson,Low,1,9,63
+27/01/2022,19:06,Thursday,San Marcos (Tikew),14.07030352,121.3196018,Cloudy,Commercial,Cooking,Low,0,9,22
+03/11/2021,20:55,Wednesday,Atisan,14.07558201,121.3221769,Cloudy,Residential,Electrical,Low,0,8,34
+21/06/2024,19:03,Friday,Bautista,14.0747511,121.3134331,Sunny,Residential,Electrical,Medium,6,8,230
+10/03/2020,21:31,Tuesday,Santiago II (Bulaho),14.07822042,121.318359,Sunny,Commercial,Arson,Low,1,7,10
+21/12/2023,22:36,Thursday,Santa Veronica (Bae),14.07103423,121.3128422,Cloudy,Commercial,Cooking,Medium,5,10,71
+07/07/2023,20:42,Friday,San Roque (Sambat),14.07227457,121.3217162,Cloudy,Residential,Other,High,7,5,10
+29/07/2020,4:31,Wednesday,Santo Niño (Arsum),14.06534134,121.3212023,Stormy,Residential,Natural,High,11,5,94
+08/01/2022,19:47,Saturday,VI-C (Bagong Pook),14.07549977,121.3188745,Sunny,Forest,Natural,High,2,10,147
+19/03/2020,0:33,Thursday,VII-C,14.06980732,121.3142135,Sunny,Commercial,Electrical,Medium,3,5,78
+13/02/2023,0:31,Monday,San Roque (Sambat),14.07270706,121.3326046,Sunny,Residential,Natural,Low,0,9,24
+28/12/2024,18:23,Saturday,Santiago 1 (Bulaho),14.06588026,121.322299,Cloudy,Forest,Arson,Medium,0,11,49
+05/02/2021,21:24,Friday,San Diego (Tilim),14.06638638,121.3213993,Rainy,Residential,Arson,Medium,6,7,39
+30/04/2020,18:30,Thursday,VI-E (YMCA),14.06979082,121.3248919,Stormy,Residential,Natural,High,7,9,15
+23/07/2021,6:42,Friday,San Nicolas (Mag-ampong),14.06930041,121.3286779,Sunny,Residential,Electrical,High,8,8,16
+01/04/2022,19:05,Friday,VII-B,14.07425198,121.3225075,Sunny,Residential,Arson,Low,1,10,16
+18/09/2022,20:28,Sunday,III-D (Vilongco),14.06684923,121.3164662,Sunny,Commercial,Electrical,Low,2,9,14
+22/05/2023,20:56,Monday,VII-E,14.06988222,121.3245554,Sunny,Industrial,Arson,Medium,2,6,19
+26/10/2024,17:00,Saturday,VII-B,14.06270044,121.3192124,Sunny,Forest,Arson,Low,0,6,65
+30/05/2020,17:06,Saturday,V-B,14.0703484,121.3095836,Cloudy,Commercial,Electrical,Low,1,8,47
+22/04/2022,2:48,Friday,I-A (Sambat),14.07424144,121.3211074,Sunny,Industrial,Electrical,Low,0,11,118
+18/02/2022,20:50,Friday,Santa Ana,14.065849,121.3166975,Cloudy,Residential,Natural,High,6,15,36
+11/04/2023,11:45,Tuesday,Santa Elena,14.07546863,121.3107618,Sunny,Commercial,Arson,Medium,3,14,67
+30/04/2024,21:17,Tuesday,Santa Maria Magdalena (Boe / Kuba),14.06757207,121.3281879,Cloudy,Residential,Electrical,Low,0,7,19
+13/09/2023,19:29,Wednesday,San Francisco (Calihan),14.07283841,121.3260516,Rainy,Residential,Electrical,Medium,3,6,99
+28/09/2023,20:18,Thursday,VI-E (YMCA),14.06635013,121.3066884,Rainy,Residential,Cooking,Medium,4,12,110
+04/12/2024,22:19,Wednesday,San Crispin (Lumbangan),14.07301883,121.3248906,Sunny,Forest,Other,High,1,5,175
+07/08/2023,10:55,Monday,VII-E,14.06993674,121.3236858,Rainy,Residential,Electrical,Low,1,9,10
+04/12/2024,14:21,Wednesday,San Crispin (Lumbangan),14.07318399,121.3217915,Sunny,Residential,Electrical,High,6,8,158
+19/01/2021,22:07,Tuesday,San Ignacio,14.06911664,121.3194362,Rainy,Residential,Natural,High,10,14,264
+01/08/2023,15:57,Tuesday,II-A (Triangulo Guadalupe 2),14.06613534,121.3151152,Cloudy,Residential,Natural,Low,1,8,40
+24/03/2020,22:49,Tuesday,Santa Cruz (Putol),14.0762339,121.3259423,Sunny,Residential,Other,High,4,6,51
+23/07/2020,21:57,Thursday,San Gregorio,14.06305573,121.3248128,Sunny,Residential,Natural,Medium,3,9,60
+22/06/2023,23:44,Thursday,II-F (Villa Rey),14.07083129,121.3144421,Stormy,Residential,Arson,Low,1,12,10
+17/08/2022,9:14,Wednesday,IV-C,14.07195868,121.3204084,Cloudy,Residential,Arson,Medium,2,10,178
+18/07/2024,21:03,Thursday,Santo Niño (Arsum),14.07263188,121.317751,Cloudy,Residential,Cooking,Low,1,11,22
+19/09/2024,18:33,Thursday,San Joaquin,14.06374988,121.3205523,Sunny,Residential,Natural,High,9,10,149
+17/05/2023,16:37,Wednesday,I-B (City+Riverside),14.07168068,121.32832,Rainy,Forest,Arson,Low,0,7,43
+18/05/2022,0:16,Wednesday,IV-A,14.0704731,121.3211353,Rainy,Commercial,Natural,Low,1,15,18
+01/06/2023,11:28,Thursday,III-A (Hermanos Belen),14.07564179,121.3267944,Sunny,Commercial,Cooking,High,6,6,10
+18/11/2021,6:44,Thursday,San Ignacio,14.06480719,121.3225355,Sunny,Residential,Electrical,Medium,3,10,50
+07/10/2020,20:13,Wednesday,San Francisco (Calihan),14.06576249,121.325583,Rainy,Residential,Electrical,Low,3,8,102
+07/02/2024,14:35,Wednesday,IV-C,14.0618661,121.316445,Sunny,Commercial,Electrical,Medium,3,10,71
+10/10/2023,22:03,Tuesday,San Diego (Tilim),14.06546997,121.3131432,Sunny,Residential,Cooking,Medium,0,9,16
+27/07/2020,7:06,Monday,V-B,14.07021558,121.3267136,Cloudy,Forest,Natural,Low,0,8,66
+31/08/2022,22:10,Wednesday,I-C (Bagong Bayan),14.0722126,121.3191966,Rainy,Forest,Arson,Medium,2,13,104
+25/12/2023,2:41,Monday,San Gabriel (Butucan),14.07294678,121.3170051,Sunny,Residential,Natural,High,9,14,17
+30/07/2022,11:46,Saturday,IV-C,14.07258609,121.3259672,Sunny,Forest,Natural,High,2,11,59
+05/05/2024,12:43,Sunday,Santiago 1 (Bulaho),14.07286281,121.3197149,Sunny,Residential,Natural,Medium,3,9,194
+25/10/2024,11:24,Friday,III-D (Vilongco),14.06707097,121.3213787,Cloudy,Commercial,Electrical,Low,0,12,10
+05/11/2020,0:41,Thursday,San Jose (Malamig),14.06966827,121.3190907,Cloudy,Residential,Arson,Low,2,7,10
+18/02/2021,20:21,Thursday,San Vicente,14.07316801,121.3158588,Cloudy,Residential,Electrical,Medium,1,9,10
+20/06/2021,3:36,Sunday,San Buenaventura (Palakpakin),14.06724713,121.3234074,Rainy,Residential,Arson,Low,0,7,41
+19/07/2023,20:56,Wednesday,San Pedro,14.05895858,121.3176915,Sunny,Residential,Cooking,Low,1,11,10
+11/03/2021,20:44,Thursday,San Francisco (Calihan),14.07150274,121.3139523,Rainy,Residential,Arson,Low,0,8,114
+01/02/2020,1:22,Saturday,III-D (Vilongco),14.06981465,121.3160277,Rainy,Commercial,Arson,Medium,2,9,10
+07/06/2024,0:57,Friday,San Buenaventura (Palakpakin),14.06799331,121.3130015,Cloudy,Residential,Natural,Low,0,7,10
+29/09/2021,0:01,Wednesday,VI-C (Bagong Pook),14.07583944,121.3181831,Sunny,Residential,Cooking,Low,0,5,30
+24/08/2022,20:56,Wednesday,I-C (Bagong Bayan),14.06938738,121.3276356,Cloudy,Residential,Cooking,Medium,2,15,208
+07/10/2024,23:54,Monday,San Ignacio,14.06999442,121.3253056,Rainy,Residential,Cooking,Low,2,10,68
+13/10/2024,20:28,Sunday,I-A (Sambat),14.07837973,121.3171498,Cloudy,Residential,Cooking,Low,1,5,31
+08/11/2020,6:46,Sunday,San Buenaventura (Palakpakin),14.06768529,121.3096387,Sunny,Residential,Electrical,Medium,4,6,16
+06/07/2020,18:58,Monday,San Francisco (Calihan),14.0709196,121.3212345,Stormy,Residential,Cooking,Medium,2,10,96
+21/06/2022,15:58,Tuesday,II-E (San Anton),14.07262429,121.3228467,Cloudy,Residential,Cooking,Medium,1,12,10
+23/01/2022,21:06,Sunday,Santo Niño (Arsum),14.07019255,121.3274907,Sunny,Commercial,Other,Medium,1,12,10
+27/05/2024,0:09,Monday,San Nicolas (Mag-ampong),14.06754447,121.3092479,Sunny,Commercial,Arson,High,7,10,51
+26/10/2024,7:37,Saturday,San Gabriel (Butucan),14.06783354,121.3184083,Sunny,Residential,Natural,High,6,6,119
+01/10/2023,11:13,Sunday,San Gregorio,14.05897672,121.321243,Sunny,Residential,Cooking,High,11,15,65
+15/04/2022,16:39,Friday,Santa Maria Magdalena (Boe / Kuba),14.06925583,121.3222491,Sunny,Residential,Cooking,High,7,9,40
+12/08/2023,9:31,Saturday,VII-B,14.05887742,121.3285148,Sunny,Industrial,Cooking,High,2,11,168
+18/02/2020,10:21,Tuesday,San Mateo (Imok),14.06995394,121.3265052,Cloudy,Residential,Electrical,Low,1,9,45
+09/03/2022,2:02,Wednesday,Santiago II (Bulaho),14.07236071,121.327506,Sunny,Residential,Electrical,Medium,0,10,80
+31/01/2022,21:28,Monday,San Lucas 1 (Sabang),14.07485839,121.324693,Cloudy,Residential,Cooking,High,6,11,22
+03/10/2024,9:39,Thursday,San Vicente,14.06842371,121.325475,Sunny,Residential,Cooking,Low,0,11,10
+12/03/2020,5:14,Thursday,IV-A,14.05959446,121.3242462,Sunny,Forest,Arson,Low,0,6,72
+08/07/2024,15:31,Monday,San Miguel (Balintin),14.07673007,121.3255828,Sunny,Residential,Electrical,Medium,3,11,77
+28/12/2021,16:59,Tuesday,Santa Veronica (Bae),14.07714611,121.3204698,Cloudy,Commercial,Natural,Low,1,15,10
+05/01/2020,3:19,Sunday,IV-C,14.07302996,121.3281768,Rainy,Residential,Natural,Medium,4,5,114
+07/01/2020,3:17,Tuesday,VII-E,14.05918712,121.3234797,Cloudy,Commercial,Arson,High,13,11,46
+02/08/2021,18:15,Monday,Santa Elena,14.06201595,121.3261999,Sunny,Residential,Electrical,High,8,8,47
+24/11/2020,18:58,Tuesday,II-A (Triangulo Guadalupe 2),14.07131335,121.3057728,Sunny,Forest,Other,Low,1,8,54
+19/06/2020,8:31,Friday,Bautista,14.06895224,121.3102023,Rainy,Residential,Cooking,Medium,0,8,26
+28/09/2020,4:51,Monday,II-C (Unson),14.06886567,121.3196413,Sunny,Residential,Other,Medium,3,8,27
+27/08/2023,5:22,Sunday,San Roque (Sambat),14.06535825,121.3169681,Rainy,Commercial,Electrical,Low,0,11,10
+09/12/2021,22:03,Thursday,San Rafael (Buluburan),14.08436517,121.3214226,Sunny,Residential,Natural,Medium,1,6,63
+12/10/2021,21:19,Tuesday,Santiago 1 (Bulaho),14.06199183,121.3187095,Cloudy,Residential,Cooking,Low,1,9,41
+12/02/2020,3:49,Wednesday,II-A (Triangulo Guadalupe 2),14.07114051,121.3173173,Sunny,Residential,Electrical,Medium,2,6,60
+07/04/2020,13:24,Tuesday,Santo Niño (Arsum),14.0679532,121.3193464,Rainy,Forest,Natural,Medium,1,9,76
+24/01/2021,12:43,Sunday,III-D (Vilongco),14.06091734,121.3176032,Cloudy,Residential,Electrical,Low,1,6,17
+02/08/2021,21:43,Monday,San Gregorio,14.07507092,121.3206828,Sunny,Residential,Other,High,5,15,91
+07/06/2023,5:00,Wednesday,Santa Veronica (Bae),14.06503558,121.3240447,Sunny,Residential,Natural,High,8,9,254
+16/07/2022,6:02,Saturday,San Francisco (Calihan),14.07877186,121.3165676,Cloudy,Commercial,Electrical,Medium,1,11,51
+12/06/2022,5:56,Sunday,Santa Isabel,14.06980217,121.3201945,Sunny,Industrial,Natural,Medium,3,10,59
+31/03/2024,17:00,Sunday,II-F (Villa Rey),14.06694076,121.3176833,Cloudy,Residential,Cooking,Low,0,12,15
+25/08/2020,20:12,Tuesday,III-C (Labak/De Roma),14.06694108,121.3170275,Stormy,Residential,Electrical,Medium,2,8,62
+03/10/2022,20:39,Monday,II-B (Guadalupe 1),14.06638609,121.3160385,Rainy,Commercial,Cooking,High,6,5,124
+28/03/2023,19:46,Tuesday,Santisimo Rosario (Balagbag),14.07085741,121.3233162,Sunny,Industrial,Electrical,High,6,12,73
+09/05/2021,3:38,Sunday,IV-B,14.07133735,121.3142816,Sunny,Residential,Natural,Low,0,9,10
+05/05/2020,18:48,Tuesday,San Rafael (Buluburan),14.06950572,121.3220555,Sunny,Forest,Natural,Medium,0,8,41
+15/07/2020,6:19,Wednesday,San Isidro (Balagbag),14.06267838,121.3107269,Sunny,Industrial,Electrical,Medium,1,10,72
+14/11/2024,22:43,Thursday,III-C (Labak/De Roma),14.07403945,121.3213591,Rainy,Commercial,Arson,High,7,10,36
+19/12/2024,20:03,Thursday,Santa Elena,14.06673437,121.3174706,Cloudy,Commercial,Arson,Low,0,9,11
+12/12/2022,4:34,Monday,Santiago II (Bulaho),14.06824084,121.3151344,Cloudy,Residential,Electrical,Medium,5,9,10
+22/10/2024,6:58,Tuesday,San Bartolome (Matang-ag),14.06548864,121.325224,Rainy,Commercial,Arson,High,11,11,75
+10/11/2021,17:39,Wednesday,VII-A (P. Alcantara),14.06436627,121.3096223,Stormy,Commercial,Natural,Medium,3,7,68
+21/05/2021,7:29,Friday,San Vicente,14.06907751,121.3196144,Sunny,Residential,Electrical,Low,1,10,10
+31/05/2020,16:14,Sunday,Santa Catalina (Sandig),14.07163943,121.327393,Stormy,Residential,Natural,Low,1,6,12
+24/07/2021,6:29,Saturday,II-C (Unson),14.06630747,121.3288803,Cloudy,Residential,Cooking,Low,2,8,14
+05/04/2020,0:25,Sunday,V-B,14.07130743,121.321463,Cloudy,Residential,Electrical,Medium,3,10,10
+11/04/2020,18:28,Saturday,San Lorenzo (Saluyan),14.07625244,121.3192174,Sunny,Residential,Electrical,Medium,2,10,44
+29/11/2022,3:48,Tuesday,San Lucas 2 (Malinaw),14.06782365,121.3166289,Cloudy,Industrial,Electrical,High,2,10,318
+25/09/2022,22:10,Sunday,Concepcion (Bunot),14.06439446,121.3162155,Cloudy,Commercial,Electrical,Low,0,5,21
+05/07/2021,23:18,Monday,II-A (Triangulo Guadalupe 2),14.07190761,121.3178424,Rainy,Commercial,Electrical,Low,0,10,10
+29/04/2021,13:13,Thursday,Santa Monica,14.05937404,121.3199812,Sunny,Residential,Natural,Medium,2,8,50
+26/02/2020,23:50,Wednesday,San Francisco (Calihan),14.06673729,121.3203785,Rainy,Residential,Electrical,Medium,8,9,33
+08/04/2023,21:36,Saturday,San Nicolas (Mag-ampong),14.06866726,121.3173256,Cloudy,Residential,Other,Low,0,9,17
+15/11/2022,22:04,Tuesday,II-B (Guadalupe 1),14.06598429,121.3130687,Cloudy,Forest,Natural,Medium,0,11,87
+20/12/2021,16:40,Monday,VII-B,14.07464545,121.3184919,Sunny,Residential,Cooking,High,11,10,53
+30/04/2020,21:14,Thursday,I-C (Bagong Bayan),14.07015641,121.3187399,Cloudy,Residential,Arson,Medium,3,8,17
+21/09/2021,11:33,Tuesday,San Marcos (Tikew),14.06680541,121.3244946,Rainy,Commercial,Cooking,Medium,0,10,69
+11/12/2022,20:21,Sunday,I-B (City+Riverside),14.06666607,121.3205922,Sunny,Residential,Arson,Medium,6,5,30
+24/08/2020,6:00,Monday,San Francisco (Calihan),14.07281941,121.3223062,Cloudy,Forest,Natural,Low,0,11,71
+28/12/2020,18:03,Monday,VII-B,14.07070871,121.3236609,Sunny,Residential,Electrical,Low,1,14,41
+18/08/2022,19:58,Thursday,VII-C,14.07285013,121.3197481,Cloudy,Commercial,Natural,Medium,5,7,23
+05/04/2024,0:17,Friday,III-D (Vilongco),14.07063824,121.3230217,Cloudy,Residential,Electrical,Medium,2,11,22
+25/03/2024,19:18,Monday,VI-D (Lparkers),14.07567105,121.3190935,Sunny,Residential,Electrical,High,5,5,176
+25/07/2024,3:12,Thursday,II-F (Villa Rey),14.07174412,121.3174373,Sunny,Forest,Natural,Medium,2,8,45
+27/04/2024,10:07,Saturday,San Gregorio,14.06884489,121.3242401,Cloudy,Residential,Cooking,Low,1,7,13
+09/12/2022,22:36,Friday,Santo Angel (Ilog),14.0664022,121.3125573,Sunny,Residential,Electrical,High,9,5,221
+31/10/2022,9:03,Monday,Bautista,14.07610277,121.3323323,Sunny,Commercial,Cooking,Medium,0,14,28
+29/03/2024,10:36,Friday,San Buenaventura (Palakpakin),14.06498937,121.3210766,Sunny,Forest,Arson,High,2,12,98
+21/11/2023,2:49,Tuesday,Santiago II (Bulaho),14.07373745,121.3222523,Rainy,Residential,Electrical,Low,0,6,10
+28/03/2023,17:35,Tuesday,VI-C (Bagong Pook),14.07079102,121.3152357,Sunny,Industrial,Arson,Medium,2,9,58
+13/05/2021,8:41,Thursday,II-A (Triangulo Guadalupe 2),14.06971759,121.3229321,Cloudy,Residential,Electrical,Low,0,13,39
+01/04/2021,10:31,Thursday,Atisan,14.06866509,121.318985,Cloudy,Residential,Cooking,Low,0,8,10
+18/04/2022,22:05,Monday,San Antonio 2 (Sapa),14.06839844,121.3155295,Sunny,Residential,Natural,Low,2,5,32
+02/08/2024,10:47,Friday,San Rafael (Buluburan),14.0716351,121.3229899,Rainy,Residential,Cooking,Low,0,7,10
+30/11/2020,10:59,Monday,III-A (Hermanos Belen),14.06953829,121.3284682,Cloudy,Residential,Cooking,Medium,2,13,108
+31/07/2020,22:57,Friday,San Lucas 1 (Sabang),14.07143172,121.3191407,Rainy,Forest,Arson,Low,0,8,12
+10/07/2023,6:24,Monday,VI-D (Lparkers),14.07112767,121.3138067,Cloudy,Residential,Electrical,Low,0,18,10
+21/11/2023,18:19,Tuesday,Soledad (Macopa),14.07413954,121.3230552,Sunny,Residential,Arson,Medium,0,9,84
+12/09/2020,3:17,Saturday,II-A (Triangulo Guadalupe 2),14.06998862,121.3173102,Sunny,Industrial,Electrical,Medium,2,10,190
+30/07/2022,19:40,Saturday,Santa Cruz (Putol),14.06429061,121.3217132,Cloudy,Industrial,Electrical,Low,0,5,11
+24/06/2021,14:51,Thursday,San Nicolas (Mag-ampong),14.06108903,121.3178122,Sunny,Residential,Arson,Medium,4,9,10
+23/11/2021,13:34,Tuesday,VI-B,14.07658395,121.3253957,Cloudy,Residential,Electrical,High,7,6,10
+24/02/2021,0:27,Wednesday,I-B (City+Riverside),14.07422383,121.3195288,Cloudy,Residential,Other,Medium,6,9,92
+21/02/2022,2:47,Monday,Dolores,14.0825975,121.3246851,Sunny,Residential,Cooking,Low,1,13,10
+06/06/2024,9:24,Thursday,VII-C,14.07056195,121.3167077,Rainy,Commercial,Arson,Medium,2,11,59
+02/05/2023,18:32,Tuesday,Santo Niño (Arsum),14.0660759,121.3189897,Sunny,Residential,Electrical,Low,1,5,10
+28/08/2022,20:20,Sunday,Santa Ana,14.07189353,121.3186244,Stormy,Commercial,Arson,Low,1,6,16
+09/06/2020,10:00,Tuesday,Del Remedio (Wawa),14.07582432,121.3317388,Sunny,Commercial,Electrical,Medium,2,7,34
+10/06/2020,23:43,Wednesday,III-B,14.06979698,121.3182925,Rainy,Residential,Electrical,Low,5,8,35
+27/06/2020,8:49,Saturday,IV-A,14.06218669,121.3214959,Cloudy,Residential,Arson,Medium,6,5,130
+30/06/2020,2:29,Tuesday,II-C (Unson),14.06299969,121.3172843,Sunny,Residential,Electrical,Medium,3,13,20
+30/12/2020,23:05,Wednesday,Santa Ana,14.07254678,121.3191104,Rainy,Commercial,Electrical,High,5,10,23
+29/01/2023,19:51,Sunday,Santa Isabel,14.06912165,121.3209002,Rainy,Commercial,Cooking,High,9,6,145
+09/01/2022,2:12,Sunday,VI-C (Bagong Pook),14.07245922,121.3249482,Sunny,Residential,Cooking,Low,0,8,10
+13/09/2021,1:44,Monday,V-C,14.06677664,121.3193058,Cloudy,Industrial,Electrical,High,3,8,55
+10/08/2023,13:35,Thursday,VII-E,14.06419673,121.3192815,Sunny,Residential,Other,Medium,4,10,254
+17/11/2024,19:17,Sunday,VII-B,14.06697814,121.3282144,Cloudy,Residential,Cooking,Medium,1,14,10
+22/10/2020,21:42,Thursday,San Rafael (Buluburan),14.07169698,121.3187126,Stormy,Residential,Cooking,High,6,15,324
+24/04/2022,14:07,Sunday,San Miguel (Balintin),14.06913047,121.324908,Cloudy,Residential,Electrical,Low,1,7,34
+18/06/2023,8:43,Sunday,San Lucas 2 (Malinaw),14.07526008,121.3161983,Stormy,Residential,Cooking,Medium,4,10,20
+11/02/2022,11:03,Friday,Santa Maria,14.07646439,121.3187206,Cloudy,Forest,Natural,High,4,11,15
+07/06/2021,3:33,Monday,VI-E (YMCA),14.07741036,121.3236515,Sunny,Residential,Cooking,Low,0,9,10
+23/09/2024,21:17,Monday,San Rafael (Buluburan),14.06576488,121.3148309,Cloudy,Forest,Natural,Low,1,5,10
+24/07/2022,23:22,Sunday,Santo Niño (Arsum),14.05992432,121.3223308,Rainy,Commercial,Other,High,6,12,18
+08/10/2023,0:51,Sunday,San Gregorio,14.06737185,121.3226759,Cloudy,Residential,Electrical,Medium,1,12,80
+02/12/2022,2:27,Friday,Dolores,14.06712804,121.3129579,Cloudy,Residential,Electrical,Low,1,9,36
+02/12/2021,3:51,Thursday,IV-C,14.0767853,121.3263851,Sunny,Residential,Other,Low,2,6,40
+24/06/2024,1:08,Monday,San Isidro (Balagbag),14.07597607,121.3210032,Sunny,Residential,Other,Medium,4,11,56
+10/09/2020,16:26,Thursday,V-A,14.07763876,121.3227516,Sunny,Residential,Other,High,6,9,27
+03/10/2023,19:23,Tuesday,San Miguel (Balintin),14.05957638,121.3214832,Sunny,Residential,Arson,High,12,12,554
+05/08/2020,17:14,Wednesday,III-A (Hermanos Belen),14.07234197,121.3062012,Sunny,Residential,Cooking,Low,0,10,19
+17/11/2024,22:15,Sunday,Santiago II (Bulaho),14.0741382,121.3245215,Cloudy,Residential,Electrical,High,3,11,21
+27/09/2021,23:13,Monday,San Antonio 1 (Balanga),14.06751109,121.3060067,Rainy,Residential,Other,High,4,10,10
+05/08/2024,21:49,Monday,VII-E,14.0687624,121.3195935,Sunny,Residential,Electrical,Low,0,6,19
+20/09/2023,16:08,Wednesday,Santo Angel (Ilog),14.07287845,121.3196835,Rainy,Residential,Cooking,High,8,12,17
+23/10/2022,5:35,Sunday,VII-B,14.07807645,121.3201497,Cloudy,Residential,Natural,Low,0,7,58
+29/04/2020,20:40,Wednesday,IV-B,14.06586797,121.3213062,Sunny,Residential,Natural,Medium,1,14,95
+23/02/2024,16:52,Friday,VII-E,14.07212349,121.313408,Rainy,Forest,Other,Medium,2,8,28
+11/07/2020,0:56,Saturday,V-B,14.06886365,121.3173216,Stormy,Residential,Electrical,Low,0,5,23
+24/05/2020,6:19,Sunday,V-B,14.06169626,121.3225263,Stormy,Residential,Cooking,Low,0,12,42
+02/01/2022,12:25,Sunday,V-B,14.06804573,121.3114711,Sunny,Residential,Arson,Medium,5,9,122
+02/10/2024,22:37,Wednesday,Santo Niño (Arsum),14.0699559,121.3187529,Sunny,Residential,Electrical,Medium,0,8,21
+23/12/2020,10:55,Wednesday,III-A (Hermanos Belen),14.06859734,121.3171586,Cloudy,Commercial,Electrical,Low,1,11,25
+04/01/2023,2:46,Wednesday,V-D,14.07036829,121.3216387,Sunny,Forest,Natural,Medium,0,10,218
+03/03/2022,9:21,Thursday,Santa Ana,14.07118517,121.3214118,Rainy,Commercial,Arson,Low,1,8,10
+22/10/2024,21:08,Tuesday,III-D (Vilongco),14.07270302,121.317898,Sunny,Residential,Arson,Medium,3,7,35
+02/01/2022,4:00,Sunday,San Antonio 2 (Sapa),14.06981053,121.3124945,Cloudy,Commercial,Natural,High,6,12,305
+22/02/2023,20:53,Wednesday,I-B (City+Riverside),14.07309739,121.3175909,Sunny,Residential,Other,Low,1,7,71
+29/11/2022,22:27,Tuesday,VII-E,14.07630512,121.3117086,Sunny,Industrial,Electrical,Low,0,8,26
+01/06/2022,19:01,Wednesday,II-C (Unson),14.06900377,121.3152643,Cloudy,Commercial,Natural,Low,0,12,28
+19/04/2020,7:57,Sunday,San Crispin (Lumbangan),14.06796227,121.3158756,Sunny,Residential,Natural,Low,0,10,45
+31/10/2021,19:12,Sunday,Santa Isabel,14.0687164,121.3253803,Cloudy,Commercial,Electrical,High,4,11,100
+16/04/2024,21:42,Tuesday,San Francisco (Calihan),14.0778765,121.3237584,Sunny,Residential,Arson,Medium,4,12,130
+01/03/2023,2:21,Wednesday,II-D (Bulante),14.06659568,121.3205615,Cloudy,Commercial,Electrical,Low,0,10,10
+21/07/2023,12:02,Friday,III-E,14.07911368,121.3308071,Rainy,Residential,Cooking,High,5,6,10
+09/12/2021,16:21,Thursday,San Cristobal,14.07076546,121.3205284,Cloudy,Residential,Electrical,High,6,11,38
+08/12/2022,1:47,Thursday,San Diego (Tilim),14.06925592,121.3083037,Sunny,Residential,Electrical,High,5,10,50
+10/01/2020,2:11,Friday,San Jose (Malamig),14.07291036,121.3249252,Sunny,Residential,Other,Low,1,6,24
+16/01/2021,19:31,Saturday,San Rafael (Buluburan),14.06278637,121.3211006,Sunny,Residential,Electrical,Medium,3,10,52
+11/04/2022,6:00,Monday,Santa Monica,14.07127924,121.3240745,Rainy,Residential,Electrical,Medium,2,6,176
+13/05/2020,22:37,Wednesday,VI-A (Mavenida),14.07766651,121.3198615,Rainy,Industrial,Arson,High,6,9,70
+09/10/2021,6:20,Saturday,II-B (Guadalupe 1),14.07889084,121.3167841,Sunny,Residential,Electrical,Medium,3,12,51
+06/07/2020,1:09,Monday,Santa Veronica (Bae),14.0676104,121.3249364,Sunny,Residential,Electrical,Medium,1,8,21
+11/08/2020,21:30,Tuesday,III-C (Labak/De Roma),14.07338505,121.3275945,Sunny,Residential,Other,High,8,10,24
+23/05/2021,8:58,Sunday,Santa Isabel,14.07358018,121.3152707,Sunny,Residential,Other,Medium,2,13,104
+10/08/2023,17:20,Thursday,I-B (City+Riverside),14.07426622,121.3185069,Sunny,Residential,Electrical,Medium,7,19,129
+30/11/2022,17:27,Wednesday,III-D (Vilongco),14.06826296,121.3143854,Rainy,Residential,Electrical,Medium,2,9,33
+16/03/2021,10:33,Tuesday,Dolores,14.06389648,121.309249,Cloudy,Residential,Other,High,5,5,40
+17/09/2022,13:30,Saturday,Santo Cristo,14.07232922,121.3213767,Rainy,Industrial,Natural,Low,2,10,53
+10/11/2023,18:33,Friday,V-D,14.06864232,121.3226721,Sunny,Commercial,Electrical,Medium,4,9,10
+10/03/2020,13:57,Tuesday,Santa Filomena (Banagin),14.05970882,121.324493,Cloudy,Residential,Natural,High,3,11,22
+23/08/2022,12:03,Tuesday,San Isidro (Balagbag),14.06919602,121.3228069,Rainy,Residential,Natural,Medium,1,17,44
+19/07/2023,21:10,Wednesday,San Lorenzo (Saluyan),14.07296413,121.3241916,Sunny,Residential,Other,High,6,10,123
+08/09/2020,22:03,Tuesday,San Jose (Malamig),14.07512565,121.3152739,Sunny,Residential,Electrical,Low,1,9,22
+30/04/2023,20:12,Sunday,Santa Filomena (Banagin),14.07137325,121.318997,Sunny,Commercial,Arson,High,8,12,225
+22/12/2023,3:36,Friday,Santo Niño (Arsum),14.07154067,121.3231084,Rainy,Industrial,Other,Medium,1,7,10
+06/11/2023,13:07,Monday,Bautista,14.07816299,121.3205795,Sunny,Residential,Arson,Low,1,8,10
+18/02/2023,19:34,Saturday,San Pedro,14.07582758,121.3231098,Sunny,Residential,Natural,Medium,5,13,72
+26/09/2021,8:51,Sunday,Soledad (Macopa),14.06731713,121.3179789,Sunny,Commercial,Arson,High,10,9,103
+07/11/2023,20:36,Tuesday,San Vicente,14.06636462,121.3193061,Sunny,Residential,Other,Low,2,11,60
+01/10/2020,15:40,Thursday,San Buenaventura (Palakpakin),14.0735814,121.3099241,Rainy,Residential,Electrical,Low,0,8,10
+15/06/2020,21:31,Monday,VII-B,14.06849537,121.3136805,Stormy,Residential,Cooking,Medium,2,14,18
+25/12/2021,18:13,Saturday,V-B,14.06293221,121.3113198,Cloudy,Residential,Electrical,High,11,6,275
+28/08/2022,20:30,Sunday,II-B (Guadalupe 1),14.07133029,121.3193232,Cloudy,Residential,Electrical,Low,0,11,12
+17/08/2023,13:42,Thursday,Santo Cristo,14.07969053,121.3115397,Sunny,Commercial,Electrical,Low,1,8,16
+13/04/2024,1:04,Saturday,San Gregorio,14.07204213,121.3197737,Cloudy,Residential,Electrical,Low,0,9,60
+04/12/2023,9:23,Monday,I-C (Bagong Bayan),14.06981024,121.3147099,Cloudy,Residential,Cooking,Low,0,13,76
+15/10/2021,19:56,Friday,IV-B,14.06375232,121.3088352,Rainy,Commercial,Cooking,High,5,9,156
+05/12/2024,6:18,Thursday,Concepcion (Bunot),14.07174691,121.3154402,Sunny,Industrial,Cooking,High,3,12,30
+07/12/2021,21:49,Tuesday,II-A (Triangulo Guadalupe 2),14.07886257,121.321047,Sunny,Commercial,Arson,Low,0,10,53
+03/02/2021,5:22,Wednesday,I-C (Bagong Bayan),14.07703922,121.3137883,Rainy,Forest,Arson,High,1,12,317
+03/08/2022,8:17,Wednesday,Santiago II (Bulaho),14.06766962,121.3165031,Sunny,Residential,Natural,Medium,4,12,10
+28/12/2022,7:16,Wednesday,San Gabriel (Butucan),14.07781479,121.3225806,Sunny,Residential,Cooking,High,6,11,22
+11/02/2023,21:59,Saturday,San Francisco (Calihan),14.05587394,121.3173297,Sunny,Residential,Electrical,Medium,0,7,24
+05/07/2024,10:54,Friday,San Buenaventura (Palakpakin),14.0593142,121.3171465,Sunny,Commercial,Natural,Low,2,6,27
+23/03/2024,2:06,Saturday,III-D (Vilongco),14.07210379,121.3162141,Sunny,Forest,Natural,Low,0,11,20
+28/08/2023,11:19,Monday,V-B,14.07176631,121.3222627,Stormy,Residential,Natural,High,6,9,97
+24/09/2020,19:48,Thursday,Santa Isabel,14.06320658,121.3247942,Sunny,Commercial,Electrical,Low,0,11,10
+17/08/2022,9:07,Wednesday,III-D (Vilongco),14.07354446,121.3088081,Sunny,Residential,Electrical,Low,0,5,58
+03/11/2024,19:56,Sunday,III-B,14.07401983,121.3181339,Sunny,Residential,Cooking,Medium,2,6,88
+31/03/2022,0:50,Thursday,Del Remedio (Wawa),14.05990209,121.3173368,Sunny,Commercial,Electrical,Medium,2,9,11
+07/05/2022,1:18,Saturday,II-C (Unson),14.06730424,121.3177845,Cloudy,Industrial,Cooking,Low,2,14,30
+11/07/2023,1:23,Tuesday,San Nicolas (Mag-ampong),14.0699137,121.3154871,Sunny,Commercial,Other,Medium,1,5,80
+09/05/2021,17:03,Sunday,Santa Elena,14.06856803,121.3185841,Sunny,Residential,Other,Low,0,7,10
+25/07/2021,19:47,Sunday,San Marcos (Tikew),14.06799212,121.320719,Sunny,Industrial,Cooking,Low,0,7,10
+03/08/2020,22:00,Monday,Santiago II (Bulaho),14.0689151,121.3130405,Rainy,Commercial,Cooking,Medium,1,5,35
+17/09/2021,15:41,Friday,Santa Cruz (Putol),14.07592148,121.3185719,Cloudy,Forest,Arson,Low,0,9,36
+09/04/2023,14:35,Sunday,Santa Veronica (Bae),14.06726601,121.3116804,Cloudy,Residential,Electrical,Low,0,9,52
+28/05/2021,21:11,Friday,Dolores,14.0750275,121.3260822,Cloudy,Residential,Electrical,Low,0,9,10
+08/06/2021,21:47,Tuesday,San Crispin (Lumbangan),14.07245577,121.3148101,Cloudy,Residential,Natural,Medium,5,10,10
+07/12/2023,16:56,Thursday,IV-A,14.07145471,121.3224978,Rainy,Residential,Electrical,Medium,4,6,51
+20/10/2023,20:12,Friday,IV-B,14.08029271,121.3251763,Stormy,Residential,Cooking,High,9,10,76
+12/02/2021,23:47,Friday,VI-C (Bagong Pook),14.07170816,121.3286356,Sunny,Residential,Arson,Medium,3,6,73
+27/06/2020,18:04,Saturday,II-F (Villa Rey),14.06586165,121.3190095,Sunny,Commercial,Cooking,Medium,3,10,28
+08/03/2024,8:39,Friday,IV-A,14.06933749,121.3243167,Sunny,Commercial,Arson,Medium,2,6,14
+14/02/2022,6:30,Monday,III-D (Vilongco),14.07889857,121.3222039,Sunny,Residential,Arson,Medium,3,11,115
+23/04/2024,10:05,Tuesday,San Gregorio,14.07565991,121.3215478,Sunny,Residential,Natural,Medium,5,13,17
+25/10/2020,20:04,Sunday,II-F (Villa Rey),14.07022713,121.3310605,Cloudy,Residential,Cooking,Low,1,8,10
+03/02/2020,18:40,Monday,San Gabriel (Butucan),14.07006106,121.3143376,Rainy,Residential,Cooking,Low,0,13,10
+16/09/2021,0:49,Thursday,San Francisco (Calihan),14.08042575,121.3198352,Sunny,Residential,Natural,Low,2,10,69
+17/10/2021,6:34,Sunday,Santo Cristo,14.07047867,121.3121174,Cloudy,Forest,Natural,High,1,12,384
+13/07/2024,19:33,Saturday,Santa Maria,14.0669891,121.3248508,Cloudy,Residential,Natural,Low,0,5,11
+13/08/2021,4:04,Friday,San Francisco (Calihan),14.06408621,121.3228321,Sunny,Residential,Cooking,Medium,1,10,158
+26/09/2020,9:24,Saturday,San Isidro (Balagbag),14.07032221,121.3202496,Sunny,Industrial,Cooking,High,2,5,72
+14/10/2024,3:57,Monday,San Marcos (Tikew),14.06397762,121.3196428,Sunny,Residential,Cooking,Medium,1,9,104
+09/02/2024,5:28,Friday,III-F (Balagtas),14.07387962,121.3173823,Sunny,Residential,Electrical,Medium,2,7,75
+22/05/2022,6:41,Sunday,Atisan,14.07007798,121.3242981,Cloudy,Commercial,Natural,Medium,1,10,10
+14/05/2020,15:06,Thursday,V-B,14.06180469,121.3180109,Sunny,Commercial,Electrical,Medium,2,13,10
+08/02/2020,3:07,Saturday,V-C,14.06691434,121.3136365,Cloudy,Residential,Cooking,Medium,1,9,18
+04/08/2023,10:19,Friday,III-E,14.06810798,121.3138125,Cloudy,Residential,Natural,Low,1,12,10
+31/03/2021,20:47,Wednesday,Santisimo Rosario (Balagbag),14.06778935,121.3150737,Sunny,Residential,Cooking,Low,1,10,10
+01/04/2020,11:47,Wednesday,V-C,14.06456008,121.3134834,Sunny,Residential,Electrical,Low,1,6,10
+26/02/2021,20:06,Friday,San Nicolas (Mag-ampong),14.0641302,121.3185658,Sunny,Residential,Natural,Medium,3,10,160
+09/03/2024,18:25,Saturday,I-A (Sambat),14.06622711,121.3236745,Sunny,Residential,Arson,Low,0,9,10
+20/03/2024,19:23,Wednesday,VI-A (Mavenida),14.07531155,121.3207942,Sunny,Residential,Arson,Low,2,5,48
+19/01/2023,19:37,Thursday,Santo Niño (Arsum),14.06783417,121.3165415,Sunny,Commercial,Electrical,Low,0,9,22
+11/05/2022,22:23,Wednesday,San Lucas 1 (Sabang),14.07408494,121.3266553,Sunny,Residential,Arson,Low,0,8,28
+25/02/2021,17:18,Thursday,Santa Ana,14.06673381,121.3201286,Sunny,Forest,Arson,High,0,9,113
+06/03/2021,19:31,Saturday,V-D,14.06913807,121.3157712,Sunny,Residential,Other,Low,0,9,29
+10/06/2020,20:15,Wednesday,San Antonio 2 (Sapa),14.06445366,121.3212688,Sunny,Residential,Arson,High,12,10,14
+06/08/2022,7:50,Saturday,III-B,14.06060476,121.3132919,Rainy,Residential,Arson,High,4,7,25
+12/09/2022,6:40,Monday,V-A,14.07344933,121.3296283,Sunny,Residential,Arson,High,5,8,237

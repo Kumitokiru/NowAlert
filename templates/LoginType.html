@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Type</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/type.css') }}">
+    <div class="form2">
+        <h1>Select Login Type</h1>
+        <button onclick="window.location.href='/login'">Barangay</button>
+        <button onclick="window.location.href='/login_cdrrmo_pnp'">CDRRMO</button>
+        <button onclick="window.location.href='/login_cdrrmo_pnp'">PNP</button>
+        <h2 class="h2">Don't have an account?</h2>
+        <button onclick="window.location.href='/go_to_signup_type'">Sign Up</button>
+    </div>
+</body>
+</html>

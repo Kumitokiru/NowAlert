@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barangay Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Barangay Analytics Dashboard</h1>
+    <section>
+        <h2>Incident Trends</h2>
+        <canvas id="incidentTrendsChart"></canvas>
+    </section>
+    <section>
+        <h2>Accident Distribution</h2>
+        <canvas id="accidentDistributionChart"></canvas>
+    </section>
+    <section>
+        <h2>Road Accident Cause Analysis</h2>
+        <canvas id="causeAnalysisChart"></canvas>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/analytics?role=barangay')
+                .then(res => res.json())
+                .then(data => {
+                    const ctxTrends = document.getElementById('incidentTrendsChart').getContext('2d');
+                    new Chart(ctxTrends, {
+                        type: 'line',
+                        data: {
+                            labels: data.trends.labels,
+                            datasets: [
+                                {
+                                    label: 'Total Incidents',
+                                    data: data.trends.total,
+                                    borderColor: '#36A2EB',
+                                    fill: false
+                                },
+                                {
+                                    label: 'Responded Incidents',
+                                    data: data.trends.responded,
+                                    borderColor: '#FF6384',
+                                    fill: false
+                                }
+                            ]
+                        }
+                    });
+
+                    const ctxDist = document.getElementById('accidentDistributionChart').getContext('2d');
+                    new Chart(ctxDist, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(data.distribution),
+                            datasets: [
+                                {
+                                    label: 'Total',
+                                    data: Object.values(data.distribution).map(d => d.total),
+                                    backgroundColor: '#36A2EB'
+                                },
+                                {
+                                    label: 'Responded',
+                                    data: Object.values(data.distribution).map(d => d.responded),
+                                    backgroundColor: '#FF6384'
+                                }
+                            ]
+                        }
+                    });
+
+                    const ctxCause = document.getElementById('causeAnalysisChart').getContext('2d');
+                    new Chart(ctxCause, {
+                        type: 'bar',
+                        data: {
+                            labels: Object.keys(data.causes),
+                            datasets: [{
+                                label: 'Predicted Causes',
+                                data: Object.values(data.causes),
+                                backgroundColor: '#9966FF'
+                            }]
+                        }
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

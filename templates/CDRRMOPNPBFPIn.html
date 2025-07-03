@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CDRRMO/PNP Log In</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <h1 class="h1">Log In CDRRMO or PNP</h1>
+    <form class="form2" action="/login_cdrrmo_pnp" method="post">
+        
+        <label>Assigned Municipality: <input type="text" name="municipality" required></label><br>
+        <label>Contact Number: <input type="tel" name="contact_no" required></label><br>
+        <label>Password: <input type="password" name="password" required></label><br>
+        
+        
+        <button class="button3" type="submit">Log In</button>
+        <button class="button4" onclick="window.location.href='/signup_muna'">Sign Up</button>
+        <button class="button2" onclick="window.location.href='/chooese_login_type'">Choose Account</button>
+    </form>
+</body>
+</html>
