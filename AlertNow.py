@@ -13,6 +13,7 @@ from datetime import datetime
 from alert_data import alerts
 from collections import deque
 import pytz
+import pickle
 import pandas as pd
 
 # Import dashboard stats functions
@@ -77,13 +78,13 @@ def handle_responded(data):
 
 # Load ML models
 try:
-    dt_classifier = joblib.load('training/decision_tree_mode.pkl')
-    logging.info("decision_tree_mode.pkl loaded successfully.")
+    dt_classifier = joblib.load('training/decision_tree_model.pkl')
+    logging.info("decision_tree_model.pkl loaded successfully.")
 except FileNotFoundError:
-    logging.error("decision_tree_mode.pkl not found. ML prediction will not work.")
+    logging.error("decision_tree_model.pkl not found. ML prediction will not work.")
     dt_classifier = None
 except Exception as e:
-    logging.error(f"Error loading decision_tree_mode.pkl: {e}")
+    logging.error(f"Error loading decision_tree_model.pkl: {e}")
     dt_classifier = None
 
 # Load fire incident models
