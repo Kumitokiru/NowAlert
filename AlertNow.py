@@ -30,7 +30,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='gevent')
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
