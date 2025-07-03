@@ -6,5 +6,6 @@ joblib
 opencv-python
 numpy
 pytz
+pandas
 scikit-learn
 Werkzeug==2.0.3 
