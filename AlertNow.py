@@ -302,7 +302,7 @@ def go_to_signup_type():
     app.logger.debug("Redirecting to /")
     return redirect(url_for('home'))
 
-@app.route('/chooese_login_type', methods=['GET'])
+@app.route('/choose_login_type', methods=['GET'])
 def chooese_login_type():
     app.logger.debug("Rendering LoginType.html")
     return render_template('LoginType.html')
