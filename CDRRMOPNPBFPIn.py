@@ -11,7 +11,7 @@ def login_cdrmo_pnp():
             'contact_no': contact_no,
             'password': password
         }
-        response = requests.post('https://your-server.com/login_cdrmo_pnp', json=payload)
+        response = requests.post('https://your-server.com/login_cdrrmo_pnp_bfp', json=payload)
         if response.status_code == 200:
             data = response.json()
             role = data.get('role')
