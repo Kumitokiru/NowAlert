@@ -4,7 +4,7 @@ python-socketio==5.7.2
 eventlet==0.33.0
 joblib
 opencv-python
-numpy
+numpy==1.24.4
 pytz
 pandas
 scikit-learn==0.24.2
