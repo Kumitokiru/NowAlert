@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CDRRMO/PNP Sign Up</title>
+    <title>Sign Up CDRRMO or PNP or BFP</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
 </head>
 <body>
-    <h1 class="h1">Sign Up CDRRMO or PNP</h1>
+    <h1 class="h1">Sign Up CDRRMO or PNP or BFP</h1>
     <form action="/signup_cdrrmo_pnp" method="post">
         <label>Role: 
             <select name="role" id="role">
                 <option value="cdrrmo">CDRRMO</option>
                 <option value="pnp">PNP</option>
+                <option value="bfp">BFP</option>
             </select>
         </label><br>
         <label>Assigned Municipality: <input type="text" name="municipality" required></label><br>
