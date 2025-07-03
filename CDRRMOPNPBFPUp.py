@@ -15,7 +15,7 @@ def construct_unique_id(role, assigned_municipality, contact_no):
     """Constructs a unique identifier for CDRRMO or PNP users."""
     return f"{role}_{assigned_municipality}_{contact_no}"
 
-def signup_cdrmo_pnp():
+def signup_cdrrmo_pnp_bfp():
     if request.method == 'POST':
         role = request.form['role'].lower()  # Ensure role is lowercase (cdrrmo or pnp)
         assigned_municipality = request.form['municipality']
