@@ -1,3 +1,12 @@
-build:
-  - pip install setuptools==70.0.0
-  - pip install -r requirements.txt
+# render.yaml
+services:
+  - type: web
+    name: alert-now
+    runtime: python
+    build:
+      - pip install --upgrade pip setuptools wheel
+      - pip install -r requirements.txt
+    env: python
+    entrypoint: "python AlertNow.py"
+    plan: free
+    buildCommand: "./build.sh"  # Optional, if you need a custom script
