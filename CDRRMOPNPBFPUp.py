@@ -47,7 +47,7 @@ def signup_cdrmo_pnp():
             return f"Signup failed: {e}", 500
         finally:
             conn.close()
-    return render_template('CDRRMOPNPUp.html')
+    return render_template('CDRRMOPNPBFPUp.html')
 
 def signup_muna():
-    return render_template('CDRRMOPNPUp.html')
+    return render_template('CDRRMOPNPBFPUp.html')
