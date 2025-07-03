@@ -1,4 +1,4 @@
-
+{
     "San Pablo City": {
         "Santa Monica": {"lat": 14.0549, "lon": 121.3013},
         "Atisan": {"lat": 13.9818, "lon": 121.3182},
@@ -112,3 +112,4 @@
         "Tagbakin": {"lat": 14.1100, "lon": 121.4700}
     }
 
+}
