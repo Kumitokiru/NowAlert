@@ -7,7 +7,7 @@ services:
     build:
       - pip install --upgrade pip setuptools wheel
       - pip install -r requirements.txt
-    buildCommand: "./build.sh"
+    
     env: python
     entrypoint: "gunicorn -w 4 -k eventlet -b 0.0.0.0:$PORT AlertNow:app"
     plan: free
