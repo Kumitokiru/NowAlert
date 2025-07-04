@@ -266,6 +266,11 @@ def signup_cdrrmo_pnp_bfp():
 def login_cdrrmo_pnp_bfp():
     app.logger.debug("Accessing /login_cdrrmo_pnp_bfp with method: %s", request.method)
     if request.method == 'POST':
+        # Check if 'role' is present in the form data
+        if 'role' not in request.form:
+            app.logger.error("Role field is missing in the form data")
+            return "Role is required", 400
+        
         assigned_municipality = request.form['municipality']
         contact_no = request.form['contact_no']
         password = request.form['password']
