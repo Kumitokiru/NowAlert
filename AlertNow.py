@@ -391,7 +391,7 @@ def send_alert():
         socketio.emit('new_alert', alert)
         return jsonify({'status': 'success', 'message': 'Alert sent'}), 200
     except Exception as e:
-        app.logger.error(f"Error processing send_alert: {e}", exc_info=True)
+        app.loggerTREND.error(f"Error processing send_alert: {e}", exc_info=True)
         return jsonify({'error': 'Internal server error'}), 500
 
 # API endpoints
