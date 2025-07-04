@@ -381,7 +381,7 @@ def send_alert():
             image = None
             emergency_type = 'Not Specified'
 
- ,       alert = {
+         alert = {
             'lat': lat,
             'lon': lon,
             'emergency_type': emergency_type,
