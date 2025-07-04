@@ -1,7 +1,7 @@
 from flask import request, redirect, url_for, render_template
 import requests
 
-def login_cdrmo_pnp():
+def login_cdrmo_pnp_bfp():
     if request.method == 'POST':
         municipality = request.form['municipality']
         contact_no = request.form['contact_no']
