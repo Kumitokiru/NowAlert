@@ -30,7 +30,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")  # Set to eventlet for production
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
@@ -247,7 +247,9 @@ def signup_cdrrmo_pnp_bfp():
             
             conn.execute('''
                 INSERT INTO users (role, contact_no, assigned_municipality, password)
-                VALUES (?, ?, ?, ?)
+                VALUES
+
+ (?, ?, ?, ?)
             ''', (role, contact_no, assigned_municipality, password))
             conn.commit()
             app.logger.debug("User signed up successfully: %s", unique_id)
@@ -266,7 +268,6 @@ def signup_cdrrmo_pnp_bfp():
 def login_cdrrmo_pnp_bfp():
     app.logger.debug("Accessing /login_cdrrmo_pnp_bfp with method: %s", request.method)
     if request.method == 'POST':
-        # Check if 'role' is present in the form data
         if 'role' not in request.form:
             app.logger.error("Role field is missing in the form data")
             return "Role is required", 400
@@ -276,7 +277,6 @@ def login_cdrrmo_pnp_bfp():
         password = request.form['password']
         role = request.form['role'].lower()
         
-        # Validate role
         if role not in ['cdrrmo', 'pnp', 'bfp']:
             app.logger.error(f"Invalid role provided: {role}")
             return "Invalid role", 400
@@ -377,7 +377,7 @@ def send_alert():
             'barangay': data.get('barangay', 'N/A'),
             'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
             'imageUploadTime': image_upload_time,
-            'responded': False  # Added to track response status
+            'responded': False
         }
         alerts.append(alert)
         socketio.emit('new_alert', alert)
@@ -653,5 +653,7 @@ if __name__ == '__main__':
     except Exception as e:
         logging.error(f"Failed to initialize database: {e}", exc_info=True)
 
+    # In production (e.g., Render), Gunicorn will be used via render.yaml
+    # This block is for local development only
     port = int(os.environ.get('PORT', 5000))
-    socketio.run(app, host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)  # Use Flask's dev server locally
