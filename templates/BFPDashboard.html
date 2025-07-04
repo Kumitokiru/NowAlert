@@ -93,6 +93,14 @@
             };
             L.control.layers(baseLayers).addTo(map);
 
+
+            const socket = io('https://nowalert.onrender.com');
+            socket.on('connect', () => console.log('Connected to SocketIO server'));
+            socket.on('new_alert', (data) => {
+                updateUIWithAlert(data);
+                notifyAlert(data);
+            });
+
             function updateUIWithAlert(data) {
                 const feed = document.getElementById('alert-container');
                 if (feed) {
