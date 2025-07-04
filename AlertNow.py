@@ -363,6 +363,7 @@ def logout():
 # Alert handling
 alerts = deque(maxlen=100)
 
+@app.route('/send_alert', methods=['POST'])
 def send_alert():
     try:
         data = request.get_json()
@@ -629,7 +630,7 @@ def barangay_analytics():
 
 @app.route('/cdrrmo_analytics', methods=['GET'])
 def cdrrmo_analytics():
-teki    if 'role' not in session or session['role'] != 'cdrrmo':
+    if 'role' not in session or session['role'] != 'cdrrmo':
         return redirect(url_for('login_cdrrmo_pnp_bfp'))
     trends = get_cdrrmo_trends()
     distribution = get_cdrrmo_distribution()
