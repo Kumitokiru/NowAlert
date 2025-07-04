@@ -30,7 +30,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*")  # Set to eventlet for production
+socketio = SocketIO(app, cors_allowed_origins="*")
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
@@ -656,4 +656,4 @@ if __name__ == '__main__':
     # In production (e.g., Render), Gunicorn will be used via render.yaml
     # This block is for local development only
     port = int(os.environ.get('PORT', 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)  # Use Flask's dev server locally
+    socketio.run(app, host="0.0.0.0", port=port, debug=True)
