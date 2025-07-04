@@ -4,9 +4,7 @@ import logging
 import ast
 import os
 import json
-import psycopg
-from psycopg.rows import dict_row
-from urllib.parse import urlparse
+import sqlite3
 import joblib
 import cv2
 import numpy as np
@@ -15,9 +13,8 @@ from datetime import datetime
 from alert_data import alerts
 from collections import deque
 import pytz
+import pickle
 import pandas as pd
-import psycopg.errors as psycopg_errors
-import time
 
 # Import dashboard stats functions
 from BarangayDashboard import get_barangay_stats, get_latest_alert
@@ -33,7 +30,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='gevent')
+socketio = SocketIO(app, cors_allowed_origins="*")
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
@@ -41,61 +38,6 @@ data_dir = os.path.join(os.path.dirname(__file__), 'data')
 if not os.path.exists(data_dir):
     os.makedirs(data_dir)
     logging.info(f"Created data directory at {data_dir}")
-
-# Use environment variable for DATABASE_URL
-DATABASE_URL = os.getenv('DATABASE_URL', "postgresql://root:6E2X2PMWnJqcxzWQyn7OUGMHh02xoF6L@dpg-d1a1hrngi27c73f0s3i0-a/android_users")
-parsed_url = urlparse(DATABASE_URL)
-DB_HOST = parsed_url.hostname
-DB_NAME = parsed_url.path.lstrip('/')
-DB_USER = parsed_url.username
-DB_PASSWORD = parsed_url.password
-
-# Database connection function with retry logic
-def get_db_connection(retries=5, delay=5):
-    for attempt in range(retries):
-        try:
-            conn = psycopg.connect(
-                host=DB_HOST,
-                dbname=DB_NAME,
-                user=DB_USER,
-                password=DB_PASSWORD,
-                row_factory=dict_row
-            )
-            logging.info("Database connection established successfully.")
-            return conn
-        except psycopg.OperationalError as e:
-            if "Connection refused" in str(e):
-                logging.warning(f"Connection refused, retrying in {delay} seconds... (attempt {attempt + 1}/{retries})")
-                time.sleep(delay)
-            else:
-                raise
-    raise Exception("Failed to connect to database after several attempts")
-
-# Migration function to update the users table schema
-def migrate_users_table():
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        
-        # Add 'id' column if it doesn’t exist
-        cursor.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS id SERIAL;")
-        
-        # Drop the existing primary key constraint (if it exists)
-        cursor.execute("ALTER TABLE users DROP CONSTRAINT IF EXISTS users_pkey;")
-        
-        # Set 'id' as the primary key
-        cursor.execute("ALTER TABLE users ADD PRIMARY KEY (id);")
-        
-        # Allow 'barangay' to be NULL
-        cursor.execute("ALTER TABLE users ALTER COLUMN barangay DROP NOT NULL;")
-        
-        conn.commit()
-        logging.info("Users table schema migrated successfully.")
-    except psycopg.Error as e:
-        logging.error(f"Failed to migrate users table: {e}", exc_info=True)
-        conn.rollback()
-    finally:
-        conn.close()
 
 # Load barangay coordinates
 try:
@@ -167,21 +109,34 @@ except Exception as e:
     logging.error(f"Error loading road accident models: {e}")
     lr_road = rf_road = svm_road = xgb_road = None
 
+# Database connection
+def get_db_connection():
+    db_path = os.path.join('/database', 'users_web.db')
+    if not os.path.exists(db_path):
+        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    return conn
+
 # Utility routes
 @app.route('/export_users', methods=['GET'])
 def export_users():
     if session.get('role') != 'admin':
         return "Unauthorized", 403
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM users')
-    users = cursor.fetchall()
+    users = conn.execute('SELECT * FROM users').fetchall()
     conn.close()
     return jsonify([dict(user) for user in users])
 
 @app.route('/download_db', methods=['GET'])
 def download_db():
-    return "Database download not supported for PostgreSQL", 403
+    db_path = os.path.join('/database', 'users_web.db')
+    if not os.path.exists(db_path):
+        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    if not os.path.exists(db_path):
+        return "Database file not found", 404
+    app.logger.debug(f"Serving database from: {db_path}")
+    return send_file(db_path, as_attachment=True, download_name='users_web.db')
 
 # Unique ID constructor
 def construct_unique_id(role, barangay=None, contact_no=None, assigned_municipality=None):
@@ -208,19 +163,18 @@ def signup_barangay():
         unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
         
         conn = get_db_connection()
-        cursor = conn.cursor()
         try:
-            cursor.execute('''
+            cursor = conn.execute('''
                 INSERT INTO users (barangay, role, contact_no, assigned_municipality, province, password)
-                VALUES (%s, %s, %s, %s, %s, %s)
+                VALUES (?, ?, ?, ?, ?, ?)
             ''', (barangay, 'barangay', contact_no, assigned_municipality, province, password))
             conn.commit()
             app.logger.debug(f"User data inserted successfully: {unique_id}")
             return redirect(url_for('login'))
-        except psycopg_errors.UniqueViolation as e:
-            app.logger.error("UniqueViolation: %s", e)
+        except sqlite3.IntegrityError as e:
+            app.logger.error("IntegrityError: %s", e)
             return "User already exists", 400
-        except psycopg.Error as e:
+        except Exception as e:
             app.logger.error(f"Exception during signup: {e}", exc_info=True)
             return f"Signup failed: {e}", 500
         finally:
@@ -237,11 +191,9 @@ def login():
         unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
         
         conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute('''
-            SELECT * FROM users WHERE barangay = %s AND contact_no = %s AND password = %s
-        ''', (barangay, contact_no, password))
-        user = cursor.fetchone()
+        user = conn.execute('''
+            SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND password = ?
+        ''', (barangay, contact_no, password)).fetchone()
         conn.close()
         
         if user:
@@ -266,11 +218,9 @@ def api_login():
     unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
     
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('''
-        SELECT * FROM users WHERE barangay = %s AND contact_no = %s AND password = %s
-    ''', (barangay, contact_no, password))
-    user = cursor.fetchone()
+    user = conn.execute('''
+        SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND password = ?
+    ''', (barangay, contact_no, password)).fetchone()
     conn.close()
     
     if user:
@@ -286,28 +236,26 @@ def signup_cdrrmo_pnp_bfp():
         assigned_municipality = request.form['municipality']
         contact_no = request.form['contact_no']
         password = request.form['password']
-        unique_id = construct_unique_id(role, assigned_municipality=assigned_municipality, contact_no=contact_no)
+        unique_id = construct_unique_id(role, assigned_municipality, contact_no)
         
         conn = get_db_connection()
-        cursor = conn.cursor()
         try:
-            cursor.execute('SELECT * FROM users WHERE contact_no = %s', (contact_no,))
-            existing_user = cursor.fetchone()
+            existing_user = conn.execute('SELECT * FROM users WHERE contact_no = ?', (contact_no,)).fetchone()
             if existing_user:
                 app.logger.error("Signup failed: Contact number %s already exists", contact_no)
                 return "Contact number already exists", 400
             
-            cursor.execute('''
-                INSERT INTO users (barangay, role, contact_no, assigned_municipality, province, password)
-                VALUES (%s, %s, %s, %s, %s, %s)
-            ''', (None, role, contact_no, assigned_municipality, None, password))
+            conn.execute('''
+                INSERT INTO users (role, contact_no, assigned_municipality, password)
+                VALUES (?, ?, ?, ?)
+            ''', (role, contact_no, assigned_municipality, password))
             conn.commit()
             app.logger.debug("User signed up successfully: %s", unique_id)
             return redirect(url_for('login_cdrrmo_pnp_bfp'))
-        except psycopg_errors.UniqueViolation as e:
-            app.logger.error("UniqueViolation during signup: %s", e)
+        except sqlite3.IntegrityError as e:
+            app.logger.error("IntegrityError during signup: %s", e)
             return "User already exists", 400
-        except psycopg.Error as e:
+        except Exception as e:
             app.logger.error(f"Signup failed for {unique_id}: {e}", exc_info=True)
             return f"Signup failed: {e}", 500
         finally:
@@ -323,6 +271,7 @@ def login_cdrrmo_pnp_bfp():
         password = request.form['password']
         role = request.form['role'].lower()
         
+        # Validate role
         if role not in ['cdrrmo', 'pnp', 'bfp']:
             app.logger.error(f"Invalid role provided: {role}")
             return "Invalid role", 400
@@ -330,11 +279,9 @@ def login_cdrrmo_pnp_bfp():
         app.logger.debug(f"Login attempt: role={role}, municipality={assigned_municipality}, contact_no={contact_no}")
         
         conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute('''
-            SELECT * FROM users WHERE role = %s AND contact_no = %s AND password = %s AND assigned_municipality = %s
-        ''', (role, contact_no, password, assigned_municipality))
-        user = cursor.fetchone()
+        user = conn.execute('''
+            SELECT * FROM users WHERE role = ? AND contact_no = ? AND password = ? AND assigned_municipality = ?
+        ''', (role, contact_no, password, assigned_municipality)).fetchone()
         conn.close()
         
         if user:
@@ -364,7 +311,7 @@ def go_to_signup_type():
     return redirect(url_for('home'))
 
 @app.route('/choose_login_type', methods=['GET'])
-def choose_login_type():
+def chooese_login_type():
     app.logger.debug("Rendering LoginType.html")
     return render_template('LoginType.html')
 
@@ -425,7 +372,7 @@ def send_alert():
             'barangay': data.get('barangay', 'N/A'),
             'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
             'imageUploadTime': image_upload_time,
-            'responded': False
+            'responded': False  # Added to track response status
         }
         alerts.append(alert)
         socketio.emit('new_alert', alert)
@@ -512,11 +459,9 @@ def predict_image():
 def barangay_dashboard():
     unique_id = session.get('unique_id')
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('''
-        SELECT * FROM users WHERE barangay = %s AND contact_no = %s
-    ''', (unique_id.split('_')[0], unique_id.split('_')[1]))
-    user = cursor.fetchone()
+    user = conn.execute('''
+        SELECT * FROM users WHERE barangay = ? AND contact_no = ?
+    ''', (unique_id.split('_')[0], unique_id.split('_')[1])).fetchone()
     conn.close()
     
     if not unique_id or not user or user['role'] != 'barangay':
@@ -550,11 +495,9 @@ def barangay_dashboard():
 def cdrrmo_dashboard():
     unique_id = session.get('unique_id')
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('''
-        SELECT * FROM users WHERE role = %s AND contact_no = %s AND assigned_municipality = %s
-    ''', ('cdrrmo', unique_id.split('_')[2], unique_id.split('_')[1]))
-    user = cursor.fetchone()
+    user = conn.execute('''
+        SELECT * FROM users WHERE role = ? AND contact_no = ? AND assigned_municipality = ?
+    ''', ('cdrrmo', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     
     if not unique_id or not user or user['role'] != 'cdrrmo':
@@ -585,11 +528,9 @@ def cdrrmo_dashboard():
 def pnp_dashboard():
     unique_id = session.get('unique_id')
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('''
-        SELECT * FROM users WHERE role = %s AND contact_no = %s AND assigned_municipality = %s
-    ''', ('pnp', unique_id.split('_')[2], unique_id.split('_')[1]))
-    user = cursor.fetchone()
+    user = conn.execute('''
+        SELECT * FROM users WHERE role = ? AND contact_no = ? AND assigned_municipality = ?
+    ''', ('pnp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     
     if not unique_id or not user or user['role'] != 'pnp':
@@ -620,11 +561,9 @@ def pnp_dashboard():
 def bfp_dashboard():
     unique_id = session.get('unique_id')
     conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('''
-        SELECT * FROM users WHERE role = %s AND contact_no = %s AND assigned_municipality = %s
-    ''', ('bfp', unique_id.split('_')[2], unique_id.split('_')[1]))
-    user = cursor.fetchone()
+    user = conn.execute('''
+        SELECT * FROM users WHERE role = ? AND contact_no = ? AND assigned_municipality = ?
+    ''', ('bfp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     
     if not unique_id or not user or user['role'] != 'bfp':
@@ -689,16 +628,12 @@ def bfp_analytics():
     return render_template('BFPAnalytics.html', trends=trends, distribution=distribution, causes=causes)
 
 if __name__ == '__main__':
-    # Migrate the users table schema
-    migrate_users_table()
-    
-    # Create the table if it doesn't exist (with the updated schema)
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute('''
+        conn = sqlite3.connect(db_path)
+        c = conn.cursor()
+        c.execute('''
             CREATE TABLE IF NOT EXISTS users (
-                id SERIAL PRIMARY KEY,
                 barangay TEXT,
                 role TEXT NOT NULL,
                 contact_no TEXT UNIQUE NOT NULL,
@@ -709,9 +644,9 @@ if __name__ == '__main__':
         ''')
         conn.commit()
         conn.close()
-        logging.info("Database 'users' table ensured with updated schema.")
-    except psycopg.Error as e:
-        logging.error(f"Failed to ensure database table: {e}", exc_info=True)
+        logging.info("Database 'users_web.db' initialized successfully or already exists.")
+    except Exception as e:
+        logging.error(f"Failed to initialize database: {e}", exc_info=True)
 
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True)
