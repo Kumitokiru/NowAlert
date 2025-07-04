@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIOsome SocketIO
+from flask_socketio import SocketIO
 import logging
 import ast
 import os
@@ -381,7 +381,7 @@ def send_alert():
             image = None
             emergency_type = 'Not Specified'
 
-        alert = {
+ ,       alert = {
             'lat': lat,
             'lon': lon,
             'emergency_type': emergency_type,
@@ -390,7 +390,7 @@ def send_alert():
             'house_no': data.get('house_no', 'N/A'),
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
-            'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
+            'timestamp': datetime(now(pytz.timezone('Asia/Manila')).isoformat(),
             'imageUploadTime': image_upload_time,
             'responded': False
         }
@@ -630,7 +630,7 @@ def barangay_analytics():
 
 @app.route('/cdrrmo_analytics', methods=['GET'])
 def cdrrmo_analytics():
-    if 'role' not in session or session['role'] != 'cdrrmo':
+teki    if 'role' not in session or session['role'] != 'cdrrmo':
         return redirect(url_for('login_cdrrmo_pnp_bfp'))
     trends = get_cdrrmo_trends()
     distribution = get_cdrrmo_distribution()
