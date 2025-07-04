@@ -7,4 +7,4 @@ services:
       - pip install -r requirements.txt
     env: python
     plan: free
-    command: gunicorn -k eventlet -w 1 AlertNow:app
+    command: python AlertNow.py
