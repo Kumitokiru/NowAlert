@@ -24,7 +24,7 @@ def login_cdrmo_pnp():
         return "Invalid credentials", 401
     return render_template('CDRRMOPNPIn.html')
 
-def chooese_login_type():
+def choose_login_type():
     return render_template('LoginType.html')
 
 def go_to_cdrrmopnpbfpin():
