@@ -1,4 +1,5 @@
-const socket = io('http://localhost:5000');
+// Use the current host for flexibility (local or deployed)
+const socket = io(window.location.origin); // e.g., http://localhost:5000 or https://alertnow.onrender.com
 const alertContainer = document.getElementById('alert-container');
 
 socket.on('new_alert', (data) => {
@@ -19,24 +20,27 @@ socket.on('new_alert', (data) => {
 
 function updateCharts() {
     const role = window.location.pathname.includes('barangay') ? 'barangay' : 
-                 window.location.pathname.includes('cdrrmo') ? 'cdrmo' : 
-                 window.location.pathname.includes('pnp') ? 'pnp' : 'all';
+                 window.location.pathname.includes('cdrrmo') ? 'cdrrmo' : 
+                 window.location.pathname.includes('pnp') ? 'pnp' : 
+                 window.location.pathname.includes('bfp') ? 'bfp' : 'all';
     fetch(`/api/distribution?role=${role}`)
         .then(res => res.json())
         .then(dist => {
-            const ctxDist = document.getElementById('distChart').getContext('2d');
-            if (window.distChart) window.distChart.destroy();
-            window.distChart = new Chart(ctxDist, {
-                type: 'pie',
-                data: {
-                    labels: Object.keys(dist),
-                    datasets: [{
-                        data: Object.values(dist),
-                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40']
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
+            const ctxDist = document.getElementById('distChart')?.getContext('2d');
+            if (ctxDist && window.distChart) window.distChart.destroy();
+            if (ctxDist) {
+                window.distChart = new Chart(ctxDist, {
+                    type: 'pie',
+                    data: {
+                        labels: Object.keys(dist),
+                        datasets: [{
+                            data: Object.values(dist),
+                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40']
+                        }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false }
+                });
+            }
         });
     const ctxTrend = document.getElementById('trendChart')?.getContext('2d');
     if (ctxTrend && window.trendChart) window.trendChart.destroy();
