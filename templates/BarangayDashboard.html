@@ -65,11 +65,34 @@
         document.addEventListener('DOMContentLoaded', () => {
             const lat = {{ lat_coord|default(14.6760) }};
             const lon = {{ lon_coord|default(121.0437) }};
+            const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
+            const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
+
             const barangayMap = L.map('map').setView([lat, lon], 15);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+            // Satellite with Labels layer
+            var satellite = L.tileLayer(tileLayerUrl, {
+                attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                tileSize: 512,
+                zoomOffset: -1
+            });
+
+            // OpenStreetMap layer
+            var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
-            }).addTo(barangayMap);
-            window.barangayMap = barangayMap;
+            });
+
+            // Add satellite layer by default
+            satellite.addTo(barangayMap);
+
+            // Layer control
+            var baseLayers = {
+                "Satellite with Labels": satellite,
+                "OpenStreetMap": osm
+            };
+            L.control.layers(baseLayers).addTo(barangayMap);
+        });
 
             const socket = io('https://alertnow.onrender.com');
             socket.on('connect', () => console.log('Connected to SocketIO server'));
