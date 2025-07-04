@@ -2,8 +2,8 @@
 services:
   - type: web
     name: alert-now
-    pythonVersion: "3.12"
-    runtime: python-3.12
+    pythonVersion: "3.13"
+    runtime: python-3.13
     build:
       - pip install --upgrade pip setuptools wheel
       - pip install -r requirements.txt
