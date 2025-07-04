@@ -659,22 +659,13 @@ if __name__ == '__main__':
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS users (
-                barangay TEXT NOT NULL,
-                role TEXT NOT NULL,
-                contact_no TEXT UNIQUE NOT NULL,
-                assigned_municipality TEXT,
-                province TEXT,
-                password TEXT NOT NULL,
-                PRIMARY KEY (barangay, contact_no)
-            )
-        ''')
-        conn.commit()
+        cursor.execute("SELECT version();")
+        db_version = cursor.fetchone()
+        logging.info(f"Database version: {db_version}")
+        cursor.close()
         conn.close()
-        logging.info("Database 'android_users' table initialized successfully or already exists.")
-    except psycopg.Error as e:
-        logging.error(f"Failed to initialize database: {e}", exc_info=True)
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
 
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True)
