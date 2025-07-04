@@ -21,5 +21,5 @@ def login_page():
         return "Invalid credentials", 401
     return render_template('LogInPage.html')
 
-def choose_login_type():
+def chooese_login_type():
     return render_template('LoginType.html')
