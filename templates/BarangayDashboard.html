@@ -9,7 +9,7 @@
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
     <style>
-        #map { height: 400px; width: 100%; }
+        #map { height: 600px; width: 100%; }
         #alert-container { max-height: 300px; overflow-y: auto; border: 1px solid red; padding: 10px; }
         .alert-item { margin-bottom: 10px; padding: 10px; background-color: #f0f0f0; border-radius: 5px; color: #333; }
         .notification { position: fixed; bottom: 10px; right: 10px; background-color: #f44336; color: white; padding: 15px; border-radius: 5px; display: none; }
@@ -46,16 +46,16 @@
         </header>
         <main>
             <section class="map-section">
-                <h2>Barangay Map</h2>
-                <p>Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span> (Barangay: {{ barangay }})</p>
+                <h2 class="h2">{{ barangay }} Map</h2>
+                <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span> (Barangay: {{ barangay }})</p>
                 <div id="map"></div>
             </section>
             <section class="stats">
-                <p>Total Incidents: <span id="total-incidents">{{ stats.total() if stats else 0 }}</span></p>
-                <p>Critical Incidents: <span id="critical-incidents">0</span></p>
+                <p class="p">Total Incidents: <span id="total-incidents">{{ stats.total() if stats else 0 }}</span></p>
+                <p class="p">Critical Incidents: <span id="critical-incidents">0</span></p>
             </section>
             <section class="alerts" id="alerts">
-                <h2>Live Alerts</h2>
+                <h2 class="h2">Live Alerts</h2>
                 <div id="alert-container"></div>
             </section>
         </main>
