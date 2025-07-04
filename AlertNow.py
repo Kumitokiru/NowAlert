@@ -32,7 +32,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='gevent')
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
@@ -331,7 +331,7 @@ def go_to_signup_type():
     return redirect(url_for('home'))
 
 @app.route('/choose_login_type', methods=['GET'])
-def chooese_login_type():
+def choose_login_type():
     app.logger.debug("Rendering LoginType.html")
     return render_template('LoginType.html')
 
