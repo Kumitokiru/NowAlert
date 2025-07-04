@@ -17,6 +17,7 @@ from collections import deque
 import pytz
 import pandas as pd
 import psycopg.errors as psycopg_errors
+import time
 
 # Import dashboard stats functions
 from BarangayDashboard import get_barangay_stats, get_latest_alert
@@ -32,7 +33,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='gevent')
+socketio = SocketIO(app, cors_allowed_origins="*")
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
@@ -41,28 +42,60 @@ if not os.path.exists(data_dir):
     os.makedirs(data_dir)
     logging.info(f"Created data directory at {data_dir}")
 
-# Parse the PostgreSQL database URL
-DATABASE_URL = "postgresql://root:6E2X2PMWnJqcxzWQyn7OUGMHh02xoF6L@dpg-d1a1hrngi27c73f0s3i0-a/android_users"
+# Use environment variable for DATABASE_URL
+DATABASE_URL = os.getenv('DATABASE_URL', "postgresql://root:6E2X2PMWnJqcxzWQyn7OUGMHh02xoF6L@dpg-d1a1hrngi27c73f0s3i0-a/android_users")
 parsed_url = urlparse(DATABASE_URL)
 DB_HOST = parsed_url.hostname
 DB_NAME = parsed_url.path.lstrip('/')
 DB_USER = parsed_url.username
 DB_PASSWORD = parsed_url.password
 
-# Database connection function
-def get_db_connection():
+# Database connection function with retry logic
+def get_db_connection(retries=5, delay=5):
+    for attempt in range(retries):
+        try:
+            conn = psycopg.connect(
+                host=DB_HOST,
+                dbname=DB_NAME,
+                user=DB_USER,
+                password=DB_PASSWORD,
+                row_factory=dict_row
+            )
+            logging.info("Database connection established successfully.")
+            return conn
+        except psycopg.OperationalError as e:
+            if "Connection refused" in str(e):
+                logging.warning(f"Connection refused, retrying in {delay} seconds... (attempt {attempt + 1}/{retries})")
+                time.sleep(delay)
+            else:
+                raise
+    raise Exception("Failed to connect to database after several attempts")
+
+# Migration function to update the users table schema
+def migrate_users_table():
     try:
-        conn = psycopg.connect(
-            host=DB_HOST,
-            dbname=DB_NAME,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            row_factory=dict_row
-        )
-        return conn
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
+        # Add 'id' column if it doesn’t exist
+        cursor.execute("ALTER TABLE users ADD COLUMN IF NOT EXISTS id SERIAL;")
+        
+        # Drop the existing primary key constraint (if it exists)
+        cursor.execute("ALTER TABLE users DROP CONSTRAINT IF EXISTS users_pkey;")
+        
+        # Set 'id' as the primary key
+        cursor.execute("ALTER TABLE users ADD PRIMARY KEY (id);")
+        
+        # Allow 'barangay' to be NULL
+        cursor.execute("ALTER TABLE users ALTER COLUMN barangay DROP NOT NULL;")
+        
+        conn.commit()
+        logging.info("Users table schema migrated successfully.")
     except psycopg.Error as e:
-        logging.error(f"Failed to connect to database: {e}")
-        raise
+        logging.error(f"Failed to migrate users table: {e}", exc_info=True)
+        conn.rollback()
+    finally:
+        conn.close()
 
 # Load barangay coordinates
 try:
@@ -265,9 +298,9 @@ def signup_cdrrmo_pnp_bfp():
                 return "Contact number already exists", 400
             
             cursor.execute('''
-                INSERT INTO users (role, contact_no, assigned_municipality, password)
-                VALUES (%s, %s, %s, %s)
-            ''', (role, contact_no, assigned_municipality, password))
+                INSERT INTO users (barangay, role, contact_no, assigned_municipality, province, password)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            ''', (None, role, contact_no, assigned_municipality, None, password))
             conn.commit()
             app.logger.debug("User signed up successfully: %s", unique_id)
             return redirect(url_for('login_cdrrmo_pnp_bfp'))
@@ -656,16 +689,29 @@ def bfp_analytics():
     return render_template('BFPAnalytics.html', trends=trends, distribution=distribution, causes=causes)
 
 if __name__ == '__main__':
+    # Migrate the users table schema
+    migrate_users_table()
+    
+    # Create the table if it doesn't exist (with the updated schema)
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT version();")
-        db_version = cursor.fetchone()
-        logging.info(f"Database version: {db_version}")
-        cursor.close()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                barangay TEXT,
+                role TEXT NOT NULL,
+                contact_no TEXT UNIQUE NOT NULL,
+                assigned_municipality TEXT,
+                province TEXT,
+                password TEXT NOT NULL
+            )
+        ''')
+        conn.commit()
         conn.close()
-    except Exception as e:
-        logging.error(f"An error occurred: {e}")
+        logging.info("Database 'users' table ensured with updated schema.")
+    except psycopg.Error as e:
+        logging.error(f"Failed to ensure database table: {e}", exc_info=True)
 
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True)
