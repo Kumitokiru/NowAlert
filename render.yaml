@@ -2,6 +2,7 @@
 services:
   - type: web
     name: alert-now
+    pythonVersion: "3.12"
     runtime: python-3.12
     build:
       - pip install --upgrade pip setuptools wheel
