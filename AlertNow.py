@@ -363,7 +363,6 @@ def logout():
 # Alert handling
 alerts = deque(maxlen=100)
 
-@app.route('/send_alert', methods=['POST'])
 def send_alert():
     try:
         data = request.get_json()
@@ -381,7 +380,7 @@ def send_alert():
             image = None
             emergency_type = 'Not Specified'
 
-         alert = {
+        alert = {
             'lat': lat,
             'lon': lon,
             'emergency_type': emergency_type,
@@ -390,7 +389,7 @@ def send_alert():
             'house_no': data.get('house_no', 'N/A'),
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
-            'timestamp': datetime(now(pytz.timezone('Asia/Manila')).isoformat(),
+            'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
             'imageUploadTime': image_upload_time,
             'responded': False
         }
