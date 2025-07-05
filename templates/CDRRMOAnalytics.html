@@ -2,85 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CDRRMO Analytics</title>
+    <title>CDRRMO Analytics - {{ municipality }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
 </head>
 <body>
-    <h1>CDRRMO Analytics Dashboard</h1>
-    <section>
-        <h2>Incident Trends</h2>
-        <canvas id="incidentTrendsChart"></canvas>
-    </section>
-    <section>
-        <h2>Accident Distribution</h2>
-        <canvas id="accidentDistributionChart"></canvas>
-    </section>
-    <section>
-        <h2>Disaster Cause Analysis</h2>
-        <canvas id="causeAnalysisChart"></canvas>
-    </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/api/analytics?role=cdrrmo')
-                .then(res => res.json())
-                .then(data => {
-                    const ctxTrends = document.getElementById('incidentTrendsChart').getContext('2d');
-                    new Chart(ctxTrends, {
-                        type: 'line',
-                        data: {
-                            labels: data.trends.labels,
-                            datasets: [
-                                {
-                                    label: 'Total Incidents',
-                                    data: data.trends.total,
-                                    borderColor: '#36A2EB',
-                                    fill: false
-                                },
-                                {
-                                    label: 'Responded Incidents',
-                                    data: data.trends.responded,
-                                    borderColor: '#FF6384',
-                                    fill: false
-                                }
-                            ]
-                        }
-                    });
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('cdrrmo_dashboard') }}">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('road')">Road Accident Reports</a></li>
+                <li><a href="#" onclick="showSection('fire')">Fire Incident Reports</a></li>
+            </ul>
+        </nav>
+    </div>
 
-                    const ctxDist = document.getElementById('accidentDistributionChart').getContext('2d');
-                    new Chart(ctxDist, {
-                        type: 'bar',
-                        data: {
-                            labels: Object.keys(data.distribution),
-                            datasets: [
-                                {
-                                    label: 'Total',
-                                    data: Object.values(data.distribution).map(d => d.total),
-                                    backgroundColor: '#36A2EB'
-                                },
-                                {
-                                    label: 'Responded',
-                                    data: Object.values(data.distribution).map(d => d.responded),
-                                    backgroundColor: '#FF6384'
-                                }
-                            ]
-                        }
-                    });
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <header>
+            <h1>Analytics for Municipality {{ municipality }}</h1>
+            <p id="datetime"></p>
+            <button class="download-btn" onclick="downloadReport()">DOWNLOAD {{ current_datetime }}</button>
+        </header>
+        <div class="tabs">
+            <button class="tab active" onclick="filterData('today')">Today</button>
+            <button class="tab" onclick="filterData('daily')">Daily</button>
+            <button class="tab" onclick="filterData('weekly')">Weekly</button>
+            <button class="tab" onclick="filterData('monthly')">Monthly</button>
+            <button class="tab" onclick="filterData('yearly')">Yearly</button>
+        </div>
 
-                    const ctxCause = document.getElementById('causeAnalysisChart').getContext('2d');
-                    new Chart(ctxCause, {
-                        type: 'bar',
-                        data: {
-                            labels: Object.keys(data.causes),
-                            datasets: [{
-                                label: 'Predicted Causes',
-                                data: Object.values(data.causes),
-                                backgroundColor: '#9966FF'
-                            }]
-                        }
-                    });
-                });
-        });
-    </script>
+        <!-- Road Accident Section -->
+        <div id="roadSection" class="section">
+            <div class="chart-container"><h2>Incident Trends</h2><canvas id="roadIncidentTrendsChart"></canvas></div>
+            <div class="chart-container"><h2>Accident Distribution</h2><canvas id="roadAccidentDistributionChart"></canvas></div>
+            <div class="chart-container"><h2>Cause Analysis</h2><canvas id="roadCauseAnalysisChart"></canvas></div>
+            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="roadRespondedAlertsChart"></canvas></div>
+            <div class="chart-container"><h2>Weather Impact</h2><canvas id="roadWeatherChart"></canvas></div>
+            <div class="chart-container"><h2>Road Condition</h2><canvas id="roadConditionChart"></canvas></div>
+            <div class="chart-container"><h2>Vehicle Types</h2><canvas id="roadVehicleTypesChart"></canvas></div>
+            <div class="chart-container"><h2>Driver's Age</h2><canvas id="roadDriverAgeChart"></canvas></div>
+            <div class="chart-container"><h2>Driver's Gender</h2><canvas id="roadDriverGenderChart"></canvas></div>
+            <div class="chart-container"><h2>Accident Type</h2><canvas id="roadAccidentTypeChart"></canvas></div>
+            <div class="chart-container"><h2>Injuries</h2><canvas id="roadInjuriesChart"></canvas></div>
+            <div class="chart-container"><h2>Fatalities</h2><canvas id="roadFatalitiesChart"></canvas></div>
+        </div>
+
+        <!-- Fire Incident Section -->
+        <div id="fireSection" class="section hidden">
+            <div class="chart-container"><h2>Incident Trends</h2><canvas id="fireIncidentTrendsChart"></canvas></div>
+            <div class="chart-container"><h2>Incident Distribution</h2><canvas id="fireIncidentDistributionChart"></canvas></div>
+            <div class="chart-container"><h2>Cause Analysis</h2><canvas id="fireCauseAnalysisChart"></canvas></div>
+            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="fireRespondedAlertsChart"></canvas></div>
+            <div class="chart-container"><h2>Weather Impact</h2><canvas id="fireWeatherChart"></canvas></div>
+            <div class="chart-container"><h2>Property Type</h2><canvas id="firePropertyTypeChart"></canvas></div>
+            <div class="chart-container"><h2>Fire Cause</h2><canvas id="fireCauseChart"></canvas></div>
+            <div class="chart-container"><h2>Fire Severity</h2><canvas id="fireSeverityChart"></canvas></div>
+            <div class="chart-container"><h2>Casualty Count</h2><canvas id="fireCasualtyCountChart"></canvas></div>
+            <div class="chart-container"><h2>Response Time</h2><canvas id="fireResponseTimeChart"></canvas></div>
+            <div class="chart-container"><h2>Fire Duration</h2><canvas id="fireDurationChart"></canvas></div>
+        </div>
+    </main>
 </body>
 </html>
