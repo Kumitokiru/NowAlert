@@ -30,7 +30,7 @@ from BFPAnalytics import get_bfp_trends, get_bfp_distribution, get_bfp_causes
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app) # Set to eventlet for production
 logging.basicConfig(level=logging.DEBUG)
 
 # Ensure data directory exists
@@ -187,7 +187,7 @@ def login():
     if request.method == 'POST':
         barangay = request.form['barangay']
         contact_no = request.form['contact_no']
-        password = request.form['password']
+        password = request.form['  password']
         unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
         
         conn = get_db_connection()
@@ -247,9 +247,7 @@ def signup_cdrrmo_pnp_bfp():
             
             conn.execute('''
                 INSERT INTO users (role, contact_no, assigned_municipality, password)
-                VALUES
-
- (?, ?, ?, ?)
+                VALUES (?, ?, ?, ?)
             ''', (role, contact_no, assigned_municipality, password))
             conn.commit()
             app.logger.debug("User signed up successfully: %s", unique_id)
@@ -596,41 +594,91 @@ def bfp_dashboard():
                            google_api_key=GOOGLE_API_KEY)
 
 # Analytics routes
-@app.route('/barangay_analytics', methods=['GET'])
+@app.route('/barangay/analytics')
 def barangay_analytics():
     if 'role' not in session or session['role'] != 'barangay':
         return redirect(url_for('login'))
-    trends = get_barangay_trends()
-    distribution = get_barangay_distribution()
-    causes = get_barangay_causes()
-    return render_template('BarangayAnalytics.html', trends=trends, distribution=distribution, causes=causes)
+    unique_id = session.get('unique_id')
+    conn = get_db_connection()
+    user = conn.execute('SELECT barangay FROM users WHERE barangay = ? AND contact_no = ?',
+                        (unique_id.split('_')[0], unique_id.split('_')[1])).fetchone()
+    conn.close()
+    barangay = user['barangay'] if user else "Unknown"
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+    return render_template('BarangayAnalytics.html', barangay=barangay, current_datetime=current_datetime)
 
-@app.route('/cdrrmo_analytics', methods=['GET'])
+@app.route('/api/barangay_analytics_data', methods=['GET'])
+def get_barangay_analytics_data():
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_barangay_trends(time_filter)
+    distribution = get_barangay_distribution(time_filter)
+    causes = get_barangay_causes(time_filter)
+    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
+@app.route('/cdrrmo/analytics')
 def cdrrmo_analytics():
     if 'role' not in session or session['role'] != 'cdrrmo':
         return redirect(url_for('login_cdrrmo_pnp_bfp'))
-    trends = get_cdrrmo_trends()
-    distribution = get_cdrrmo_distribution()
-    causes = get_cdrrmo_causes()
-    return render_template('CDRRMOAnalytics.html', trends=trends, distribution=distribution, causes=causes)
+    unique_id = session.get('unique_id')
+    conn = get_db_connection()
+    user = conn.execute('SELECT assigned_municipality FROM users WHERE role = ? AND contact_no = ? AND assigned_municipality = ?',
+                        ('cdrrmo', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
+    conn.close()
+    municipality = user['assigned_municipality'] if user else "Unknown"
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+    return render_template('CDRRMOAnalytics.html', municipality=municipality, current_datetime=current_datetime)
 
-@app.route('/pnp_analytics', methods=['GET'])
+@app.route('/api/cdrrmo_analytics_data', methods=['GET'])
+def get_cdrrmo_analytics_data():
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_cdrrmo_trends(time_filter)
+    distribution = get_cdrrmo_distribution(time_filter)
+    causes = get_cdrrmo_causes(time_filter)
+    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
+@app.route('/pnp/analytics')
 def pnp_analytics():
     if 'role' not in session or session['role'] != 'pnp':
         return redirect(url_for('login_cdrrmo_pnp_bfp'))
-    trends = get_pnp_trends()
-    distribution = get_pnp_distribution()
-    causes = get_pnp_causes()
-    return render_template('PNPAnalytics.html', trends=trends, distribution=distribution, causes=causes)
+    unique_id = session.get('unique_id')
+    conn = get_db_connection()
+    user = conn.execute('SELECT assigned_municipality FROM users WHERE role = ? AND contact_no = ? AND assigned_municipality = ?',
+                        ('pnp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
+    conn.close()
+    municipality = user['assigned_municipality'] if user else "Unknown"
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+    return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime)
 
-@app.route('/bfp_analytics', methods=['GET'])
+@app.route('/api/pnp_analytics_data', methods=['GET'])
+def get_pnp_analytics_data():
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_pnp_trends(time_filter)
+    distribution = get_pnp_distribution(time_filter)
+    causes = get_pnp_causes(time_filter)
+    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
+@app.route('/bfp/analytics')
 def bfp_analytics():
     if 'role' not in session or session['role'] != 'bfp':
         return redirect(url_for('login_cdrrmo_pnp_bfp'))
-    trends = get_bfp_trends()
-    distribution = get_bfp_distribution()
-    causes = get_bfp_causes()
-    return render_template('BFPAnalytics.html', trends=trends, distribution=distribution, causes=causes)
+    unique_id = session.get('unique_id')
+    conn = get_db_connection()
+    user = conn.execute('SELECT assigned_municipality FROM users WHERE role = ? AND contact_no = ? AND assigned_municipality = ?',
+                        ('bfp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
+    conn.close()
+    municipality = user['assigned_municipality'] if user else "Unknown"
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+    # Fetch barangays for the assigned municipality (placeholder list for now)
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    return render_template('BFPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
+
+@app.route('/api/bfp_analytics_data', methods=['GET'])
+def get_bfp_analytics_data():
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_bfp_trends(time_filter)
+    distribution = get_bfp_distribution(time_filter)
+    causes = get_bfp_causes(time_filter)
+    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
 
 if __name__ == '__main__':
     db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
@@ -656,4 +704,4 @@ if __name__ == '__main__':
     # In production (e.g., Render), Gunicorn will be used via render.yaml
     # This block is for local development only
     port = int(os.environ.get('PORT', 5000))
-    socketio.run(app, host="0.0.0.0", port=port, debug=True)
+    socketio.run(app, host="0.0.0.0", port=port, debug=True, allow_unsafe_werkzeug=True)
