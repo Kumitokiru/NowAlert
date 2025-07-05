@@ -2,85 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PNP Analytics</title>
+    <title>PNP Analytics - {{ municipality }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
 </head>
 <body>
-    <h1>PNP Analytics Dashboard</h1>
-    <section>
-        <h2>Incident Trends</h2>
-        <canvas id="incidentTrendsChart"></canvas>
-    </section>
-    <section>
-        <h2>Accident Distribution</h2>
-        <canvas id="accidentDistributionChart"></canvas>
-    </section>
-    <section>
-        <h2>Road Accident Cause Analysis</h2>
-        <canvas id="causeAnalysisChart"></canvas>
-    </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/api/analytics?role=pnp')
-                .then(res => res.json())
-                .then(data => {
-                    const ctxTrends = document.getElementById('incidentTrendsChart').getContext('2d');
-                    new Chart(ctxTrends, {
-                        type: 'line',
-                        data: {
-                            labels: data.trends.labels,
-                            datasets: [
-                                {
-                                    label: 'Total Incidents',
-                                    data: data.trends.total,
-                                    borderColor: '#36A2EB',
-                                    fill: false
-                                },
-                                {
-                                    label: 'Responded Incidents',
-                                    data: data.trends.responded,
-                                    borderColor: '#FF6384',
-                                    fill: false
-                                }
-                            ]
-                        }
-                    });
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('pnp_dashboard') }}">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('crime')">Crime Reports</a></li>
+                <li><a href="#" onclick="showSection('traffic')">Traffic Incident Reports</a></li>
+            </ul>
+        </nav>
+    </div>
 
-                    const ctxDist = document.getElementById('accidentDistributionChart').getContext('2d');
-                    new Chart(ctxDist, {
-                        type: 'bar',
-                        data: {
-                            labels: Object.keys(data.distribution),
-                            datasets: [
-                                {
-                                    label: 'Total',
-                                    data: Object.values(data.distribution).map(d => d.total),
-                                    backgroundColor: '#36A2EB'
-                                },
-                                {
-                                    label: 'Responded',
-                                    data: Object.values(data.distribution).map(d => d.responded),
-                                    backgroundColor: '#FF6384'
-                                }
-                            ]
-                        }
-                    });
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <header>
+            <h1>Analytics for PNP - {{ municipality }}</h1>
+            <p id="datetime"></p>
+            <button class="download-btn" onclick="downloadReport()">DOWNLOAD {{ current_datetime }}</button>
+        </header>
+        <div class="tabs">
+            <button class="tab active" onclick="filterData('today')">Today</button>
+            <button class="tab" onclick="filterData('daily')">Daily</button>
+            <button class="tab" onclick="filterData('weekly')">Weekly</button>
+            <button class="tab" onclick="filterData('monthly')">Monthly</button>
+            <button class="tab" onclick="filterData('yearly')">Yearly</button>
+        </div>
 
-                    const ctxCause = document.getElementById('causeAnalysisChart').getContext('2d');
-                    new Chart(ctxCause, {
-                        type: 'bar',
-                        data: {
-                            labels: Object.keys(data.causes),
-                            datasets: [{
-                                label: 'Predicted Causes',
-                                data: Object.values(data.causes),
-                                backgroundColor: '#9966FF'
-                            }]
-                        }
-                    });
-                });
-        });
-    </script>
+        <!-- Crime Section -->
+        <div id="crimeSection" class="section">
+            <div class="chart-container"><h2>Crime Trends</h2><canvas id="crimeTrendsChart"></canvas></div>
+            <div class="chart-container"><h2>Crime Distribution</h2><canvas id="crimeDistributionChart"></canvas></div>
+            <div class="chart-container"><h2>Cause Analysis</h2><canvas id="crimeCauseAnalysisChart"></canvas></div>
+            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="crimeRespondedAlertsChart"></canvas></div>
+            <div class="chart-container"><h2>Crime Type</h2><canvas id="crimeTypeChart"></canvas></div>
+            <div class="chart-container"><h2>Suspect Age</h2><canvas id="suspectAgeChart"></canvas></div>
+            <div class="chart-container"><h2>Suspect Gender</h2><canvas id="suspectGenderChart"></canvas></div>
+            <div class="chart-container"><h2>Location Distribution</h2><canvas id="locationDistributionChart"></canvas></div>
+        </div>
+
+        <!-- Traffic Incident Section -->
+        <div id="trafficSection" class="section hidden">
+            <div class="chart-container"><h2>Traffic Incident Trends</h2><canvas id="trafficTrendsChart"></canvas></div>
+            <div class="chart-container"><h2>Traffic Incident Distribution</h2><canvas id="trafficDistributionChart"></canvas></div>
+            <div class="chart-container"><h2>Cause Analysis</h2><canvas id="trafficCauseAnalysisChart"></canvas></div>
+            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="trafficRespondedAlertsChart"></canvas></div>
+            <div class="chart-container"><h2>Vehicle Types</h2><canvas id="trafficVehicleTypesChart"></canvas></div>
+            <div class="chart-container"><h2>Road Condition</h2><canvas id="trafficRoadConditionChart"></canvas></div>
+            <div class="chart-container"><h2>Time of Day</h2><canvas id="trafficTimeOfDayChart"></canvas></div>
+        </div>
+    </main>
 </body>
 </html>
