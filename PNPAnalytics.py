@@ -4,44 +4,83 @@ from datetime import datetime, timedelta
 import pytz
 import logging
 
-def get_pnp_trends():
+def get_pnp_trends(time_filter='weekly'):
     try:
-        pnp_alerts = [a for a in alerts if a.get('role') == 'pnp' or a.get('emergency_type') == 'road_accident']
+        pnp_alerts = [a for a in alerts if a.get('role') == 'pnp' or a.get('assigned_municipality')]
         today = datetime.now(pytz.timezone('Asia/Manila')).date()
-        labels = [(today - timedelta(days=i)).strftime('%b %d') for i in range(6, -1, -1)]
-        total = [0] * 7
-        responded = [0] * 7
+        
+        # Determine time range
+        if time_filter == 'today':
+            start_date = today
+            labels = [today.strftime('%b %d')]
+        elif time_filter == 'daily':
+            start_date = today - timedelta(days=1)
+            labels = [(today - timedelta(days=i)).strftime('%b %d') for i in range(1, -1, -1)]
+        elif time_filter == 'weekly':
+            start_date = today - timedelta(days=6)
+            labels = [(today - timedelta(days=i)).strftime('%b %d') for i in range(6, -1, -1)]
+        elif time_filter == 'monthly':
+            start_date = today - timedelta(days=29)
+            labels = [(today - timedelta(days=i)).strftime('%b %d') for i in range(29, -1, -1)]
+        elif time_filter == 'yearly':
+            start_date = today - timedelta(days=364)
+            labels = [(today - timedelta(days=i)).strftime('%b %d') for i in range(364, -1, -1)]
+        else:
+            start_date = today - timedelta(days=6)
+            labels = [(today - timedelta(days=i)).strftime('%b %d') for i in range(6, -1, -1)]
+        
+        total = [0] * len(labels)
+        responded = [0] * len(labels)
         
         for alert in pnp_alerts:
             alert_date = datetime.fromisoformat(alert['timestamp']).date()
             days_ago = (today - alert_date).days
-            if 0 <= days_ago < 7:
-                total[6 - days_ago] += 1
+            if 0 <= days_ago < len(labels):
+                total[len(labels) - 1 - days_ago] += 1
                 if alert.get('responded', False):
-                    responded[6 - days_ago] += 1
+                    responded[len(labels) - 1 - days_ago] += 1
         
         return {'labels': labels, 'total': total, 'responded': responded}
     except Exception as e:
         logging.error(f"Error in get_pnp_trends: {e}", exc_info=True)
         return {'labels': [], 'total': [], 'responded': []}
 
-def get_pnp_distribution():
+def get_pnp_distribution(time_filter='weekly'):
     try:
-        pnp_alerts = [a for a in alerts if a.get('role') == 'pnp' or a.get('emergency_type') == 'road_accident']
+        pnp_alerts = [a for a in alerts if a.get('role') == 'pnp' or a.get('assigned_municipality')]
+        today = datetime.now(pytz.timezone('Asia/Manila')).date()
+        
+        # Determine time range
+        if time_filter == 'today':
+            start_date = today
+        elif time_filter == 'daily':
+            start_date = today - timedelta(days=1)
+        elif time_filter == 'weekly':
+            start_date = today - timedelta(days=6)
+        elif time_filter == 'monthly':
+            start_date = today - timedelta(days=29)
+        elif time_filter == 'yearly':
+            start_date = today - timedelta(days=364)
+        else:
+            start_date = today - timedelta(days=6)
+        
         distribution = defaultdict(lambda: {'total': 0, 'responded': 0})
         for alert in pnp_alerts:
-            emergency_type = alert.get('emergency_type', 'unknown')
-            distribution[emergency_type]['total'] += 1
-            if alert.get('responded', False):
-                distribution[emergency_type]['responded'] += 1
+            alert_date = datetime.fromisoformat(alert['timestamp']).date()
+            if alert_date >= start_date:
+                emergency_type = alert.get('emergency_type', 'unknown')
+                distribution[emergency_type]['total'] += 1
+                if alert.get('responded', False):
+                    distribution[emergency_type]['responded'] += 1
         return distribution
     except Exception as e:
         logging.error(f"Error in get_pnp_distribution: {e}", exc_info=True)
         return {}
 
-def get_pnp_causes():
+def get_pnp_causes(time_filter='weekly'):
     try:
-        causes = {'Speeding': 20, 'Drunk Driving': 10, 'Distracted Driving': 15, 'Weather': 5}
+        # Placeholder for cause analysis; replace with actual logic if data available
+        causes = {'Theft': 15, 'Assault': 10, 'Traffic Violation': 20, 'Others': 5}
         return causes
     except Exception as e:
         logging.error(f"Error in get_pnp_causes: {e}", exc_info=True)
