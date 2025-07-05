@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Barangay Analytics - {{ barangay }}</title>
+    <title>BFP Analytics - {{ municipality }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
@@ -12,9 +12,12 @@
     <div class="sidebar" id="sidebar">
         <nav>
             <ul>
-                <li><a href="{{ url_for('barangay_dashboard') }}">Dashboard</a></li>
-                <li><a href="#" onclick="showSection('road')">Road Accident Reports</a></li>
-                <li><a href="#" onclick="showSection('fire')">Fire Incident Reports</a></li>
+                <li><a href="{{ url_for('bfp_dashboard') }}">Dashboard</a></li>
+                <li><a href="#" onclick="filterData('today')">Today</a></li>
+                <li><a href="#" onclick="filterData('daily')">Daily</a></li>
+                <li><a href="#" onclick="filterData('weekly')">Weekly</a></li>
+                <li><a href="#" onclick="filterData('monthly')">Monthly</a></li>
+                <li><a href="#" onclick="filterData('yearly')">Yearly</a></li>
             </ul>
         </nav>
     </div>
@@ -23,48 +26,57 @@
     <main class="main-content" id="mainContent">
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <header>
-            <h1>Analytics for Barangay {{ barangay }}</h1>
-            <p id="datetime"></p>
+            <h1>BFP ({{ municipality }}) Fire Incident Reports</h1>
+            <p>Barangay: <select id="barangaySelect">
+                <option value="">All Barangays</option>
+                {% for barangay in barangays %}
+                    <option value="{{ barangay }}">{{ barangay }}</option>
+                {% endfor %}
+            </select></p>
+            <p id="datetime">{{ current_datetime }}</p>
             <button class="download-btn" onclick="downloadReport()">DOWNLOAD {{ current_datetime }}</button>
         </header>
-        <div class="tabs">
-            <button class="tab active" onclick="filterData('today')">Today</button>
-            <button class="tab" onclick="filterData('daily')">Daily</button>
-            <button class="tab" onclick="filterData('weekly')">Weekly</button>
-            <button class="tab" onclick="filterData('monthly')">Monthly</button>
-            <button class="tab" onclick="filterData('yearly')">Yearly</button>
-        </div>
-
-        <!-- Road Accident Section -->
-        <div id="roadSection" class="section">
-            <div class="chart-container"><h2>Incident Trends</h2><canvas id="roadIncidentTrendsChart"></canvas></div>
-            <div class="chart-container"><h2>Accident Distribution</h2><canvas id="roadAccidentDistributionChart"></canvas></div>
-            <div class="chart-container"><h2>Cause Analysis</h2><canvas id="roadCauseAnalysisChart"></canvas></div>
-            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="roadRespondedAlertsChart"></canvas></div>
-            <div class="chart-container"><h2>Weather Impact</h2><canvas id="roadWeatherChart"></canvas></div>
-            <div class="chart-container"><h2>Road Condition</h2><canvas id="roadConditionChart"></canvas></div>
-            <div class="chart-container"><h2>Vehicle Types</h2><canvas id="roadVehicleTypesChart"></canvas></div>
-            <div class="chart-container"><h2>Driver's Age</h2><canvas id="roadDriverAgeChart"></canvas></div>
-            <div class="chart-container"><h2>Driver's Gender</h2><canvas id="roadDriverGenderChart"></canvas></div>
-            <div class="chart-container"><h2>Accident Type</h2><canvas id="roadAccidentTypeChart"></canvas></div>
-            <div class="chart-container"><h2>Injuries</h2><canvas id="roadInjuriesChart"></canvas></div>
-            <div class="chart-container"><h2>Fatalities</h2><canvas id="roadFatalitiesChart"></canvas></div>
-        </div>
-
-        <!-- Fire Incident Section -->
-        <div id="fireSection" class="section hidden">
-            <div class="chart-container"><h2>Incident Trends</h2><canvas id="fireIncidentTrendsChart"></canvas></div>
-            <div class="chart-container"><h2>Incident Distribution</h2><canvas id="fireIncidentDistributionChart"></canvas></div>
-            <div class="chart-container"><h2>Cause Analysis</h2><canvas id="fireCauseAnalysisChart"></canvas></div>
-            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="fireRespondedAlertsChart"></canvas></div>
-            <div class="chart-container"><h2>Weather Impact</h2><canvas id="fireWeatherChart"></canvas></div>
-            <div class="chart-container"><h2>Property Type</h2><canvas id="firePropertyTypeChart"></canvas></div>
+        <div class="chart-grid">
+            <div class="chart-container"><h2>Incident Trends</h2><canvas id="incidentTrendsChart"></canvas></div>
+            <div class="chart-container"><h2>Accident Distribution</h2><canvas id="accidentDistributionChart"></canvas></div>
+            <div class="chart-container"><h2>Fire Incident Cause Analysis</h2><canvas id="causeAnalysisChart"></canvas></div>
+            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="respondedAlertsChart"></canvas></div>
+            <div class="chart-container"><h2>Weather</h2><canvas id="weatherChart"></canvas></div>
+            <div class="chart-container"><h2>Property Type</h2><canvas id="propertyTypeChart"></canvas></div>
             <div class="chart-container"><h2>Fire Cause</h2><canvas id="fireCauseChart"></canvas></div>
             <div class="chart-container"><h2>Fire Severity</h2><canvas id="fireSeverityChart"></canvas></div>
-            <div class="chart-container"><h2>Casualty Count</h2><canvas id="fireCasualtyCountChart"></canvas></div>
-            <div class="chart-container"><h2>Response Time</h2><canvas id="fireResponseTimeChart"></canvas></div>
+            <div class="chart-container"><h2>Casualty Count</h2><canvas id="casualtyCountChart"></canvas></div>
+            <div class="chart-container"><h2>Response Time</h2><canvas id="responseTimeChart"></canvas></div>
             <div class="chart-container"><h2>Fire Duration</h2><canvas id="fireDurationChart"></canvas></div>
         </div>
     </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('shifted');
+        }
+
+        function filterData(timePeriod) {
+            fetch(`/api/bfp_analytics_data?time=${timePeriod}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateCharts(data);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function updateCharts(data) {
+            // Placeholder for chart updates using Chart.js
+            // Add logic here to update each chart based on data
+        }
+
+        function downloadReport() {
+            // Placeholder for report download functionality
+            alert('Download functionality to be implemented');
+        }
+    </script>
 </body>
 </html>
