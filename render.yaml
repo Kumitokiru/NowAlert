@@ -7,4 +7,4 @@ services:
       - pip install -r requirements.txt
     env: python
     plan: free
-    command: python AlertNow.py
+    buildCommand: "./build.sh"  # Optional, if you need a custom script

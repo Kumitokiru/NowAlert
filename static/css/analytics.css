@@ -138,6 +138,7 @@ header .p2 {
     margin-bottom: 20px;
 }
 
+
 .tab {
     padding: 10px 20px;
     cursor: pointer;
@@ -184,3 +185,10 @@ header .p2 {
 .hidden {
     display: none;
 }
+
+#image-gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
