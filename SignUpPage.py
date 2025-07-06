@@ -8,7 +8,7 @@ signup_bp = Blueprint('signup', __name__)
 
 
 def get_db_connection():
-    db_path = os.getenv('DB_PATH', os.path.join(os.path.dirname(__file__), 'data', 'users_web.db'))
+    db_path = os.getenv('DB_PATH', os.path.join(os.path.dirname(__file__), 'database', 'users_web.db'))
     if not os.path.exists(db_path):
         if not os.path.exists(os.path.dirname(db_path)):
             os.makedirs(os.path.dirname(db_path))
@@ -19,7 +19,7 @@ def get_db_connection():
 
 def get_connection_to_db():
     if os.getenv('RENDER') == 'true':  # Render sets this environment variable
-        db_path = '/data/users_web.db'
+        db_path = '/database/users_web.db'
     else:
         db_path = os.path.join(os.path.dirname(__file__), 'data', 'users_web.db')
     app.logger.debug(f"Database path: {db_path}")

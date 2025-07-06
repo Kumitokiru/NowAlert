@@ -5,7 +5,7 @@ body {
 }
 
 .sidebar {
-    width: 240px;
+    width: 220px;
     position: fixed;
     height: 81%;
     background: #e8ecef;
@@ -44,7 +44,7 @@ body {
     position: fixed;           /* Fix the element to the viewport */
     top: 0;                    /* Anchor to the top */
     left: 0;                   /* Start from the left edge */
-    width: 98%;               /* Full width initially */
+    width: 99%;               /* Full width initially */
     height: 84%;               /* Match original height */
     overflow: auto;            /* Enable scrolling for overflow */
     padding: 20px;

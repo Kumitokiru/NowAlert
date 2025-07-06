@@ -12,22 +12,28 @@ body {
 }
 
 header {
-    background-color: #33cccc;
+    background-color: #8ec3f5;
     color: #000;
     text-align: center;
     padding: 20px 0;
     margin-bottom: 20px;
 }
-
+.p {
+    font-family: Arial, sans-serif;
+    color:#000;
+}
 header h1 {
     font-size: 2.5em;
 }
-
+.h2 {
+    font-size: 1.5em;
+    color: #000;
+}
 .sidebar {
     width: 250px;
     position: fixed;
     height: 100%;
-    background: #33cccc;
+    background: #8ec3f5;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding-top: 20px;
 }
@@ -61,18 +67,13 @@ main {
     padding: 20px;
 }
 
-.map-section {
-    margin-bottom: 20px;
-    background: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+
 
 #map {
     height: 400px;
     width: 100%;
     border: 1px solid #ccc;
+    
     background: #f0f0f0;
 }
 
@@ -90,12 +91,18 @@ main {
 }
 
 .alert-container p {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin: 5px 0;
     color: #333;
 }
 
 .alert-container img {
     max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
     margin-top: 10px;
     border-radius: 5px;

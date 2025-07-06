@@ -16,8 +16,10 @@ def login_page():
                 return redirect(url_for('cdrrmo_dashboard'))
             elif role == 'pnp':
                 return redirect(url_for('pnp_dashboard'))
+            elif role == 'bfp':
+                return redirect(url_for('bfp_dashboard'))
         return "Invalid credentials", 401
     return render_template('LogInPage.html')
 
-def chooese_login_type():
+def choose_login_type():
     return render_template('LoginType.html')

@@ -4,7 +4,7 @@ import os
 from AlertNow import app  # Import the Flask app instance from AlertNow.py
 
 def get_db_connection():
-    db_path = os.path.join(os.path.dirname(__file__), 'data', 'users_web.db')
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     if not os.path.exists(os.path.dirname(db_path)):
         os.makedirs(os.path.dirname(db_path))
     conn = sqlite3.connect(db_path)
@@ -15,7 +15,7 @@ def construct_unique_id(role, assigned_municipality, contact_no):
     """Constructs a unique identifier for CDRRMO or PNP users."""
     return f"{role}_{assigned_municipality}_{contact_no}"
 
-def signup_cdrmo_pnp():
+def signup_cdrrmo_pnp_bfp():
     if request.method == 'POST':
         role = request.form['role'].lower()  # Ensure role is lowercase (cdrrmo or pnp)
         assigned_municipality = request.form['municipality']
@@ -47,7 +47,7 @@ def signup_cdrmo_pnp():
             return f"Signup failed: {e}", 500
         finally:
             conn.close()
-    return render_template('CDRRMOPNPUp.html')
+    return render_template('CDRRMOPNPBFPUp.html')
 
 def signup_muna():
-    return render_template('CDRRMOPNPUp.html')
+    return render_template('CDRRMOPNPBFPUp.html')
