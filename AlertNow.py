@@ -75,6 +75,8 @@ from BFPAnalytics import (
     get_bfp_fire_duration
 )
 
+alerts = []
+
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
