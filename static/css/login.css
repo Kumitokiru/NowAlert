@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #8ec3f5;
+    background-color: #224380;
     color: #ffffff;
     line-height: 1.6;
 }
@@ -19,7 +19,7 @@ body {
 }
 
 .form2 {
-    background-color: #FFF8DC; 
+    background-color: #deeaee; 
     margin-top: 80px;
     display: block;
     margin-left: auto;
@@ -56,38 +56,41 @@ body {
 }
 
 .form2 button {
-    background-color: #003344;
-    color: #fffefe;
+    background-color: #66c2ff;
+    color: #000000;
     padding: 10px 20px;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 30%;
 }
 .form2 .button2 {
-    background-color: #003344;
-    color: #fffefe;
+    background-color: #66c2ff;
+    color: #000000;
     padding: 10px 20px;
     margin-top: 10px;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 45%;
 }
 .form2 .button3 {
-    background-color: #003344;
-    color: #fffefe;
+    background-color: #66c2ff;
+    color: #000000;
     padding: 10px 20px;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 30%;
 }
 .form2 .button4 {
-    background-color: #003344;
-    color: #fffefe;
+    background-color: #66c2ff;
+    color: #000000;
     padding: 10px 20px;
-    
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
