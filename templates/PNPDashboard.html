@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
     <style>
         #map { height: 600px; width: 100%; }
         #alert-container { max-height: 300px; overflow-y: auto; border: 1px solid red; padding: 10px; }
@@ -46,8 +45,8 @@
         </header>
         <main>
             <section class="map-section">
-                <h2 class="h2">{{ municipality }} Map</h2>
-                <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span> (Municipality: {{ municipality }})</p>
+                <h2 class="h2">PNP Map</h2>
+                <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span></p>
                 <div id="map"></div>
             </section>
             <section class="stats">
@@ -68,9 +67,8 @@
             const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
             const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
 
-            const Map = L.map('map').setView([lat, lon], 15);
+            const pnpMap = L.map('map').setView([lat, lon], 15);
 
-            // Satellite with Labels layer
             var satellite = L.tileLayer(tileLayerUrl, {
                 attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
@@ -78,20 +76,17 @@
                 zoomOffset: -1
             });
 
-            // OpenStreetMap layer
             var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             });
 
-            // Add satellite layer by default
-            satellite.addTo(Map);
+            satellite.addTo(pnpMap);
 
-            // Layer control
             var baseLayers = {
                 "Satellite with Labels": satellite,
                 "OpenStreetMap": osm
             };
-            L.control.layers(baseLayers).addTo(bMap);
+            L.control.layers(baseLayers).addTo(pnpMap);
 
             const socket = io('https://nowalert.onrender.com');
             socket.on('connect', () => console.log('Connected to SocketIO server'));
