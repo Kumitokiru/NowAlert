@@ -229,7 +229,7 @@ def login():
     if request.method == 'POST':
         barangay = request.form['barangay']
         contact_no = request.form['contact_no']
-        password = request.form['  password']
+        password = request.form['password']  # Fixed key name
         unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
         
         conn = get_db_connection()
