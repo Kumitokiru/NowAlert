@@ -772,9 +772,6 @@ def get_cdrrmo_analytics_data():
         logger.error(f"Error in get_cdrrmo_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
-    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    return render_template('CDRRMOAnalytics.html', municipality=municipality, current_datetime=current_datetime)
-
 @app.route('/api/cdrrmo_analytics_data', methods=['GET'])
 def get_cdrrmo_analytics_data():
     time_filter = request.args.get('time', 'weekly')
