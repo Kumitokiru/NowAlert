@@ -9,6 +9,7 @@ import joblib
 import cv2
 import numpy as np
 from collections import Counter, deque
+from alert_data import alerts
 from datetime import datetime
 import pytz
 import pickle
@@ -114,16 +115,18 @@ alerts = deque(maxlen=100)
 @socketio.on('responded')
 def handle_responded(data):
     timestamp = data.get('timestamp')
-    for alert in alerts:
-        if alert.get('timestamp') == timestamp:
-            alert['responded'] = True
-            break
+    lat = data.get('lat')
+    lon = data.get('lon')
+    barangay = data.get('barangay')
+    emergency_type = data.get('emergency_type')
+    app.logger.debug(f"Received response for alert at {timestamp} - Lat: {lat}, Lon: {lon}, Barangay: {barangay}, Type: {emergency_type}")
+    # Add logic to update alert status or notify other clients if needed
     socketio.emit('alert_responded', {
         'timestamp': timestamp,
-        'lat': data.get('lat'),
-        'lon': data.get('lon'),
-        'barangay': data.get('barangay'),
-        'emergency_type': data.get('emergency_type')
+        'lat': lat,
+        'lon': lon,
+        'barangay': barangay,
+        'emergency_type': emergency_type
     })
 
 # Load machine learning models with fallbacks
@@ -394,6 +397,31 @@ def logout():
     else:
         return redirect(url_for('login_cdrrmo_pnp_bfp'))
 
+
+def load_coords():
+    coords_path = os.path.join(app.root_path, 'assets', 'coords.txt')
+    alerts = []
+    try:
+        with open(coords_path, 'r') as f:
+            for line in f:
+                if line.strip():
+                    parts = line.strip().split(',')
+                    if len(parts) == 4:
+                        barangay, municipality, message, timestamp = parts
+                        alerts.append({
+                            "barangay": barangay.strip(),
+                            "municipality": municipality.strip(),
+                            "message": message.strip(),
+                            "timestamp": timestamp.strip()
+                        })
+    except FileNotFoundError:
+        print("Warning: coords.txt not found, using empty alerts.")
+    except Exception as e:
+        print(f"Error loading coords.txt: {e}")
+    return alerts
+
+alerts = deque(maxlen=100)
+
 @app.route('/send_alert', methods=['POST'])
 def send_alert():
     try:
@@ -463,6 +491,24 @@ def get_distribution():
     except Exception as e:
         logger.error(f"Error in get_distribution: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve distribution'}), 500
+
+@app.route('/add_alert', methods=['POST'])
+def add_alert():
+    data = request.form
+    new_alert = {
+        "barangay": data['barangay'],
+        "municipality": data['municipality'],
+        "message": data['message'],
+        "timestamp": data['timestamp']
+    }
+    alerts.append(new_alert)
+    return jsonify({"status": "success", "alert": new_alert})
+
+@app.route('/export_alerts')
+def export_alerts():
+    with open('alerts.json', 'w') as f:
+        json.dump(alerts, f, indent=4)
+    return jsonify({"status": "success", "file": "alerts.json"})
 
 @app.route('/api/analytics')
 def get_analytics():
