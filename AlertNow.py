@@ -365,13 +365,8 @@ def go_to_signup_type():
     return redirect(url_for('home'))
 
 @app.route('/choose_login_type', methods=['GET'])
-
 def choose_login_type():
-    logger.debug("Rendering LoginType.html")
-
-def chooese_login_type():
     app.logger.debug("Rendering LoginType.html")
-
     return render_template('LoginType.html')
 
 @app.route('/go_to_cdrrmopnpbfpin', methods=['GET'])
