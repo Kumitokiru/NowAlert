@@ -75,8 +75,6 @@ from BFPAnalytics import (
     get_bfp_fire_duration
 )
 
-alerts = []
-
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -429,7 +427,6 @@ def send_alert():
     try:
         data = request.get_json()
         if not data:
-            logger.error("No data provided in send_alert")
             return jsonify({'error': 'No data provided'}), 400
 
         lat = data.get('lat')
@@ -437,11 +434,14 @@ def send_alert():
         emergency_type = data.get('emergency_type', 'General')
         image = data.get('image')
         user_role = data.get('user_role', 'unknown')
-        image_upload_time = data.get('imageUploadTime', datetime.now(pytz.utc).isoformat())
-        upload_time = datetime.fromisoformat(image_upload_time.replace('Z', '+00:00'))
-        if (datetime.now(pytz.utc) - upload_time).total_seconds() > 30 * 60:
-            image = None
-            emergency_type = 'Not Specified'
+        image_upload_time = data.get('imageUploadTime', datetime.now().isoformat())
+
+        # Check image expiration
+        if image:
+            upload_time = datetime.fromisoformat(image_upload_time)
+            if (datetime.now() - upload_time).total_seconds() > 30 * 60:
+                image = None  # Expire image if older than 30 minutes
+                emergency_type = 'Not Specified'
 
         alert = {
             'lat': lat,
@@ -452,17 +452,16 @@ def send_alert():
             'house_no': data.get('house_no', 'N/A'),
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
-            'timestamp': datetime.now(pytz.timezone('America/Los_Angeles')).isoformat(),
-            'imageUploadTime': image_upload_time,
-            'responded': False
+            'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
+            'imageUploadTime': image_upload_time
         }
         alerts.append(alert)
         socketio.emit('new_alert', alert)
-        logger.debug("Alert sent successfully")
         return jsonify({'status': 'success', 'message': 'Alert sent'}), 200
     except Exception as e:
-        logger.error(f"Error processing send_alert: {e}", exc_info=True)
+        app.logger.error(f"Error processing send_alert: {e}", exc_info=True)
         return jsonify({'error': 'Internal server error'}), 500
+
 
 @app.route('/api/stats')
 def get_stats():
