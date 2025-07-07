@@ -772,13 +772,7 @@ def get_cdrrmo_analytics_data():
         logger.error(f"Error in get_cdrrmo_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
-@app.route('/api/cdrrmo_analytics_data', methods=['GET'])
-def get_cdrrmo_analytics_data():
-    time_filter = request.args.get('time', 'weekly')
-    trends = get_cdrrmo_trends(time_filter)
-    distribution = get_cdrrmo_distribution(time_filter)
-    causes = get_cdrrmo_causes(time_filter)
-    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
 
 
 @app.route('/pnp/analytics')
@@ -831,13 +825,7 @@ def get_pnp_analytics_data():
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
     return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime)
 
-@app.route('/api/pnp_analytics_data', methods=['GET'])
-def get_pnp_analytics_data():
-    time_filter = request.args.get('time', 'weekly')
-    trends = get_pnp_trends(time_filter)
-    distribution = get_pnp_distribution(time_filter)
-    causes = get_pnp_causes(time_filter)
-    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
 
 
 @app.route('/bfp/analytics')
