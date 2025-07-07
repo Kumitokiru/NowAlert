@@ -8,6 +8,7 @@
     <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
 </head>
 <body>
+    
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <header>PNP {{ municipality }} Reports</header>
     <p id="datetime">{{ current_datetime }}</p>
@@ -28,7 +29,7 @@
             <button class="tab" onclick="filterData('monthly')" data-time="monthly">Monthly</button>
             <button class="tab" onclick="filterData('yearly')" data-time="yearly">Yearly</button>
         </div>
-        <header id="letterR" class="section">Road Accident Reports</header>
+        <header class="header2" id="letterR" class="section">Road Accident Reports</header>
         <div id="roadSection" class="section">
             <div class="chart-container"><h2>Incident Trends</h2><canvas id="roadIncidentTrendsChart"></canvas></div>
             <div class="chart-container"><h2>Accident Distribution</h2><canvas id="roadAccidentDistributionChart"></canvas></div>
@@ -42,7 +43,7 @@
             <div class="chart-container"><h2>Injuries</h2><canvas id="roadInjuriesChart"></canvas></div>
             <div class="chart-container"><h2>Fatalities</h2><canvas id="roadFatalitiesChart"></canvas></div>
         </div>
-        <header id="letterF" class="section hidden">Fire Incident Reports</header>
+        <header class="header2" id="letterF" class="section hidden">Fire Incident Reports</header>
         <div id="fireSection" class="section hidden">
             <div class="chart-container"><h2>Incident Trends</h2><canvas id="fireIncidentTrendsChart"></canvas></div>
             <div class="chart-container"><h2>Incident Distribution</h2><canvas id="fireIncidentDistributionChart"></canvas></div>
