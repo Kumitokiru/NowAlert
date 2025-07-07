@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 import logging
 import ast
 import os
@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 from collections import Counter, deque
 from alert_data import alerts
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 import pickle
 import pandas as pd
@@ -112,22 +112,18 @@ logging.basicConfig(level=logging.DEBUG)
 alerts = deque(maxlen=100)
 
 # SocketIO event for alert response
-@socketio.on('responded')
-def handle_responded(data):
-    timestamp = data.get('timestamp')
-    lat = data.get('lat')
-    lon = data.get('lon')
-    barangay = data.get('barangay')
-    emergency_type = data.get('emergency_type')
-    app.logger.debug(f"Received response for alert at {timestamp} - Lat: {lat}, Lon: {lon}, Barangay: {barangay}, Type: {emergency_type}")
-    # Add logic to update alert status or notify other clients if needed
-    socketio.emit('alert_responded', {
-        'timestamp': timestamp,
-        'lat': lat,
-        'lon': lon,
-        'barangay': barangay,
-        'emergency_type': emergency_type
-    })
+@socketio.on('alert')
+def handle_alert(data):
+    try:
+        data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
+        logger.info(f"Alert received: {data}")
+        alerts.append(data)
+        emit('new_alert', data, broadcast=True)
+        logger.info("Broadcasted new_alert to all clients")
+        emit('alert_sent', {'status': 'success'}, room=request.sid)
+    except Exception as e:
+        logger.error(f"Error processing alert: {e}")
+        emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
 
 # Load machine learning models with fallbacks
 dt_classifier = None
