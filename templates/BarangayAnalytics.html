@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
 
-    
+    <title>Barangay Analytics - {{ barangay }}</title>
 
-    <title>BFP Analytics - {{ municipality }}</title>
+    
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,7 +14,7 @@
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <header class="h1">Barangay {{ barangay }} Reports</header>
-        <p class="p2" id="datetime">{{ current_datetime }}</p>
+        <p id="datetime">{{ current_datetime }}</p>
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <nav>
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Road Accident Section -->
-        <header id="letterR" class="section">Road Accident Reports</header>
+        <header class="header2" id="letterR" class="section">Road Accident Reports</header>
         <!-- Road Accident Section -->
         <div id="roadSection" class="section">
             <div class="chart-container"><h2>Incident Trends</h2><canvas id="roadIncidentTrendsChart"></canvas></div>
@@ -56,7 +56,7 @@
             <div class="chart-container"><h2>Fatalities</h2><canvas id="roadFatalitiesChart"></canvas></div>
         </div>
 
-        <header id="letterF" class="section hidden">Fire Incident Reports</header>
+        <header class="header2" id="letterF" class="section hidden">Fire Incident Reports</header>
         <!-- Fire Incident Section -->
         <div id="fireSection" class="section hidden">
             <div class="chart-container"><h2>Incident Trends</h2><canvas id="fireIncidentTrendsChart"></canvas></div>
