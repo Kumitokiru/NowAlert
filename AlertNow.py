@@ -17,9 +17,9 @@ import pandas as pd
 
 
 from BarangayDashboard import get_barangay_stats, get_latest_alert
-from CDRRMODashboard import get_cdrrmo_stats
-from PNPDashboard import get_pnp_stats
-from BFPDashboard import get_bfp_stats
+from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
+from PNPDashboard import get_pnp_stats, get_latest_alert
+from BFPDashboard import get_bfp_stats, get_latest_alert
 
 # Import analytics functions
 from BarangayAnalytics import (
