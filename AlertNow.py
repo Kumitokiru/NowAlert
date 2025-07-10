@@ -124,7 +124,7 @@ except Exception as e:
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
