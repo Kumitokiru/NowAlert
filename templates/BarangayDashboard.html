@@ -50,7 +50,7 @@
             </section>
             <section class="alerts" id="alerts">
                 <h2 class="h2">Live Alerts</h2>
-                <div class="alert-container"></div>
+                <div class="alert-container" id="alert-container"></div>
             </section>
         
         <div class="notification" id="notification"></div>
@@ -64,39 +64,33 @@
             const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
 
             const barangayMap = L.map('map').setView([lat, lon], 16);
-
-            // Satellite with Labels layer
             var satellite = L.tileLayer(tileLayerUrl, {
                 attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
                 tileSize: 512,
                 zoomOffset: -1
             });
-
-            // OpenStreetMap layer
             var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+
                 attribution: '© OpenStreetMap contributors'
             });
-
-            // Add satellite layer by default
             satellite.addTo(barangayMap);
-
-            // Layer control
             var baseLayers = {
                 "Satellite with Labels": satellite,
                 "OpenStreetMap": osm
             };
             L.control.layers(baseLayers).addTo(barangayMap);
-        
 
             const socket = io('https://nowalert.onrender.com');
             socket.on('connect', () => console.log('Connected to SocketIO server'));
             socket.on('new_alert', (data) => {
+                console.log('New alert received:', data);
                 updateUIWithAlert(data);
                 notifyAlert(data);
             });
 
-                function updateUIWithAlert(data) {
+            function updateUIWithAlert(data) {
                 const feed = document.getElementById('alert-container');
                 if (feed) {
                     const alertDiv = document.createElement('div');
@@ -107,7 +101,7 @@
                         displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     } catch (e) {
                         console.error('Error parsing timestamp:', e);
-                        displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
+                        displayTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     }
                     const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
                     alertDiv.innerHTML = `
@@ -122,14 +116,12 @@
                     const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
                         `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
                     ).openPopup();
-                    // Zoom only if there’s a single alert
                     if (feed.children.length === 1) {
-                        barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
+                        barangayMap.setView([data.lat, data.lon], 15);
                     }
                 }
 
                 updateStats();
-                updateCharts();
             }
 
             function notifyAlert(data) {
