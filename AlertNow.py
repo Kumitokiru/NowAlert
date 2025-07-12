@@ -584,17 +584,34 @@ def predict_image():
 
 @app.route('/barangay_dashboard')
 def barangay_dashboard():
+    # Retrieve unique_id from session
     unique_id = session.get('unique_id')
+    
+    # Check if unique_id exists
+    if not unique_id:
+        logger.warning("Unauthorized access to barangay_dashboard: unique_id not in session")
+        return redirect(url_for('login'))
+    
+    # Attempt to split unique_id safely
+    try:
+        barangay, contact_no = unique_id.split('_')
+    except (ValueError, AttributeError):
+        logger.error(f"Invalid unique_id format or None: {unique_id}")
+        return redirect(url_for('login'))
+    
+    # Execute SQL query with extracted values
     conn = get_db_connection()
     user = conn.execute('''
         SELECT * FROM users WHERE barangay = ? AND contact_no = ?
-    ''', (unique_id.split('_')[0], unique_id.split('_')[1])).fetchone()
+    ''', (barangay, contact_no)).fetchone()
     conn.close()
     
-    if not unique_id or not user or user['role'] != 'barangay':
+    # Validate user and role
+    if not user or user['role'] != 'barangay':
         logger.warning("Unauthorized access to barangay_dashboard. Session: %s, User: %s", session, user)
         return redirect(url_for('login'))
     
+    # Proceed with rendering the dashboard
     barangay = user['barangay']
     assigned_municipality = user['assigned_municipality'] or 'San Pablo City'
     latest_alert = get_latest_alert()
