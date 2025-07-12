@@ -982,6 +982,16 @@ def get_bfp_stats():
     return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
 
 
+@socketio.on('new_alert')
+def handle_new_alert(data):
+    logger.debug(f"Received new alert: {data}")
+    emit('new_alert', data, broadcast=True)
+
+@socketio.on('responded')
+def handle_response(data):
+    logger.debug(f"Received response: {data}")
+    emit('response', data, broadcast=True)
+
 if __name__ == '__main__':
     db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     try:
