@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+    <h3>Alert Now</h3>
     <div class="sidebar">
         <nav>
             <ul>
@@ -44,7 +45,7 @@
                 </select>
             </div>
         </header>
-        <main>
+        <main class="main-content" id="mainContent">
             <section class="map-section">
                 <h2 class="h2">Barangay {{ barangay }} Map</h2>
                 <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span> (Barangay: {{ barangay }})</p>
@@ -101,7 +102,7 @@
                 notifyAlert(data);
             });
 
-            function updateUIWithAlert(data) {
+                function updateUIWithAlert(data) {
                 const feed = document.getElementById('alert-container');
                 if (feed) {
                     const alertDiv = document.createElement('div');
@@ -112,7 +113,7 @@
                         displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     } catch (e) {
                         console.error('Error parsing timestamp:', e);
-                        displayTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
+                        displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     }
                     const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
                     alertDiv.innerHTML = `
@@ -127,22 +128,30 @@
                     const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
                         `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
                     ).openPopup();
+                    // Zoom only if there’s a single alert
                     if (feed.children.length === 1) {
-                        barangayMap.setView([data.lat, data.lon], 15);
+                        barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
                     }
                 }
 
                 updateStats();
+                updateCharts();
             }
 
             function notifyAlert(data) {
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    showBrowserNotification(data);
+                } else {
+                    showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
+                }
+            }
+
+            function showBrowserNotification(data) {
                 if ('Notification' in window && Notification.permission === 'granted') {
                     new Notification('New Alert', {
                         body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
                         icon: '/static/favicon.ico'
                     });
-                } else {
-                    showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
                 }
             }
 
