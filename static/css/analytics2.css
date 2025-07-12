@@ -5,7 +5,7 @@ body {
 }
 
 .sidebar {
-    width: 220px;
+    width: 240px;
     position: fixed;
     height: 81%;
     background: #deeaee;
@@ -44,7 +44,7 @@ body {
     position: fixed;           /* Fix the element to the viewport */
     top: 0;                    /* Anchor to the top */
     left: 0;                   /* Start from the left edge */
-    width: 99%;               /* Full width initially */
+    width: 98%;               /* Full width initially */
     height: 84%;               /* Match original height */
     overflow: auto;            /* Enable scrolling for overflow */
     padding: 20px;
@@ -106,31 +106,43 @@ header {
     margin-top: 10px;
     font-size: 24px;
     text-align: center;
+    color: #f4f4f4;
     margin-bottom: 15px;
-    color: #ffffff
     
 }
+.header2 {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 15px;
+    
+}
+header .h1 {
+    
+    font-size: 24px;
+    color: #000000; /* Ensure title is black */
+}
 
-header h1 {
+p {
+    margin: 16px 3px;
+    color: #ffffff; /* Ensure subtext is black */
+}
+.p2{
+    margin: 16px 3px;
+    color: #000000; /* Ensure subtext is black */
+}
+
+header h2 {
     
     font-size: 24px;
     color: #ffffff; /* Ensure title is black */
 }
 
-header p {
-    margin: 5px 0;
-    color: #e2e2e2; /* Ensure subtext is black */
-}
-header h2 {
-    
-    font-size: 24px;
-    color: #000; /* Ensure title is black */
-}
-
-header .p2 {
+header h3 {
     margin: 5px 0;
     
-    color: #000; /* Ensure subtext is black */
+    color: #fffafa; /* Ensure subtext is black */
 }
 
 .tabs {
@@ -142,7 +154,7 @@ header .p2 {
 .tab {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #ddd;
+    background-color: #66c2ff;
     border: none;
     margin: 0 5px;
 }
