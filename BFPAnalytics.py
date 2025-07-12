@@ -206,3 +206,4 @@ def get_bfp_fire_duration(time_filter, barangay=None):
     except Exception as e:
         logger.error(f"Error in get_bfp_fire_duration: {e}")
         return [0] * (24 if time_filter in ['today', 'daily'] else 7 if time_filter == 'weekly' else 15 if time_filter == 'monthly' else 12)
+
