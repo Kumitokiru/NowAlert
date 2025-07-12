@@ -15,6 +15,7 @@
     </style>
 </head>
 <body>
+    <h3>Alert Now</h3>
     <div class="sidebar">
         <nav>
             <ul>
@@ -30,6 +31,7 @@
     </div>
     <div class="dashboard">
         <header>
+            
             <h1>PNP {{ municipality }} Dashboard</h1>
             <div class="filters">
                 <select id="time-filter">
@@ -43,9 +45,9 @@
                 </select>
             </div>
         </header>
-        <main>
+        <main class="main-content" id="mainContent">
             <section class="map-section">
-                <h2 class="h2">{{ municipality }} Map</h2>
+                <h2 class="h2">PNP Map</h2>
                 <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span></p>
                 <div id="map"></div>
             </section>
