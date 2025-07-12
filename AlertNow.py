@@ -132,7 +132,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Initialize alerts deque
 alerts = deque(maxlen=100)
-
+alerts = []
 # SocketIO event for alert response
 @socketio.on('alert')
 def handle_alert(data):
