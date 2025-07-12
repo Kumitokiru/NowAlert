@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #224380;
+}
+
+.sidebar {
+    width: 240px;
+    position: fixed;
+    height: 81%;
+    background: #deeaee;
+    color:#000;
+    border-radius: 10px;
+    margin-top: 0;
+    margin-left: 20px;
+    
+    padding-top: 20px;
+    
+}
+
+.sidebar.open {
+    width: 220px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-weight: bold; /* Emphasize sidebar items */
+    text-transform: uppercase; /* Match all-caps style in mockup */
+}
+
+.main-content {
+    position: fixed;           /* Fix the element to the viewport */
+    top: 0;                    /* Anchor to the top */
+    left: 0;                   /* Start from the left edge */
+    width: 98%;               /* Full width initially */
+    height: 84%;               /* Match original height */
+    overflow: auto;            /* Enable scrolling for overflow */
+    padding: 20px;
+    width: 97%;
+    margin-top: 88px;  
+    margin-left: 20px;           /* Retain original padding */
+    background-color: #deeaee; /* Light gray background */
+    border: 1px solid #8ec3f5; /* Subtle border */
+    border-radius: 10px;       /* Rounded corners */
+    box-sizing: border-box;    /* Include padding and border in size */
+   transition: left 0.3s ease, width 0.3s ease;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.main-content::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari, and Opera */
+}
+
+/* Optional vertical "FIRE" labels */
+.main-content::before,
+.main-content::after {
+   
+    position: fixed;
+    right: 20px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    color: #000;
+    font-weight: bold;
+}
+.main-content::before {
+    
+    margin-left: 5px;
+    top: 50px;
+}
+.main-content::after {
+    bottom: 50px;
+    margin-left: 10px;
+}
+
+.main-content.shifted {
+    left: 250px;               /* Shift right when sidebar is open */
+    width: calc(97% - 250px); /* Adjust width to fit beside sidebar */
+}
+
+.toggle-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    
+    color: #000; /* Ensure hamburger icon is visible */
+}
+
+header {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 15px;
+    
+}
+.header2 {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 15px;
+    
+}
+header .h1 {
+    
+    font-size: 24px;
+    color: #000000; /* Ensure title is black */
+}
+
+p {
+    margin: 16px 3px;
+    color: #ffffff; /* Ensure subtext is black */
+}
+header h2 {
+    
+    font-size: 24px;
+    color: #ffffff; /* Ensure title is black */
+}
+
+header h3 {
+    margin: 5px 0;
+    
+    color: #fffafa; /* Ensure subtext is black */
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    margin: 0 5px;
+}
+
+.tab.active {
+    background-color: #33cccc;
+    color: white;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.chart-grid{
+    display: grid;
+    
+    
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.chart-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 430px;
+    margin-bottom: 20px;
+    border: 1px solid #33cccc;
+    padding: 10px;
+    background-color: white;
+}
+
+.chart-container h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    text-align: center;
+    color: #000; /* Ensure chart titles are black */
+}
+
+.hidden {
+    display: none;
+}
+
+#image-gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
