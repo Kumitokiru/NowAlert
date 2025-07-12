@@ -105,7 +105,7 @@ app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
 socketio = SocketIO(app, async_mode='gevent')
 
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
-socketio = SocketIO(app) # Set to eventlet for production
+socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*")
 logging.basicConfig(level=logging.DEBUG)
 
 
