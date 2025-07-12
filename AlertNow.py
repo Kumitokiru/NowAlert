@@ -90,37 +90,14 @@ except FileNotFoundError:
 except Exception as e:
     logger.error(f"Error loading road_accident.csv: {e}")
 
+fire_incident_df = pd.DataFrame()
 try:
-    dt_classifier = joblib.load('training/decision_tree_model.pkl')
-    logging.info("decision_tree_model.pkl loaded successfully.")
+    fire_incident_df = pd.read_csv('dataset/fire_incident.csv')
+    logger.info("Successfully loaded fire_incident.csv")
 except FileNotFoundError:
-    logging.error("decision_tree_model.pkl not found. ML prediction will not work.")
-    dt_classifier = None
+    logger.error("fire_incident.csv not found in dataset directory")
 except Exception as e:
-    logging.error(f"Error loading decision_tree_model.pkl: {e}")
-    dt_classifier = None
-
-# Load fire incident models
-try:
-    lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
-    rf_fire = joblib.load('training/Fire Models/rf_fire_incident.pkl')
-    svm_fire = joblib.load('training/Fire Models/svm_fire_incident.pkl')
-    xgb_fire = joblib.load('training/Fire Models/xgb_fire_incident.pkl')
-    logging.info("Fire incident models loaded successfully.")
-except Exception as e:
-    logging.error(f"Error loading fire incident models: {e}")
-    lr_fire = rf_fire = svm_fire = xgb_fire = None
-
-# Load road accident models
-try:
-    lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
-    rf_road = joblib.load('training/Road Models/rf_road_accident.pkl')
-    svm_road = joblib.load('training/Road Models/svm_road_accident.pkl')
-    xgb_road = joblib.load('training/Road Models/xgb_road_accident.pkl')
-    logging.info("Road accident models loaded successfully.")
-except Exception as e:
-    logging.error(f"Error loading road accident models: {e}")
-    lr_road = rf_road = svm_road = xgb_road = None
+    logger.error(f"Error loading fire_incident.csv: {e}")
 
 app = Flask(__name__)
 
@@ -150,7 +127,34 @@ def handle_alert(data):
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
 
 # Load machine learning models with fallbacks
+dt_classifier = None
+try:
+    dt_classifier = joblib.load('training/decision_tree_model.pkl')
+    logging.info("decision_tree_model.pkl loaded successfully.")
+except FileNotFoundError:
+    logging.error("decision_tree_model.pkl not found. ML prediction will not work.")
+except Exception as e:
+    logging.error(f"Error loading decision_tree_model.pkl: {e}")
 
+lr_fire = rf_fire = svm_fire = xgb_fire = None
+try:
+    lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
+    rf_fire = joblib.load('training/Fire Models/rf_fire_incident.pkl')
+    svm_fire = joblib.load('training/Fire Models/svm_fire_incident.pkl')
+    xgb_fire = joblib.load('training/Fire Models/xgb_fire_incident.pkl')
+    logging.info("Fire incident models loaded successfully.")
+except Exception as e:
+    logging.error(f"Error loading fire incident models: {e}")
+
+lr_road = rf_road = svm_road = xgb_road = None
+try:
+    lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
+    rf_road = joblib.load('training/Road Models/rf_road_accident.pkl')
+    svm_road = joblib.load('training/Road Models/svm_road_accident.pkl')
+    xgb_road = joblib.load('training/Road Models/xgb_road_accident.pkl')
+    logging.info("Road accident models loaded successfully.")
+except Exception as e:
+    logging.error(f"Error loading road accident models: {e}")
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'your-google-api-key-here')
 barangay_coords = {}
@@ -169,32 +173,11 @@ municipality_coords = {
 }
 
 def get_db_connection():
-    db_path = os.path.join('/database', 'users_web.db')
-    if not os.path.exists(db_path):
-        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
-
-# Utility routes
-@app.route('/export_users', methods=['GET'])
-def export_users():
-    if session.get('role') != 'admin':
-        return "Unauthorized", 403
-    conn = get_db_connection()
-    users = conn.execute('SELECT * FROM users').fetchall()
-    conn.close()
-    return jsonify([dict(user) for user in users])
-
-@app.route('/download_db', methods=['GET'])
-def download_db():
-    db_path = os.path.join('/database', 'users_web.db')
-    if not os.path.exists(db_path):
-        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
-    if not os.path.exists(db_path):
-        return "Database file not found", 404
-    app.logger.debug(f"Serving database from: {db_path}")
-    return send_file(db_path, as_attachment=True, download_name='users_web.db')
 
 def construct_unique_id(role, barangay=None, assigned_municipality=None, contact_no=None):
     if role == 'barangay':
