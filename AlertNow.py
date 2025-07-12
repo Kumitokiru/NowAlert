@@ -140,9 +140,9 @@ def handle_alert(data):
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
         logger.info(f"Alert received: {data}")
         alerts.append(data)
-        emit('new_alert', data, broadcast=True)
+        emit('new_alert', data, broadcast=True)  # Broadcast to all clients
         logger.info("Broadcasted new_alert to all clients")
-        emit('alert_sent', {'status': 'success'}, room=request.sid)
+        emit('alert_sent', {'status': 'success'}, room=request.sid)  # Confirmation to sender
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
