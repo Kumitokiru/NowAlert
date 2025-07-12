@@ -102,7 +102,7 @@ except Exception as e:
 app = Flask(__name__)
 
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode='gevent', cors_allowed_origins="*")
 
 app.secret_key = 'your-secret-key-here'  # Replace with a strong, secret key
 socketio = SocketIO(app) # Set to eventlet for production
