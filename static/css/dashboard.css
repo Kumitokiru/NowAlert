@@ -19,7 +19,7 @@ header {
 }
 .p {
     font-family: Arial, sans-serif;
-    color:#ffffff;
+    color:#000000;
 }
 header h1 {
     font-size: 2.5em;
@@ -27,7 +27,7 @@ header h1 {
 }
 .h2 {
     font-size: 1.5em;
-    color: #fafafa;
+    color: #000000;
 }
 h3 {
     font-size: 1.5em;
@@ -39,13 +39,21 @@ h3 {
     left: 80px; 
 }
 .sidebar {
-    width: 250px;
+    width: 240px;
     position: fixed;
-    height: 100%;
-    background-color: #224380;
+    height: 80%;
+    background: #deeaee;
+    color:#000;
+    border-radius: 10px;
+    margin-top: 108px;
+    margin-left: 20px;
     
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     padding-top: 20px;
+    
+}
+
+.sidebar.open {
+    width: 220px;
 }
 
 .sidebar nav ul {
@@ -53,11 +61,17 @@ h3 {
     padding: 0;
 }
 
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
 .sidebar nav ul li a {
-    display: block;
-    padding: 10px 20px;
-    color: #ffffff;
+    color: black;
     text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-weight: bold; /* Emphasize sidebar items */
+    text-transform: uppercase; /* Match all-caps style in mockup */
 }
 
 .sidebar nav ul li a span {
@@ -66,7 +80,6 @@ h3 {
 
 .sidebar nav ul li a:hover {
     background: #ddd;
-    color:#000000;   
 }
 
 .dashboard {
@@ -79,7 +92,29 @@ main {
     padding: 20px;
 }
 
+.main-content {
+    position: fixed;           /* Fix the element to the viewport */
+    top: 20px;                    /* Anchor to the top */
+    left: 260px;                   /* Start from the left edge */
+    width: 80%;               /* Full width initially */
+    height: 80%;               /* Match original height */
+    overflow: auto;            /* Enable scrolling for overflow */
+    padding: 20px;
+    
+    margin-top: 88px;  
+    margin-left: 20px;           /* Retain original padding */
+    background-color: #deeaee; /* Light gray background */
+    border: 1px solid #8ec3f5; /* Subtle border */
+    border-radius: 10px;       /* Rounded corners */
+    box-sizing: border-box;    /* Include padding and border in size */
+   transition: left 0.3s ease, width 0.3s ease;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
 
+.main-content::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari, and Opera */
+}
 
 #map {
     height: 100px;
