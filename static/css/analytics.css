@@ -99,16 +99,21 @@ body {
     top: 10px;
     left: 10px;
     
-    color: #000; /* Ensure hamburger icon is visible */
+    color: #ffffff; /* Ensure hamburger icon is visible */
 }
 
 header {
     margin-top: 10px;
     font-size: 24px;
     text-align: center;
-    color: #ffffff;
+    color: #fffdfd;
     margin-bottom: 15px;
     
+}
+header .h1 {
+    
+    font-size: 24px;
+    color: #000000; /* Ensure title is black */
 }
 .header2 {
     margin-top: 10px;
@@ -150,7 +155,7 @@ header h3 {
 .tab {
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #ddd;
+    background-color: #66c2ff;
     border: none;
     margin: 0 5px;
 }
