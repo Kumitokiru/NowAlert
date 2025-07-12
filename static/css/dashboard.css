@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #224380;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+header {
+    
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.p {
+    font-family: Arial, sans-serif;
+    color:#ffffff;
+}
+header h1 {
+    font-size: 2.5em;
+    
+}
+.h2 {
+    font-size: 1.5em;
+    color: #fafafa;
+}
+h3 {
+    font-size: 1.5em;
+    color: #ffffff;
+    
+    margin-top: 30px;
+    position: fixed;           /* Fix the element to the viewport */
+    top: 0;                    /* Anchor to the top */
+    left: 80px; 
+}
+.sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    background-color: #224380;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding-top: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sidebar nav ul li a span {
+    margin-right: 10px;
+}
+
+.sidebar nav ul li a:hover {
+    background: #ddd;
+    color:#000000;   
+}
+
+.dashboard {
+    margin-left: 260px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+
+
+#map {
+    height: 100px;
+    width: 100%;
+    border: 1px solid #ccc;
+    
+    background: #f0f0f0;
+}
+
+.alerts {
+    margin-bottom: 20px;
+}
+
+.alert-container div {
+    background-color: #33cccc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert-container p {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 5px 0;
+    color: #000000;
+}
+
+.alert-container img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+canvas {
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.filters {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filters select {
+    padding: 5px;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 200px;
+    }
+    .dashboard {
+        margin-left: 210px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    
+}
