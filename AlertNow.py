@@ -156,7 +156,7 @@ try:
 except Exception as e:
     logging.error(f"Error loading road accident models: {e}")
 
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'your-google-api-key-here')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
 try:
     with open(os.path.join('assets', 'coords.txt'), 'r') as f:
