@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BFP Dashboard</title>
+    <title>Barangay Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
     <style>
         #map { height: 600px; width: 100%; }
         #alert-container { max-height: 300px; overflow-y: auto; border: 1px solid red; padding: 10px; }
@@ -15,13 +16,14 @@
     </style>
 </head>
 <body>
+    <h3>Alert Now</h3>
     <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="{{ url_for('bfp_dashboard') }}"><span>🏠</span> Dashboard</a></li>
+                <li><a href="{{ url_for('barangay_dashboard') }}"><span>🏠</span> Dashboard</a></li>
                 <li><a href="#alerts"><span>🔔</span> Alerts</a></li>
                 <li><a href="#map"><span>📍</span> Map</a></li>
-                <li><a href="{{ url_for('bfp_analytics') }}"><span>📊</span> Manage Reports</a></li>
+                <li><a href="{{ url_for('barangay_analytics') }}"><span>📊</span> Manage Reports</a></li>
                 <li><a href="#notifications"><span>📣</span> Notifications</a></li>
                 <li><a href="#settings"><span>⚙️</span> Settings</a></li>
                 <li><a href="{{ url_for('logout') }}"><span>🚪</span> Log Out</a></li>
@@ -30,7 +32,7 @@
     </div>
     <div class="dashboard">
         <header>
-            <h1>BFP {{ municipality }} Dashboard</h1>
+            <h1>Barangay {{ barangay }} Dashboard</h1>
             <div class="filters">
                 <select id="time-filter">
                     <option value="24h">Last 24 Hours</option>
@@ -43,10 +45,10 @@
                 </select>
             </div>
         </header>
-        <main>
+        <main class="main-content" id="mainContent">
             <section class="map-section">
-                <h2 class="h2">{{ municipality }} Map</h2>
-                <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span></p>
+                <h2 class="h2">Barangay {{ barangay }} Map</h2>
+                <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span> (Barangay: {{ barangay }})</p>
                 <div id="map"></div>
             </section>
             <section class="stats">
@@ -67,8 +69,9 @@
             const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
             const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
 
-            const bfpMap = L.map('map').setView([lat, lon], 15);
+            const barangayMap = L.map('map').setView([lat, lon], 15);
 
+            // Satellite with Labels layer
             var satellite = L.tileLayer(tileLayerUrl, {
                 attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 maxZoom: 18,
@@ -76,17 +79,21 @@
                 zoomOffset: -1
             });
 
+            // OpenStreetMap layer
             var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             });
 
-            satellite.addTo(bfpMap);
+            // Add satellite layer by default
+            satellite.addTo(barangayMap);
 
+            // Layer control
             var baseLayers = {
                 "Satellite with Labels": satellite,
                 "OpenStreetMap": osm
             };
-            L.control.layers(baseLayers).addTo(bfpMap);
+            L.control.layers(baseLayers).addTo(barangayMap);
+        
 
             const socket = io('https://nowalert.onrender.com');
             socket.on('connect', () => console.log('Connected to SocketIO server'));
@@ -95,7 +102,7 @@
                 notifyAlert(data);
             });
 
-            function updateUIWithAlert(data) {
+                function updateUIWithAlert(data) {
                 const feed = document.getElementById('alert-container');
                 if (feed) {
                     const alertDiv = document.createElement('div');
@@ -106,7 +113,7 @@
                         displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     } catch (e) {
                         console.error('Error parsing timestamp:', e);
-                        displayTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
+                        displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     }
                     const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
                     alertDiv.innerHTML = `
@@ -118,30 +125,38 @@
                 }
 
                 if (data.lat && data.lon) {
-                    const marker = L.marker([data.lat, data.lon]).addTo(bfpMap).bindPopup(
+                    const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
                         `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
                     ).openPopup();
+                    // Zoom only if there’s a single alert
                     if (feed.children.length === 1) {
-                        bfpMap.setView([data.lat, data.lon], 15);
+                        barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
                     }
                 }
 
                 updateStats();
+                updateCharts();
             }
 
             function notifyAlert(data) {
                 if ('Notification' in window && Notification.permission === 'granted') {
-                    new Notification('New Alert', {
-                        body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
-                        icon: '/static/favicon.ico'
-                    });
+                    showBrowserNotification(data);
                 } else {
                     showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
                 }
             }
 
+            function showBrowserNotification(data) {
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    new Notification('New Alert', {
+                        body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
+                        icon: '/static/favicon.ico'
+                    });
+                }
+            }
+
             function updateStats() {
-                fetch('/api/stats?role=bfp')
+                fetch('/api/stats?role=barangay')
                     .then(res => res.json())
                     .then(stats => {
                         document.getElementById('total-incidents').textContent = stats.total || 0;
