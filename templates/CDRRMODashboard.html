@@ -45,7 +45,7 @@
         </header>
         <main>
             <section class="map-section">
-                <h2 class="h2">{{ municipality }} Map</h2>
+                <h2 class="h2">CDRRMO Map</h2>
                 <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span></p>
                 <div id="map"></div>
             </section>
@@ -67,7 +67,7 @@
             const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
             const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
 
-            const cdrrmoMap = L.map('map').setView([lat, lon], 14);
+            const cdrrmoMap = L.map('map').setView([lat, lon], 15);
 
             var satellite = L.tileLayer(tileLayerUrl, {
                 attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -166,3 +166,4 @@
     </script>
 </body>
 </html>
+
