@@ -126,7 +126,7 @@ app = Flask(__name__)
 
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
 
-socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*")
+socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
 logging.basicConfig(level=logging.DEBUG)
 
 
