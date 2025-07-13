@@ -109,12 +109,12 @@
             }
 
             if (data.lat && data.lon) {
-                const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
+                const marker = L.marker([data.lat, data.lon]).addTo(pnpMap).bindPopup(
                     `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
                 ).openPopup();
                 // Zoom only if there’s a single alert
                 if (feed.children.length === 1) {
-                    barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
+                    pnpMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
                 }
             }
 
