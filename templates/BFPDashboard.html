@@ -87,49 +87,57 @@
             });
 
             function updateUIWithAlert(data) {
-                const feed = document.getElementById('alert-container');
-                if (feed) {
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert-item';
-                    let displayTime;
-                    try {
-                        const serverTime = new Date(data.timestamp || Date.now());
-                        displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
-                    } catch (e) {
-                        console.error('Error parsing timestamp:', e);
-                        displayTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
-                    }
-                    const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
-                    alertDiv.innerHTML = `
-                        <p><strong>${address}</strong> - ${data.emergency_type || 'Not Specified'} at ${displayTime}</p>
-                        <button onclick="respondAlert('${data.timestamp}', ${data.lat || 0}, ${data.lon || 0}, '${data.barangay || 'N/A'}', '${data.emergency_type || 'Not Specified'}')">Respond</button>
-                        ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                    `;
-                    feed.prepend(alertDiv);
+            const feed = document.getElementById('alert-container');
+            if (feed) {
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert-item';
+                let displayTime;
+                try {
+                    const serverTime = new Date(data.timestamp || Date.now());
+                    displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
+                } catch (e) {
+                    console.error('Error parsing timestamp:', e);
+                    displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                 }
-
-                if (data.lat && data.lon) {
-                    const marker = L.marker([data.lat, data.lon]).addTo(bfpMap).bindPopup(
-                        `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
-                    ).openPopup();
-                    if (feed.children.length === 1) {
-                        bfpMap.setView([data.lat, data.lon], 15);
-                    }
-                }
-
-                updateStats();
+                const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
+                alertDiv.innerHTML = `
+                    <p><strong>${address}</strong> - ${data.emergency_type || 'Not Specified'} at ${displayTime}</p>
+                    <button onclick="respondAlert('${data.timestamp}', ${data.lat || 0}, ${data.lon || 0}, '${data.barangay || 'N/A'}', '${data.emergency_type || 'Not Specified'}')">Respond</button>
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                `;
+                feed.prepend(alertDiv);
             }
 
-            function notifyAlert(data) {
-                if ('Notification' in window && Notification.permission === 'granted') {
-                    new Notification('New Alert', {
-                        body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
-                        icon: '/static/favicon.ico'
-                    });
-                } else {
-                    showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
+            if (data.lat && data.lon) {
+                const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
+                    `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
+                ).openPopup();
+                // Zoom only if there’s a single alert
+                if (feed.children.length === 1) {
+                    barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
                 }
             }
+
+            updateStats();
+           
+        }
+
+        function notifyAlert(data) {
+            if ('Notification' in window && Notification.permission === 'granted') {
+                showBrowserNotification(data);
+            } else {
+                showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
+            }
+        }
+
+        function showBrowserNotification(data) {
+            if ('Notification' in window && Notification.permission === 'granted') {
+                new Notification('New Alert', {
+                    body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
+                    icon: '/static/favicon.ico'
+                });
+            }
+        }
 
             function updateStats() {
                 fetch('/api/stats?role=bfp')
