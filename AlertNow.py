@@ -54,43 +54,55 @@ from BFPAnalytics import (
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Check for image folders
+road_accident_folder = os.path.join(os.path.dirname(__file__), 'Road_Accident')
+fire_incident_folder = os.path.join(os.path.dirname(__file__), 'Fire_Incident')
+if not os.path.exists(road_accident_folder):
+    logger.warning(f"{road_accident_folder} folder not found.")
+if not os.path.exists(fire_incident_folder):
+    logger.warning(f"{fire_incident_folder} folder not found.")
+
 # Load datasets
 road_accident_df = pd.DataFrame()
 try:
-    road_accident_df = pd.read_csv('dataset/road_accident.csv')
+    road_accident_df = pd.read_csv(os.path.join(os.path.dirname(__file__), 'dataset', 'road_accident.csv'))
     logger.info("Successfully loaded road_accident.csv")
 except FileNotFoundError:
     logger.error("road_accident.csv not found in dataset directory")
 except Exception as e:
     logger.error(f"Error loading road_accident.csv: {e}")
 
+# Load decision tree model
+model_path = os.path.join(os.path.dirname(__file__), 'training', 'decision_tree_model.pkl')
 try:
-    dt_classifier = joblib.load('training/decision_tree_model.pkl')
+    dt_classifier = joblib.load(model_path)
     logging.info("decision_tree_model.pkl loaded successfully.")
 except FileNotFoundError:
-    logging.error("decision_tree_model.pkl not found. ML prediction will not work.")
+    logging.error(f"{model_path} not found. ML prediction will not work.")
     dt_classifier = None
 except Exception as e:
-    logging.error(f"Error loading decision_tree_model.pkl: {e}")
+    logging.error(f"Error loading {model_path}: {e}")
     dt_classifier = None
 
 # Load fire incident models
+fire_models_path = os.path.join(os.path.dirname(__file__), 'training', 'Fire Models')
 try:
-    lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
-    rf_fire = joblib.load('training/Fire Models/rf_fire_incident.pkl')
-    svm_fire = joblib.load('training/Fire Models/svm_fire_incident.pkl')
-    xgb_fire = joblib.load('training/Fire Models/xgb_fire_incident.pkl')
+    lr_fire = joblib.load(os.path.join(fire_models_path, 'lr_fire_incident.pkl'))
+    rf_fire = joblib.load(os.path.join(fire_models_path, 'rf_fire_incident.pkl'))
+    svm_fire = joblib.load(os.path.join(fire_models_path, 'svm_fire_incident.pkl'))
+    xgb_fire = joblib.load(os.path.join(fire_models_path, 'xgb_fire_incident.pkl'))
     logging.info("Fire incident models loaded successfully.")
 except Exception as e:
     logging.error(f"Error loading fire incident models: {e}")
     lr_fire = rf_fire = svm_fire = xgb_fire = None
 
 # Load road accident models
+road_models_path = os.path.join(os.path.dirname(__file__), 'training', 'Road Models')
 try:
-    lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
-    rf_road = joblib.load('training/Road Models/rf_road_accident.pkl')
-    svm_road = joblib.load('training/Road Models/svm_road_accident.pkl')
-    xgb_road = joblib.load('training/Road Models/xgb_road_accident.pkl')
+    lr_road = joblib.load(os.path.join(road_models_path, 'lr_road_accident.pkl'))
+    rf_road = joblib.load(os.path.join(road_models_path, 'rf_road_accident.pkl'))
+    svm_road = joblib.load(os.path.join(road_models_path, 'svm_road_accident.pkl'))
+    xgb_road = joblib.load(os.path.join(road_models_path, 'xgb_road_accident.pkl'))
     logging.info("Road accident models loaded successfully.")
 except Exception as e:
     logging.error(f"Error loading road accident models: {e}")
@@ -162,7 +174,7 @@ def handle_response(data):
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
 try:
-    with open(os.path.join('assets', 'coords.txt'), 'r') as f:
+    with open(os.path.join(os.path.dirname(__file__), 'assets', 'coords.txt'), 'r') as f:
         barangay_coords = ast.literal_eval(f.read())
 except FileNotFoundError:
     logging.error("coords.txt not found in assets directory. Using empty dict.")
@@ -274,7 +286,7 @@ def api_login():
     data = request.get_json()
     barangay = data.get('barangay')
     contact_no = data.get('contact_no')
-    password = data.get('password')
+    password\Gamma = data.get('password')
     unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
     
     conn = get_db_connection()
