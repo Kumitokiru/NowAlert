@@ -84,13 +84,13 @@
 
             socket.on('connect', () => {
                 console.log('Connected to SocketIO server');
-                socket.emit('join', { room: 'cdrrmo' });
+                socket.emit('join', { room: 'bfp' });
             });
 
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
                 const dashboardMunicipality = "{{ municipality }}";
-                const alertBaranay = data.user_barangay || 'Unknown';
+                const alertBarangay = data.user_barangay || 'Unknown';
                 let message;
                 if (dashboardMunicipality === alertBarangay) {
                     message = `Emergency at ${dashboardMunicipality}`;
@@ -109,7 +109,7 @@
                 feed.prepend(alertDiv);
                 alertElements.set(data.alert_id, alertDiv);
                 if (data.lat && data.lon) {
-                    L.marker([data.lat, data.lon]).addTo(cdrrmoMap)
+                    L.marker([data.lat, data.lon]).addTo(bfpMap)
                         .bindPopup(message)
                         .openPopup();
                 }
