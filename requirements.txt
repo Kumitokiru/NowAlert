@@ -1,13 +1,13 @@
 eventlet==0.36.0
-
-python-engineio==4.9.1
 Flask==3.0.3
 Flask-SocketIO==5.3.6
 gunicorn==22.0.0
 gevent==25.5.1
 joblib==1.4.2
+logger
 numpy==1.26.4
 opencv-python==4.10.0.84
+onnxruntime
 pandas==2.2.3
 psycopg2-binary==2.9.9
 pytz==2023.3
