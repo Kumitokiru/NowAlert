@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room
 import logging
 import ast
 import os
@@ -16,6 +16,7 @@ import pickle
 import pandas as pd
 import xgboost
 import uuid
+import onnxruntime as ort
 
 from BarangayDashboard import get_barangay_stats, get_latest_alert
 from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
@@ -29,21 +30,18 @@ from BarangayAnalytics import (
     get_barangay_driver_age, get_barangay_driver_gender, get_barangay_accident_type,
     get_barangay_injuries, get_barangay_fatalities
 )
-
 from CDRRMOAnalytics import (
     get_cdrrmo_trends, get_cdrrmo_distribution, get_cdrrmo_causes,
     get_cdrrmo_weather_impact, get_cdrrmo_road_conditions, get_cdrrmo_vehicle_types,
     get_cdrrmo_driver_age, get_cdrrmo_driver_gender, get_cdrrmo_accident_type,
     get_cdrrmo_injuries, get_cdrrmo_fatalities
 )
-
 from PNPAnalytics import (
     get_pnp_trends, get_pnp_distribution, get_pnp_causes,
     get_pnp_weather_impact, get_pnp_road_conditions, get_pnp_vehicle_types,
     get_pnp_driver_age, get_pnp_driver_gender, get_pnp_accident_type,
     get_pnp_injuries, get_pnp_fatalities
 )
-
 from BFPAnalytics import (
     get_bfp_trends, get_bfp_distribution, get_bfp_causes,
     get_bfp_weather_impact, get_bfp_property_types, get_bfp_fire_severity,
@@ -54,132 +52,149 @@ from BFPAnalytics import (
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Check for image folders
-road_accident_folder = os.path.join(os.path.dirname(__file__), 'Road_Accident')
-fire_incident_folder = os.path.join(os.path.dirname(__file__), 'Fire_Incident')
-if not os.path.exists(road_accident_folder):
-    logger.warning(f"{road_accident_folder} folder not found.")
-if not os.path.exists(fire_incident_folder):
-    logger.warning(f"{fire_incident_folder} folder not found.")
+app = Flask(__name__)
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
+socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
 
-# Load datasets
+# Load ONNX models
+try:
+    road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
+    fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
+    road_session = ort.InferenceSession(road_model_path)
+    fire_session = ort.InferenceSession(fire_model_path)
+    logger.info("ONNX models loaded successfully")
+except Exception as e:
+    logger.error(f"Failed to load ONNX models: {e}")
+    road_session = None
+    fire_session = None
+
+# Load other datasets and models (maintaining original code)
 road_accident_df = pd.DataFrame()
 try:
-    road_accident_df = pd.read_csv(os.path.join(os.path.dirname(__file__), 'dataset', 'road_accident.csv'))
+    road_accident_df = pd.read_csv('training/Road Models/lr_road_accident.pkl')
     logger.info("Successfully loaded road_accident.csv")
 except FileNotFoundError:
     logger.error("road_accident.csv not found in dataset directory")
 except Exception as e:
     logger.error(f"Error loading road_accident.csv: {e}")
 
-# Load decision tree model
-model_path = os.path.join(os.path.dirname(__file__), 'training', 'decision_tree_model.pkl')
 try:
-    dt_classifier = joblib.load(model_path)
-    logging.info("decision_tree_model.pkl loaded successfully.")
+    dt_classifier = joblib.load('training/decision_tree_model.pkl')
+    logger.info("decision_tree_model.pkl loaded successfully.")
 except FileNotFoundError:
-    logging.error(f"{model_path} not found. ML prediction will not work.")
+    logger.error("decision_tree_model.pkl not found.")
     dt_classifier = None
 except Exception as e:
-    logging.error(f"Error loading {model_path}: {e}")
+    logger.error(f"Error loading decision_tree_model.pkl: {e}")
     dt_classifier = None
 
-# Load fire incident models
-fire_models_path = os.path.join(os.path.dirname(__file__), 'training', 'Fire Models')
 try:
-    lr_fire = joblib.load(os.path.join(fire_models_path, 'lr_fire_incident.pkl'))
-    rf_fire = joblib.load(os.path.join(fire_models_path, 'rf_fire_incident.pkl'))
-    svm_fire = joblib.load(os.path.join(fire_models_path, 'svm_fire_incident.pkl'))
-    xgb_fire = joblib.load(os.path.join(fire_models_path, 'xgb_fire_incident.pkl'))
-    logging.info("Fire incident models loaded successfully.")
+    lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
+    rf_fire = joblib.load('training/Fire Models/rf_fire_incident.pkl')
+    svm_fire = joblib.load('training/Fire Models/svm_fire_incident.pkl')
+    xgb_fire = joblib.load('training/Fire Models/xgb_fire_incident.pkl')
+    logger.info("Fire incident models loaded successfully.")
 except Exception as e:
-    logging.error(f"Error loading fire incident models: {e}")
+    logger.error(f"Error loading fire incident models: {e}")
     lr_fire = rf_fire = svm_fire = xgb_fire = None
 
-# Load road accident models
-road_models_path = os.path.join(os.path.dirname(__file__), 'training', 'Road Models')
 try:
-    lr_road = joblib.load(os.path.join(road_models_path, 'lr_road_accident.pkl'))
-    rf_road = joblib.load(os.path.join(road_models_path, 'rf_road_accident.pkl'))
-    svm_road = joblib.load(os.path.join(road_models_path, 'svm_road_accident.pkl'))
-    xgb_road = joblib.load(os.path.join(road_models_path, 'xgb_road_accident.pkl'))
-    logging.info("Road accident models loaded successfully.")
+    lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
+    rf_road = joblib.load('training/Road Models/rf_road_accident.pkl')
+    svm_road = joblib.load('training/Road Models/svm_road_accident.pkl')
+    xgb_road = joblib.load('training/Road Models/xgb_road_accident.pkl')
+    logger.info("Road accident models loaded successfully.")
 except Exception as e:
-    logging.error(f"Error loading road accident models: {e}")
+    logger.error(f"Error loading road accident models: {e}")
     lr_road = rf_road = svm_road = xgb_road = None
 
-app = Flask(__name__)
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
-socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
-
-# Initialize alerts list
-alerts = []
-
-# Function to classify images
-def classify_image(base64_image):
-    if dt_classifier is None:
-        logger.error("Decision tree classifier not loaded")
-        return 'unknown'
+# Prediction function using ONNX models
+def predict_emergency_type(base64_image):
+    if road_session is None or fire_session is None:
+        return 'unknown', 0.0
     try:
         import base64
         img_data = base64.b64decode(base64_image)
         nparr = np.frombuffer(img_data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         if img is None:
             logger.error("Failed to decode image")
-            return 'unknown'
-        img = cv2.resize(img, (64, 64))
-        features = img.flatten().reshape(1, -1)
-        prediction = dt_classifier.predict(features)[0]
-        logger.debug(f"Image classified as: {prediction}")
-        return prediction
-    except Exception as e:
-        logger.error(f"Image classification failed: {e}")
-        return 'unknown'
+            return 'unknown', 0.0
+        img = cv2.resize(img, (224, 224))  # Adjust size as per model input
+        img = img / 255.0  # Normalize
+        img = np.transpose(img, (2, 0, 1))  # Change to channel-first
+        img = np.expand_dims(img, axis=0).astype(np.float32)  # Add batch dimension
 
+        # Road accident prediction
+        road_input_name = road_session.get_inputs()[0].name
+        road_output = road_session.run(None, {road_input_name: img})
+        prob_road = float(road_output[0][0])
+
+        # Fire incident prediction
+        fire_input_name = fire_session.get_inputs()[0].name
+        fire_output = fire_session.run(None, {fire_input_name: img})
+        prob_fire = float(fire_output[0][0])
+
+        if prob_road > prob_fire:
+            return 'road_accident', prob_road
+        else:
+            return 'fire_incident', prob_fire
+    except Exception as e:
+        logger.error(f"Prediction failed: {e}")
+        return 'unknown', 0.0
+
+# SocketIO event for handling alerts
 @socketio.on('alert')
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        data['alert_id'] = str(uuid.uuid4())  # Unique ID for each alert
+        data['alert_id'] = str(uuid.uuid4())
         data['user_barangay'] = data.get('barangay', 'Unknown')
-        
-        # Classify image if present
+
         if data.get('image'):
-            prediction = classify_image(data['image'])
-            if prediction not in ['road_accident', 'fire_incident']:
-                data['image'] = None  # Remove image if not road accident or fire incident
-        
+            predicted_type, probability = predict_emergency_type(data['image'])
+            data['predicted_type'] = predicted_type
+            data['probability'] = float(probability)
+        else:
+            data['predicted_type'] = 'unknown'
+            data['probability'] = 0.0
+
         logger.info(f"Alert received: {data}")
         alerts.append(data)
-        emit('new_alert', data, broadcast=True)
-        logger.info("Broadcasted new_alert to all clients")
+
+        # Route alerts based on prediction
+        if data['predicted_type'] == 'road_accident':
+            rooms = ['barangay', 'cdrrmo', 'pnp']
+        elif data['predicted_type'] == 'fire_incident':
+            rooms = ['barangay', 'bfp']
+        else:
+            rooms = ['barangay']  # Default to barangay if unknown
+
+        for room in rooms:
+            emit('new_alert', data, room=room)
+        
+        logger.info(f"Alert sent to rooms: {rooms}")
         emit('alert_sent', {'status': 'success'}, room=request.sid)
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
 
-@socketio.on('response_submitted')
-def handle_response(data):
-    try:
-        alert_id = data.get('alert_id')
-        if alert_id:
-            global alerts
-            alerts = [a for a in alerts if a.get('alert_id') != alert_id]
-            emit('alert_removed', {'alert_id': alert_id}, broadcast=True)
-            logger.info(f"Alert {alert_id} removed due to response")
-    except Exception as e:
-        logger.error(f"Error handling response: {e}")
+@socketio.on('join')
+def handle_join(data):
+    room = data.get('room')
+    if room:
+        join_room(room)
+        logger.info(f"Client joined room: {room}")
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
 try:
-    with open(os.path.join(os.path.dirname(__file__), 'assets', 'coords.txt'), 'r') as f:
+    with open(os.path.join('assets', 'coords.txt'), 'r') as f:
         barangay_coords = ast.literal_eval(f.read())
 except FileNotFoundError:
-    logging.error("coords.txt not found in assets directory. Using empty dict.")
+    logger.error("coords.txt not found in assets directory.")
 except Exception as e:
-    logging.error(f"Error loading coords.txt: {e}. Using empty dict.")
+    logger.error(f"Error loading coords.txt: {e}")
 
 municipality_coords = {
     "San Pablo City": {"lat": 14.0642, "lon": 121.3233},
@@ -194,6 +209,7 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+# Utility routes
 @app.route('/export_users', methods=['GET'])
 def export_users():
     if session.get('role') != 'admin':
@@ -268,7 +284,7 @@ def login():
         
         conn = get_db_connection()
         user = conn.execute('''
-            SELECT * FROM users WHERE Barangay = ? AND contact_no = ? AND password = ?
+            SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND password = ?
         ''', (barangay, contact_no, password)).fetchone()
         conn.close()
         
@@ -435,6 +451,9 @@ def load_coords():
         print(f"Error loading coords.txt: {e}")
     return alerts
 
+alerts = deque(maxlen=100)
+alerts = []
+
 @app.route('/send_alert', methods=['POST'])
 def send_alert():
     try:
@@ -465,16 +484,8 @@ def send_alert():
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
             'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
-            'imageUploadTime': image_upload_time,
-            'alert_id': str(uuid.uuid4()),
-            'user_barangay': data.get('barangay', 'Unknown')
+            'imageUploadTime': image_upload_time
         }
-        
-        if alert['image']:
-            prediction = classify_image(alert['image'])
-            if prediction not in ['road_accident', 'fire_incident']:
-                alert['image'] = None
-
         alerts.append(alert)
         socketio.emit('new_alert', alert)
         return jsonify({'status': 'success', 'message': 'Alert sent'}), 200
@@ -527,7 +538,7 @@ def add_alert():
 @app.route('/export_alerts')
 def export_alerts():
     with open('alerts.json', 'w') as f:
-        json.dump(alerts, f, indent=4)
+        json.dump(list(alerts), f, indent=4)
     return jsonify({"status": "success", "file": "alerts.json"})
 
 @app.route('/api/analytics')
