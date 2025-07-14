@@ -286,7 +286,7 @@ def api_login():
     data = request.get_json()
     barangay = data.get('barangay')
     contact_no = data.get('contact_no')
-    password\Gamma = data.get('password')
+    password = data.get('password')
     unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
     
     conn = get_db_connection()
