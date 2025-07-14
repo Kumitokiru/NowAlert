@@ -81,10 +81,44 @@
 
             const socket = io('https://nowalert.onrender.com');
             socket.on('connect', () => console.log('Connected to SocketIO server'));
+            const alertElements = new Map();
+
+            socket.on('connect', () => console.log('Connected to SocketIO server'));
+
             socket.on('new_alert', (data) => {
-                updateUIWithAlert(data);
-                notifyAlert(data);
+                console.log('Alert received:', data);
+                const dashboardMunicipality = "{{ municipality }}";
+                const alertBarangay = data.user_barangay || 'Unknown';
+                const message = `Emergency at ${dashboardMunicipality}, from ${alertBarangay}`;
+
+                const feed = document.getElementById('alert-container');
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert-item';
+                alertDiv.dataset.alertId = data.alert_id;
+                alertDiv.innerHTML = `
+                    <p>${message}</p>
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                `;
+                feed.prepend(alertDiv);
+                alertElements.set(data.alert_id, alertDiv);
+
+                if (data.lat && data.lon) {
+                    L.marker([data.lat, data.lon]).addTo(pnpMap)
+                        .bindPopup(message)
+                        .openPopup();
+                }
             });
+
+            socket.on('alert_removed', (data) => {
+                const alertId = data.alert_id;
+                const alertDiv = alertElements.get(alertId);
+                if (alertDiv) {
+                    alertDiv.remove();
+                    alertElements.delete(alertId);
+                    console.log(`Alert ${alertId} removed from UI`);
+                }
+            });
+        });
 
             function updateUIWithAlert(data) {
             const feed = document.getElementById('alert-container');
