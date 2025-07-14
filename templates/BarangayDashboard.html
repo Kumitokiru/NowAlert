@@ -49,7 +49,7 @@
                 
             
             <section class="stats">
-                <sectioid id="alerts">
+                <section id="alerts">
             <h2 class="h2">Live Alerts</h2>
                 <div id="alert-container"></div>
                 </section>
@@ -92,17 +92,23 @@
         
 
             const socket = io('https://nowalert.onrender.com');
-            const alertElements = new Map(); // Store alert elements by ID
+            const alertElements = new Map();
 
-            socket.on('connect', () => console.log('Connected to SocketIO server'));
+            socket.on('connect', () => {
+                console.log('Connected to SocketIO server');
+                socket.emit('join', { room: 'barangay' });
+            });
 
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
                 const dashboardBarangay = "{{ barangay }}";
                 const alertBarangay = data.user_barangay || 'Unknown';
-                const message = `Emergency at ${dashboardBarangay}, from ${alertBarangay}`;
-
-                // Add to Live Alerts
+                let message;
+                if (dashboardBarangay === alertBarangay) {
+                    message = `Emergency at ${dashboardBarangay}`;
+                } else {
+                    message = `Emergency at ${dashboardBarangay}, Resident From ${alertBarangay}`;
+                }
                 const feed = document.getElementById('alert-container');
                 const alertDiv = document.createElement('div');
                 alertDiv.className = 'alert-item';
@@ -110,11 +116,10 @@
                 alertDiv.innerHTML = `
                     <p>${message}</p>
                     ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    <p>Predicted Emergency: ${data.predicted_type.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase())} (${data.probability.toFixed(2)})</p>
                 `;
                 feed.prepend(alertDiv);
                 alertElements.set(data.alert_id, alertDiv);
-
-                // Add to Map
                 if (data.lat && data.lon) {
                     L.marker([data.lat, data.lon]).addTo(barangayMap)
                         .bindPopup(message)
