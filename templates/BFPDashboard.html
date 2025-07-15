@@ -80,23 +80,14 @@
             L.control.layers(baseLayers).addTo(bfpMap);
 
             const socket = io('https://nowalert.onrender.com');
-            const alertElements = new Map();
-
             socket.on('connect', () => {
-                console.log('Connected to SocketIO server');
-                socket.emit('join', { room: 'bfp' });
+            console.log('Connected to server');
+            socket.emit('join', { room: 'bfp' });
             });
-
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
-                const dashboardMunicipality = "{{ municipality }}";
                 const alertBarangay = data.user_barangay || 'Unknown';
-                let message;
-                if (dashboardMunicipality === alertBarangay) {
-                    message = `Emergency at ${dashboardMunicipality}`;
-                } else {
-                    message = `Emergency at ${dashboardMunicipality}, Resident From ${alertBarangay}`;
-                }
+                const message = `Emergency at ${alertBarangay}`;
                 const feed = document.getElementById('alert-container');
                 const alertDiv = document.createElement('div');
                 alertDiv.className = 'alert-item';
@@ -107,12 +98,6 @@
                     <p>Predicted Emergency: ${data.predicted_type.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase())} (${data.probability.toFixed(2)})</p>
                 `;
                 feed.prepend(alertDiv);
-                alertElements.set(data.alert_id, alertDiv);
-                if (data.lat && data.lon) {
-                    L.marker([data.lat, data.lon]).addTo(bfpMap)
-                        .bindPopup(message)
-                        .openPopup();
-                }
             });
 
             socket.on('alert_removed', (data) => {
