@@ -92,33 +92,39 @@
             const socket = io('https://nowalert.onrender.com');
             const alertElements = new Map(); // Store alert elements by ID
 
-            socket.on('connect', () => console.log('Connected to SocketIO server'));
+            
 
-            socket.on('new_alert', (data) => {
-                console.log('Alert received:', data);
-                const dashboardBarangay = "{{ barangay }}";
-                const alertBarangay = data.user_barangay || 'Unknown';
-                const message = `Emergency at ${dashboardBarangay}, Resident from ${alertBarangay}`;
+            socket.on('connect', () => {
+            socket.emit('join_room', 'barangay');
+            console.log('Joined barangay room');
+        });
 
-                // Add to Live Alerts
-                const feed = document.getElementById('alert-container');
-                const alertDiv = document.createElement('div');
-                alertDiv.className = 'alert-item';
-                alertDiv.dataset.alertId = data.alert_id;
-                alertDiv.innerHTML = `
-                    <p>${message}</p>
-                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                `;
-                feed.prepend(alertDiv);
-                alertElements.set(data.alert_id, alertDiv);
-
-                // Add to Map
-                if (data.lat && data.lon) {
-                    L.marker([data.lat, data.lon]).addTo(barangayMap)
-                        .bindPopup(message)
-                        .openPopup();
-                }
-            });
+        socket.on('new_alert', (data) => {
+            console.log('Alert received:', data);
+            const dashboardBarangay = "{{ barangay }}";
+            const alertBarangay = data.user_barangay || 'Unknown';
+            let message;
+            if (dashboardBarangay === alertBarangay) {
+                message = `Emergency at ${dashboardBarangay}`;
+            } else {
+                message = `Emergency at ${dashboardBarangay}, Resident From ${alertBarangay}`;
+            }
+            const feed = document.getElementById('alert-container');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert-item';
+            alertDiv.dataset.alertId = data.alert_id;
+            alertDiv.innerHTML = `
+                <p>${message}</p>
+                ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                <p>Predicted Emergency: ${data.predicted_emergency} (Accuracy: ${(data.accuracy * 100).toFixed(2)}%)</p>
+            `;
+            feed.prepend(alertDiv);
+            if (data.lat && data.lon) {
+                L.marker([data.lat, data.lon]).addTo(barangayMap)
+                    .bindPopup(message)
+                    .openPopup();
+            }
+        });
 
             socket.on('alert_removed', (data) => {
                 const alertId = data.alert_id;
