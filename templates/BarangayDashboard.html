@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Barangay Dashboard</title>
+    <title>Barangay {{ barangay }} Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        
-        
-        .alert-item { margin-bottom: 10px; padding: 10px; border-radius: 5px; color: #333; }
-        .notification { position: fixed; width: 50px; bottom: 10px; right: 10px; }
+        #map { height: 400px; width: 100%; }
+        #alert-container { max-height: 300px; overflow-y: auto; border: 1px solid red; padding: 10px; }
+        .alert-item { margin-bottom: 10px; padding: 10px; background-color: #f0f0f0; border-radius: 5px; color: #333; }
     </style>
 </head>
 <body>
@@ -21,10 +20,6 @@
             <ul>
                 <li><a href="{{ url_for('barangay_dashboard') }}"><span>🏠</span> Dashboard</a></li>
                 <li><a href="#alerts"><span>🔔</span> Alerts</a></li>
-                <li><a href="#map"><span>📍</span> Map</a></li>
-                <li><a href="{{ url_for('barangay_analytics') }}"><span>📊</span> Manage Reports</a></li>
-                <li><a href="#notifications"><span>📣</span> Notifications</a></li>
-                <li><a href="#settings"><span>⚙️</span> Settings</a></li>
                 <li><a href="{{ url_for('logout') }}"><span>🚪</span> Log Out</a></li>
             </ul>
         </nav>
@@ -32,147 +27,67 @@
     <div class="dashboard">
         <header>
             <h1>Barangay {{ barangay }} Dashboard</h1>
-            
-            <div class="filters">
-                
-            </div>
         </header>
-    </div>
-        <main class="main-content">
-            
-                <h2 class="h2">Barangay {{ barangay }} Map</h2>
-                <p class="p">Coordinates: <span id="map-coordinates">{{ lat_coord }}, {{ lon_coord }}</span> (Barangay: {{ barangay }})</p>
+        <main>
+            <section class="map-section">
+                <h2>Live Image Map Location</h2>
                 <div id="map"></div>
-                
-                <p class="p">Total Incidents: <span id="total-incidents">{{ stats.total() if stats else 0 }}</span></p>
-                <p class="p">Critical Incidents: <span id="critical-incidents">0</span></p>
-                
-            
-            <section class="stats">
-                <sectioid id="alerts">
-            <h2 class="h2">Live Alerts</h2>
-                <div id="alert-container"></div>
-                </section>
             </section>
-        
-        <div id="notification"></div>
-    </main>
-    
+            <section class="alerts" id="alerts">
+                <h2>Live Alerts</h2>
+                <div id="alert-container"></div>
+            </section>
+        </main>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const lat = {{ lat_coord|default(14.0549) }};
-            const lon = {{ lon_coord|default(121.3013) }};
-            const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
-            const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
-
-            const barangayMap = L.map('map').setView([lat, lon], 16);
-
-            // Satellite with Labels layer
-            var satellite = L.tileLayer(tileLayerUrl, {
-                attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                maxZoom: 18,
-                tileSize: 512,
-                zoomOffset: -1
-            });
-
-            // OpenStreetMap layer
-            var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            const lat = {{ lat_coord|default(14.5995) }};
+            const lon = {{ lon_coord|default(120.9842) }};
+            const barangayMap = L.map('map').setView([lat, lon], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
-            });
+            }).addTo(barangayMap);
 
-            // Add satellite layer by default
-            satellite.addTo(barangayMap);
+            const socket = io('http://localhost:5000'); // Update to production URL
+            const alertElements = new Map(); // Store alert elements by ID
 
-            // Layer control
-            var baseLayers = {
-                "Satellite with Labels": satellite,
-                "OpenStreetMap": osm
-            };
-            L.control.layers(baseLayers).addTo(barangayMap);
-        
-
-            const socket = io('https://nowalert.onrender.com');
             socket.on('connect', () => console.log('Connected to SocketIO server'));
-            socket.on('new_alert', (data) => {
-                updateUIWithAlert(data);
-                notifyAlert(data);
-            });
 
-                function updateUIWithAlert(data) {
-            const feed = document.getElementById('alert-container');
-            if (feed) {
+            socket.on('new_alert', (data) => {
+                console.log('Alert received:', data);
+                const dashboardBarangay = "{{ barangay }}";
+                const alertBarangay = data.user_barangay || 'Unknown';
+                const message = `Emergency at ${dashboardBarangay}, from ${alertBarangay}`;
+
+                // Add to Live Alerts
+                const feed = document.getElementById('alert-container');
                 const alertDiv = document.createElement('div');
                 alertDiv.className = 'alert-item';
-                let displayTime;
-                try {
-                    const serverTime = new Date(data.timestamp || Date.now());
-                    displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
-                } catch (e) {
-                    console.error('Error parsing timestamp:', e);
-                    displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
-                }
-                const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
+                alertDiv.dataset.alertId = data.alert_id;
                 alertDiv.innerHTML = `
-                    <p><strong>${address}</strong> - ${data.emergency_type || 'Not Specified'} at ${displayTime}</p>
-                    <button onclick="respondAlert('${data.timestamp}', ${data.lat || 0}, ${data.lon || 0}, '${data.barangay || 'N/A'}', '${data.emergency_type || 'Not Specified'}')">Respond</button>
+                    <p>${message}</p>
                     ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
                 `;
                 feed.prepend(alertDiv);
-            }
+                alertElements.set(data.alert_id, alertDiv);
 
-            if (data.lat && data.lon) {
-                const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
-                    `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
-                ).openPopup();
-                // Zoom only if there’s a single alert
-                if (feed.children.length === 1) {
-                    barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
+                // Add to Map
+                if (data.lat && data.lon) {
+                    L.marker([data.lat, data.lon]).addTo(barangayMap)
+                        .bindPopup(message)
+                        .openPopup();
                 }
-            }
+            });
 
-            updateStats();
-           
-        }
-
-        function notifyAlert(data) {
-            if ('Notification' in window && Notification.permission === 'granted') {
-                showBrowserNotification(data);
-            } else {
-                showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
-            }
-        }
-
-        function showBrowserNotification(data) {
-            if ('Notification' in window && Notification.permission === 'granted') {
-                new Notification('New Alert', {
-                    body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
-                    icon: '/static/favicon.ico'
-                });
-            }
-        }
-
-            function updateStats() {
-                fetch('/api/stats?role=barangay')
-                    .then(res => res.json())
-                    .then(stats => {
-                        document.getElementById('total-incidents').textContent = stats.total || 0;
-                        document.getElementById('critical-incidents').textContent = stats.critical || 0;
-                    });
-            }
-
-            window.respondAlert = function(timestamp, lat, lon, barangay, type) {
-                socket.emit('responded', { timestamp, lat, lon, barangay, emergency_type: type });
-                alert('Response sent for alert at ' + timestamp);
-            };
-
-            function showNotification(message) {
-                const notification = document.getElementById('notification');
-                notification.textContent = message;
-                notification.style.display = 'block';
-                setTimeout(() => notification.style.display = 'none', 5000);
-            }
-
-            updateStats();
+            socket.on('alert_removed', (data) => {
+                const alertId = data.alert_id;
+                const alertDiv = alertElements.get(alertId);
+                if (alertDiv) {
+                    alertDiv.remove();
+                    alertElements.delete(alertId);
+                    console.log(`Alert ${alertId} removed from UI`);
+                }
+            });
         });
     </script>
 </body>
