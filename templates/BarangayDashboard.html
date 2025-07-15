@@ -49,7 +49,7 @@
                 
             
             <section class="stats">
-                <section id="alerts">
+                <sectioid id="alerts">
             <h2 class="h2">Live Alerts</h2>
                 <div id="alert-container"></div>
                 </section>
@@ -92,52 +92,13 @@
         
 
             const socket = io('https://nowalert.onrender.com');
-            const alertElements = new Map();
-
-            socket.on('connect', () => {
-            console.log('Connected to server');
-            socket.emit('join', { room: 'barangay' });
-        });
-        socket.on('new_alert', (data) => {
-            console.log('Alert received:', data);
-            const dashboardBarangay = "{{ barangay }}";
-            const alertBarangay = data.user_barangay || 'Unknown';
-            let message;
-            if (dashboardBarangay === alertBarangay) {
-                message = `Emergency at ${alertBarangay}`;
-            } else {
-                message = `Emergency at ${alertBarangay}, Resident From ${data.user_barangay}`;
-            }
-            const feed = document.getElementById('alert-container');
-            const alertDiv = document.createElement('div');
-            alertDiv.className = 'alert-item';
-            alertDiv.dataset.alertId = data.alert_id;
-            alertDiv.innerHTML = `
-                <p>${message}</p>
-                ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                <p>Predicted Emergency: ${data.predicted_type.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase())} (${data.probability.toFixed(2)})</p>
-            `;
-                feed.prepend(alertDiv);
-                alertElements.set(data.alert_id, alertDiv);
-                if (data.lat && data.lon) {
-                    L.marker([data.lat, data.lon]).addTo(barangayMap)
-                        .bindPopup(message)
-                        .openPopup();
-                }
+            socket.on('connect', () => console.log('Connected to SocketIO server'));
+            socket.on('new_alert', (data) => {
+                updateUIWithAlert(data);
+                notifyAlert(data);
             });
 
-            socket.on('alert_removed', (data) => {
-                const alertId = data.alert_id;
-                const alertDiv = alertElements.get(alertId);
-                if (alertDiv) {
-                    alertDiv.remove();
-                    alertElements.delete(alertId);
-                    console.log(`Alert ${alertId} removed from UI`);
-                }
-            });
-        
-
-            function updateUIWithAlert(data) {
+                function updateUIWithAlert(data) {
             const feed = document.getElementById('alert-container');
             if (feed) {
                 const alertDiv = document.createElement('div');
