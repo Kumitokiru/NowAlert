@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIO, emit, join_room
+from flask_socketio import SocketIO, emit
 import logging
 import ast
 import os
@@ -16,8 +16,6 @@ import pickle
 import pandas as pd
 import xgboost
 import uuid
-import onnxruntime as ort
-import base64
 
 from BarangayDashboard import get_barangay_stats, get_latest_alert
 from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
@@ -31,18 +29,21 @@ from BarangayAnalytics import (
     get_barangay_driver_age, get_barangay_driver_gender, get_barangay_accident_type,
     get_barangay_injuries, get_barangay_fatalities
 )
+
 from CDRRMOAnalytics import (
     get_cdrrmo_trends, get_cdrrmo_distribution, get_cdrrmo_causes,
     get_cdrrmo_weather_impact, get_cdrrmo_road_conditions, get_cdrrmo_vehicle_types,
     get_cdrrmo_driver_age, get_cdrrmo_driver_gender, get_cdrrmo_accident_type,
     get_cdrrmo_injuries, get_cdrrmo_fatalities
 )
+
 from PNPAnalytics import (
     get_pnp_trends, get_pnp_distribution, get_pnp_causes,
     get_pnp_weather_impact, get_pnp_road_conditions, get_pnp_vehicle_types,
     get_pnp_driver_age, get_pnp_driver_gender, get_pnp_accident_type,
     get_pnp_injuries, get_pnp_fatalities
 )
+
 from BFPAnalytics import (
     get_bfp_trends, get_bfp_distribution, get_bfp_causes,
     get_bfp_weather_impact, get_bfp_property_types, get_bfp_fire_severity,
@@ -53,17 +54,10 @@ from BFPAnalytics import (
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
-socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
-
-# Load ONNX models
-
-
-# Load other datasets and models (maintaining original code)
+# Load datasets
 road_accident_df = pd.DataFrame()
 try:
-    road_accident_df = pd.read_csv('training/Road Models/lr_road_accident.pkl')
+    road_accident_df = pd.read_csv('dataset/road_accident.csv')
     logger.info("Successfully loaded road_accident.csv")
 except FileNotFoundError:
     logger.error("road_accident.csv not found in dataset directory")
@@ -72,129 +66,100 @@ except Exception as e:
 
 try:
     dt_classifier = joblib.load('training/decision_tree_model.pkl')
-    logger.info("decision_tree_model.pkl loaded successfully.")
+    logging.info("decision_tree_model.pkl loaded successfully.")
 except FileNotFoundError:
-    logger.error("decision_tree_model.pkl not found.")
+    logging.error("decision_tree_model.pkl not found. ML prediction will not work.")
     dt_classifier = None
 except Exception as e:
-    logger.error(f"Error loading decision_tree_model.pkl: {e}")
+    logging.error(f"Error loading decision_tree_model.pkl: {e}")
     dt_classifier = None
 
+# Load fire incident models
 try:
     lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
     rf_fire = joblib.load('training/Fire Models/rf_fire_incident.pkl')
     svm_fire = joblib.load('training/Fire Models/svm_fire_incident.pkl')
     xgb_fire = joblib.load('training/Fire Models/xgb_fire_incident.pkl')
-    logger.info("Fire incident models loaded successfully.")
+    logging.info("Fire incident models loaded successfully.")
 except Exception as e:
-    logger.error(f"Error loading fire incident models: {e}")
+    logging.error(f"Error loading fire incident models: {e}")
     lr_fire = rf_fire = svm_fire = xgb_fire = None
 
+# Load road accident models
 try:
     lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
     rf_road = joblib.load('training/Road Models/rf_road_accident.pkl')
     svm_road = joblib.load('training/Road Models/svm_road_accident.pkl')
     xgb_road = joblib.load('training/Road Models/xgb_road_accident.pkl')
-    logger.info("Road accident models loaded successfully.")
+    logging.info("Road accident models loaded successfully.")
 except Exception as e:
-    logger.error(f"Error loading road accident models: {e}")
+    logging.error(f"Error loading road accident models: {e}")
     lr_road = rf_road = svm_road = xgb_road = None
 
-# Prediction function using ONNX models
-try:
-    road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
-    fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
-    road_session = ort.InferenceSession(road_model_path)
-    fire_session = ort.InferenceSession(fire_model_path)
-    logger.info("ONNX models loaded successfully.")
-except Exception as e:
-    logger.error(f"Failed to load ONNX models: {e}")
-    road_session = None
-    fire_session = None
+app = Flask(__name__)
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
+socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
 
-alerts = deque(maxlen=100)
+# Initialize alerts list
+alerts = []
 
-
-
-def predict_emergency_type(base64_image):
-    """Predict emergency type using ONNX models."""
-    if road_session is None or fire_session is None:
-        logger.error("ONNX models not loaded.")
-        return 'unknown', 0.0
+# Function to classify images
+def classify_image(base64_image):
+    if dt_classifier is None:
+        logger.error("Decision tree classifier not loaded")
+        return 'unknown'
     try:
-        # Decode base64 image
+        import base64
         img_data = base64.b64decode(base64_image)
         nparr = np.frombuffer(img_data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        img = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
         if img is None:
             logger.error("Failed to decode image")
-            return 'unknown', 0.0
-
-        # Preprocess image (resize to 224x224, normalize, etc.)
-        img = cv2.resize(img, (224, 224))
-        img = img / 255.0  # Normalize to [0, 1]
-        img = np.transpose(img, (2, 0, 1))  # Change to CHW format
-        img = np.expand_dims(img, axis=0).astype(np.float32)  # Add batch dimension
-
-        # Run inference with road accident model
-        road_input_name = road_session.get_inputs()[0].name
-        road_output = road_session.run(None, {road_input_name: img})
-        prob_road = float(road_output[0][0])  # Assuming model outputs a single probability
-
-        # Run inference with fire incident model
-        fire_input_name = fire_session.get_inputs()[0].name
-        fire_output = fire_session.run(None, {fire_input_name: img})
-        prob_fire = float(fire_output[0][0])  # Assuming model outputs a single probability
-
-        # Determine emergency type based on higher probability
-        if prob_road > prob_fire:
-            return 'road_accident', prob_road
-        else:
-            return 'fire_incident', prob_fire
+            return 'unknown'
+        img = cv2.resize(img, (64, 64))
+        features = img.flatten().reshape(1, -1)
+        prediction = dt_classifier.predict(features)[0]
+        logger.debug(f"Image classified as: {prediction}")
+        return prediction
     except Exception as e:
-        logger.error(f"Prediction failed: {e}")
-        return 'unknown', 0.0
+        logger.error(f"Image classification failed: {e}")
+        return 'unknown'
 
 @socketio.on('alert')
 def handle_alert(data):
-    """Handle incoming alerts from ResidentPage and route based on prediction."""
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        data['alert_id'] = str(uuid.uuid4())
+        data['alert_id'] = str(uuid.uuid4())  # Unique ID for each alert
         data['user_barangay'] = data.get('barangay', 'Unknown')
-
-        # Predict emergency type if image is present
-        if 'image' in data:
-            predicted_type, probability = predict_emergency_type(data['image'])
-            data['predicted_type'] = predicted_type
-            data['probability'] = float(probability)
-        else:
-            data['predicted_type'] = 'unknown'
-            data['probability'] = 0.0
-
+        
+        # Classify image if present
+        if data.get('image'):
+            prediction = classify_image(data['image'])
+            if prediction not in ['road_accident', 'fire_incident']:
+                data['image'] = None  # Remove image if not road accident or fire incident
+        
         logger.info(f"Alert received: {data}")
         alerts.append(data)
-
-        # Route alerts based on prediction
-        if data['predicted_type'] == 'fire_incident':
-            rooms = ['barangay', 'bfp']  # Web dashboards and Android pages
-        elif data['predicted_type'] == 'road_accident':
-            rooms = ['barangay', 'cdrrmo', 'pnp']  # Web dashboards and Android pages
-        else:
-            rooms = []
-
-        # Emit to specified rooms
-        for room in rooms:
-            emit('new_alert', data, room=room)
-        logger.info(f"Alert sent to rooms: {rooms}")
-
-        # Confirmation to sender
+        emit('new_alert', data, broadcast=True)
+        logger.info("Broadcasted new_alert to all clients")
         emit('alert_sent', {'status': 'success'}, room=request.sid)
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
 
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'your-google-api-key-here')
+@socketio.on('response_submitted')
+def handle_response(data):
+    try:
+        alert_id = data.get('alert_id')
+        if alert_id:
+            global alerts
+            alerts = [a for a in alerts if a.get('alert_id') != alert_id]
+            emit('alert_removed', {'alert_id': alert_id}, broadcast=True)
+            logger.info(f"Alert {alert_id} removed due to response")
+    except Exception as e:
+        logger.error(f"Error handling response: {e}")
+
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
 try:
     with open(os.path.join('assets', 'coords.txt'), 'r') as f:
@@ -204,18 +169,37 @@ except FileNotFoundError:
 except Exception as e:
     logging.error(f"Error loading coords.txt: {e}. Using empty dict.")
 
-# Municipality coordinates
 municipality_coords = {
     "San Pablo City": {"lat": 14.0642, "lon": 121.3233},
     "Quezon Province": {"lat": 13.9347, "lon": 121.9473},
 }
 
 def get_db_connection():
-    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
-    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    db_path = os.path.join('/database', 'users_web.db')
+    if not os.path.exists(db_path):
+        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
+
+@app.route('/export_users', methods=['GET'])
+def export_users():
+    if session.get('role') != 'admin':
+        return "Unauthorized", 403
+    conn = get_db_connection()
+    users = conn.execute('SELECT * FROM users').fetchall()
+    conn.close()
+    return jsonify([dict(user) for user in users])
+
+@app.route('/download_db', methods=['GET'])
+def download_db():
+    db_path = os.path.join('/database', 'users_web.db')
+    if not os.path.exists(db_path):
+        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    if not os.path.exists(db_path):
+        return "Database file not found", 404
+    app.logger.debug(f"Serving database from: {db_path}")
+    return send_file(db_path, as_attachment=True, download_name='users_web.db')
 
 def construct_unique_id(role, barangay=None, assigned_municipality=None, contact_no=None):
     if role == 'barangay':
@@ -267,12 +251,12 @@ def login():
     if request.method == 'POST':
         barangay = request.form['barangay']
         contact_no = request.form['contact_no']
-        password = request.form['password']  # Fixed key name
+        password = request.form['password']
         unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
         
         conn = get_db_connection()
         user = conn.execute('''
-            SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND password = ?
+            SELECT * FROM users WHERE Barangay = ? AND contact_no = ? AND password = ?
         ''', (barangay, contact_no, password)).fetchone()
         conn.close()
         
@@ -285,7 +269,8 @@ def login():
         return "Invalid credentials", 401
     return render_template('LogInPage.html')
 
-@app.route('/api/login', methods=['POST'])
+@app.route('/api/login int main):
+    asyncio.run(main())login', methods=['POST'])
 def api_login():
     data = request.get_json()
     barangay = data.get('barangay')
@@ -342,24 +327,16 @@ def signup_cdrrmo_pnp_bfp():
 def login_cdrrmo_pnp_bfp():
     logger.debug("Accessing /login_cdrrmo_pnp_bfp with method: %s", request.method)
     if request.method == 'POST':
-
         role = request.form['role'].lower()
-
         if 'role' not in request.form:
             app.logger.error("Role field is missing in the form data")
             return "Role is required", 400
-        
-
         assigned_municipality = request.form['municipality']
         contact_no = request.form['contact_no']
         password = request.form['password']
         
         if role not in ['cdrrmo', 'pnp', 'bfp']:
             logger.error(f"Invalid role provided: {role}")
-            return "Invalid role", 400
-        
-        if role not in ['cdrrmo', 'pnp', 'bfp']:
-            app.logger.error(f"Invalid role provided: {role}")
             return "Invalid role", 400
         
         app.logger.debug(f"Login attempt: role={role}, municipality={assigned_municipality}, contact_no={contact_no}")
@@ -374,20 +351,14 @@ def login_cdrrmo_pnp_bfp():
             unique_id = construct_unique_id(user['role'], assigned_municipality=assigned_municipality, contact_no=contact_no)
             session['unique_id'] = unique_id
             session['role'] = user['role']
-
             logger.debug(f"Web login successful for user: {unique_id} ({user['role']})")
-
-            app.logger.debug(f"Web login successful for user: {unique_id} ({user['role']})")
-
             if user['role'] == 'cdrrmo':
                 return redirect(url_for('cdrrmo_dashboard'))
             elif user['role'] == 'pnp':
                 return redirect(url_for('pnp_dashboard'))
             elif user['role'] == 'bfp':
                 return redirect(url_for('bfp_dashboard'))
-
         app.logger.warning(f"Web login failed for assigned_municipality: {assigned_municipality}, contact: {contact_no}, role: {role}")
-
         return "Invalid credentials", 401
     return render_template('CDRRMOPNPBFPIn.html')
 
@@ -418,7 +389,7 @@ def signup_muna():
 
 @app.route('/signup_na', methods=['GET'])
 def signup_na():
-    logger.debug("Redirecting to /signup_barangay")
+ Rai    logger.debug("Redirecting to /signup_barangay")
     return redirect(url_for('signup_barangay'))
 
 @app.route('/logout')
@@ -453,8 +424,6 @@ def load_coords():
         print(f"Error loading coords.txt: {e}")
     return alerts
 
-alerts = deque(maxlen=100)
-
 @app.route('/send_alert', methods=['POST'])
 def send_alert():
     try:
@@ -469,11 +438,10 @@ def send_alert():
         user_role = data.get('user_role', 'unknown')
         image_upload_time = data.get('imageUploadTime', datetime.now().isoformat())
 
-        # Check image expiration
         if image:
             upload_time = datetime.fromisoformat(image_upload_time)
             if (datetime.now() - upload_time).total_seconds() > 30 * 60:
-                image = None  # Expire image if older than 30 minutes
+                image = None
                 emergency_type = 'Not Specified'
 
         alert = {
@@ -486,8 +454,16 @@ def send_alert():
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
             'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
-            'imageUploadTime': image_upload_time
+            'imageUploadTime': image_upload_time,
+            'alert_id': str(uuid.uuid4()),
+            'user_barangay': data.get('barangay', 'Unknown')
         }
+        
+        if alert['image']:
+            prediction = classify_image(alert['image'])
+            if prediction not in ['road_accident', 'fire_incident']:
+                alert['image'] = None
+
         alerts.append(alert)
         socketio.emit('new_alert', alert)
         return jsonify({'status': 'success', 'message': 'Alert sent'}), 200
@@ -735,9 +711,7 @@ def bfp_dashboard():
                            lon_coord=lon_coord,
                            google_api_key=GOOGLE_API_KEY)
 
-
 # Analytics routes
-
 @app.route('/barangay/analytics')
 def barangay_analytics():
     if 'role' not in session or session['role'] != 'barangay':
@@ -749,16 +723,11 @@ def barangay_analytics():
                         (unique_id.split('_')[0], unique_id.split('_')[1])).fetchone()
     conn.close()
     barangay = user['barangay'] if user else "Unknown"
-
-    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
-
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-
     return render_template('BarangayAnalytics.html', barangay=barangay, current_datetime=current_datetime)
 
 @app.route('/api/barangay_analytics_data', methods=['GET'])
 def get_barangay_analytics_data():
-
     try:
         time_filter = request.args.get('time', 'weekly')
         trends = get_barangay_trends(time_filter)
@@ -789,12 +758,6 @@ def get_barangay_analytics_data():
         logger.error(f"Error in get_barangay_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
-    time_filter = request.args.get('time', 'weekly')
-    trends = get_barangay_trends(time_filter)
-    distribution = get_barangay_distribution(time_filter)
-    causes = get_barangay_causes(time_filter)
-    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
-
 @app.route('/cdrrmo/analytics')
 def cdrrmo_analytics():
     if 'role' not in session or session['role'] != 'cdrrmo':
@@ -806,8 +769,7 @@ def cdrrmo_analytics():
                         ('cdrrmo', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
-
-    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
     barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
     return render_template('CDRRMOAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
@@ -844,8 +806,6 @@ def get_cdrrmo_analytics_data():
         logger.error(f"Error in get_cdrrmo_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
-
-
 @app.route('/pnp/analytics')
 def pnp_analytics():
     if 'role' not in session or session['role'] != 'pnp':
@@ -857,8 +817,7 @@ def pnp_analytics():
                         ('pnp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
-
-    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
     barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
     return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
@@ -892,11 +851,7 @@ def get_pnp_analytics_data():
         })
     except Exception as e:
         logger.error(f"Error in get_pnp_analytics_data: {e}", exc_info=True)
-        return jsonify({'error': 'Failed to retrieve analytics data'}), 500 
-    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime)
-
-
+        return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
 @app.route('/bfp/analytics')
 def bfp_analytics():
@@ -909,18 +864,12 @@ def bfp_analytics():
                         ('bfp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
-
-    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
-
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    # Fetch barangays for the assigned municipality (placeholder list for now)
-
     barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
     return render_template('BFPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/bfp_analytics_data', methods=['GET'])
 def get_bfp_analytics_data():
-
     try:
         time_filter = request.args.get('time', 'weekly')
         barangay = request.args.get('barangay', '')
@@ -989,12 +938,6 @@ def get_bfp_stats():
         logger.error(f"Error in get_bfp_stats: {e}", exc_info=True)
         return Counter()
 
-    time_filter = request.args.get('time', 'weekly')
-    trends = get_bfp_trends(time_filter)
-    distribution = get_bfp_distribution(time_filter)
-    causes = get_bfp_causes(time_filter)
-    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
-
 if __name__ == '__main__':
     db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     try:
@@ -1016,9 +959,5 @@ if __name__ == '__main__':
     except Exception as e:
         logger.error(f"Failed to initialize database: {e}", exc_info=True)
 
-    # In production (e.g., Render), Gunicorn will be used via render.yaml
-    # This block is for local development only
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True, allow_unsafe_werkzeug=True)
-
-
