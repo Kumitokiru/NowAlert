@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room
 import logging
 import ast
 import os
@@ -16,11 +16,15 @@ import pickle
 import pandas as pd
 import xgboost
 import uuid
+import base64
+import onnxruntime as ort
+import logger
 
-from BarangayDashboard import get_barangay_stats, get_latest_alert
-from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
-from PNPDashboard import get_pnp_stats, get_latest_alert
-from BFPDashboard import get_bfp_stats, get_latest_alert
+
+from BarangayDashboard import get_barangay_stats, get_latest_alert, predict_emergency as barangay_predict
+from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert, predict_emergency as cdrrmo_predict
+from PNPDashboard import get_pnp_stats, get_latest_alert, predict_emergency as pnp_predict
+from BFPDashboard import get_bfp_stats, get_latest_alert, predict_emergency as bfp_predict
 
 # Import analytics functions
 from BarangayAnalytics import (
@@ -125,23 +129,82 @@ def classify_image(base64_image):
         logger.error(f"Image classification failed: {e}")
         return 'unknown'
 
+fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
+road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
+
+try:
+    fire_session = ort.InferenceSession(fire_model_path)
+    road_session = ort.InferenceSession(road_model_path)
+    logger.info("ONNX models loaded successfully")
+except Exception as e:
+    logger.error(f"Failed to load ONNX models: {e}")
+    fire_session = None
+    road_session = None
+
+def preprocess_image(base64_image):
+    try:
+        img_data = base64.b64decode(base64_image)
+        nparr = np.frombuffer(img_data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        if img is None:
+            raise ValueError("Failed to decode image")
+        img = cv2.resize(img, (224, 224))
+        img = img.astype(np.float32) / 255.0
+        img = np.transpose(img, (2, 0, 1))
+        img = np.expand_dims(img, axis=0)
+        return img
+    except Exception as e:
+        logger.error(f"Image preprocessing failed: {e}")
+        return None
+
+def emit_alert_to_rooms(data):
+    emergency_type = data.get('predicted_emergency')
+    if emergency_type == 'fire_incident':
+        rooms = ['barangay', 'bfp']
+    elif emergency_type == 'road_accident':
+        rooms = ['barangay', 'cdrrmo', 'pnp']
+    else:
+        rooms = []
+    for room in rooms:
+        emit('new_alert', data, room=room)
+
+@socketio.on('join_room')
+def handle_join_room(room):
+    join_room(room)
+    logger.info(f"Client joined room: {room}")
+
 @socketio.on('alert')
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        data['alert_id'] = str(uuid.uuid4())  # Unique ID for each alert
+        data['alert_id'] = str(uuid.uuid4())
         data['user_barangay'] = data.get('barangay', 'Unknown')
         
-        # Classify image if present
         if data.get('image'):
-            prediction = classify_image(data['image'])
-            if prediction not in ['road_accident', 'fire_incident']:
-                data['image'] = None  # Remove image if not road accident or fire incident
+            preprocessed_img = preprocess_image(data['image'])
+            if preprocessed_img is not None:
+                # Call prediction functions from dashboard helpers
+                emergency_type_barangay, accuracy_barangay = barangay_predict(preprocessed_img, fire_session, road_session)
+                emergency_type_bfp, accuracy_bfp = bfp_predict(preprocessed_img, fire_session, road_session)
+                emergency_type_cdrrmo, accuracy_cdrrmo = cdrrmo_predict(preprocessed_img, fire_session, road_session)
+                emergency_type_pnp, accuracy_pnp = pnp_predict(preprocessed_img, fire_session, road_session)
+                
+                # Use the prediction from Barangay as the primary one for consistency
+                data['predicted_emergency'] = emergency_type_barangay
+                data['accuracy'] = accuracy_barangay
+                if data['predicted_emergency'] == 'unknown':
+                    data['image'] = None
+            else:
+                data['predicted_emergency'] = 'unknown'
+                data['accuracy'] = 0.0
+        else:
+            data['predicted_emergency'] = 'unknown'
+            data['accuracy'] = 0.0
         
         logger.info(f"Alert received: {data}")
         alerts.append(data)
-        emit('new_alert', data, broadcast=True)
-        logger.info("Broadcasted new_alert to all clients")
+        emit_alert_to_rooms(data)
+        logger.info("Emitted new_alert to relevant rooms")
         emit('alert_sent', {'status': 'success'}, room=request.sid)
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
