@@ -82,14 +82,11 @@
             const socket = io('https://nowalert.onrender.com');
             const alertElements = new Map();
 
-            socket.on('connect', () => {
-            socket.emit('join_room', 'cdrrmo');
-            console.log('Joined cdrrmo room');
-            });
+            socket.on('connect', () => console.log('Connected to SocketIO server'));
 
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
-                const dashboardMunicipality = "{{ barangay }}";
+                const dashboardBarangay = "{{ barangay }}";
                 const alertBarangay = data.user_barangay || 'Unknown';
                 let message = `Emergency at ${dashboardMunicipality}, Resident From ${alertBarangay}`;
                 const feed = document.getElementById('alert-container');
