@@ -388,7 +388,7 @@ def signup_muna():
 
 @app.route('/signup_na', methods=['GET'])
 def signup_na():
- Rai    logger.debug("Redirecting to /signup_barangay")
+   logger.debug("Redirecting to /signup_barangay")
     return redirect(url_for('signup_barangay'))
 
 @app.route('/logout')
