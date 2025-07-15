@@ -85,24 +85,16 @@
             socket.on('connect', () => console.log('Connected to SocketIO server'));
 
             socket.on('new_alert', (data) => {
-                console.log('Alert received:', data);
-                const dashboardBarangay = "{{ barangay }}";
-                const alertBarangay = data.user_barangay || 'Unknown';
-                const message = `Emergency at ${dashboardMunicipality}, Resident From ${alertBarangay}`;
-                const feed = document.getElementById('alert-container');
-                const alertDiv = document.createElement('div');
-                alertDiv.className = 'alert-item';
-                alertDiv.dataset.alertId = data.alert_id;
-                alertDiv.innerHTML = `
-                    <p>${message}</p>
-                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                    <p>'Predicted Emergency: ${data.predicted_emergency} (Accuracy: ${(data.accuracy * 100).toFixed(2)}%)'</p>
-                `;
-                feed.prepend(alertDiv);
-                if (data.lat && data.lon) {
-                    L.marker([data.lat, data.lon]).addTo(bfpMap)
-                        .bindPopup(message)
-                        .openPopup();
+                if (data.predicted_type === 'fire_incident') {
+                    const message = `Emergency at ${data.barangay}`;
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert-item';
+                    alertDiv.innerHTML = `
+                        <p>${message}</p>
+                        ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                        <p>Predicted Emergency: ${data.predicted_type} (${data.probability.toFixed(2)})</p>
+                    `;
+                    document.getElementById('alert-container').prepend(alertDiv);
                 }
             });
 
