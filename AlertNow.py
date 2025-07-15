@@ -114,11 +114,7 @@ except Exception as e:
 
 alerts = deque(maxlen=100)
 
-def get_db_connection():
-    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    return conn
+
 
 def predict_emergency_type(base64_image):
     """Predict emergency type using ONNX models."""
@@ -198,42 +194,28 @@ def handle_alert(data):
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
 
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'your-google-api-key-here')
 barangay_coords = {}
 try:
     with open(os.path.join('assets', 'coords.txt'), 'r') as f:
         barangay_coords = ast.literal_eval(f.read())
 except FileNotFoundError:
-    logger.error("coords.txt not found in assets directory.")
+    logging.error("coords.txt not found in assets directory. Using empty dict.")
 except Exception as e:
-    logger.error(f"Error loading coords.txt: {e}")
+    logging.error(f"Error loading coords.txt: {e}. Using empty dict.")
 
+# Municipality coordinates
 municipality_coords = {
     "San Pablo City": {"lat": 14.0642, "lon": 121.3233},
     "Quezon Province": {"lat": 13.9347, "lon": 121.9473},
 }
 
-
-
-# Utility routes
-@app.route('/export_users', methods=['GET'])
-def export_users():
-    if session.get('role') != 'admin':
-        return "Unauthorized", 403
-    conn = get_db_connection()
-    users = conn.execute('SELECT * FROM users').fetchall()
-    conn.close()
-    return jsonify([dict(user) for user in users])
-
-@app.route('/download_db', methods=['GET'])
-def download_db():
-    db_path = os.path.join('/database', 'users_web.db')
-    if not os.path.exists(db_path):
-        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
-    if not os.path.exists(db_path):
-        return "Database file not found", 404
-    app.logger.debug(f"Serving database from: {db_path}")
-    return send_file(db_path, as_attachment=True, download_name='users_web.db')
+def get_db_connection():
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    return conn
 
 def construct_unique_id(role, barangay=None, assigned_municipality=None, contact_no=None):
     if role == 'barangay':
@@ -285,7 +267,7 @@ def login():
     if request.method == 'POST':
         barangay = request.form['barangay']
         contact_no = request.form['contact_no']
-        password = request.form['password']
+        password = request.form['password']  # Fixed key name
         unique_id = construct_unique_id('barangay', barangay=barangay, contact_no=contact_no)
         
         conn = get_db_connection()
@@ -360,16 +342,24 @@ def signup_cdrrmo_pnp_bfp():
 def login_cdrrmo_pnp_bfp():
     logger.debug("Accessing /login_cdrrmo_pnp_bfp with method: %s", request.method)
     if request.method == 'POST':
+
         role = request.form['role'].lower()
+
         if 'role' not in request.form:
             app.logger.error("Role field is missing in the form data")
             return "Role is required", 400
+        
+
         assigned_municipality = request.form['municipality']
         contact_no = request.form['contact_no']
         password = request.form['password']
         
         if role not in ['cdrrmo', 'pnp', 'bfp']:
             logger.error(f"Invalid role provided: {role}")
+            return "Invalid role", 400
+        
+        if role not in ['cdrrmo', 'pnp', 'bfp']:
+            app.logger.error(f"Invalid role provided: {role}")
             return "Invalid role", 400
         
         app.logger.debug(f"Login attempt: role={role}, municipality={assigned_municipality}, contact_no={contact_no}")
@@ -384,14 +374,20 @@ def login_cdrrmo_pnp_bfp():
             unique_id = construct_unique_id(user['role'], assigned_municipality=assigned_municipality, contact_no=contact_no)
             session['unique_id'] = unique_id
             session['role'] = user['role']
+
             logger.debug(f"Web login successful for user: {unique_id} ({user['role']})")
+
+            app.logger.debug(f"Web login successful for user: {unique_id} ({user['role']})")
+
             if user['role'] == 'cdrrmo':
                 return redirect(url_for('cdrrmo_dashboard'))
             elif user['role'] == 'pnp':
                 return redirect(url_for('pnp_dashboard'))
             elif user['role'] == 'bfp':
                 return redirect(url_for('bfp_dashboard'))
+
         app.logger.warning(f"Web login failed for assigned_municipality: {assigned_municipality}, contact: {contact_no}, role: {role}")
+
         return "Invalid credentials", 401
     return render_template('CDRRMOPNPBFPIn.html')
 
@@ -458,7 +454,6 @@ def load_coords():
     return alerts
 
 alerts = deque(maxlen=100)
-alerts = []
 
 @app.route('/send_alert', methods=['POST'])
 def send_alert():
@@ -474,10 +469,11 @@ def send_alert():
         user_role = data.get('user_role', 'unknown')
         image_upload_time = data.get('imageUploadTime', datetime.now().isoformat())
 
+        # Check image expiration
         if image:
             upload_time = datetime.fromisoformat(image_upload_time)
             if (datetime.now() - upload_time).total_seconds() > 30 * 60:
-                image = None
+                image = None  # Expire image if older than 30 minutes
                 emergency_type = 'Not Specified'
 
         alert = {
@@ -544,7 +540,7 @@ def add_alert():
 @app.route('/export_alerts')
 def export_alerts():
     with open('alerts.json', 'w') as f:
-        json.dump(list(alerts), f, indent=4)
+        json.dump(alerts, f, indent=4)
     return jsonify({"status": "success", "file": "alerts.json"})
 
 @app.route('/api/analytics')
@@ -739,7 +735,9 @@ def bfp_dashboard():
                            lon_coord=lon_coord,
                            google_api_key=GOOGLE_API_KEY)
 
+
 # Analytics routes
+
 @app.route('/barangay/analytics')
 def barangay_analytics():
     if 'role' not in session or session['role'] != 'barangay':
@@ -751,11 +749,16 @@ def barangay_analytics():
                         (unique_id.split('_')[0], unique_id.split('_')[1])).fetchone()
     conn.close()
     barangay = user['barangay'] if user else "Unknown"
+
+    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
+
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+
     return render_template('BarangayAnalytics.html', barangay=barangay, current_datetime=current_datetime)
 
 @app.route('/api/barangay_analytics_data', methods=['GET'])
 def get_barangay_analytics_data():
+
     try:
         time_filter = request.args.get('time', 'weekly')
         trends = get_barangay_trends(time_filter)
@@ -786,6 +789,12 @@ def get_barangay_analytics_data():
         logger.error(f"Error in get_barangay_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_barangay_trends(time_filter)
+    distribution = get_barangay_distribution(time_filter)
+    causes = get_barangay_causes(time_filter)
+    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
 @app.route('/cdrrmo/analytics')
 def cdrrmo_analytics():
     if 'role' not in session or session['role'] != 'cdrrmo':
@@ -797,7 +806,8 @@ def cdrrmo_analytics():
                         ('cdrrmo', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
-    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+
+    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
     barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
     return render_template('CDRRMOAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
@@ -834,6 +844,8 @@ def get_cdrrmo_analytics_data():
         logger.error(f"Error in get_cdrrmo_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
+
+
 @app.route('/pnp/analytics')
 def pnp_analytics():
     if 'role' not in session or session['role'] != 'pnp':
@@ -845,7 +857,8 @@ def pnp_analytics():
                         ('pnp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
-    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+
+    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
     barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
     return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
@@ -879,7 +892,11 @@ def get_pnp_analytics_data():
         })
     except Exception as e:
         logger.error(f"Error in get_pnp_analytics_data: {e}", exc_info=True)
-        return jsonify({'error': 'Failed to retrieve analytics data'}), 500
+        return jsonify({'error': 'Failed to retrieve analytics data'}), 500 
+    current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+    return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime)
+
+
 
 @app.route('/bfp/analytics')
 def bfp_analytics():
@@ -892,12 +909,18 @@ def bfp_analytics():
                         ('bfp', unique_id.split('_')[2], unique_id.split('_')[1])).fetchone()
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
+
+    current_datetime = datetime.now(pytz.timezone('America/Los_Angeles')).strftime('%a/%m/%d/%y %H:%M:%S')
+
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
+    # Fetch barangays for the assigned municipality (placeholder list for now)
+
     barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
     return render_template('BFPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/bfp_analytics_data', methods=['GET'])
 def get_bfp_analytics_data():
+
     try:
         time_filter = request.args.get('time', 'weekly')
         barangay = request.args.get('barangay', '')
@@ -966,6 +989,12 @@ def get_bfp_stats():
         logger.error(f"Error in get_bfp_stats: {e}", exc_info=True)
         return Counter()
 
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_bfp_trends(time_filter)
+    distribution = get_bfp_distribution(time_filter)
+    causes = get_bfp_causes(time_filter)
+    return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
+
 if __name__ == '__main__':
     db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     try:
@@ -987,5 +1016,9 @@ if __name__ == '__main__':
     except Exception as e:
         logger.error(f"Failed to initialize database: {e}", exc_info=True)
 
+    # In production (e.g., Render), Gunicorn will be used via render.yaml
+    # This block is for local development only
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True, allow_unsafe_werkzeug=True)
+
+
