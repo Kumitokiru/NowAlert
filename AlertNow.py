@@ -22,9 +22,10 @@ import logger
 
 
 from BarangayDashboard import get_barangay_stats, get_latest_alert, predict_emergency as barangay_predict
+from BFPDashboard import get_bfp_stats, get_latest_alert, predict_emergency as bfp_predict
 from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert, predict_emergency as cdrrmo_predict
 from PNPDashboard import get_pnp_stats, get_latest_alert, predict_emergency as pnp_predict
-from BFPDashboard import get_bfp_stats, get_latest_alert, predict_emergency as bfp_predict
+
 
 # Import analytics functions
 from BarangayAnalytics import (
