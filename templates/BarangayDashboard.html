@@ -92,22 +92,19 @@
         
 
             const socket = io('https://nowalert.onrender.com');
-            const alertElements = new Map();
-
             socket.on('connect', () => {
-                console.log('Connected to SocketIO server');
-                socket.emit('join', { room: 'barangay' });
+            console.log('Connected to server');
+            socket.emit('join', { room: 'barangay' });
             });
-
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
                 const dashboardBarangay = "{{ barangay }}";
                 const alertBarangay = data.user_barangay || 'Unknown';
                 let message;
                 if (dashboardBarangay === alertBarangay) {
-                    message = `Emergency at ${dashboardBarangay}`;
+                    message = `Emergency at ${alertBarangay}`;
                 } else {
-                    message = `Emergency at ${dashboardBarangay}, Resident From ${alertBarangay}`;
+                    message = `Emergency at ${alertBarangay}, Resident From ${data.user_barangay}`;
                 }
                 const feed = document.getElementById('alert-container');
                 const alertDiv = document.createElement('div');
@@ -119,12 +116,6 @@
                     <p>Predicted Emergency: ${data.predicted_type.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase())} (${data.probability.toFixed(2)})</p>
                 `;
                 feed.prepend(alertDiv);
-                alertElements.set(data.alert_id, alertDiv);
-                if (data.lat && data.lon) {
-                    L.marker([data.lat, data.lon]).addTo(barangayMap)
-                        .bindPopup(message)
-                        .openPopup();
-                }
             });
 
             socket.on('alert_removed', (data) => {
