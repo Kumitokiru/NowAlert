@@ -82,32 +82,29 @@
             const socket = io('https://nowalert.onrender.com');
             const alertElements = new Map();
 
-            socket.on('connect', () => {
-            socket.emit('join_room', 'pnp');
-            console.log('Joined pnp room');
-        });
+            socket.on('connect', () => console.log('Connected to SocketIO server'));
 
-        socket.on('new_alert', (data) => {
-            console.log('Alert received:', data);
-            const dashboardMunicipality = "{{ municipality }}";
-            const alertBarangay = data.user_barangay || 'Unknown';
-            let message = `Emergency at ${dashboardMunicipality}, Resident From ${alertBarangay}`;
-            const feed = document.getElementById('alert-container');
-            const alertDiv = document.createElement('div');
-            alertDiv.className = 'alert-item';
-            alertDiv.dataset.alertId = data.alert_id;
-            alertDiv.innerHTML = `
-                <p>${message}</p>
-                ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                <p>Predicted Emergency: ${data.predicted_emergency} (Accuracy: ${(data.accuracy * 100).toFixed(2)}%)</p>
-            `;
-            feed.prepend(alertDiv);
-            if (data.lat && data.lon) {
-                L.marker([data.lat, data.lon]).addTo(pnpMap)
-                    .bindPopup(message)
-                    .openPopup();
-            }
-        });
+            socket.on('new_alert', (data) => {
+                console.log('Alert received:', data);
+                const dashboardMunicipality = "{{ municipality }}";
+                const alertBarangay = data.user_barangay || 'Unknown';
+                let message = `Emergency at ${dashboardMunicipality}, Resident From ${alertBarangay}`;
+                const feed = document.getElementById('alert-container');
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert-item';
+                alertDiv.dataset.alertId = data.alert_id;
+                alertDiv.innerHTML = `
+                    <p>${message}</p>
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    <p>Predicted Emergency: ${data.predicted_emergency} (Accuracy: ${(data.accuracy * 100).toFixed(2)}%)</p>
+                `;
+                feed.prepend(alertDiv);
+                if (data.lat && data.lon) {
+                    L.marker([data.lat, data.lon]).addTo(pnpMap)
+                        .bindPopup(message)
+                        .openPopup();
+                }
+            });
 
             socket.on('alert_removed', (data) => {
                 const alertId = data.alert_id;
