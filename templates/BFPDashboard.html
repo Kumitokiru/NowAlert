@@ -44,9 +44,9 @@
                 <p class="p">Total Incidents: <span id="total-incidents">{{ stats.total() if stats else 0 }}</span></p>
                 <p class="p">Critical Incidents: <span id="critical-incidents">0</span></p>
             </section>
-            <section class="alerts" id="alerts">
+            <section  id="alerts">
                 <h2 class="h2">Live Alerts</h2>
-                <div class="alert-container" id="alert-container"></div>
+                <div id="alert-container"></div>
             </section>
         </main>
         <div id="notification" class="notification"></div>
@@ -86,9 +86,9 @@
 
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
-                const dashboardMunicipality = "{{ municipality }}";
+                const dashboardBarangay = "{{ barangay }}";
                 const alertBarangay = data.user_barangay || 'Unknown';
-                const message = `Emergency at ${dashboardMunicipality}, Resident from ${alertBarangay}`;
+                const message = `Emergency at ${dashboardBarangay}, Resident from ${alertBarangay}`;
 
                 const feed = document.getElementById('alert-container');
                 const alertDiv = document.createElement('div');
