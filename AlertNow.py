@@ -269,8 +269,7 @@ def login():
         return "Invalid credentials", 401
     return render_template('LogInPage.html')
 
-@app.route('/api/login int main):
-    asyncio.run(main())login', methods=['POST'])
+@app.route('/api/login', methods=['POST'])
 def api_login():
     data = request.get_json()
     barangay = data.get('barangay')
