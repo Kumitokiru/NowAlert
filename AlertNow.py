@@ -17,6 +17,7 @@ import pandas as pd
 import xgboost
 import uuid
 import onnxruntime as ort
+import base64
 
 from BarangayDashboard import get_barangay_stats, get_latest_alert
 from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
@@ -57,16 +58,7 @@ app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
 socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
 
 # Load ONNX models
-try:
-    road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
-    fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
-    road_session = ort.InferenceSession(road_model_path)
-    fire_session = ort.InferenceSession(fire_model_path)
-    logger.info("ONNX models loaded successfully")
-except Exception as e:
-    logger.error(f"Failed to load ONNX models: {e}")
-    road_session = None
-    fire_session = None
+
 
 # Load other datasets and models (maintaining original code)
 road_accident_df = pd.DataFrame()
@@ -109,32 +101,56 @@ except Exception as e:
     lr_road = rf_road = svm_road = xgb_road = None
 
 # Prediction function using ONNX models
+try:
+    road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
+    fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
+    road_session = ort.InferenceSession(road_model_path)
+    fire_session = ort.InferenceSession(fire_model_path)
+    logger.info("ONNX models loaded successfully.")
+except Exception as e:
+    logger.error(f"Failed to load ONNX models: {e}")
+    road_session = None
+    fire_session = None
+
+alerts = deque(maxlen=100)
+
+def get_db_connection():
+    db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
+    conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
+    return conn
+
 def predict_emergency_type(base64_image):
+    """Predict emergency type using ONNX models."""
     if road_session is None or fire_session is None:
+        logger.error("ONNX models not loaded.")
         return 'unknown', 0.0
     try:
-        import base64
+        # Decode base64 image
         img_data = base64.b64decode(base64_image)
         nparr = np.frombuffer(img_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         if img is None:
             logger.error("Failed to decode image")
             return 'unknown', 0.0
-        img = cv2.resize(img, (224, 224))  # Adjust size as per model input
-        img = img / 255.0  # Normalize
-        img = np.transpose(img, (2, 0, 1))  # Change to channel-first
+
+        # Preprocess image (resize to 224x224, normalize, etc.)
+        img = cv2.resize(img, (224, 224))
+        img = img / 255.0  # Normalize to [0, 1]
+        img = np.transpose(img, (2, 0, 1))  # Change to CHW format
         img = np.expand_dims(img, axis=0).astype(np.float32)  # Add batch dimension
 
-        # Road accident prediction
+        # Run inference with road accident model
         road_input_name = road_session.get_inputs()[0].name
         road_output = road_session.run(None, {road_input_name: img})
-        prob_road = float(road_output[0][0])
+        prob_road = float(road_output[0][0])  # Assuming model outputs a single probability
 
-        # Fire incident prediction
+        # Run inference with fire incident model
         fire_input_name = fire_session.get_inputs()[0].name
         fire_output = fire_session.run(None, {fire_input_name: img})
-        prob_fire = float(fire_output[0][0])
+        prob_fire = float(fire_output[0][0])  # Assuming model outputs a single probability
 
+        # Determine emergency type based on higher probability
         if prob_road > prob_fire:
             return 'road_accident', prob_road
         else:
@@ -143,15 +159,16 @@ def predict_emergency_type(base64_image):
         logger.error(f"Prediction failed: {e}")
         return 'unknown', 0.0
 
-# SocketIO event for handling alerts
 @socketio.on('alert')
 def handle_alert(data):
+    """Handle incoming alerts from ResidentPage and route based on prediction."""
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
         data['alert_id'] = str(uuid.uuid4())
         data['user_barangay'] = data.get('barangay', 'Unknown')
 
-        if data.get('image'):
+        # Predict emergency type if image is present
+        if 'image' in data:
             predicted_type, probability = predict_emergency_type(data['image'])
             data['predicted_type'] = predicted_type
             data['probability'] = float(probability)
@@ -163,28 +180,23 @@ def handle_alert(data):
         alerts.append(data)
 
         # Route alerts based on prediction
-        if data['predicted_type'] == 'road_accident':
-            rooms = ['barangay', 'cdrrmo', 'pnp']
-        elif data['predicted_type'] == 'fire_incident':
-            rooms = ['barangay', 'bfp']
+        if data['predicted_type'] == 'fire_incident':
+            rooms = ['barangay', 'bfp']  # Web dashboards and Android pages
+        elif data['predicted_type'] == 'road_accident':
+            rooms = ['barangay', 'cdrrmo', 'pnp']  # Web dashboards and Android pages
         else:
-            rooms = ['barangay']  # Default to barangay if unknown
+            rooms = []
 
+        # Emit to specified rooms
         for room in rooms:
             emit('new_alert', data, room=room)
-        
         logger.info(f"Alert sent to rooms: {rooms}")
+
+        # Confirmation to sender
         emit('alert_sent', {'status': 'success'}, room=request.sid)
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
-
-@socketio.on('join')
-def handle_join(data):
-    room = data.get('room')
-    if room:
-        join_room(room)
-        logger.info(f"Client joined room: {room}")
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
@@ -201,13 +213,7 @@ municipality_coords = {
     "Quezon Province": {"lat": 13.9347, "lon": 121.9473},
 }
 
-def get_db_connection():
-    db_path = os.path.join('/database', 'users_web.db')
-    if not os.path.exists(db_path):
-        db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    return conn
+
 
 # Utility routes
 @app.route('/export_users', methods=['GET'])
