@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIO, emit, join_room
+from flask_socketio import SocketIO, emit
 import logging
 import ast
 import os
@@ -15,44 +15,33 @@ import pytz
 import pickle
 import pandas as pd
 import xgboost
-import uuid
-import base64
 import onnxruntime as ort
-import logger
 
+from BarangayDashboard import get_barangay_stats, get_latest_alert, predict_emergency_type as predict_barangay
+from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert, predict_emergency_type as predict_cdrrmo
+from PNPDashboard import get_pnp_stats, get_latest_alert, predict_emergency_type as predict_pnp
+from BFPDashboard import get_bfp_stats, get_latest_alert, predict_emergency_type as predict_bfp
 
-from BarangayDashboard import get_barangay_stats, get_latest_alert, predict_emergency as barangay_predict
-from BFPDashboard import get_bfp_stats, get_latest_alert, predict_emergency as bfp_predict
-from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert, predict_emergency as cdrrmo_predict
-from PNPDashboard import get_pnp_stats, get_latest_alert, predict_emergency as pnp_predict
-
-
-# Import analytics functions
+# Import analytics functions (unchanged)
 from BarangayAnalytics import (
-    get_barangay_trends, get_barangay_distribution, get_barangay_causes,
-    get_barangay_weather_impact, get_barangay_road_conditions, get_barangay_vehicle_types,
-    get_barangay_driver_age, get_barangay_driver_gender, get_barangay_accident_type,
-    get_barangay_injuries, get_barangay_fatalities
+    get_barangay_trends, get_barangay_distribution, get_barangay_causes, get_barangay_weather_impact,
+    get_barangay_road_conditions, get_barangay_vehicle_types, get_barangay_driver_age,
+    get_barangay_driver_gender, get_barangay_accident_type, get_barangay_injuries, get_barangay_fatalities
 )
-
 from CDRRMOAnalytics import (
-    get_cdrrmo_trends, get_cdrrmo_distribution, get_cdrrmo_causes,
-    get_cdrrmo_weather_impact, get_cdrrmo_road_conditions, get_cdrrmo_vehicle_types,
-    get_cdrrmo_driver_age, get_cdrrmo_driver_gender, get_cdrrmo_accident_type,
-    get_cdrrmo_injuries, get_cdrrmo_fatalities
+    get_cdrrmo_trends, get_cdrrmo_distribution, get_cdrrmo_causes, get_cdrrmo_weather_impact,
+    get_cdrrmo_road_conditions, get_cdrrmo_vehicle_types, get_cdrrmo_driver_age,
+    get_cdrrmo_driver_gender, get_cdrrmo_accident_type, get_cdrrmo_injuries, get_cdrrmo_fatalities
 )
-
 from PNPAnalytics import (
-    get_pnp_trends, get_pnp_distribution, get_pnp_causes,
-    get_pnp_weather_impact, get_pnp_road_conditions, get_pnp_vehicle_types,
-    get_pnp_driver_age, get_pnp_driver_gender, get_pnp_accident_type,
-    get_pnp_injuries, get_pnp_fatalities
+    get_pnp_trends, get_pnp_distribution, get_pnp_causes, get_pnp_weather_impact,
+    get_pnp_road_conditions, get_pnp_vehicle_types, get_pnp_driver_age,
+    get_pnp_driver_gender, get_pnp_accident_type, get_pnp_injuries, get_pnp_fatalities
 )
-
 from BFPAnalytics import (
-    get_bfp_trends, get_bfp_distribution, get_bfp_causes,
-    get_bfp_weather_impact, get_bfp_property_types, get_bfp_fire_severity,
-    get_bfp_casualty_count, get_bfp_response_time, get_bfp_fire_duration
+    get_bfp_trends, get_bfp_distribution, get_bfp_causes, get_bfp_weather_impact,
+    get_bfp_property_types, get_bfp_fire_severity, get_bfp_casualty_count,
+    get_bfp_response_time, get_bfp_fire_duration
 )
 
 # Configure logging
@@ -69,37 +58,71 @@ except FileNotFoundError:
 except Exception as e:
     logger.error(f"Error loading road_accident.csv: {e}")
 
+dt_classifier = os.path.join ('training', 'decision_tree_model.pkl')
+
 try:
-    dt_classifier = joblib.load('training/decision_tree_model.pkl')
-    logging.info("decision_tree_model.pkl loaded successfully.")
+    dt_classifier = joblib.load(dt_classifier)
+    logger.info("Decision tree model loaded successfully.")
 except FileNotFoundError:
-    logging.error("decision_tree_model.pkl not found. ML prediction will not work.")
-    dt_classifier = None
-except Exception as e:
-    logging.error(f"Error loading decision_tree_model.pkl: {e}")
+    logger.error("Decision tree model file not found. ML prediction will not work.")
     dt_classifier = None
 
+fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
+road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
+
+try:
+    fire_session = ort.InferenceSession(fire_model_path)
+    road_session = ort.InferenceSession(road_model_path)
+    logger.info("ONNX models loaded successfully.")
+except Exception as e:
+    logger.error(f"Error loading ONNX models: {e}")
+    fire_session = None
+    road_session = None
+
+# Load datasets
+road_accident_df = pd.DataFrame()
+try:
+    road_accident_df = pd.read_csv('dataset/road_accident.csv')
+    logger.info("Successfully loaded road_accident.csv")
+except FileNotFoundError:
+    logger.error("road_accident.csv not found in dataset directory")
+except Exception as e:
+    logger.error(f"Error loading road_accident.csv: {e}")
+
+
+    
+lr_fire = os.path.join ('training', 'Fire Models', 'lr_fire_incident.pkl')
+rf_fire = os.path.join ('training', 'Fire Models', 'rf_fire_incident.pkl')
+svm_fire = os.path.join ('training', 'Fire Models', 'svm_fire_incident.pkl')
+xgb_fire = os.path.join ('training', 'Fire Models', 'xgb_fire_incident.pkl')
 # Load fire incident models
 try:
-    lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
-    rf_fire = joblib.load('training/Fire Models/rf_fire_incident.pkl')
-    svm_fire = joblib.load('training/Fire Models/svm_fire_incident.pkl')
-    xgb_fire = joblib.load('training/Fire Models/xgb_fire_incident.pkl')
+    lr_fire = joblib.load(lr_fire)
+    rf_fire = joblib.load(rf_fire)
+    svm_fire = joblib.load(svm_fire)
+    xgb_fire = joblib.load(xgb_fire)
     logging.info("Fire incident models loaded successfully.")
 except Exception as e:
     logging.error(f"Error loading fire incident models: {e}")
     lr_fire = rf_fire = svm_fire = xgb_fire = None
 
+
+
+lr_road = os.path.join ('training', 'Road Models', 'lr_road_accident.pkl')
+rf_road = os.path.join ('training', 'Road Models', 'rf_road_accident.pkl')
+svm_road = os.path.join ('training', 'Road Models', 'svm_road_accident.pkl')
+xgb_road = os.path.join ('training', 'Road Models', 'xgb_road_accident.pkl')
 # Load road accident models
 try:
-    lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
-    rf_road = joblib.load('training/Road Models/rf_road_accident.pkl')
-    svm_road = joblib.load('training/Road Models/svm_road_accident.pkl')
-    xgb_road = joblib.load('training/Road Models/xgb_road_accident.pkl')
+    lr_road = joblib.load(lr_road)
+    rf_road = joblib.load(rf_road)
+    svm_road = joblib.load(svm_road)
+    xgb_road = joblib.load(xgb_road)
     logging.info("Road accident models loaded successfully.")
 except Exception as e:
     logging.error(f"Error loading road accident models: {e}")
     lr_road = rf_road = svm_road = xgb_road = None
+    
 
 app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
@@ -108,120 +131,48 @@ socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_h
 # Initialize alerts list
 alerts = []
 
-# Function to classify images
-def classify_image(base64_image):
-    if dt_classifier is None:
-        logger.error("Decision tree classifier not loaded")
-        return 'unknown'
-    try:
-        import base64
-        img_data = base64.b64decode(base64_image)
-        nparr = np.frombuffer(img_data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
-        if img is None:
-            logger.error("Failed to decode image")
-            return 'unknown'
-        img = cv2.resize(img, (64, 64))
-        features = img.flatten().reshape(1, -1)
-        prediction = dt_classifier.predict(features)[0]
-        logger.debug(f"Image classified as: {prediction}")
-        return prediction
-    except Exception as e:
-        logger.error(f"Image classification failed: {e}")
-        return 'unknown'
-
-fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
-road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
-
-try:
-    fire_session = ort.InferenceSession(fire_model_path)
-    road_session = ort.InferenceSession(road_model_path)
-    logger.info("ONNX models loaded successfully")
-except Exception as e:
-    logger.error(f"Failed to load ONNX models: {e}")
-    fire_session = None
-    road_session = None
-
 def preprocess_image(base64_image):
     try:
+        import base64
         img_data = base64.b64decode(base64_image)
         nparr = np.frombuffer(img_data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         if img is None:
             raise ValueError("Failed to decode image")
         img = cv2.resize(img, (224, 224))
-        img = img.astype(np.float32) / 255.0
+        img = img / 255.0
         img = np.transpose(img, (2, 0, 1))
-        img = np.expand_dims(img, axis=0)
+        img = np.expand_dims(img, axis=0).astype(np.float32)
         return img
     except Exception as e:
-        logger.error(f"Image preprocessing failed: {e}")
+        logger.error(f"Error preprocessing image: {e}")
         return None
-
-def emit_alert_to_rooms(data):
-    emergency_type = data.get('predicted_emergency')
-    if emergency_type == 'fire_incident':
-        rooms = ['barangay', 'bfp']
-    elif emergency_type == 'road_accident':
-        rooms = ['barangay', 'cdrrmo', 'pnp']
-    else:
-        rooms = []
-    for room in rooms:
-        emit('new_alert', data, room=room)
-
-@socketio.on('join_room')
-def handle_join_room(room):
-    join_room(room)
-    logger.info(f"Client joined room: {room}")
 
 @socketio.on('alert')
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        data['alert_id'] = str(uuid.uuid4())
-        data['user_barangay'] = data.get('barangay', 'Unknown')
-        
-        if data.get('image'):
-            preprocessed_img = preprocess_image(data['image'])
-            if preprocessed_img is not None:
-                # Call prediction functions from dashboard helpers
-                emergency_type_barangay, accuracy_barangay = barangay_predict(preprocessed_img, fire_session, road_session)
-                emergency_type_bfp, accuracy_bfp = bfp_predict(preprocessed_img, fire_session, road_session)
-                emergency_type_cdrrmo, accuracy_cdrrmo = cdrrmo_predict(preprocessed_img, fire_session, road_session)
-                emergency_type_pnp, accuracy_pnp = pnp_predict(preprocessed_img, fire_session, road_session)
-                
-                # Use the prediction from Barangay as the primary one for consistency
-                data['predicted_emergency'] = emergency_type_barangay
-                data['accuracy'] = accuracy_barangay
-                if data['predicted_emergency'] == 'unknown':
-                    data['image'] = None
+        if 'image' in data:
+            image = preprocess_image(data['image'])
+            if image is not None:
+                # Use Barangay's prediction logic as the primary predictor
+                predicted_type, probability = predict_barangay(image)
+                data['predicted_type'] = predicted_type
+                data['probability'] = float(probability)
             else:
-                data['predicted_emergency'] = 'unknown'
-                data['accuracy'] = 0.0
+                data['predicted_type'] = 'unknown'
+                data['probability'] = 0.0
         else:
-            data['predicted_emergency'] = 'unknown'
-            data['accuracy'] = 0.0
-        
-        logger.info(f"Alert received: {data}")
+            data['predicted_type'] = 'unknown'
+            data['probability'] = 0.0
+        logger.info(f"Alert received with prediction: {data}")
         alerts.append(data)
-        emit_alert_to_rooms(data)
-        logger.info("Emitted new_alert to relevant rooms")
+        emit('new_alert', data, broadcast=True)
+        logger.info("Broadcasted new_alert to all clients")
         emit('alert_sent', {'status': 'success'}, room=request.sid)
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
-
-@socketio.on('response_submitted')
-def handle_response(data):
-    try:
-        alert_id = data.get('alert_id')
-        if alert_id:
-            global alerts
-            alerts = [a for a in alerts if a.get('alert_id') != alert_id]
-            emit('alert_removed', {'alert_id': alert_id}, broadcast=True)
-            logger.info(f"Alert {alert_id} removed due to response")
-    except Exception as e:
-        logger.error(f"Error handling response: {e}")
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
@@ -229,9 +180,9 @@ try:
     with open(os.path.join('assets', 'coords.txt'), 'r') as f:
         barangay_coords = ast.literal_eval(f.read())
 except FileNotFoundError:
-    logging.error("coords.txt not found in assets directory. Using empty dict.")
+    logger.error("coords.txt not found in assets directory. Using empty dict.")
 except Exception as e:
-    logging.error(f"Error loading coords.txt: {e}. Using empty dict.")
+    logger.error(f"Error loading coords.txt: {e}. Using empty dict.")
 
 municipality_coords = {
     "San Pablo City": {"lat": 14.0642, "lon": 121.3233},
@@ -246,6 +197,7 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+# Utility routes (unchanged)
 @app.route('/export_users', methods=['GET'])
 def export_users():
     if session.get('role') != 'admin':
@@ -320,7 +272,7 @@ def login():
         
         conn = get_db_connection()
         user = conn.execute('''
-            SELECT * FROM users WHERE Barangay = ? AND contact_no = ? AND password = ?
+            SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND password = ?
         ''', (barangay, contact_no, password)).fetchone()
         conn.close()
         
@@ -414,7 +366,7 @@ def login_cdrrmo_pnp_bfp():
             unique_id = construct_unique_id(user['role'], assigned_municipality=assigned_municipality, contact_no=contact_no)
             session['unique_id'] = unique_id
             session['role'] = user['role']
-            logger.debug(f"Web login successful for user: {unique_id} ({user['role']})")
+            app.logger.debug(f"Web login successful for user: {unique_id} ({user['role']})")
             if user['role'] == 'cdrrmo':
                 return redirect(url_for('cdrrmo_dashboard'))
             elif user['role'] == 'pnp':
@@ -517,15 +469,20 @@ def send_alert():
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
             'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
-            'imageUploadTime': image_upload_time,
-            'alert_id': str(uuid.uuid4()),
-            'user_barangay': data.get('barangay', 'Unknown')
+            'imageUploadTime': image_upload_time
         }
-        
-        if alert['image']:
-            prediction = classify_image(alert['image'])
-            if prediction not in ['road_accident', 'fire_incident']:
-                alert['image'] = None
+        if image:
+            image_processed = preprocess_image(image)
+            if image_processed is not None:
+                predicted_type, probability = predict_barangay(image_processed)
+                alert['predicted_type'] = predicted_type
+                alert['probability'] = float(probability)
+            else:
+                alert['predicted_type'] = 'unknown'
+                alert['probability'] = 0.0
+        else:
+            alert['predicted_type'] = 'unknown'
+            alert['probability'] = 0.0
 
         alerts.append(alert)
         socketio.emit('new_alert', alert)
@@ -733,13 +690,13 @@ def pnp_dashboard():
         lat_coord = 14.5995
         lon_coord = 120.9842
 
-    logger.debug(f"Rendering PNPDashboard for {assigned_municipality}")
-    return render_template('PNPDashboard.html', 
-                           stats=stats, 
-                           municipality=assigned_municipality, 
-                           lat_coord=lat_coord, 
-                           lon_coord=lon_coord, 
-                           google_api_key=GOOGLE_API_KEY)
+        logger.debug(f"Rendering PNPDashboard for {assigned_municipality}")
+        return render_template('PNPDashboard.html', 
+                            stats=stats, 
+                            municipality=assigned_municipality, 
+                            lat_coord=lat_coord, 
+                            lon_coord=lon_coord, 
+                            google_api_key=GOOGLE_API_KEY)
 
 @app.route('/bfp_dashboard')
 def bfp_dashboard():
@@ -774,7 +731,7 @@ def bfp_dashboard():
                            lon_coord=lon_coord,
                            google_api_key=GOOGLE_API_KEY)
 
-# Analytics routes
+# Analytics routes (unchanged)
 @app.route('/barangay/analytics')
 def barangay_analytics():
     if 'role' not in session or session['role'] != 'barangay':
@@ -833,7 +790,7 @@ def cdrrmo_analytics():
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]
     return render_template('CDRRMOAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/cdrrmo_analytics_data', methods=['GET'])
@@ -881,7 +838,7 @@ def pnp_analytics():
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]
     return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/pnp_analytics_data', methods=['GET'])
@@ -928,7 +885,7 @@ def bfp_analytics():
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]
     return render_template('BFPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/bfp_analytics_data', methods=['GET'])
@@ -959,47 +916,6 @@ def get_bfp_analytics_data():
     except Exception as e:
         logger.error(f"Error in get_bfp_analytics_data: {e}", exc_info=True)
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
-
-def get_latest_alert():
-    try:
-        if alerts:
-            return list(alerts)[-1]
-        return None
-    except Exception as e:
-        logger.error(f"Error in get_latest_alert: {e}", exc_info=True)
-        return None
-
-def get_barangay_stats():
-    try:
-        types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'barangay' or a.get('barangay')]
-        return Counter(types)
-    except Exception as e:
-        logger.error(f"Error in get_barangay_stats: {e}", exc_info=True)
-        return Counter()
-
-def get_cdrrmo_stats():
-    try:
-        types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'cdrrmo' or a.get('assigned_municipality')]
-        return Counter(types)
-    except Exception as e:
-        logger.error(f"Error in get_cdrrmo_stats: {e}", exc_info=True)
-        return Counter()
-
-def get_pnp_stats():
-    try:
-        types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'pnp' or a.get('assigned_municipality')]
-        return Counter(types)
-    except Exception as e:
-        logger.error(f"Error in get_pnp_stats: {e}", exc_info=True)
-        return Counter()
-
-def get_bfp_stats():
-    try:
-        types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'bfp' or a.get('assigned_municipality')]
-        return Counter(types)
-    except Exception as e:
-        logger.error(f"Error in get_bfp_stats: {e}", exc_info=True)
-        return Counter()
 
 if __name__ == '__main__':
     db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
