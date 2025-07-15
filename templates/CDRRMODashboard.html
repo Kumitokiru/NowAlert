@@ -80,9 +80,11 @@
             L.control.layers(baseLayers).addTo(cdrrmoMap);
 
             const socket = io('https://nowalert.onrender.com');
-            socket.on('connect', () => {
-            console.log('Connected to server');
-            socket.emit('join', { room: 'cdrrmo' });
+            const alertElements = new Map();
+
+                socket.on('connect', () => {
+                console.log('Connected to server');
+                socket.emit('join', { room: 'cdrrmo' });
             });
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
@@ -98,6 +100,12 @@
                     <p>Predicted Emergency: ${data.predicted_type.replace('_', ' ').replace(/\b\w/g, c => c.toUpperCase())} (${data.probability.toFixed(2)})</p>
                 `;
                 feed.prepend(alertDiv);
+                alertElements.set(data.alert_id, alertDiv);
+                if (data.lat && data.lon) {
+                    L.marker([data.lat, data.lon]).addTo(cdrrmoMap)
+                        .bindPopup(message)
+                        .openPopup();
+                }
             });
 
             socket.on('alert_removed', (data) => {
