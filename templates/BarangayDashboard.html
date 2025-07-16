@@ -79,35 +79,37 @@
             };
             L.control.layers(baseLayers).addTo(barangayMap);
 
-            const socket = io('https://nowalert.onrender.com');
+           const socket = io('https://nowalert.onrender.com');
             const alertElements = new Map();
 
             socket.on('connect', () => console.log('Connected to SocketIO server'));
 
             socket.on('new_alert', (data) => {
-                if (data.predicted_type === 'road_accident' || data.predicted_type === 'fire_incident') {
-                    console.log('Alert received:', data);
-                    const dashboardBarangay = "{{ barangay }}";
-                    const alertBarangay = data.user_barangay || 'Unknown';
-                    const message = `Emergency at ${dashboardBarangay}, from ${alertBarangay}`;
+                console.log('Alert received:', data);
+                if (data.predicted_type !== 'road_accident' && data.predicted_type !== 'fire_incident') {
+                    console.log('Alert filtered out:', data.predicted_type);
+                    return;
+                }
+                const dashboardBarangay = "{{ barangay }}";
+                const alertBarangay = data.user_barangay || data.barangay || 'Unknown';
+                const message = `Emergency at ${dashboardBarangay}, Resident from ${alertBarangay}`;
 
-                    const feed = document.getElementById('alert-container');
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert-item';
-                    alertDiv.dataset.alertId = data.alert_id;
-                    alertDiv.innerHTML = `
-                        <p>${message}</p>
-                        ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                        <p>Type: ${data.predicted_type} (Confidence: ${data.confidence.toFixed(2)})</p>
-                    `;
-                    feed.prepend(alertDiv);
-                    alertElements.set(data.alert_id, alertDiv);
+                const feed = document.getElementById('alert-container');
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert-item';
+                alertDiv.dataset.alertId = data.alert_id;
+                alertDiv.innerHTML = `
+                    <p>${message}</p>
+                    <p>Type: ${data.predicted_type} (Confidence: ${data.confidence.toFixed(2)})</p>
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                `;
+                feed.prepend(alertDiv);
+                alertElements.set(data.alert_id, alertDiv);
 
-                    if (data.lat && data.lon) {
-                        L.marker([data.lat, data.lon]).addTo(barangayMap)
-                            .bindPopup(message)
-                            .openPopup();
-                    }
+                if (data.lat && data.lon) {
+                    L.marker([data.lat, data.lon]).addTo(barangayMap)
+                        .bindPopup(message)
+                        .openPopup();
                 }
             });
 
@@ -120,7 +122,6 @@
                     console.log(`Alert ${alertId} removed from UI`);
                 }
             });
-        
 
             function updateUIWithAlert(data) {
                 const feed = document.getElementById('alert-container');
