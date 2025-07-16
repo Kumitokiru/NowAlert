@@ -16,6 +16,7 @@ import pickle
 import pandas as pd
 import xgboost
 import onnxruntime as ort
+import uuid
 
 from BarangayDashboard import get_barangay_stats, get_latest_alert, predict_emergency_type as predict_barangay
 from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert, predict_emergency_type as predict_cdrrmo
@@ -61,15 +62,18 @@ except Exception as e:
     fire_session = None
     road_session = None
 
+road_accident_df = os.path.join('dataset', 'road_accident.csv')
 # Load datasets
-road_accident_df = pd.DataFrame()
+
 try:
-    road_accident_df = pd.read_csv('dataset/road_accident.csv')
+    road_accident_df = ort.InferenceSession(road_accident_df)
     logger.info("Successfully loaded road_accident.csv")
 except FileNotFoundError:
     logger.error("road_accident.csv not found in dataset directory")
 except Exception as e:
     logger.error(f"Error loading road_accident.csv: {e}")
+    road_accident_df - None
+
 
 dt_classifier = os.path.join('training', 'decision_tree_model.pkl')
 try:
@@ -146,6 +150,8 @@ def handle_alert(data):
         else:
             data['predicted_type'] = 'unknown'
             data['probability'] = 0.0
+        data['alert_id'] = str(uuid.uuid4())  # Unique ID for each alert
+        data['user_barangay'] = data.get('barangay', 'Unknown')    
         logger.info(f"Alert received with prediction: {data}")
         alerts.append(data)
         emit('new_alert', data, broadcast=True)
@@ -154,6 +160,18 @@ def handle_alert(data):
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
+
+@socketio.on('response_submitted')
+def handle_response(data):
+    try:
+        alert_id = data.get('alert_id')
+        if alert_id:
+            global alerts
+            alerts = [a for a in alerts if a.get('alert_id') != alert_id]
+            emit('alert_removed', {'alert_id': alert_id}, broadcast=True)
+            logger.info(f"Alert {alert_id} removed due to response")
+    except Exception as e:
+        logger.error(f"Error handling response: {e}")
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
