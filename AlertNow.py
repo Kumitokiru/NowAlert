@@ -130,7 +130,7 @@ socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_h
 logging.basicConfig(level=logging.DEBUG)
 
 # Initialize alerts list
-alerts = []
+alerts = deque(maxlen=100)
 
 def preprocess_image(base64_image):
     try:
