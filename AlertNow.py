@@ -132,13 +132,20 @@ def preprocess_image(base64_image):
         logger.error(f"Error preprocessing image: {e}")
         return None
 
+def get_municipality_for_barangay(barangay):
+    for mun, brys in barangay_coords.items():
+        if barangay in brys:
+            return mun
+    return "Unknown"
+
 @socketio.on('alert')
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
+        data['municipality'] = get_municipality_for_barangay(data.get('barangay', 'N/A'))
         if 'image' in data:
             image = preprocess_image(data['image'])
-            if predicted_type not in ['road_accident', 'fire_incident']:
+            if image is not None:
                 predicted_type, probability = predict_barangay(image, fire_session, road_session)
                 data['predicted_type'] = predicted_type
                 data['probability'] = float(probability)
@@ -148,7 +155,7 @@ def handle_alert(data):
         else:
             data['predicted_type'] = 'unknown'
             data['probability'] = 0.0
-        data['alert_id'] = str(uuid.uuid4())  # Unique ID for each alert
+        data['alert_id'] = str(uuid.uuid4())
         data['user_barangay'] = data.get('barangay', 'Unknown')    
         logger.info(f"Alert received with prediction: {data}")
         alerts.append(data)
@@ -465,6 +472,7 @@ def send_alert():
             'house_no': data.get('house_no', 'N/A'),
             'street_no': data.get('street_no', 'N/A'),
             'barangay': data.get('barangay', 'N/A'),
+            'municipality': get_municipality_for_barangay(data.get('barangay', 'N/A')),
             'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
             'imageUploadTime': image_upload_time
         }
