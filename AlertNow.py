@@ -71,16 +71,7 @@ except FileNotFoundError:
     dt_classifier = None
 
 # Load ONNX models
-fire_model_path = os.path.join('training', 'Fire Models', 'fire_incident_model.onnx')
-road_model_path = os.path.join('training', 'Road Models', 'road_accident_model.onnx')
-try:
-    fire_session = ort.InferenceSession(fire_model_path)
-    road_session = ort.InferenceSession(road_model_path)
-    logger.info("ONNX models loaded successfully.")
-except Exception as e:
-    logger.error(f"Error loading ONNX models: {e}")
-    fire_session = None
-    road_session = None
+
 
 # Load fire incident models
 lr_fire_path = os.path.join('training', 'Fire Models', 'lr_fire_incident.pkl')
