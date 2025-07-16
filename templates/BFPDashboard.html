@@ -80,17 +80,20 @@
             L.control.layers(baseLayers).addTo(bfpMap);
 
             const socket = io('https://nowalert.onrender.com');
-            const alertElements = new Map(); // Store alert elements by ID
+            const alertElements = new Map();
 
             socket.on('connect', () => console.log('Connected to SocketIO server'));
 
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
-                const dashboardBarangay = "{{ barangay }}";
-                const alertBarangay = data.user_barangay || 'Unknown';
-                const message = `Emergency at ${dashboardBarangay}, Resident from ${alertBarangay}`;
+                if (data.predicted_type !== 'fire_incident') {
+                    console.log('Alert filtered out:', data.predicted_type);
+                    return;
+                }
+                const dashboardMunicipality = "{{ municipality }}";
+                const alertBarangay = data.user_barangay || data.barangay || 'Unknown';
+                const message = `Fire incident at ${dashboardMunicipality}, Resident from ${alertBarangay}`;
 
-                // Add to Live Alerts
                 const feed = document.getElementById('alert-container');
                 const alertDiv = document.createElement('div');
                 alertDiv.className = 'alert-item';
@@ -103,7 +106,6 @@
                 feed.prepend(alertDiv);
                 alertElements.set(data.alert_id, alertDiv);
 
-                // Add to Map
                 if (data.lat && data.lon) {
                     L.marker([data.lat, data.lon]).addTo(bfpMap)
                         .bindPopup(message)
