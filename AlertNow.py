@@ -113,7 +113,7 @@ app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your-secret-key-here')
 socketio = SocketIO(app, async_mode='threading', cors_allowed_origins="*", max_http_buffer_size=10000000)
 
-Alerts = deque(maxlen=100)  # Limit alerts to 100 to manage memory
+alerts = []
 
 def preprocess_image(base64_image):
     try:
@@ -138,7 +138,7 @@ def handle_alert(data):
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
         if 'image' in data:
             image = preprocess_image(data['image'])
-            if image is not None:
+            if predicted_type not in ['road_accident', 'fire_incident']:
                 predicted_type, probability = predict_barangay(image, fire_session, road_session)
                 data['predicted_type'] = predicted_type
                 data['probability'] = float(probability)
@@ -158,6 +158,18 @@ def handle_alert(data):
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
+        
+@socketio.on('response_submitted')
+def handle_response(data):
+    try:
+        alert_id = data.get('alert_id')
+        if alert_id:
+            global alerts
+            alerts = [a for a in alerts if a.get('alert_id') != alert_id]
+            emit('alert_removed', {'alert_id': alert_id}, broadcast=True)
+            logger.info(f"Alert {alert_id} removed due to response")
+    except Exception as e:
+        logger.error(f"Error handling response: {e}")
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyBSXRZPDX1x1d91Ck-pskiwGA8Y2-5gDVs')
 barangay_coords = {}
