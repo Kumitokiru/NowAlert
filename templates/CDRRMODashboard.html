@@ -80,31 +80,34 @@
             L.control.layers(baseLayers).addTo(cdrrmoMap);
 
             const socket = io('https://nowalert.onrender.com');
-            const alertElements = new Map();
+            const alertElements = new Map(); // Store alert elements by ID
 
             socket.on('connect', () => console.log('Connected to SocketIO server'));
 
             socket.on('new_alert', (data) => {
-                if (data.predicted_type === 'road_accident') {
-                    const message = `Emergency at ${data.barangay}`;
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert-item';
-                    alertDiv.innerHTML = `
-                        <p>${message}</p>
-                        ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                        <p>Predicted Emergency: ${data.predicted_type} (${data.probability.toFixed(2)})</p>
-                    `;
-                    document.getElementById('alert-container').prepend(alertDiv);
-                }
-            });
+                console.log('Alert received:', data);
+                const dashboardBarangay = "{{ barangay }}";
+                const alertBarangay = data.user_barangay || 'Unknown';
+                const message = `Emergency at ${dashboardBarangay}, Resident from ${alertBarangay}`;
 
-            socket.on('alert_removed', (data) => {
-                const alertId = data.alert_id;
-                const alertDiv = alertElements.get(alertId);
-                if (alertDiv) {
-                    alertDiv.remove();
-                    alertElements.delete(alertId);
-                    console.log(`Alert ${alertId} removed from UI`);
+                // Add to Live Alerts
+                const feed = document.getElementById('alert-container');
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert-item';
+                alertDiv.dataset.alertId = data.alert_id;
+                alertDiv.innerHTML = `
+                    <p>${message}</p>
+                    <p>Predicted Type: ${data.predicted_type} (Probability: ${(data.probability * 100).toFixed(2)}%)</p>
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                `;
+                feed.prepend(alertDiv);
+                alertElements.set(data.alert_id, alertDiv);
+
+                // Add to Map
+                if (data.lat && data.lon) {
+                    L.marker([data.lat, data.lon]).addTo(barangayMap)
+                        .bindPopup(message)
+                        .openPopup();
                 }
             });
 
@@ -129,11 +132,12 @@
                         displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     } catch (e) {
                         console.error('Error parsing timestamp:', e);
-                        displayTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
+                        displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
                     }
                     const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
                     alertDiv.innerHTML = `
                         <p><strong>${address}</strong> - ${data.emergency_type || 'Not Specified'} at ${displayTime}</p>
+                        <p>Predicted Type: ${data.predicted_type} (Probability: ${(data.probability * 100).toFixed(2)}%)</p>
                         <button onclick="respondAlert('${data.timestamp}', ${data.lat || 0}, ${data.lon || 0}, '${data.barangay || 'N/A'}', '${data.emergency_type || 'Not Specified'}')">Respond</button>
                         ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
                     `;
@@ -141,11 +145,12 @@
                 }
 
                 if (data.lat && data.lon) {
-                    const marker = L.marker([data.lat, data.lon]).addTo(cdrrmoMap).bindPopup(
+                    const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
                         `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
                     ).openPopup();
+                    // Zoom only if there’s a single alert
                     if (feed.children.length === 1) {
-                        cdrrmoMap.setView([data.lat, data.lon], 15);
+                        barangayMap.setView([data.lat, data.lon], 15); // Zoom level 15 for a closer view
                     }
                 }
 
@@ -154,17 +159,23 @@
 
             function notifyAlert(data) {
                 if ('Notification' in window && Notification.permission === 'granted') {
-                    new Notification('New Alert', {
-                        body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
-                        icon: '/static/favicon.ico'
-                    });
+                    showBrowserNotification(data);
                 } else {
                     showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
                 }
             }
 
+            function showBrowserNotification(data) {
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    new Notification('New Alert', {
+                        body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
+                        icon: '/static/favicon.ico'
+                    });
+                }
+            }
+
             function updateStats() {
-                fetch('/api/stats?role=cdrrmo')
+                fetch('/api/stats?role=barangay')
                     .then(res => res.json())
                     .then(stats => {
                         document.getElementById('total-incidents').textContent = stats.total || 0;
