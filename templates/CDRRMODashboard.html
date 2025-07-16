@@ -97,7 +97,7 @@
                 alertDiv.dataset.alertId = data.alert_id;
                 alertDiv.innerHTML = `
                     <p>${message}</p>
-                    <p>Predicted Type: ${data.predicted_type} (Probability: ${(data.probability * 100).toFixed(2)}%)</p>
+                    <p>Type: ${data.predicted_type} (Confidence: ${data.confidence.toFixed(2)})</p>
                     ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
                 `;
                 feed.prepend(alertDiv);
