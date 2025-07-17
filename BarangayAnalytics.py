@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import pytz
 from collections import Counter
 import os
-from AlertNow import lr_road, lr_fire
+from models import lr_road, lr_fire  # Updated import
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
