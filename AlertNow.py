@@ -8,42 +8,35 @@ import sqlite3
 import joblib
 import cv2
 import numpy as np
-from collections import Counter, deque
-from alert_data import alerts
-from datetime import datetime, timedelta
+from collections import Counter
+from datetime import datetime
 import pytz
-import pickle
 import pandas as pd
-import xgboost
 import uuid
 
+# Import dashboard and analytics functions
 from BarangayDashboard import get_barangay_stats, get_latest_alert
-from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
-from PNPDashboard import get_pnp_stats, get_latest_alert
-from BFPDashboard import get_bfp_stats, get_latest_alert
-
-# Import analytics functions
+from CDRRMODashboard import get_cdrrmo_stats
+from PNPDashboard import get_pnp_stats
+from BFPDashboard import get_bfp_stats
 from BarangayAnalytics import (
     get_barangay_trends, get_barangay_distribution, get_barangay_causes,
     get_barangay_weather_impact, get_barangay_road_conditions, get_barangay_vehicle_types,
     get_barangay_driver_age, get_barangay_driver_gender, get_barangay_accident_type,
     get_barangay_injuries, get_barangay_fatalities
 )
-
 from CDRRMOAnalytics import (
     get_cdrrmo_trends, get_cdrrmo_distribution, get_cdrrmo_causes,
     get_cdrrmo_weather_impact, get_cdrrmo_road_conditions, get_cdrrmo_vehicle_types,
     get_cdrrmo_driver_age, get_cdrrmo_driver_gender, get_cdrrmo_accident_type,
     get_cdrrmo_injuries, get_cdrrmo_fatalities
 )
-
 from PNPAnalytics import (
     get_pnp_trends, get_pnp_distribution, get_pnp_causes,
     get_pnp_weather_impact, get_pnp_road_conditions, get_pnp_vehicle_types,
     get_pnp_driver_age, get_pnp_driver_gender, get_pnp_accident_type,
     get_pnp_injuries, get_pnp_fatalities
 )
-
 from BFPAnalytics import (
     get_bfp_trends, get_bfp_distribution, get_bfp_causes,
     get_bfp_weather_impact, get_bfp_property_types, get_bfp_fire_severity,
@@ -76,12 +69,12 @@ except Exception as e:
 model_path = os.path.join(os.path.dirname(__file__), 'training', 'decision_tree_model.pkl')
 try:
     dt_classifier = joblib.load(model_path)
-    logging.info("decision_tree_model.pkl loaded successfully.")
+    logger.info("decision_tree_model.pkl loaded successfully.")
 except FileNotFoundError:
-    logging.error(f"{model_path} not found. ML prediction will not work.")
+    logger.error(f"{model_path} not found. ML prediction will not work.")
     dt_classifier = None
 except Exception as e:
-    logging.error(f"Error loading {model_path}: {e}")
+    logger.error(f"Error loading {model_path}: {e}")
     dt_classifier = None
 
 # Load fire incident models
@@ -91,9 +84,9 @@ try:
     rf_fire = joblib.load(os.path.join(fire_models_path, 'rf_fire_incident.pkl'))
     svm_fire = joblib.load(os.path.join(fire_models_path, 'svm_fire_incident.pkl'))
     xgb_fire = joblib.load(os.path.join(fire_models_path, 'xgb_fire_incident.pkl'))
-    logging.info("Fire incident models loaded successfully.")
+    logger.info("Fire incident models loaded successfully.")
 except Exception as e:
-    logging.error(f"Error loading fire incident models: {e}")
+    logger.error(f"Error loading fire incident models: {e}")
     lr_fire = rf_fire = svm_fire = xgb_fire = None
 
 # Load road accident models
@@ -103,9 +96,9 @@ try:
     rf_road = joblib.load(os.path.join(road_models_path, 'rf_road_accident.pkl'))
     svm_road = joblib.load(os.path.join(road_models_path, 'svm_road_accident.pkl'))
     xgb_road = joblib.load(os.path.join(road_models_path, 'xgb_road_accident.pkl'))
-    logging.info("Road accident models loaded successfully.")
+    logger.info("Road accident models loaded successfully.")
 except Exception as e:
-    logging.error(f"Error loading road accident models: {e}")
+    logger.error(f"Error loading road accident models: {e}")
     lr_road = rf_road = svm_road = xgb_road = None
 
 app = Flask(__name__)
@@ -141,14 +134,13 @@ def classify_image(base64_image):
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        data['alert_id'] = str(uuid.uuid4())  # Unique ID for each alert
+        data['alert_id'] = str(uuid.uuid4())
         data['user_barangay'] = data.get('barangay', 'Unknown')
         
-        # Classify image if present
         if data.get('image'):
             prediction = classify_image(data['image'])
             if prediction not in ['road_accident', 'fire_incident']:
-                data['image'] = None  # Remove image if not road accident or fire incident
+                data['image'] = None
         
         logger.info(f"Alert received: {data}")
         alerts.append(data)
@@ -177,9 +169,9 @@ try:
     with open(os.path.join(os.path.dirname(__file__), 'assets', 'coords.txt'), 'r') as f:
         barangay_coords = ast.literal_eval(f.read())
 except FileNotFoundError:
-    logging.error("coords.txt not found in assets directory. Using empty dict.")
+    logger.error("coords.txt not found in assets directory. Using empty dict.")
 except Exception as e:
-    logging.error(f"Error loading coords.txt: {e}. Using empty dict.")
+    logger.error(f"Error loading coords.txt: {e}. Using empty dict.")
 
 municipality_coords = {
     "San Pablo City": {"lat": 14.0642, "lon": 121.3233},
@@ -210,7 +202,7 @@ def download_db():
         db_path = os.path.join(os.path.dirname(__file__), 'database', 'users_web.db')
     if not os.path.exists(db_path):
         return "Database file not found", 404
-    app.logger.debug(f"Serving database from: {db_path}")
+    logger.debug(f"Serving database from: {db_path}")
     return send_file(db_path, as_attachment=True, download_name='users_web.db')
 
 def construct_unique_id(role, barangay=None, assigned_municipality=None, contact_no=None):
@@ -251,7 +243,7 @@ def signup_barangay():
             logger.error("IntegrityError during signup: %s", e)
             return "User already exists", 400
         except Exception as e:
-            logger.error(f"Signup failed for {unique_id}: {e}", exc_info=True)
+            logger.error(f"Signup failed for {unique_id}: {e}")
             return f"Signup failed: {e}", 500
         finally:
             conn.close()
@@ -268,7 +260,7 @@ def login():
         
         conn = get_db_connection()
         user = conn.execute('''
-            SELECT * FROM users WHERE Barangay = ? AND contact_no = ? AND password = ?
+            SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND password = ?
         ''', (barangay, contact_no, password)).fetchone()
         conn.close()
         
@@ -328,7 +320,7 @@ def signup_cdrrmo_pnp_bfp():
             logger.error("IntegrityError during signup: %s", e)
             return "User already exists", 400
         except Exception as e:
-            logger.error(f"Signup failed for {unique_id}: {e}", exc_info=True)
+            logger.error(f"Signup failed for {unique_id}: {e}")
             return f"Signup failed: {e}", 500
         finally:
             conn.close()
@@ -340,7 +332,7 @@ def login_cdrrmo_pnp_bfp():
     if request.method == 'POST':
         role = request.form['role'].lower()
         if 'role' not in request.form:
-            app.logger.error("Role field is missing in the form data")
+            logger.error("Role field is missing in the form data")
             return "Role is required", 400
         assigned_municipality = request.form['municipality']
         contact_no = request.form['contact_no']
@@ -350,7 +342,7 @@ def login_cdrrmo_pnp_bfp():
             logger.error(f"Invalid role provided: {role}")
             return "Invalid role", 400
         
-        app.logger.debug(f"Login attempt: role={role}, municipality={assigned_municipality}, contact_no={contact_no}")
+        logger.debug(f"Login attempt: role={role}, municipality={assigned_municipality}, contact_no={contact_no}")
         
         conn = get_db_connection()
         user = conn.execute('''
@@ -369,7 +361,7 @@ def login_cdrrmo_pnp_bfp():
                 return redirect(url_for('pnp_dashboard'))
             elif user['role'] == 'bfp':
                 return redirect(url_for('bfp_dashboard'))
-        app.logger.warning(f"Web login failed for assigned_municipality: {assigned_municipality}, contact: {contact_no}, role: {role}")
+        logger.warning(f"Web login failed for assigned_municipality: {assigned_municipality}, contact: {contact_no}, role: {role}")
         return "Invalid credentials", 401
     return render_template('CDRRMOPNPBFPIn.html')
 
@@ -385,7 +377,7 @@ def go_to_signup_type():
 
 @app.route('/choose_login_type', methods=['GET'])
 def choose_login_type():
-    app.logger.debug("Rendering LoginType.html")
+    logger.debug("Rendering LoginType.html")
     return render_template('LoginType.html')
 
 @app.route('/go_to_cdrrmopnpbfpin', methods=['GET'])
@@ -415,7 +407,7 @@ def logout():
 
 def load_coords():
     coords_path = os.path.join(app.root_path, 'assets', 'coords.txt')
-    alerts = []
+    alerts_data = []
     try:
         with open(coords_path, 'r') as f:
             for line in f:
@@ -423,17 +415,17 @@ def load_coords():
                     parts = line.strip().split(',')
                     if len(parts) == 4:
                         barangay, municipality, message, timestamp = parts
-                        alerts.append({
+                        alerts_data.append({
                             "barangay": barangay.strip(),
                             "municipality": municipality.strip(),
                             "message": message.strip(),
                             "timestamp": timestamp.strip()
                         })
     except FileNotFoundError:
-        print("Warning: coords.txt not found, using empty alerts.")
+        logger.warning("coords.txt not found, using empty alerts.")
     except Exception as e:
-        print(f"Error loading coords.txt: {e}")
-    return alerts
+        logger.error(f"Error loading coords.txt: {e}")
+    return alerts_data
 
 @app.route('/send_alert', methods=['POST'])
 def send_alert():
@@ -479,7 +471,7 @@ def send_alert():
         socketio.emit('new_alert', alert)
         return jsonify({'status': 'success', 'message': 'Alert sent'}), 200
     except Exception as e:
-        app.logger.error(f"Error processing send_alert: {e}", exc_info=True)
+        logger.error(f"Error processing send_alert: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
 @app.route('/api/stats')
@@ -489,7 +481,7 @@ def get_stats():
         critical = len([a for a in alerts if a.get('emergency_type', '').lower() == 'critical'])
         return jsonify({'total': total, 'critical': critical})
     except Exception as e:
-        logger.error(f"Error in get_stats: {e}", exc_info=True)
+        logger.error(f"Error in get_stats: {e}")
         return jsonify({'error': 'Failed to retrieve stats'}), 500
 
 @app.route('/api/distribution')
@@ -509,7 +501,7 @@ def get_distribution():
         types = [a.get('emergency_type', 'unknown') for a in filtered_alerts]
         return jsonify(dict(Counter(types)))
     except Exception as e:
-        logger.error(f"Error in get_distribution: {e}", exc_info=True)
+        logger.error(f"Error in get_distribution: {e}")
         return jsonify({'error': 'Failed to retrieve distribution'}), 500
 
 @app.route('/add_alert', methods=['POST'])
@@ -554,7 +546,7 @@ def get_analytics():
             return jsonify({'error': 'Invalid role'}), 400
         return jsonify({'trends': trends, 'distribution': distribution, 'causes': causes})
     except Exception as e:
-        logger.error(f"Error in get_analytics: {e}", exc_info=True)
+        logger.error(f"Error in get_analytics: {e}")
         return jsonify({'error': 'Failed to retrieve analytics'}), 500
 
 @app.route('/api/predict_image', methods=['POST'])
@@ -584,7 +576,7 @@ def predict_image():
         logger.debug(f"Image predicted as: {prediction}")
         return jsonify({'emergency_type': prediction})
     except Exception as e:
-        logger.error(f"Image prediction failed: {e}", exc_info=True)
+        logger.error(f"Image prediction failed: {e}")
         return jsonify({'error': 'Prediction failed'}), 500
 
 @app.route('/barangay_dashboard')
@@ -722,7 +714,6 @@ def bfp_dashboard():
                            lon_coord=lon_coord,
                            google_api_key=GOOGLE_API_KEY)
 
-# Analytics routes
 @app.route('/barangay/analytics')
 def barangay_analytics():
     if 'role' not in session or session['role'] != 'barangay':
@@ -766,7 +757,7 @@ def get_barangay_analytics_data():
             'fatalities': fatalities
         })
     except Exception as e:
-        logger.error(f"Error in get_barangay_analytics_data: {e}", exc_info=True)
+        logger.error(f"Error in get_barangay_analytics_data: {e}")
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
 @app.route('/cdrrmo/analytics')
@@ -781,7 +772,7 @@ def cdrrmo_analytics():
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Placeholder, replace with actual query
     return render_template('CDRRMOAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/cdrrmo_analytics_data', methods=['GET'])
@@ -814,7 +805,7 @@ def get_cdrrmo_analytics_data():
             'fatalities': fatalities
         })
     except Exception as e:
-        logger.error(f"Error in get_cdrrmo_analytics_data: {e}", exc_info=True)
+        logger.error(f"Error in get_cdrrmo_analytics_data: {e}")
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
 @app.route('/pnp/analytics')
@@ -829,7 +820,7 @@ def pnp_analytics():
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Placeholder, replace with actual query
     return render_template('PNPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/pnp_analytics_data', methods=['GET'])
@@ -861,7 +852,7 @@ def get_pnp_analytics_data():
             'fatalities': fatalities
         })
     except Exception as e:
-        logger.error(f"Error in get_pnp_analytics_data: {e}", exc_info=True)
+        logger.error(f"Error in get_pnp_analytics_data: {e}")
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
 @app.route('/bfp/analytics')
@@ -876,7 +867,7 @@ def bfp_analytics():
     conn.close()
     municipality = user['assigned_municipality'] if user else "Unknown"
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
-    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Replace with actual database query
+    barangays = ["Barangay 1", "Barangay 2", "Barangay 3"]  # Placeholder, replace with actual query
     return render_template('BFPAnalytics.html', municipality=municipality, current_datetime=current_datetime, barangays=barangays)
 
 @app.route('/api/bfp_analytics_data', methods=['GET'])
@@ -905,16 +896,16 @@ def get_bfp_analytics_data():
             'fire_duration': fire_duration
         })
     except Exception as e:
-        logger.error(f"Error in get_bfp_analytics_data: {e}", exc_info=True)
+        logger.error(f"Error in get_bfp_analytics_data: {e}")
         return jsonify({'error': 'Failed to retrieve analytics data'}), 500
 
 def get_latest_alert():
     try:
         if alerts:
-            return list(alerts)[-1]
+            return alerts[-1]
         return None
     except Exception as e:
-        logger.error(f"Error in get_latest_alert: {e}", exc_info=True)
+        logger.error(f"Error in get_latest_alert: {e}")
         return None
 
 def get_barangay_stats():
@@ -922,7 +913,7 @@ def get_barangay_stats():
         types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'barangay' or a.get('barangay')]
         return Counter(types)
     except Exception as e:
-        logger.error(f"Error in get_barangay_stats: {e}", exc_info=True)
+        logger.error(f"Error in get_barangay_stats: {e}")
         return Counter()
 
 def get_cdrrmo_stats():
@@ -930,7 +921,7 @@ def get_cdrrmo_stats():
         types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'cdrrmo' or a.get('assigned_municipality')]
         return Counter(types)
     except Exception as e:
-        logger.error(f"Error in get_cdrrmo_stats: {e}", exc_info=True)
+        logger.error(f"Error in get_cdrrmo_stats: {e}")
         return Counter()
 
 def get_pnp_stats():
@@ -938,7 +929,7 @@ def get_pnp_stats():
         types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'pnp' or a.get('assigned_municipality')]
         return Counter(types)
     except Exception as e:
-        logger.error(f"Error in get_pnp_stats: {e}", exc_info=True)
+        logger.error(f"Error in get_pnp_stats: {e}")
         return Counter()
 
 def get_bfp_stats():
@@ -946,7 +937,7 @@ def get_bfp_stats():
         types = [a.get('emergency_type', 'unknown') for a in alerts if a.get('role') == 'bfp' or a.get('assigned_municipality')]
         return Counter(types)
     except Exception as e:
-        logger.error(f"Error in get_bfp_stats: {e}", exc_info=True)
+        logger.error(f"Error in get_bfp_stats: {e}")
         return Counter()
 
 if __name__ == '__main__':
@@ -968,7 +959,7 @@ if __name__ == '__main__':
         conn.close()
         logger.info("Database 'users_web.db' initialized successfully or already exists.")
     except Exception as e:
-        logger.error(f"Failed to initialize database: {e}", exc_info=True)
+        logger.error(f"Failed to initialize database: {e}")
 
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True, allow_unsafe_werkzeug=True)
