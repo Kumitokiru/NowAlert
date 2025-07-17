@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, emit
 import logging
 import ast
 import os
+import io
 import json
 import sqlite3
 import joblib
@@ -16,6 +17,7 @@ import pickle
 import pandas as pd
 import xgboost
 import onnxruntime as ort
+from PIL import Image
 import uuid
 import base64
 
@@ -210,74 +212,43 @@ def handle_alert(data):
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
       
-@app.route('/send_alert', methods=['POST'])
-def send_alert():
+@app.route('/alert', methods=['POST'])
+def alert():
+    data = request.get_json()
+    if not data or 'image' not in data:
+        return jsonify({'error': 'Invalid alert data'}), 400
     try:
-        # Get JSON data from the request
-        data = request.get_json()
-        if not data:
-            return jsonify({'error': 'No data provided'}), 400
+        image_data = base64.b64decode(data['image'])
+        image = Image.open(io.BytesIO(image_data))
+        image = image.resize((224, 224))  # Resize to match model input
+        image = np.array(image).astype(np.float32) / 255.0
+        image = np.transpose(image, (2, 0, 1))  # HWC to CHW
+        image = np.expand_dims(image, axis=0)  # Add batch dimension
 
-        # Log received data for debugging
-        logger.debug(f"Received alert data: {data}")
-
-        # Validate latitude and longitude
-        try:
-            lat = float(data.get('lat'))
-            lon = float(data.get('lon'))
-        except (TypeError, ValueError):
-            return jsonify({'error': 'Invalid latitude or longitude'}), 400
-
-        # Extract other fields with defaults
-        emergency_type = data.get('emergency_type', 'General')
-        image = data.get('image')
-        user_role = data.get('user_role', 'unknown')
-        image_upload_time = data.get('imageUploadTime', datetime.now().isoformat())
-
-        # Validate and process image upload time
-        try:
-            upload_time = datetime.fromisoformat(image_upload_time)
-            if (datetime.now() - upload_time).total_seconds() > 30 * 60:
-                image = None
-                emergency_type = 'Not Specified'
-        except ValueError:
-            logger.error(f"Invalid imageUploadTime format: {image_upload_time}")
-            image = None
-            emergency_type = 'Not Specified'
-
-        # Create alert dictionary
-        alert = {
-            'lat': lat,
-            'lon': lon,
-            'emergency_type': emergency_type,
-            'image': image,
-            'role': user_role,
-            'house_no': data.get('house_no', 'N/A'),
-            'street_no': data.get('street_no', 'N/A'),
-            'barangay': data.get('barangay', 'N/A'),
-            'municipality': get_municipality_for_barangay(data.get('barangay', 'N/A')) or 'Unknown',
-            'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
-            'imageUploadTime': image_upload_time
-        }
-
-        # Process image if present
-        if image:
-            image_processed = classify_image(image)
-            if image_processed is not None:
-                try:
-                    predicted_type, probability = predict_barangay(image_processed, fire_session, road_session)
-                    alert['predicted_type'] = predicted_type
-                    alert['probability'] = float(probability)
-                except Exception as e:
-                    logger.error(f"Prediction failed: {e}")
-                    alert['predicted_type'] = 'unknown'
-                    alert['probability'] = 0.0
-            else:
-                alert['predicted_type'] = 'unknown'
-                alert['probability'] = 0.0
+        if fire_session and road_session:
+            emergency_type, confidence = predict_emergency_type(image, fire_session, road_session)
         else:
-            alert['predicted_type'] = 'unknown'
-            alert['probability'] = 0.0
+            emergency_type, confidence = 'unknown', 0.0
+
+        alert_data = {
+            'lat': data.get('lat', 0),
+            'lon': data.get('lon', 0),
+            'house_no': data.get('house_no', ''),
+            'street_no': data.get('street_no', ''),
+            'barangay': data.get('barangay', ''),
+            'image': data['image'],
+            'predicted_type': emergency_type,
+            'confidence': confidence,
+            'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
+            'imageUploadTime': datetime.now(pytz.timezone('Asia/Manila')).isoformat()
+        }
+        alerts.append(alert_data)
+        socketio.emit('new_alert', alert_data)
+        logger.info(f"Alert received and broadcasted: {alert_data}")
+        return jsonify({'message': 'Alert received'}), 200
+    except Exception as e:
+        logger.error(f"Alert processing failed: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
         # Store and broadcast the alert
         alerts.append(alert)
