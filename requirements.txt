@@ -5,9 +5,9 @@ gunicorn==22.0.0
 gevent==25.5.1
 joblib==1.4.2
 logger
+pillow
 numpy==1.26.4
 opencv-python==4.10.0.84
-onnxruntime
 pandas==2.2.3
 psycopg2-binary==2.9.9
 pytz==2023.3
@@ -15,3 +15,4 @@ requests==2.32.3
 scikit-learn==1.5.0
 setuptools==70.0.0
 xgboost==2.1.1
+onnxruntime
