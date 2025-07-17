@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <title>Barangay Analytics - {{ barangay }}</title>
-
-    
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
@@ -28,8 +24,6 @@
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
-        
-        
         <div class="tabs">
             <button class="tab active" onclick="filterData('today')">Today</button>
             <button class="tab" onclick="filterData('daily')">Daily</button>
@@ -40,7 +34,6 @@
 
         <!-- Road Accident Section -->
         <header class="header2" id="letterR" class="section">Road Accident Reports</header>
-        <!-- Road Accident Section -->
         <div id="roadSection" class="section">
             <div class="chart-container"><h2>Incident Trends</h2><canvas id="roadIncidentTrendsChart"></canvas></div>
             <div class="chart-container"><h2>Accident Distribution</h2><canvas id="roadAccidentDistributionChart"></canvas></div>
