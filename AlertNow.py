@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, send_file
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, join_room
 import logging
 import ast
 import os
@@ -13,6 +13,7 @@ from datetime import datetime
 import pytz
 import pandas as pd
 import uuid
+from models import lr_road, lr_fire
 
 # Import dashboard and analytics functions
 from BarangayDashboard import get_barangay_stats, get_latest_alert
@@ -21,26 +22,19 @@ from PNPDashboard import get_pnp_stats
 from BFPDashboard import get_bfp_stats
 from BarangayAnalytics import (
     get_barangay_trends, get_barangay_distribution, get_barangay_causes,
-    get_barangay_weather_impact, get_barangay_road_conditions, get_barangay_vehicle_types,
-    get_barangay_driver_age, get_barangay_driver_gender, get_barangay_accident_type,
-    get_barangay_injuries, get_barangay_fatalities
+    
 )
 from CDRRMOAnalytics import (
     get_cdrrmo_trends, get_cdrrmo_distribution, get_cdrrmo_causes,
-    get_cdrrmo_weather_impact, get_cdrrmo_road_conditions, get_cdrrmo_vehicle_types,
-    get_cdrrmo_driver_age, get_cdrrmo_driver_gender, get_cdrrmo_accident_type,
-    get_cdrrmo_injuries, get_cdrrmo_fatalities
+    
 )
 from PNPAnalytics import (
     get_pnp_trends, get_pnp_distribution, get_pnp_causes,
-    get_pnp_weather_impact, get_pnp_road_conditions, get_pnp_vehicle_types,
-    get_pnp_driver_age, get_pnp_driver_gender, get_pnp_accident_type,
-    get_pnp_injuries, get_pnp_fatalities
+    
 )
 from BFPAnalytics import (
     get_bfp_trends, get_bfp_distribution, get_bfp_causes,
-    get_bfp_weather_impact, get_bfp_property_types, get_bfp_fire_severity,
-    get_bfp_casualty_count, get_bfp_response_time, get_bfp_fire_duration
+    
 )
 
 # Configure logging
@@ -48,12 +42,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 logger = logging.getLogger(__name__)
 
 # Check for image folders
-road_accident_folder = os.path.join(os.path.dirname(__file__), 'Road_Accident')
-fire_incident_folder = os.path.join(os.path.dirname(__file__), 'Fire_Incident')
-if not os.path.exists(road_accident_folder):
-    logger.warning(f"{road_accident_folder} folder not found.")
-if not os.path.exists(fire_incident_folder):
-    logger.warning(f"{fire_incident_folder} folder not found.")
+
 
 # Load datasets
 road_accident_df = pd.DataFrame()
@@ -130,10 +119,19 @@ def classify_image(base64_image):
         logger.error(f"Image classification failed: {e}")
         return 'unknown'
 
+@socketio.on('join_room')
+def handle_join_room(room):
+    join_room(room)
+    logger.info(f"User joined room: {room}")
+
 @socketio.on('alert')
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
+        if data.get('image'):
+            emit('new_alert', data, room='barangay')
+        else:
+            emit('new_alert', data, room='barangay')
         data['alert_id'] = str(uuid.uuid4())
         data['user_barangay'] = data.get('barangay', 'Unknown')
         
@@ -150,6 +148,15 @@ def handle_alert(data):
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
+
+@socketio.on('forward_alert')
+def handle_forward_alert(data):
+    alert = data['alert']
+    targets = data['targets']
+    alert['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
+    for room in targets:
+        emit('new_alert', alert, room=room)
+    logger.info(f"Forwarded alert to rooms: {targets}")
 
 @socketio.on('response_submitted')
 def handle_response(data):
@@ -364,6 +371,47 @@ def login_cdrrmo_pnp_bfp():
         logger.warning(f"Web login failed for assigned_municipality: {assigned_municipality}, contact: {contact_no}, role: {role}")
         return "Invalid credentials", 401
     return render_template('CDRRMOPNPBFPIn.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def log():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        conn = get_db_connection()
+        user = conn.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password)).fetchone()
+        conn.close()
+        if user:
+            session['username'] = username
+            session['role'] = user['role']
+            session['barangay'] = user['barangay']
+            if user['role'] == 'official':
+                return redirect(url_for('barangay_dashboard'))
+            elif user['role'] == 'cdrrmo':
+                return redirect(url_for('cdrrmo_dashboard'))
+            elif user['role'] == 'pnp':
+                return redirect(url_for('pnp_dashboard'))
+            elif user['role'] == 'bfp':
+                return redirect(url_for('bfp_dashboard'))
+        return "Invalid credentials", 401
+    return render_template('LoginPage.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def sign():
+    if request.method == 'POST':
+        barangay = request.form['barangay']
+        username = request.form['username']
+        password = request.form['password']
+        conn = get_db_connection()
+        try:
+            conn.execute('INSERT INTO users (username, barangay, role, password) VALUES (?, ?, ?, ?)',
+                         (username, barangay, 'official', password))
+            conn.commit()
+            return redirect(url_for('login'))
+        except sqlite3.IntegrityError:
+            return "Username already exists", 400
+        finally:
+            conn.close()
+    return render_template('SignUpPage.html')
 
 @app.route('/go_to_login_page', methods=['GET'])
 def go_to_login_page():
@@ -581,6 +629,9 @@ def predict_image():
 
 @app.route('/barangay_dashboard')
 def barangay_dashboard():
+    if 'role' not in session or session['role'] != 'official':
+        return redirect(url_for('login'))
+    stats = get_barangay_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
     user = conn.execute('''
@@ -617,6 +668,9 @@ def barangay_dashboard():
 
 @app.route('/cdrrmo_dashboard')
 def cdrrmo_dashboard():
+    if 'role' not in session or session['role'] != 'cdrrmo':
+        return redirect(url_for('login'))
+    stats = get_cdrrmo_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
     user = conn.execute('''
@@ -650,6 +704,9 @@ def cdrrmo_dashboard():
 
 @app.route('/pnp_dashboard')
 def pnp_dashboard():
+    if 'role' not in session or session['role'] != 'pnp':
+        return redirect(url_for('login'))
+    stats = get_pnp_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
     user = conn.execute('''
@@ -683,6 +740,9 @@ def pnp_dashboard():
 
 @app.route('/bfp_dashboard')
 def bfp_dashboard():
+    if 'role' not in session or session['role'] != 'bfp':
+        return redirect(url_for('login'))
+    stats = get_bfp_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
     user = conn.execute('''
@@ -728,37 +788,33 @@ def barangay_analytics():
     current_datetime = datetime.now(pytz.timezone('Asia/Manila')).strftime('%a/%m/%d/%y %H:%M:%S')
     return render_template('BarangayAnalytics.html', barangay=barangay, current_datetime=current_datetime)
 
-@app.route('/api/barangay_analytics_data', methods=['GET'])
-def get_barangay_analytics_data():
-    try:
-        time_filter = request.args.get('time', 'weekly')
-        trends = get_barangay_trends(time_filter)
-        distribution = get_barangay_distribution(time_filter)
-        causes = get_barangay_causes(time_filter)
-        weather = get_barangay_weather_impact(time_filter)
-        road_conditions = get_barangay_road_conditions(time_filter)
-        vehicle_types = get_barangay_vehicle_types(time_filter)
-        driver_age = get_barangay_driver_age(time_filter)
-        driver_gender = get_barangay_driver_gender(time_filter)
-        accident_type = get_barangay_accident_type(time_filter)
-        injuries = get_barangay_injuries(time_filter)
-        fatalities = get_barangay_fatalities(time_filter)
-        return jsonify({
-            'trends': trends,
-            'distribution': distribution,
-            'causes': causes,
-            'weather': weather,
-            'road_conditions': road_conditions,
-            'vehicle_types': vehicle_types,
-            'driver_age': driver_age,
-            'driver_gender': driver_gender,
-            'accident_type': accident_type,
-            'injuries': injuries,
-            'fatalities': fatalities
-        })
-    except Exception as e:
-        logger.error(f"Error in get_barangay_analytics_data: {e}")
-        return jsonify({'error': 'Failed to retrieve analytics data'}), 500
+@app.route('/api/barangay_analytics_data')
+def barangay_analytics_data():
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_barangay_trends(time_filter)
+    distribution = get_barangay_distribution(time_filter)
+    causes_data = get_barangay_causes(time_filter)
+    weather = {'Sunny': 10, 'Rainy': 5, 'Foggy': 2}
+    road_conditions = {'Dry': 12, 'Wet': 4, 'Icy': 1}
+    vehicle_types = {'Car': 8, 'Motorcycle': 6, 'Truck': 3}
+    driver_age = {'18-25': 5, '26-35': 7, '36-50': 3, '51+': 2}
+    driver_gender = {'Male': 12, 'Female': 5}
+    accident_type = {'Collision': 10, 'Rollover': 4, 'Pedestrian': 3}
+    injuries = [5, 3, 2, 1] * (len(trends['labels']) // 4 + 1)
+    fatalities = [1, 0, 1, 0] * (len(trends['labels']) // 4 + 1)
+    return jsonify({
+        'trends': trends,
+        'distribution': distribution,
+        'causes': causes_data['road'],
+        'weather': weather,
+        'road_conditions': road_conditions,
+        'vehicle_types': vehicle_types,
+        'driver_age': driver_age,
+        'driver_gender': driver_gender,
+        'accident_type': accident_type,
+        'injuries': injuries[:len(trends['labels'])],
+        'fatalities': fatalities[:len(trends['labels'])]
+    })
 
 @app.route('/cdrrmo/analytics')
 def cdrrmo_analytics():
@@ -777,36 +833,31 @@ def cdrrmo_analytics():
 
 @app.route('/api/cdrrmo_analytics_data', methods=['GET'])
 def get_cdrrmo_analytics_data():
-    try:
-        time_filter = request.args.get('time', 'weekly')
-        barangay = request.args.get('barangay', '')
-        trends = get_cdrrmo_trends(time_filter, barangay)
-        distribution = get_cdrrmo_distribution(time_filter, barangay)
-        causes = get_cdrrmo_causes(time_filter, barangay)
-        weather = get_cdrrmo_weather_impact(time_filter, barangay)
-        road_conditions = get_cdrrmo_road_conditions(time_filter, barangay)
-        vehicle_types = get_cdrrmo_vehicle_types(time_filter, barangay)
-        driver_age = get_cdrrmo_driver_age(time_filter, barangay)
-        driver_gender = get_cdrrmo_driver_gender(time_filter, barangay)
-        accident_type = get_cdrrmo_accident_type(time_filter, barangay)
-        injuries = get_cdrrmo_injuries(time_filter, barangay)
-        fatalities = get_cdrrmo_fatalities(time_filter, barangay)
-        return jsonify({
-            'trends': trends,
-            'distribution': distribution,
-            'causes': causes,
-            'weather': weather,
-            'road_conditions': road_conditions,
-            'vehicle_types': vehicle_types,
-            'driver_age': driver_age,
-            'driver_gender': driver_gender,
-            'accident_type': accident_type,
-            'injuries': injuries,
-            'fatalities': fatalities
-        })
-    except Exception as e:
-        logger.error(f"Error in get_cdrrmo_analytics_data: {e}")
-        return jsonify({'error': 'Failed to retrieve analytics data'}), 500
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_barangay_trends(time_filter)
+    distribution = get_barangay_distribution(time_filter)
+    causes_data = get_barangay_causes(time_filter)
+    weather = {'Sunny': 10, 'Rainy': 5, 'Foggy': 2}
+    road_conditions = {'Dry': 12, 'Wet': 4, 'Icy': 1}
+    vehicle_types = {'Car': 8, 'Motorcycle': 6, 'Truck': 3}
+    driver_age = {'18-25': 5, '26-35': 7, '36-50': 3, '51+': 2}
+    driver_gender = {'Male': 12, 'Female': 5}
+    accident_type = {'Collision': 10, 'Rollover': 4, 'Pedestrian': 3}
+    injuries = [5, 3, 2, 1] * (len(trends['labels']) // 4 + 1)
+    fatalities = [1, 0, 1, 0] * (len(trends['labels']) // 4 + 1)
+    return jsonify({
+        'trends': trends,
+        'distribution': distribution,
+        'causes': causes_data['road'],
+        'weather': weather,
+        'road_conditions': road_conditions,
+        'vehicle_types': vehicle_types,
+        'driver_age': driver_age,
+        'driver_gender': driver_gender,
+        'accident_type': accident_type,
+        'injuries': injuries[:len(trends['labels'])],
+        'fatalities': fatalities[:len(trends['labels'])]
+    })
 
 @app.route('/pnp/analytics')
 def pnp_analytics():
@@ -825,35 +876,31 @@ def pnp_analytics():
 
 @app.route('/api/pnp_analytics_data', methods=['GET'])
 def get_pnp_analytics_data():
-    try:
-        time_filter = request.args.get('time', 'weekly')
-        trends = get_pnp_trends(time_filter)
-        distribution = get_pnp_distribution(time_filter)
-        causes = get_pnp_causes(time_filter)
-        weather = get_pnp_weather_impact(time_filter)
-        road_conditions = get_pnp_road_conditions(time_filter)
-        vehicle_types = get_pnp_vehicle_types(time_filter)
-        driver_age = get_pnp_driver_age(time_filter)
-        driver_gender = get_pnp_driver_gender(time_filter)
-        accident_type = get_pnp_accident_type(time_filter)
-        injuries = get_pnp_injuries(time_filter)
-        fatalities = get_pnp_fatalities(time_filter)
-        return jsonify({
-            'trends': trends,
-            'distribution': distribution,
-            'causes': causes,
-            'weather': weather,
-            'road_conditions': road_conditions,
-            'vehicle_types': vehicle_types,
-            'driver_age': driver_age,
-            'driver_gender': driver_gender,
-            'accident_type': accident_type,
-            'injuries': injuries,
-            'fatalities': fatalities
-        })
-    except Exception as e:
-        logger.error(f"Error in get_pnp_analytics_data: {e}")
-        return jsonify({'error': 'Failed to retrieve analytics data'}), 500
+    time_filter = request.args.get('time', 'weekly')
+    trends = get_barangay_trends(time_filter)
+    distribution = get_barangay_distribution(time_filter)
+    causes_data = get_barangay_causes(time_filter)
+    weather = {'Sunny': 10, 'Rainy': 5, 'Foggy': 2}
+    road_conditions = {'Dry': 12, 'Wet': 4, 'Icy': 1}
+    vehicle_types = {'Car': 8, 'Motorcycle': 6, 'Truck': 3}
+    driver_age = {'18-25': 5, '26-35': 7, '36-50': 3, '51+': 2}
+    driver_gender = {'Male': 12, 'Female': 5}
+    accident_type = {'Collision': 10, 'Rollover': 4, 'Pedestrian': 3}
+    injuries = [5, 3, 2, 1] * (len(trends['labels']) // 4 + 1)
+    fatalities = [1, 0, 1, 0] * (len(trends['labels']) // 4 + 1)
+    return jsonify({
+        'trends': trends,
+        'distribution': distribution,
+        'causes': causes_data['road'],
+        'weather': weather,
+        'road_conditions': road_conditions,
+        'vehicle_types': vehicle_types,
+        'driver_age': driver_age,
+        'driver_gender': driver_gender,
+        'accident_type': accident_type,
+        'injuries': injuries[:len(trends['labels'])],
+        'fatalities': fatalities[:len(trends['labels'])]
+    })
 
 @app.route('/bfp/analytics')
 def bfp_analytics():
@@ -878,22 +925,12 @@ def get_bfp_analytics_data():
         trends = get_bfp_trends(time_filter, barangay)
         distribution = get_bfp_distribution(time_filter, barangay)
         causes = get_bfp_causes(time_filter, barangay)
-        weather = get_bfp_weather_impact(time_filter, barangay)
-        property_types = get_bfp_property_types(time_filter, barangay)
-        fire_severity = get_bfp_fire_severity(time_filter, barangay)
-        casualty_count = get_bfp_casualty_count(time_filter, barangay)
-        response_time = get_bfp_response_time(time_filter, barangay)
-        fire_duration = get_bfp_fire_duration(time_filter, barangay)
+        
         return jsonify({
             'trends': trends,
             'distribution': distribution,
             'causes': causes,
-            'weather': weather,
-            'property_types': property_types,
-            'fire_severity': fire_severity,
-            'casualty_count': casualty_count,
-            'response_time': response_time,
-            'fire_duration': fire_duration
+            
         })
     except Exception as e:
         logger.error(f"Error in get_bfp_analytics_data: {e}")
