@@ -124,25 +124,23 @@ def get_municipality_for_barangay(barangay):
             return mun
     return "Unknown"
 
-def classify_image(base64_image):
-    """Classify the image using ONNX models and return prediction with confidence."""
+def classify_image(base64_image, fire_session, road_session):
     if fire_session is None or road_session is None:
         logger.error("ONNX models not loaded")
         return 'unknown', 0.0
     try:
-        # Decode base64 image
+        import base64
         img_data = base64.b64decode(base64_image)
         nparr = np.frombuffer(img_data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)  # Read as color image
         if img is None:
             logger.error("Failed to decode image")
             return 'unknown', 0.0
-        
-        # Preprocess image for ONNX models (assuming 640x640 input)
-        img = cv2.resize(img, (640, 640))
-        img = img.transpose(2, 0, 1)  # HWC to CHW
-        img = img.astype(np.float32) / 255.0  # Normalize to [0,1]
-        img = np.expand_dims(img, axis=0)  # Add batch dimension
+        # Preprocess image for ONNX models (assuming 224x224 RGB input)
+        img = cv2.resize(img, (224, 224))
+        img = img / 255.0  # Normalize to [0,1]
+        img = img.transpose(2, 0, 1)  # Change to CHW format
+        img = np.expand_dims(img, axis=0).astype(np.float32)  # Add batch dimension
 
         # Run inference on road accident model
         input_name_road = road_session.get_inputs()[0].name
@@ -154,7 +152,7 @@ def classify_image(base64_image):
         output_fire = fire_session.run(None, {input_name_fire: img})
         prob_fire = output_fire[0][0]  # Assuming single output probability
 
-        # Determine class with highest probability
+        # Determine the class with higher probability
         if prob_road > prob_fire and prob_road > 0.5:
             return 'road_accident', float(prob_road)
         elif prob_fire > prob_road and prob_fire > 0.5:
@@ -164,10 +162,32 @@ def classify_image(base64_image):
     except Exception as e:
         logger.error(f"Image classification failed: {e}")
         return 'unknown', 0.0
+    
+def predict_emergency_type(image, fire_session, road_session):
+    if fire_session is None or road_session is None:
+        logger.warning("ONNX models not loaded, returning unknown prediction")
+        return 'unknown', 0.0
+    try:
+        input_name_road = road_session.get_inputs()[0].name
+        output_road = road_session.run(None, {input_name_road: image})
+        prob_road = float(output_road[0][0])
 
+        input_name_fire = fire_session.get_inputs()[0].name
+        output_fire = fire_session.run(None, {input_name_fire: image})
+        prob_fire = float(output_fire[0][0])
+
+        if prob_road > prob_fire and prob_road > 0.5:
+            return 'road_accident', prob_road
+        elif prob_fire > prob_road and prob_fire > 0.5:
+            return 'fire_incident', prob_fire
+        else:
+            return 'unknown', max(prob_road, prob_fire)
+    except Exception as e:
+        logger.error(f"Prediction failed: {e}")
+        return 'unknown', 0.0
+    
 @socketio.on('alert')
 def handle_alert(data):
-    """Handle incoming alerts from Android app."""
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
         data['alert_id'] = str(uuid.uuid4())
@@ -175,14 +195,11 @@ def handle_alert(data):
         
         # Classify image if present
         if data.get('image'):
-            prediction, confidence = classify_image(data['image'])
-            data['predicted_type'] = prediction
+            predicted_type, confidence = classify_image(data['image'], fire_session, road_session)
+            data['predicted_type'] = predicted_type
             data['confidence'] = confidence
-            if prediction not in ['road_accident', 'fire_incident']:
-                data['image'] = None  # Remove image if not recognized
-        else:
-            data['predicted_type'] = 'unknown'
-            data['confidence'] = 0.0
+            if predicted_type not in ['road_accident', 'fire_incident']:
+                data['image'] = None  # Remove image if not road accident or fire incident
         
         logger.info(f"Alert received: {data}")
         alerts.append(data)
@@ -192,6 +209,84 @@ def handle_alert(data):
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
+      
+@app.route('/send_alert', methods=['POST'])
+def send_alert():
+    try:
+        # Get JSON data from the request
+        data = request.get_json()
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+
+        # Log received data for debugging
+        logger.debug(f"Received alert data: {data}")
+
+        # Validate latitude and longitude
+        try:
+            lat = float(data.get('lat'))
+            lon = float(data.get('lon'))
+        except (TypeError, ValueError):
+            return jsonify({'error': 'Invalid latitude or longitude'}), 400
+
+        # Extract other fields with defaults
+        emergency_type = data.get('emergency_type', 'General')
+        image = data.get('image')
+        user_role = data.get('user_role', 'unknown')
+        image_upload_time = data.get('imageUploadTime', datetime.now().isoformat())
+
+        # Validate and process image upload time
+        try:
+            upload_time = datetime.fromisoformat(image_upload_time)
+            if (datetime.now() - upload_time).total_seconds() > 30 * 60:
+                image = None
+                emergency_type = 'Not Specified'
+        except ValueError:
+            logger.error(f"Invalid imageUploadTime format: {image_upload_time}")
+            image = None
+            emergency_type = 'Not Specified'
+
+        # Create alert dictionary
+        alert = {
+            'lat': lat,
+            'lon': lon,
+            'emergency_type': emergency_type,
+            'image': image,
+            'role': user_role,
+            'house_no': data.get('house_no', 'N/A'),
+            'street_no': data.get('street_no', 'N/A'),
+            'barangay': data.get('barangay', 'N/A'),
+            'municipality': get_municipality_for_barangay(data.get('barangay', 'N/A')) or 'Unknown',
+            'timestamp': datetime.now(pytz.timezone('Asia/Manila')).isoformat(),
+            'imageUploadTime': image_upload_time
+        }
+
+        # Process image if present
+        if image:
+            image_processed = classify_image(image)
+            if image_processed is not None:
+                try:
+                    predicted_type, probability = predict_barangay(image_processed, fire_session, road_session)
+                    alert['predicted_type'] = predicted_type
+                    alert['probability'] = float(probability)
+                except Exception as e:
+                    logger.error(f"Prediction failed: {e}")
+                    alert['predicted_type'] = 'unknown'
+                    alert['probability'] = 0.0
+            else:
+                alert['predicted_type'] = 'unknown'
+                alert['probability'] = 0.0
+        else:
+            alert['predicted_type'] = 'unknown'
+            alert['probability'] = 0.0
+
+        # Store and broadcast the alert
+        alerts.append(alert)
+        socketio.emit('new_alert', alert)
+        return jsonify({'status': 'success'}), 200
+
+    except Exception as e:
+        logger.error(f"Error in send_alert: {e}")
+        return jsonify({'status': 'error', 'message': str(e)}), 500
         
 @socketio.on('response_submitted')
 def handle_response(data):
