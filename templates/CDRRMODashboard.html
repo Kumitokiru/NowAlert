@@ -79,49 +79,70 @@
             };
             L.control.layers(baseLayers).addTo(cdrrmoMap);
 
+            const allowedTypes = ['road_accident'];
             const socket = io('https://nowalert.onrender.com');
+            const alertContainer = document.getElementById('alert-container');
             const alertElements = new Map();
 
             socket.on('connect', () => console.log('Connected to SocketIO server'));
 
             socket.on('new_alert', (data) => {
-                console.log('Alert received:', data);
-                if (data.predicted_type !== 'road_accident') {
-                    console.log('Alert filtered out:', data.predicted_type);
-                    return;
-                }
-                const dashboardMunicipality = "{{ municipality }}";
-                const alertBarangay = data.user_barangay || data.barangay || 'Unknown';
-                const message = `Road accident at ${dashboardMunicipality}, Resident from ${alertBarangay}`;
+            if (allowedTypes.includes(data.predicted_type)) {
+                const div = document.createElement('div');
+                div.className = 'alert-item';
+                const now = new Date();
+                const uploadTime = data.imageUploadTime ? new Date(data.imageUploadTime) : null;
+                const isImageValid = uploadTime && (now - uploadTime) <= 30 * 60 * 1000;
 
-                const feed = document.getElementById('alert-container');
-                const alertDiv = document.createElement('div');
-                alertDiv.className = 'alert-item';
-                alertDiv.dataset.alertId = data.alert_id;
-                alertDiv.innerHTML = `
-                    <p>${message}</p>
-                    <p>Type: ${data.predicted_type} (Confidence: ${data.confidence.toFixed(2)})</p>
-                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                div.innerHTML = `
+                    <p><strong>Type:</strong> ${data.predicted_type} (Confidence: ${(data.confidence * 100).toFixed(2)}%)</p>
+                    <p><strong>Location:</strong> ${data.lat}, ${data.lon}</p>
+                    ${data.image && isImageValid ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    <hr>
                 `;
-                feed.prepend(alertDiv);
-                alertElements.set(data.alert_id, alertDiv);
+                alertContainer.prepend(div);
 
                 if (data.lat && data.lon) {
                     L.marker([data.lat, data.lon]).addTo(cdrrmoMap)
-                        .bindPopup(message)
+                        .bindPopup(`${data.predicted_type} (Confidence: ${(data.confidence * 100).toFixed(2)}%) at ${data.barangay}`)
                         .openPopup();
                 }
-            });
+                updateCharts();
+            }
+        });
 
-            socket.on('alert_removed', (data) => {
-                const alertId = data.alert_id;
-                const alertDiv = alertElements.get(alertId);
-                if (alertDiv) {
-                    alertDiv.remove();
-                    alertElements.delete(alertId);
-                    console.log(`Alert ${alertId} removed from UI`);
-                }
-            });
+        function updateCharts() {
+            fetch('/api/distribution?role=cdrrmo')
+                .then(res => res.json())
+                .then(dist => {
+                    const ctxDist = document.getElementById('distChart')?.getContext('2d');
+                    if (ctxDist && window.distChart) window.distChart.destroy();
+                    if (ctxDist) {
+                        window.distChart = new Chart(ctxDist, {
+                            type: 'pie',
+                            data: {
+                                labels: Object.keys(dist),
+                                datasets: [{
+                                    data: Object.values(dist),
+                                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40']
+                                }]
+                            },
+                            options: { responsive: true, maintainAspectRatio: false }
+                        });
+                    }
+                });
+        }
+
+        function updateStats() {
+            fetch('/api/stats?role=cdrrmo')
+                .then(res => res.json())
+                .then(stats => {
+                    document.getElementById('total-incidents').textContent = stats.total || 0;
+                    document.getElementById('critical-incidents').textContent = stats.critical || 0;
+                });
+        }
+
+        updateStats();
 
             function updateUIWithAlert(data) {
                 const feed = document.getElementById('alert-container');
@@ -176,14 +197,7 @@
                 }
             }
 
-            function updateStats() {
-                fetch('/api/stats?role=barangay')
-                    .then(res => res.json())
-                    .then(stats => {
-                        document.getElementById('total-incidents').textContent = stats.total || 0;
-                        document.getElementById('critical-incidents').textContent = stats.critical || 0;
-                    });
-            }
+            
 
             window.respondAlert = function(timestamp, lat, lon, barangay, type) {
                 socket.emit('responded', { timestamp, lat, lon, barangay, emergency_type: type });
