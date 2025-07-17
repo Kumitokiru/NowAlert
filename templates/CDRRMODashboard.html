@@ -80,9 +80,12 @@
             L.control.layers(baseLayers).addTo(cdrrmoMap);
 
             const socket = io('https://alert-858l.onrender.com');
-            const alertElements = new Map();
+            const alertElements = new Map(); // Store alert elements by ID
 
-            socket.on('connect', () => console.log('Connected to SocketIO server'));
+            socket.on('connect', () => {
+                console.log('Connected to SocketIO server');
+                socket.emit('join_room', 'barangay');
+            });
             socket.on('new_alert', (data) => {
                 updateUIWithAlert(data);
                 notifyAlert(data);
@@ -107,29 +110,46 @@
                         <button onclick="respondAlert('${data.timestamp}', ${data.lat || 0}, ${data.lon || 0}, '${data.barangay || 'N/A'}', '${data.emergency_type || 'Not Specified'}')">Respond</button>
                         ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
                     `;
+                    if (data.image) {
+                        const sendToCdrmoPnpBtn = document.createElement('button');
+                        sendToCdrmoPnpBtn.textContent = 'Send to CDRRMO and PNP';
+                        sendToCdrmoPnpBtn.onclick = () => socket.emit('forward_alert', { alert: data, targets: ['cdrrmo', 'pnp'] });
+                        alertDiv.appendChild(sendToCdrmoPnpBtn);
+
+                        const sendToBfpPnpBtn = document.createElement('button');
+                        sendToBfpPnpBtn.textContent = 'Send to BFP and PNP';
+                        sendToBfpPnpBtn.onclick = () => socket.emit('forward_alert', { alert: data, targets: ['bfp', 'pnp'] });
+                        alertDiv.appendChild(sendToBfpPnpBtn);
+                    }
                     feed.prepend(alertDiv);
                 }
 
                 if (data.lat && data.lon) {
-                    const marker = L.marker([data.lat, data.lon]).addTo(cdrrmoMap).bindPopup(
+                    const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
                         `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
                     ).openPopup();
                     if (feed.children.length === 1) {
-                        cdrrmoMap.setView([data.lat, data.lon], 15);
+                        barangayMap.setView([data.lat, data.lon], 15);
                     }
                 }
 
                 updateStats();
             }
 
-            function notifyAlert(data) {
+        function notifyAlert(data) {
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    showBrowserNotification(data);
+                } else {
+                    showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
+                }
+            }
+
+        function showBrowserNotification(data) {
                 if ('Notification' in window && Notification.permission === 'granted') {
                     new Notification('New Alert', {
                         body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
                         icon: '/static/favicon.ico'
                     });
-                } else {
-                    showNotification(`New alert (${data.emergency_type || 'Unknown'}) received!`);
                 }
             }
 
