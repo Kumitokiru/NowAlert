@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import pytz
 from collections import Counter
 import os
-from AlertNow import lr_road, lr_fire
+from models import lr_road, lr_fire  # Updated import
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -126,3 +126,13 @@ def get_barangay_causes(time_filter):
     except Exception as e:
         logger.error(f"Error in get_barangay_causes: {e}")
         return {'road': {'Unknown': 0}, 'fire': {'Unknown': 0}}
+
+# Rename functions to reflect BFP context if needed
+def get_bfp_trends(time_filter):
+    return get_barangay_trends(time_filter)
+
+def get_bfp_distribution(time_filter):
+    return get_barangay_distribution(time_filter)
+
+def get_bfp_causes(time_filter):
+    return get_barangay_causes(time_filter)
