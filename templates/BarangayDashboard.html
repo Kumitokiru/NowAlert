@@ -98,7 +98,7 @@
                 console.log('Alert received:', data);
                 const dashboardBarangay = "{{ barangay }}";
                 const alertBarangay = data.user_barangay || 'Unknown';
-                const message = `Emergency at ${dashboardBarangay}, Resident from ${alertBarangay}`;
+                const message = `Emergency at ${dashboardBarangay}, Resident from ${barangay}`;
 
                 // Add to Live Alerts
                 const feed = document.getElementById('alert-container');
