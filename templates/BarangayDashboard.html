@@ -48,12 +48,12 @@
                 <p class="p">Total Incidents: <span id="total-incidents">{{ stats.total() if stats else 0 }}</span></p>
                 <p class="p">Critical Incidents: <span id="critical-incidents">0</span></p>
             </section>
-            <section class="alerts" id="alerts">
+            <section id="alerts">
                 <h2 class="h2">Live Alerts</h2>
-                <div class="alert-container" id="alert-container"></div>
+                <div  id="alert-container"></div>
             </section>
         
-        <div class="notification" id="notification"></div>
+        <div id="notification"></div>
     </main>
     
     <script>
@@ -90,7 +90,10 @@
         
 
             const socket = io('https://nowalert.onrender.com');
+            const alertElements = new Map(); // Store alert elements by ID
+
             socket.on('connect', () => console.log('Connected to SocketIO server'));
+
             socket.on('new_alert', (data) => {
                 console.log('Alert received:', data);
                 const dashboardBarangay = "{{ barangay }}";
