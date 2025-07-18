@@ -91,8 +91,10 @@
                 if (data.alert && data.alert.image) {
                     const div = document.createElement('div');
                     div.className = 'alert-item';
+                    const emergencyBarangay = data.alert.barangay;
+                    const residentBarangay = data.alert.resident_barangay || data.alert.barangay;
                     div.innerHTML = `
-                        <p><strong>Emergency at ${data.alert.barangay} Resident from ${data.alert.barangay}</strong></p>
+                        <p><strong>Emergency at ${emergencyBarangay} Resident from ${residentBarangay}</strong></p>
                         <p><strong>Type:</strong> ${data.alert.emergency_type || 'Not Specified'}</p>
                         <p><strong>Location:</strong> ${data.alert.lat}, ${data.alert.lon}</p>
                         <img src="data:image/jpeg;base64,${data.alert.image}" width="200"/>
