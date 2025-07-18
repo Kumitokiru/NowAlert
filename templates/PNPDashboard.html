@@ -79,47 +79,49 @@
             };
             L.control.layers(baseLayers).addTo(pnpMap);
 
+            const alertLayer = L.layerGroup().addTo(cdrrmoMap);
             const socket = io('https://alert-858l.onrender.com');
-            const alertElements = new Map(); // Store alert elements by ID
+            const alertContainer = document.getElementById('alert-container');
 
             socket.on('connect', () => {
                 console.log('Connected to SocketIO server');
-                socket.emit('join_room', 'barangay');
-            });
-            socket.on('new_alert', (data) => {
-                updateUIWithAlert(data);
-                notifyAlert(data);
+                socket.emit('join_room', 'cdrrmo');
             });
 
-            function updateUIWithAlert(data) {
-                const socket = io(window.location.origin);
-                const alertContainer = document.getElementById('alert-container');
+            socket.on('forward_alert', (data) => {
+                const alert = data.alert;
+                if (alert && alert.image) {
+                    updateUIWithAlert(alert);
+                    notifyAlert(alert);
+                    addAlertMarker(alert);
+                }
+            });
 
-                socket.on('forward_alert', (data) => {
-                    const alert = data.alert;
-                    if (alert && alert.image) {
-                        const div = document.createElement('div');
-                        const residentBarangay = alert.resident_barangay || alert.barangay;
-                        div.innerHTML = `
-                            <p><strong>Emergency at ${alert.barangay} Resident from ${residentBarangay}</strong></p>
-                            <p><strong>Type:</strong> ${alert.emergency_type || 'Not Specified'}</p>
-                            <p><strong>Location:</strong> ${alert.lat}, ${alert.lon}</p>
-                            <img src="data:image/jpeg;base64,${alert.image}" width="200"/>
-                            <hr>
-                        `;
-                        alertContainer.prepend(div);
-                        updateCharts();
-                    }
-                });
+            socket.on('get_direction', (data) => {
+                cdrrmoMap.setView([data.lat, data.lon], 16);
+                L.marker([data.lat, data.lon]).addTo(cdrrmoMap).bindPopup('Direction to this location').openPopup();
+            });
 
-                socket.on('get_direction', (data) => {
-                    const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
-                    const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
-                    pnpMap.setView([data.lat, data.lon], 16);
-                });
+            function updateUIWithAlert(alert) {
+                const div = document.createElement('div');
+                const residentBarangay = alert[B] alert.resident_barangay || alert.barangay;
+                div.innerHTML = `
+                    <p><strong>Emergency at ${alert.barangay} Resident from ${residentBarangay}</strong></p>
+                    <p><strong>Type:</strong> ${alert.emergency_type || 'Not Specified'}</p>
+                    <p><strong>Location:</strong> ${alert.lat}, ${alert.lon}</p>
+                    <img src="data:image/jpeg;base64,${alert.image}" width="200"/>
+                    <button onclick="respondAlert(this)" data-alert='${JSON.stringify(alert)}'>Respond</button>
+                    <hr>
+                `;
+                alertContainer.prepend(div);
             }
 
-        function notifyAlert(data) {
+            function addAlertMarker(alert) {
+                const marker = L.marker([alert.lat, alert.lon]).addTo(alertLayer);
+                marker.bindPopup(`<b>${alert.emergency_type || 'Unknown'}</b><br>${alert.barangay}`);
+            }
+
+            function notifyAlert(data) {
                 if ('Notification' in window && Notification.permission === 'granted') {
                     showBrowserNotification(data);
                 } else {
@@ -127,28 +129,12 @@
                 }
             }
 
-        function showBrowserNotification(data) {
-                if ('Notification' in window && Notification.permission === 'granted') {
-                    new Notification('New Alert', {
-                        body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
-                        icon: '/static/favicon.ico'
-                    });
-                }
+            function showBrowserNotification(data) {
+                new Notification('New Alert', {
+                    body: `${data.emergency_type || 'Unknown'} at ${data.barangay || 'Unknown Barangay'}`,
+                    icon: '/static/favicon.ico'
+                });
             }
-
-            function updateStats() {
-                fetch('/api/stats?role=pnp')
-                    .then(res => res.json())
-                    .then(stats => {
-                        document.getElementById('total-incidents').textContent = stats.total || 0;
-                        document.getElementById('critical-incidents').textContent = stats.critical || 0;
-                    });
-            }
-
-            window.respondAlert = function(timestamp, lat, lon, barangay, type) {
-                socket.emit('responded', { timestamp, lat, lon, barangay, emergency_type: type });
-                alert('Response sent for alert at ' + timestamp);
-            };
 
             function showNotification(message) {
                 const notification = document.getElementById('notification');
@@ -157,7 +143,26 @@
                 setTimeout(() => notification.style.display = 'none', 5000);
             }
 
+            window.respondAlert = function(button) {
+                const alertData = JSON.parse(button.dataset.alert);
+                socket.emit('responded', alertData);
+                alert('Response sent for alert');
+            };
+
+            if ('Notification' in window && Notification.permission !== 'granted') {
+                Notification.requestPermission();
+            }
+
             updateStats();
+
+            function updateStats() {
+                fetch('/api/stats?role=cdrrmo')
+                    .then(res => res.json())
+                    .then(stats => {
+                        document.getElementById('total-incidents').textContent = stats.total || 0;
+                        document.getElementById('critical-incidents').textContent = stats.critical || 0;
+                    });
+            }
         });
     </script>
 </body>
