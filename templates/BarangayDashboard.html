@@ -98,19 +98,19 @@
             });
 
             socket.on('new_alert', (data) => {
-                if (data.image) {
-                    const div = document.createElement('div');
-                    div.className = 'alert-item';
-                    div.innerHTML = `
-                        <p><strong>Emergency at ${data.barangay} Resident from ${data.barangay}</strong></p>
-                        <p><strong>Type:</strong> ${data.emergency_type || 'Not Specified'}</p>
-                        <p><strong>Location:</strong> ${data.lat}, ${data.lon}</p>
-                        <img src="data:image/jpeg;base64,${data.image}" width="200"/>
-                        <hr>
-                    `;
-                    alertContainer.prepend(div);
-                    updateStats();
-                }
+                const div = document.createElement('div');
+                div.className = 'alert-item';
+                const emergencyBarangay = data.barangay;
+                const residentBarangay = data.resident_barangay || data.barangay;
+                div.innerHTML = `
+                    <p><strong>Emergency at ${emergencyBarangay} Resident from ${residentBarangay}</strong></p>
+                    <p><strong>Type:</strong> ${data.emergency_type || 'Not Specified'}</p>
+                    <p><strong>Location:</strong> ${data.lat}, ${data.lon}</p>
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    <hr>
+                `;
+                alertContainer.prepend(div);
+                updateStats();
             });
 
             socket.on('update_map', (data) => {
