@@ -92,48 +92,31 @@
             });
 
             function updateUIWithAlert(data) {
-                const feed = document.getElementById('alert-container');
-                if (feed) {
-                    const alertDiv = document.createElement('div');
-                    alertDiv.className = 'alert-item';
-                    let displayTime;
-                    try {
-                        const serverTime = new Date(data.timestamp || Date.now());
-                        displayTime = serverTime.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
-                    } catch (e) {
-                        console.error('Error parsing timestamp:', e);
-                        displayTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour12: true });
-                    }
-                    const address = `${data.house_no || 'N/A'}, ${data.street_no || 'N/A'}, ${data.barangay || 'N/A'}`;
-                    alertDiv.innerHTML = `
-                        <p><strong>${address}</strong> - ${data.emergency_type || 'Not Specified'} at ${displayTime}</p>
-                        <button onclick="respondAlert('${data.timestamp}', ${data.lat || 0}, ${data.lon || 0}, '${data.barangay || 'N/A'}', '${data.emergency_type || 'Not Specified'}')">Respond</button>
-                        ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
-                    `;
-                    if (data.image) {
-                        const sendToCdrmoPnpBtn = document.createElement('button');
-                        sendToCdrmoPnpBtn.textContent = 'Send to CDRRMO and PNP';
-                        sendToCdrmoPnpBtn.onclick = () => socket.emit('forward_alert', { alert: data, targets: ['cdrrmo', 'pnp'] });
-                        alertDiv.appendChild(sendToCdrmoPnpBtn);
+                const socket = io(window.location.origin);
+                const alertContainer = document.getElementById('alert-container');
 
-                        const sendToBfpPnpBtn = document.createElement('button');
-                        sendToBfpPnpBtn.textContent = 'Send to BFP and PNP';
-                        sendToBfpPnpBtn.onclick = () => socket.emit('forward_alert', { alert: data, targets: ['bfp', 'pnp'] });
-                        alertDiv.appendChild(sendToBfpPnpBtn);
+                socket.on('forward_alert', (data) => {
+                    const alert = data.alert;
+                    if (alert && alert.image) {
+                        const div = document.createElement('div');
+                        const residentBarangay = alert.resident_barangay || alert.barangay;
+                        div.innerHTML = `
+                            <p><strong>Emergency at ${alert.barangay} Resident from ${residentBarangay}</strong></p>
+                            <p><strong>Type:</strong> ${alert.emergency_type || 'Not Specified'}</p>
+                            <p><strong>Location:</strong> ${alert.lat}, ${alert.lon}</p>
+                            <img src="data:image/jpeg;base64,${alert.image}" width="200"/>
+                            <hr>
+                        `;
+                        alertContainer.prepend(div);
+                        updateCharts();
                     }
-                    feed.prepend(alertDiv);
-                }
+                });
 
-                if (data.lat && data.lon) {
-                    const marker = L.marker([data.lat, data.lon]).addTo(barangayMap).bindPopup(
-                        `${data.emergency_type || 'Alert'} at ${data.barangay || 'Unknown'}`
-                    ).openPopup();
-                    if (feed.children.length === 1) {
-                        barangayMap.setView([data.lat, data.lon], 15);
-                    }
-                }
-
-                updateStats();
+                socket.on('get_direction', (data) => {
+                    const mapboxToken = 'pk.eyJ1Ijoia3VtaXRva2lydSIsImEiOiJjbWNvZXpkdDQwNmdvMnNyMnNtNGw5NGI1In0.3Y9z5y4saOL76Eb5c-o0UQ';
+                    const tileLayerUrl = `https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`;
+                    bfpMap.setView([data.lat, data.lon], 16);
+                });
             }
 
         function notifyAlert(data) {
