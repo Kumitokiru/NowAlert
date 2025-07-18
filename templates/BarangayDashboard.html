@@ -89,28 +89,28 @@
             L.control.layers(baseLayers).addTo(barangayMap);
         
 
-            const socket = io('https://alert-858l.onrender.com');
-            const alertContainer = document.getElementById('alert-container');
-
+            const socket = io(window.location.origin);
             socket.on('connect', () => {
-                console.log('Connected to SocketIO server');
                 socket.emit('register_role', { role: 'barangay', barangay: '{{ barangay }}' });
             });
 
             socket.on('new_alert', (data) => {
                 const div = document.createElement('div');
+                const now = new Date();
+                const uploadTime = data.imageUploadTime ? new Date(data.imageUploadTime) : null;
+                const isImageValid = uploadTime && (now - uploadTime) <= 30 * 60 * 1000;
+                const emergencyBarangay = data.emergency_barangay || data.barangay || 'Unknown';
+                const residentBarangay = data.resident_barangay || data.barangay || 'Unknown';
                 div.className = 'alert-item';
-                const emergencyBarangay = data.barangay;
-                const residentBarangay = data.resident_barangay || data.barangay;
                 div.innerHTML = `
                     <p><strong>Emergency at ${emergencyBarangay} Resident from ${residentBarangay}</strong></p>
                     <p><strong>Type:</strong> ${data.emergency_type || 'Not Specified'}</p>
                     <p><strong>Location:</strong> ${data.lat}, ${data.lon}</p>
-                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    ${data.image && isImageValid ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
                     <hr>
                 `;
-                alertContainer.prepend(div);
-                updateStats();
+                document.getElementById('alert-container').prepend(div);
+                updateCharts();
             });
 
             socket.on('update_map', (data) => {
@@ -118,18 +118,8 @@
                 const lon = data.lon;
                 L.marker([lat, lon]).addTo(map).bindPopup('Alert Location');
                 map.setView([lat, lon], 15);
+                document.getElementById('map-coordinates').textContent = `${lat}, ${lon}`;
             });
-
-            function updateStats() {
-                fetch('/api/stats?role=barangay')
-                    .then(res => res.json())
-                    .then(stats => {
-                        document.getElementById('total-incidents').textContent = stats.total || 0;
-                        document.getElementById('critical-incidents').textContent = stats.critical || 0;
-                    });
-            }
-
-            updateStats();
         });
     </script>
 </body>
