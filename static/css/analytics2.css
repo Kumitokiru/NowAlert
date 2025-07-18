@@ -114,7 +114,7 @@ header {
 header h1 {
     
     font-size: 24px;
-    color: #ffffff; /* Ensure title is black */
+    color: #000000; /* Ensure title is black */
 }
 
 header p {
@@ -126,11 +126,20 @@ header h2 {
     font-size: 24px;
     color: #000; /* Ensure title is black */
 }
-
-header .p2 {
-    margin: 5px 0;
+.header2 {
     
-    color: #000; /* Ensure subtext is black */
+    font-size: 24px;
+    color: #000; /* Ensure title is black */
+}
+.p2 {
+    margin: 5px 5px0;
+    
+    color: #faf5f5; /* Ensure subtext is black */
+}
+.p3 {
+    margin: 5px 5px0;
+    
+    color: #000000; /* Ensure subtext is black */
 }
 
 .tabs {
