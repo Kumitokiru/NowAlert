@@ -133,21 +133,43 @@ def classify_image(base64_image):
         logger.error(f"Image classification failed: {e}")
         return 'unknown'
 
-@socketio.on('join_room')
-def handle_join_room(room):
-    join_room(room)
-    logger.info(f"User joined room: {room}")
 
+@socketio.on('register_role')
+def handle_register_role(data):
+    role = data.get('role')
+    if role == 'barangay':
+        barangay = data.get('barangay')
+        if barangay:
+            join_room(f"barangay_{barangay}")
+            logger.info(f"Client joined room: barangay_{barangay}")
+        else:
+            logger.warning("No barangay specified in register_role data")
+    elif role in ['cdrrmo', 'pnp', 'bfp']:
+        municipality = data.get('municipality')
+        if municipality:
+            join_room(f"{role}_{municipality}")
+            logger.info(f"Client joined room: {role}_{municipality}")
+        else:
+            logger.warning(f"No municipality specified for role {role} in register_role data")
+    else:
+        logger.warning(f"Unknown role: {role}")
+
+# Updated SocketIO event handler for handling alerts
 @socketio.on('alert')
 def handle_alert(data):
     try:
         data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        if data.get('image'):
-            emit('new_alert', data, room='barangay')
+        barangay = data.get('barangay')
+        if barangay:
+            room = f"barangay_{barangay}"
+            emit('new_alert', data, room=room)
+            logger.info(f"Emitted new_alert to room: {room}")
         else:
+            logger.warning("No barangay specified in alert data; emitting to general 'barangay' room")
             emit('new_alert', data, room='barangay')
+        
         data['alert_id'] = str(uuid.uuid4())
-        data['user_barangay'] = data.get('barangay', 'Unknown')
+        data['user_barangay'] = barangay or 'Unknown'
         
         if data.get('image'):
             prediction = classify_image(data['image'])
@@ -156,22 +178,31 @@ def handle_alert(data):
         
         logger.info(f"Alert received: {data}")
         alerts.append(data)
-        emit('new_alert', data, broadcast=True)
-        logger.info("Broadcasted new_alert to all clients")
+        # Removed broadcast to all clients to prevent duplicate notifications
         emit('alert_sent', {'status': 'success'}, room=request.sid)
     except Exception as e:
         logger.error(f"Error processing alert: {e}")
         emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
 
+# Updated SocketIO event handler for forwarding alerts
 @socketio.on('forward_alert')
 def handle_forward_alert(data):
-    alert = data['alert']
-    targets = data['targets']
-    alert['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-    for room in targets:
-        emit('new_alert', alert, room=room)
-    logger.info(f"Forwarded alert to rooms: {targets}")
+    try:
+        alert = data['alert']
+        targets = data['targets']  # Expected to be a list like ['cdrrmo', 'pnp']
+        municipality = data.get('municipality', 'default')  # Client should provide this
+        alert['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
+        for target in targets:
+            if target in ['cdrrmo', 'pnp', 'bfp']:
+                room = f"{target}_{municipality}"
+                emit('new_alert', alert, room=room)
+                logger.info(f"Forwarded alert to room: {room}")
+            else:
+                logger.warning(f"Invalid target specified: {target}")
+    except Exception as e:
+        logger.error(f"Error forwarding alert: {e}")
 
+# SocketIO event handler for handling responses
 @socketio.on('response_submitted')
 def handle_response(data):
     try:
