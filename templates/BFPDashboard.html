@@ -79,20 +79,12 @@
             };
             L.control.layers(baseLayers).addTo(bfpMap);
 
-            const socket = io('https://alert-858l.onrender.com');
-            const alertContainer = document.getElementById('alert-container');
-
-            socket.on('connect', () => {
-                console.log('Connected to SocketIO server');
-                socket.emit('register_role', { role: 'bfp', municipality: '{{ municipality }}' });
-            });
-
             socket.on('forward_alert', (data) => {
                 if (data.alert && data.alert.image) {
                     const div = document.createElement('div');
                     div.className = 'alert-item';
-                    const emergencyBarangay = data.alert.barangay;
-                    const residentBarangay = data.alert.resident_barangay || data.alert.barangay;
+                    const emergencyBarangay = data.alert.emergency_barangay || data.alert.barangay || 'Unknown';
+                    const residentBarangay = data.alert.resident_barangay || data.alert.barangay || 'Unknown';
                     div.innerHTML = `
                         <p><strong>Emergency at ${emergencyBarangay} Resident from ${residentBarangay}</strong></p>
                         <p><strong>Type:</strong> ${data.alert.emergency_type || 'Not Specified'}</p>
@@ -100,8 +92,8 @@
                         <img src="data:image/jpeg;base64,${data.alert.image}" width="200"/>
                         <hr>
                     `;
-                    alertContainer.prepend(div);
-                    updateStats();
+                    document.getElementById('alert-container').prepend(div);
+                    updateCharts();
                 }
             });
 
@@ -110,18 +102,8 @@
                 const lon = data.lon;
                 L.marker([lat, lon]).addTo(map).bindPopup('Alert Location');
                 map.setView([lat, lon], 15);
+                document.getElementById('map-coordinates').textContent = `${lat}, ${lon}`;
             });
-
-            function updateStats() {
-                fetch('/api/stats?role=bfp')
-                    .then(res => res.json())
-                    .then(stats => {
-                        document.getElementById('total-incidents').textContent = stats.total || 0;
-                        document.getElementById('critical-incidents').textContent = stats.critical || 0;
-                    });
-            }
-
-            updateStats();
         });
     </script>
 </body>
