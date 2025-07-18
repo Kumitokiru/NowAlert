@@ -13,13 +13,12 @@ from datetime import datetime
 import pytz
 import pandas as pd
 import uuid
-from models import lr_road, lr_fire
-
+from models import lr_road, lr_fire  # Updated import
 # Import dashboard and analytics functions
 from BarangayDashboard import get_barangay_stats, get_latest_alert
-from CDRRMODashboard import get_cdrrmo_stats
-from PNPDashboard import get_pnp_stats
-from BFPDashboard import get_bfp_stats
+from CDRRMODashboard import get_cdrrmo_stats, get_latest_alert
+from PNPDashboard import get_pnp_stats, get_latest_alert
+from BFPDashboard import get_bfp_stats, get_latest_alert
 from BarangayAnalytics import (
     get_barangay_trends, get_barangay_distribution, get_barangay_causes,
     
@@ -41,8 +40,23 @@ from BFPAnalytics import (
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Check for image folders
-
+# Load ML models
+lr_road = None
+lr_fire = None
+try:
+    lr_road = joblib.load('training/Road Models/lr_road_accident.pkl')
+    logger.info("lr_road_accident.pkl loaded successfully.")
+except FileNotFoundError:
+    logger.error("lr_road_accident.pkl not found.")
+except Exception as e:
+    logger.error(f"Error loading lr_road_accident.pkl: {e}")
+try:
+    lr_fire = joblib.load('training/Fire Models/lr_fire_incident.pkl')
+    logger.info("lr_fire_incident.pkl loaded successfully.")
+except FileNotFoundError:
+    logger.error("lr_fire_incident.pkl not found.")
+except Exception as e:
+    logger.error(f"Error loading lr_fire_incident.pkl: {e}")
 
 # Load datasets
 road_accident_df = pd.DataFrame()
@@ -69,7 +83,7 @@ except Exception as e:
 # Load fire incident models
 fire_models_path = os.path.join(os.path.dirname(__file__), 'training', 'Fire Models')
 try:
-    lr_fire = joblib.load(os.path.join(fire_models_path, 'lr_fire_incident.pkl'))
+    
     rf_fire = joblib.load(os.path.join(fire_models_path, 'rf_fire_incident.pkl'))
     svm_fire = joblib.load(os.path.join(fire_models_path, 'svm_fire_incident.pkl'))
     xgb_fire = joblib.load(os.path.join(fire_models_path, 'xgb_fire_incident.pkl'))
@@ -81,7 +95,7 @@ except Exception as e:
 # Load road accident models
 road_models_path = os.path.join(os.path.dirname(__file__), 'training', 'Road Models')
 try:
-    lr_road = joblib.load(os.path.join(road_models_path, 'lr_road_accident.pkl'))
+    
     rf_road = joblib.load(os.path.join(road_models_path, 'rf_road_accident.pkl'))
     svm_road = joblib.load(os.path.join(road_models_path, 'svm_road_accident.pkl'))
     xgb_road = joblib.load(os.path.join(road_models_path, 'xgb_road_accident.pkl'))
@@ -629,7 +643,7 @@ def predict_image():
 
 @app.route('/barangay_dashboard')
 def barangay_dashboard():
-    if 'role' not in session or session['role'] != 'official':
+    if 'role' not in session or session['role'] != 'barangay':
         return redirect(url_for('login'))
     stats = get_barangay_stats()
     unique_id = session.get('unique_id')
@@ -669,7 +683,7 @@ def barangay_dashboard():
 @app.route('/cdrrmo_dashboard')
 def cdrrmo_dashboard():
     if 'role' not in session or session['role'] != 'cdrrmo':
-        return redirect(url_for('login'))
+        return redirect(url_for('login_cdrrmo_pnp_bfp'))
     stats = get_cdrrmo_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
@@ -705,7 +719,7 @@ def cdrrmo_dashboard():
 @app.route('/pnp_dashboard')
 def pnp_dashboard():
     if 'role' not in session or session['role'] != 'pnp':
-        return redirect(url_for('login'))
+        return redirect(url_for('login_cdrrmo_pnp_bfp'))
     stats = get_pnp_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
@@ -741,7 +755,7 @@ def pnp_dashboard():
 @app.route('/bfp_dashboard')
 def bfp_dashboard():
     if 'role' not in session or session['role'] != 'bfp':
-        return redirect(url_for('login'))
+        return redirect(url_for('login_cdrrmo_pnp_bfp'))
     stats = get_bfp_stats()
     unique_id = session.get('unique_id')
     conn = get_db_connection()
@@ -929,8 +943,7 @@ def get_bfp_analytics_data():
         return jsonify({
             'trends': trends,
             'distribution': distribution,
-            'causes': causes,
-            
+            'causes': causes
         })
     except Exception as e:
         logger.error(f"Error in get_bfp_analytics_data: {e}")
