@@ -2,46 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BFP Analytics - {{ municipality }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics2.css') }}">
+    <title>Barangay Analytics - {{ barangay }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
 </head>
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <header>BFP {{ municipality }} Fire Incident Reports</header>
-    <p class="p2" id="datetime">{{ current_datetime }}</p>
+    <header class="h1">Barangay {{ barangay }} Reports</header>
+        <p id="datetime">{{ current_datetime }}</p>
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <nav>
             <ul>
-                <li><a href="{{ url_for('bfp_dashboard') }}">Dashboard</a></li>
-                <li><a href="#" onclick="filterData('today')">Today</a></li>
-                <li><a href="#" onclick="filterData('daily')">Daily</a></li>
-                <li><a href="#" onclick="filterData('weekly')">Weekly</a></li>
-                <li><a href="#" onclick="filterData('monthly')">Monthly</a></li>
-                <li><a href="#" onclick="filterData('yearly')">Yearly</a></li>
+                <li><a href="{{ url_for('barangay_dashboard') }}">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('road')">Road Accident Reports</a></li>
+                <li><a href="#" onclick="showSection('fire')">Fire Incident Reports</a></li>
             </ul>
         </nav>
     </div>
 
     <!-- Main Content -->
     <main class="main-content" id="mainContent">
+        <div class="tabs">
+            <button class="tab active" onclick="filterData('today')">Today</button>
+            <button class="tab" onclick="filterData('daily')">Daily</button>
+            <button class="tab" onclick="filterData('weekly')">Weekly</button>
+            <button class="tab" onclick="filterData('monthly')">Monthly</button>
+            <button class="tab" onclick="filterData('yearly')">Yearly</button>
+        </div>
+
+        <!-- Road Accident Section -->
+        <header class="header2" id="letterR" class="section">Road Accident Reports</header>
+        <div id="roadSection" class="section">
+            <div class="chart-container"><h2>Incident Trends</h2><canvas id="roadIncidentTrendsChart"></canvas></div>
+            <div class="chart-container"><h2>Accident Distribution</h2><canvas id="roadAccidentDistributionChart"></canvas></div>
+            <div class="chart-container"><h2>Road Accident Cause Analysis</h2><canvas id="roadCauseAnalysisChart"></canvas></div>
+            <div class="chart-container"><h2>Responded Alerts</h2><canvas id="roadRespondedAlertsChart"></canvas></div>
+            <div class="chart-container"><h2>Weather Impact</h2><canvas id="roadWeatherChart"></canvas></div>
+            <div class="chart-container"><h2>Road Condition</h2><canvas id="roadConditionChart"></canvas></div>
+            <div class="chart-container"><h2>Vehicle Types</h2><canvas id="roadVehicleTypesChart"></canvas></div>
+            <div class="chart-container"><h2>Driver's Age</h2><canvas id="roadDriverAgeChart"></canvas></div>
+            <div class="chart-container"><h2>Driver's Gender</h2><canvas id="roadDriverGenderChart"></canvas></div>
+            <div class="chart-container"><h2>Accident Type</h2><canvas id="roadAccidentTypeChart"></canvas></div>
+            <div class="chart-container"><h2>Injuries</h2><canvas id="roadInjuriesChart"></canvas></div>
+            <div class="chart-container"><h2>Fatalities</h2><canvas id="roadFatalitiesChart"></canvas></div>
+        </div>
+
         
-        <header>
-            
-            <p class="p2">Barangay: <select id="barangaySelect">
-                <option value="">All Barangays</option>
-                {% for barangay in barangays %}
-                    <option value="{{ barangay }}">{{ barangay }}</option>
-                {% endfor %}
-            </select></p>
-            
-            
-        </header>
-        <header class="header2" id="letterF" class="section hidden">Fire Incident Reports</header>
         <!-- Fire Incident Section -->
-        <div id="fireSection" class="section">
+        <div id="fireSection" class="section hidden">
+            <header class="header2" id="letterF" class="section hidden">Fire Incident Reports</header>
             <div class="chart-container"><h2>Incident Trends</h2><canvas id="fireIncidentTrendsChart"></canvas></div>
             <div class="chart-container"><h2>Incident Distribution</h2><canvas id="fireIncidentDistributionChart"></canvas></div>
             <div class="chart-container"><h2>Fire Incident Cause Analysis</h2><canvas id="fireCauseAnalysisChart"></canvas></div>
@@ -55,7 +66,6 @@
             <div class="chart-container"><h2>Fire Duration</h2><canvas id="fireDurationChart"></canvas></div>
         </div>
     </main>
-
     <script>
         let charts = {};
 
@@ -139,10 +149,10 @@
             charts.roadCauseAnalysisChart = new Chart(document.getElementById('roadCauseAnalysisChart').getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(data.causes),
+                    labels: Object.keys(data.causes.road || {}),
                     datasets: [{
-                        label: 'Causes',
-                        data: Object.values(data.causes),
+                        label: 'Road Accident Causes',
+                        data: Object.values(data.causes.road || {}),
                         backgroundColor: '#36A2EB'
                     }]
                 },
@@ -165,9 +175,9 @@
             charts.roadWeatherChart = new Chart(document.getElementById('roadWeatherChart').getContext('2d'), {
                 type: 'pie',
                 data: {
-                    labels: Object.keys(data.weather),
+                    labels: Object.keys(data.weather || {}),
                     datasets: [{
-                        data: Object.values(data.weather),
+                        data: Object.values(data.weather || {}),
                         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
                     }]
                 },
@@ -177,10 +187,10 @@
             charts.roadConditionChart = new Chart(document.getElementById('roadConditionChart').getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(data.road_conditions),
+                    labels: Object.keys(data.road_conditions || {}),
                     datasets: [{
                         label: 'Road Conditions',
-                        data: Object.values(data.road_conditions),
+                        data: Object.values(data.road_conditions || {}),
                         backgroundColor: '#4BC0C0'
                     }]
                 },
@@ -190,9 +200,9 @@
             charts.roadVehicleTypesChart = new Chart(document.getElementById('roadVehicleTypesChart').getContext('2d'), {
                 type: 'pie',
                 data: {
-                    labels: Object.keys(data.vehicle_types),
+                    labels: Object.keys(data.vehicle_types || {}),
                     datasets: [{
-                        data: Object.values(data.vehicle_types),
+                        data: Object.values(data.vehicle_types || {}),
                         backgroundColor: ['#FF9F40', '#9966FF', '#FFCE56']
                     }]
                 },
@@ -202,10 +212,10 @@
             charts.roadDriverAgeChart = new Chart(document.getElementById('roadDriverAgeChart').getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(data.driver_age),
+                    labels: Object.keys(data.driver_age || {}),
                     datasets: [{
                         label: 'Driver Age Groups',
-                        data: Object.values(data.driver_age),
+                        data: Object.values(data.driver_age || {}),
                         backgroundColor: '#36A2EB'
                     }]
                 },
@@ -215,9 +225,9 @@
             charts.roadDriverGenderChart = new Chart(document.getElementById('roadDriverGenderChart').getContext('2d'), {
                 type: 'pie',
                 data: {
-                    labels: Object.keys(data.driver_gender),
+                    labels: Object.keys(data.driver_gender || {}),
                     datasets: [{
-                        data: Object.values(data.driver_gender),
+                        data: Object.values(data.driver_gender || {}),
                         backgroundColor: ['#FF6384', '#36A2EB']
                     }]
                 },
@@ -227,10 +237,10 @@
             charts.roadAccidentTypeChart = new Chart(document.getElementById('roadAccidentTypeChart').getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(data.accident_type),
+                    labels: Object.keys(data.accident_type || {}),
                     datasets: [{
                         label: 'Accident Types',
-                        data: Object.values(data.accident_type),
+                        data: Object.values(data.accident_type || {}),
                         backgroundColor: '#FFCE56'
                     }]
                 },
@@ -243,7 +253,7 @@
                     labels: data.trends.labels,
                     datasets: [{
                         label: 'Injuries',
-                        data: data.injuries,
+                        data: data.injuries || data.trends.total.map(() => 0),
                         backgroundColor: '#9966FF'
                     }]
                 },
@@ -256,7 +266,7 @@
                     labels: data.trends.labels,
                     datasets: [{
                         label: 'Fatalities',
-                        data: data.fatalities,
+                        data: data.fatalities || data.trends.total.map(() => 0),
                         backgroundColor: '#FF9F40'
                     }]
                 },
@@ -291,10 +301,10 @@
             charts.fireCauseAnalysisChart = new Chart(document.getElementById('fireCauseAnalysisChart').getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(data.causes),
+                    labels: Object.keys(data.causes.fire || {}),
                     datasets: [{
-                        label: 'Causes',
-                        data: Object.values(data.causes),
+                        label: 'Fire Incident Causes',
+                        data: Object.values(data.causes.fire || {}),
                         backgroundColor: '#36A2EB'
                     }]
                 },
@@ -317,9 +327,9 @@
             charts.fireWeatherChart = new Chart(document.getElementById('fireWeatherChart').getContext('2d'), {
                 type: 'pie',
                 data: {
-                    labels: Object.keys(data.weather),
+                    labels: Object.keys(data.weather || {}),
                     datasets: [{
-                        data: Object.values(data.weather),
+                        data: Object.values(data.weather || {}),
                         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
                     }]
                 },
@@ -341,10 +351,10 @@
             charts.fireCauseChart = new Chart(document.getElementById('fireCauseChart').getContext('2d'), {
                 type: 'bar',
                 data: {
-                    labels: Object.keys(data.causes),
+                    labels: Object.keys(data.causes.fire || {}),
                     datasets: [{
                         label: 'Fire Causes',
-                        data: Object.values(data.causes),
+                        data: Object.values(data.causes.fire || {}),
                         backgroundColor: '#36A2EB'
                     }]
                 },
@@ -411,4 +421,3 @@
     </script>
 </body>
 </html>
-
