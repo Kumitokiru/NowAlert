@@ -90,35 +90,31 @@
         
 
             const socket = io(window.location.origin);
-            socket.on('connect', () => {
-                socket.emit('register_role', { role: 'barangay', barangay: '{{ barangay }}' });
-            });
+            socket.emit('register_role', { role: 'barangay', barangay: '{{ barangay }}' });
 
             socket.on('new_alert', (data) => {
                 const div = document.createElement('div');
-                const now = new Date();
-                const uploadTime = data.imageUploadTime ? new Date(data.imageUploadTime) : null;
-                const isImageValid = uploadTime && (now - uploadTime) <= 30 * 60 * 1000;
-                const emergencyBarangay = data.emergency_barangay || data.barangay || 'Unknown';
-                const residentBarangay = data.resident_barangay || data.barangay || 'Unknown';
                 div.className = 'alert-item';
                 div.innerHTML = `
-                    <p><strong>Emergency at ${emergencyBarangay} Resident from ${residentBarangay}</strong></p>
                     <p><strong>Type:</strong> ${data.emergency_type || 'Not Specified'}</p>
                     <p><strong>Location:</strong> ${data.lat}, ${data.lon}</p>
-                    ${data.image && isImageValid ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    ${data.image ? `<img src="data:image/jpeg;base64,${data.image}" width="200"/>` : ''}
+                    ${data.classification ? `<p><strong>Classification:</strong> ${data.classification}</p>` : ''}
                     <hr>
                 `;
-                document.getElementById('alert-container').prepend(div);
-                updateCharts();
+                alertContainer.prepend(div);
             });
 
             socket.on('update_map', (data) => {
-                const lat = data.lat;
-                const lon = data.lon;
-                L.marker([lat, lon]).addTo(map).bindPopup('Alert Location');
-                map.setView([lat, lon], 15);
-                document.getElementById('map-coordinates').textContent = `${lat}, ${lon}`;
+                const newLat = data.lat || lat;
+                const newLon = data.lon || lon;
+                map.setView([newLat, newLon], 15);
+                if (marker) {
+                    marker.setLatLng([newLat, newLon]);
+                } else {
+                    marker = L.marker([newLat, newLon]).addTo(map);
+                }
+                document.getElementById('map-coordinates').textContent = `${newLat}, ${newLon}`;
             });
         });
     </script>
