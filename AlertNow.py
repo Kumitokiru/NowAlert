@@ -134,73 +134,61 @@ def classify_image(base64_image):
         return 'unknown'
 
 
+@socketio.on('connect')
+def handle_connect():
+    logger.info('Client connected')
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    logger.info('Client disconnected')
+
 @socketio.on('register_role')
 def handle_register_role(data):
     role = data.get('role')
     if role == 'barangay':
         barangay = data.get('barangay')
-        if barangay:
-            join_room(f"barangay_{barangay}")
-            logger.info(f"Client joined room: barangay_{barangay}")
-        else:
-            logger.warning("No barangay specified in register_role data")
-    elif role in ['cdrrmo', 'pnp', 'bfp']:
+        join_room(f"barangay_{barangay}")
+        logger.info(f"Client registered with role: {role}, barangay: {barangay}")
+    elif role in ['bfp', 'cdrrmo', 'pnp']:
         municipality = data.get('municipality')
-        if municipality:
-            join_room(f"{role}_{municipality}")
-            logger.info(f"Client joined room: {role}_{municipality}")
-        else:
-            logger.warning(f"No municipality specified for role {role} in register_role data")
+        join_room(f"{role}_{municipality}")
+        logger.info(f"Client registered with role: {role}, municipality: {municipality}")
     else:
         logger.warning(f"Unknown role: {role}")
 
-# Updated SocketIO event handler for handling alerts
 @socketio.on('alert')
 def handle_alert(data):
-    try:
-        data['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        barangay = data.get('barangay')
-        if barangay:
-            room = f"barangay_{barangay}"
-            emit('new_alert', data, room=room)
-            logger.info(f"Emitted new_alert to room: {room}")
-        else:
-            logger.warning("No barangay specified in alert data; emitting to general 'barangay' room")
-            emit('new_alert', data, room='barangay')
-        
-        data['alert_id'] = str(uuid.uuid4())
-        data['user_barangay'] = barangay or 'Unknown'
-        
-        if data.get('image'):
-            prediction = classify_image(data['image'])
-            if prediction not in ['road_accident', 'fire_incident']:
-                data['image'] = None
-        
-        logger.info(f"Alert received: {data}")
-        alerts.append(data)
-        # Removed broadcast to all clients to prevent duplicate notifications
-        emit('alert_sent', {'status': 'success'}, room=request.sid)
-    except Exception as e:
-        logger.error(f"Error processing alert: {e}")
-        emit('alert_sent', {'status': 'error', 'message': str(e)}, room=request.sid)
+    barangay = data.get('barangay')
+    if barangay:
+        emit('new_alert', data, room=f"barangay_{barangay}")
+        logger.info(f"New alert emitted to barangay_{barangay}: {data}")
+    else:
+        logger.warning("No barangay specified in alert data")
 
-# Updated SocketIO event handler for forwarding alerts
 @socketio.on('forward_alert')
 def handle_forward_alert(data):
-    try:
-        alert = data['alert']
-        targets = data['targets']  # Expected to be a list like ['cdrrmo', 'pnp']
-        municipality = data.get('municipality', 'default')  # Client should provide this
-        alert['timestamp'] = datetime.now(pytz.timezone('Asia/Manila')).isoformat()
-        for target in targets:
-            if target in ['cdrrmo', 'pnp', 'bfp']:
-                room = f"{target}_{municipality}"
-                emit('new_alert', alert, room=room)
-                logger.info(f"Forwarded alert to room: {room}")
-            else:
-                logger.warning(f"Invalid target specified: {target}")
-    except Exception as e:
-        logger.error(f"Error forwarding alert: {e}")
+    alert = data.get('alert', {})
+    targets = data.get('targets', [])
+    alert.setdefault('emergency_barangay', alert.get('barangay', 'Unknown'))
+    alert.setdefault('resident_barangay', alert.get('barangay', 'Unknown'))
+    
+    for target in targets:
+        if target in ['bfp', 'cdrrmo', 'pnp']:
+            municipality = alert.get('municipality', 'default')
+            emit('forward_alert', alert, room=f"{target}_{municipality}")
+            logger.info(f"Alert forwarded to {target}_{municipality}: {alert}")
+        else:
+            logger.warning(f"Invalid target for forward_alert: {target}")
+
+@socketio.on('update_map')
+def handle_update_map(data):
+    barangay = data.get('barangay')
+    municipality = data.get('municipality', 'default')
+    rooms = [f"barangay_{barangay}"] if barangay else []
+    rooms.extend([f"{role}_{municipality}" for role in ['bfp', 'cdrrmo', 'pnp']])
+    for room in rooms:
+        emit('update_map', data, room=room)
+    logger.info(f"Map update emitted to rooms {rooms}: {data}")
 
 # SocketIO event handler for handling responses
 @socketio.on('response_submitted')
@@ -317,13 +305,17 @@ def login():
         conn.close()
         
         if user:
-            session['unique_id'] = unique_id
-            session['role'] = user['role']
-            logger.debug(f"Web login successful for barangay: {unique_id}")
-            return redirect(url_for('barangay_dashboard'))
-        logger.warning(f"Web login failed for unique_id: {unique_id}")
+            role = user['role']
+            if role == 'barangay':
+                return redirect(url_for('barangay_dashboard', barangay=user['barangay']))
+            elif role == 'bfp':
+                return redirect(url_for('bfp_dashboard', municipality=user['assigned_municipality']))
+            elif role == 'cdrrmo':
+                return redirect(url_for('cdrrmo_dashboard', municipality=user['assigned_municipality']))
+            elif role == 'pnp':
+                return redirect(url_for('pnp_dashboard', municipality=user['assigned_municipality']))
         return "Invalid credentials", 401
-    return render_template('LogInPage.html')
+    return render_template('LoginPage.html')
 
 @app.route('/api/login', methods=['POST'])
 def api_login():
@@ -417,46 +409,44 @@ def login_cdrrmo_pnp_bfp():
         return "Invalid credentials", 401
     return render_template('CDRRMOPNPBFPIn.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def log():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        conn = get_db_connection()
-        user = conn.execute('SELECT * FROM users WHERE username = ? AND password = ?', (username, password)).fetchone()
-        conn.close()
-        if user:
-            session['username'] = username
-            session['role'] = user['role']
-            session['barangay'] = user['barangay']
-            if user['role'] == 'official':
-                return redirect(url_for('barangay_dashboard'))
-            elif user['role'] == 'cdrrmo':
-                return redirect(url_for('cdrrmo_dashboard'))
-            elif user['role'] == 'pnp':
-                return redirect(url_for('pnp_dashboard'))
-            elif user['role'] == 'bfp':
-                return redirect(url_for('bfp_dashboard'))
-        return "Invalid credentials", 401
-    return render_template('LoginPage.html')
+@app.route('/api/stats')
+def api_stats():
+    role = request.args.get('role', 'barangay')
+    if role == 'barangay':
+        from BarangayDashboard import get_barangay_stats
+        stats = get_barangay_stats()
+    elif role == 'bfp':
+        from BFPDashboard import get_bfp_stats
+        stats = get_bfp_stats()
+    elif role == 'cdrrmo':
+        from CDRRMODashboard import get_cdrrmo_stats
+        stats = get_cdrrmo_stats()
+    elif role == 'pnp':
+        from PNPDashboard import get_pnp_stats
+        stats = get_pnp_stats()
+    else:
+        stats = Counter()
+    return jsonify({'total': stats.total(), 'critical': stats.get('critical', 0)})
 
-@app.route('/signup', methods=['GET', 'POST'])
-def sign():
-    if request.method == 'POST':
-        barangay = request.form['barangay']
-        username = request.form['username']
-        password = request.form['password']
-        conn = get_db_connection()
-        try:
-            conn.execute('INSERT INTO users (username, barangay, role, password) VALUES (?, ?, ?, ?)',
-                         (username, barangay, 'official', password))
-            conn.commit()
-            return redirect(url_for('login'))
-        except sqlite3.IntegrityError:
-            return "Username already exists", 400
-        finally:
-            conn.close()
-    return render_template('SignUpPage.html')
+@app.route('/api/distribution')
+def api_distribution():
+    role = request.args.get('role', 'barangay')
+    if role == 'barangay':
+        from BarangayDashboard import get_barangay_stats
+        distribution = get_barangay_stats()
+    elif role == 'bfp':
+        from BFPDashboard import get_bfp_stats
+        distribution = get_bfp_stats()
+    elif role == 'cdrrmo':
+        from CDRRMODashboard import get_cdrrmo_stats
+        distribution = get_cdrrmo_stats()
+    elif role == 'pnp':
+        from PNPDashboard import get_pnp_stats
+        distribution = get_pnp_stats()
+    else:
+        distribution = Counter()
+    return jsonify(dict(distribution))
+
 
 @app.route('/go_to_login_page', methods=['GET'])
 def go_to_login_page():
